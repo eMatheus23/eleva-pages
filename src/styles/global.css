@@ -4,3 +4,21 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* Variáveis CSS */
+  --color-background: #F7F7F7;
+  --color-primary: #B2D235;
+  --color-secondary: #3F8B68;
+  --color-line-in-white: #BFBFBF;
+  --color-text-base: #707070;
+  --color-text-link: #01AA9D;
+  --color-alert: #FF5741;
+  /* Tamanho da fonte padrão: 16px - 100% - 1rem */
+  /* Tamanho da fonte: 10px - 62.5% - 1rem */
+  font-size: 62.5%; /* controle das medidas rem */
+}
+
+h1, h2, h3 {
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+}
