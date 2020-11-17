@@ -6,19 +6,54 @@
 
 :root {
   /* Variáveis CSS */
-  --color-background: #F7F7F7;
-  --color-primary: #B2D235;
-  --color-secondary: #3F8B68;
-  --color-line-in-white: #BFBFBF;
+  --color-background: #ffffff;
+  --color-background-secondary: #f7f7f7;
+  --color-primary: #b2d235;
+  --color-secondary: #3f8b68;
+  --color-line-in-white: #bfbfbf;
   --color-text-base: #707070;
-  --color-text-link: #01AA9D;
-  --color-alert: #FF5741;
+  --color-text-white: #ffffff;
+  --color-text-in-white: #626262;
+  --color-text-in-secondary: #E4E4E4;
+  --color-text-link: #01aa9d;
+  --color-alert: #ff5741;
   /* Tamanho da fonte padrão: 16px - 100% - 1rem */
   /* Tamanho da fonte: 10px - 62.5% - 1rem */
   font-size: 62.5%; /* controle das medidas rem */
 }
 
-h1, h2, h3 {
+body {
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-text-in-white);
+}
+
+button {
   font-family: Montserrat, sans-serif;
+  font-size: 2rem;
   font-weight: bold;
+  color: var(--color-text-in-white);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: Montserrat, Regular;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.8rem;
 }
