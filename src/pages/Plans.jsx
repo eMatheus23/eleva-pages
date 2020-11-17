@@ -12,6 +12,8 @@ import videoImg from '../images/pexels-photo-1326946.png';
 import cardIcon from '../images/icons/card-icon.svg';
 import barcodeIcon from '../images/icons/barcode-icon.svg';
 
+import cornerImg from '../images/corner.svg';
+
 //CSS
 import '../styles/pages/Plans.css';
 
@@ -34,6 +36,10 @@ function Plans() {
           </div>
 
           <div id='plans-card'>
+            <img class='corner-img' src={cornerImg} alt='' />
+            <div class='corner'>
+              <span>SAVE <p>R$ 14,50</p></span>
+            </div>
             <h3>Plano Semestral</h3>
             <p>Semestralmente, é descontado apenas R$ 85,80</p>
 
