@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import SejaPremium from './pages/SejaPremium';
+import Plans from './pages/Plans';
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/cadastro/seja-premium' component={SejaPremium} />
+        <Route path='/plans' component={Plans} />
       </Switch>
     </BrowserRouter>
   );

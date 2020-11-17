@@ -1,0 +1,326 @@
+#plans-page {
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-background);
+}
+
+#plans-page .content-wrapper {
+  width: 100%;
+  /* max-width: 1100px; */
+
+  height: 100%;
+  /* max-height: 680px; */
+
+  /* display: flex;
+  flex-direction: row; */
+}
+
+/* ------ Main ------ */
+#plans-page main {
+  width: 50.5vw;
+  height: 94vh;
+  background: var(--color-secondary);
+
+  float: left;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#plans-page main > img {
+  width: 18.3rem;
+  margin-top: 1rem;
+}
+
+#plans-page main > h2 {
+  color: var(--color-primary);
+
+  margin-top: 8.4rem;
+  margin-bottom: 2.8rem;
+}
+
+
+.plans-selector {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 6rem;
+}
+
+.plans-selector button {
+  width: 17.3rem;
+  height: 5rem;
+  border: 0;
+
+  cursor: pointer;
+
+  background: var(--color-background);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 200ms;
+}
+
+.plans-selector button:hover {
+  background: var(--color-background);
+}
+
+.plans-selector button:first-of-type {
+  border-radius: 2rem 0 0 2rem;
+  margin-right: 1px;
+}
+
+.plans-selector button:last-of-type {
+  border-radius: 0 2rem 2rem 0;
+  margin-left: 1px;
+}
+
+.plans-selector button.active {
+  background: var(--color-primary);
+}
+
+.plans-selector p {
+  position: absolute;
+  right: 4rem;
+  bottom: -2rem;
+
+  font-family: Helvetica Neue, sans-serif;
+  color: var(--color-text-white);
+  font-size: 1.4rem;
+
+}
+
+
+#plans-card {
+  height: 42.2rem;
+  width: 52rem;
+
+  background-color: var(--color-text-white);
+  border-radius: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#plans-card h3 {
+  font-size: 2.5rem;
+  font-weight: normal;
+  line-height: 4.2rem;
+
+}
+
+#plans-card h2 { 
+  font-size: 3rem;
+
+  color: var(--color-secondary);
+
+  margin-top: 3rem;
+  margin-bottom: -.2rem;
+}
+
+#plans-card h2 span {
+  font-size: 5rem;
+}
+
+#plans-card p {
+  font-size: 1.4rem;
+}
+
+#plans-card p:first-of-type {
+  margin-top: 1rem;
+}
+
+#plans-card h2 + p{
+  font-family: Montserrat, sans-serif;
+  font-size: 1.5rem;
+}
+
+#plans-card button {
+  width: 29.7rem;
+  height: 4.8rem;
+  border: 0;
+  border-radius: 4rem;
+
+  margin-top: 4rem;
+
+  cursor: pointer;
+
+  background: var(--color-secondary);
+  box-shadow: 0px 3px 10px #00000029;
+  color: var(--color-text-white);
+  font-family: Helvetica Neue, sans-serif;
+  font-weight: normal;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 200ms;
+}
+
+#plans-card button strong {
+  font-family: Helvetica Neue, sans-serif;
+  margin-left: .6rem;
+}
+
+#plans-card button + p {
+  color: var(--color-secondary);
+  margin-top: 3rem;
+}
+
+#plans-card .payment-options {
+  margin-top: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#plans-card .payment-options img:first-of-type {
+  margin-right: 2.3rem;
+}
+
+main > p {
+  font-family: Montserrat, sans-serif;
+  color: var(--color-text-in-secondary);
+  font-size: 1.6rem;
+
+  margin-top: 1rem;
+}
+
+.other-plans {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 4rem;
+}
+
+.other-plans a {
+  color: var(--color-text-white);
+  font-size: 1.7rem;
+}
+
+.other-plans a:first-of-type {
+  margin-right: 6rem;
+}
+
+
+/* ------ Central image ------ */
+.central-img {
+  width: min(17vw , 33.6rem);
+
+  position: absolute;
+  top: 48%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+}
+
+/* ------ Aside ------ */
+#plans-page aside {
+  width: 49.5vw;
+  height: 94vh;
+
+  float: right;
+
+  display: flex;
+  align-items: right;
+  flex-direction: column;
+  justify-content: initial;
+
+  padding-left: min(9.5vw, 18.3rem);
+}
+
+#plans-page aside div {
+  width: clamp(30rem, 31vw, 51.2rem); 
+}
+
+#plans-page aside div img {
+  width: 100%; 
+  margin-top: 9.4rem;
+}
+
+#plans-page aside div h2 {
+  width: 100%; 
+  color: var(--color-secondary);
+
+  margin-top: 7.7rem;
+}
+
+#plans-page ul {
+  list-style: none;
+  list-style-position: inside;
+  width: 100%; 
+  color: #666666;
+  font-family: Montserrat, sans-serif;
+  font-size: 2rem;
+  line-height: 1.6;
+
+  margin-top: 2rem;
+}
+
+#plans-page ul li {
+  margin-left: 1.8rem;
+}
+
+#plans-page ul li::before {
+  content: "• ";
+  font-weight: normal;
+  width: 0.5em;
+  margin-left: -1em;
+} 
+
+/* ------ Aside ------ */
+#plans-page footer {
+  position: relative;
+
+  width: 100%;
+  height: 6vh;
+  clear: both;
+  background: var(--color-background-secondary);
+
+  display: grid;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+
+  font-family: Montserrat, sans-serif;
+  color: var(--color-text-base);
+}
+
+#plans-page footer > div {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+#plans-page footer > div p {
+  text-decoration: none;
+  font-size: 1.6rem;
+
+  margin-right: 1rem;
+}
+
+#plans-page footer .footer-links {
+  position: absolute;
+  right: 10rem;
+}
+
+#plans-page footer a {
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  color: var(--color-text-base);
+  font-size: 1.6rem;
+}
+
+#plans-page footer a:last-of-type {
+  margin-left: 4rem;
+}
