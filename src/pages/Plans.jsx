@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-// Logos
+// Logos 
 import logoElevagro from '../images/logos/marca-elevagro-01.svg';
 import logoElevagroFooter from '../images/logos/marca-footer.svg';
+import googleLogo from '../images/logos/google-logo.svg'
+import faceLogo from '../images/logos/facebook-logo.svg'
+
+// Imagens
+import centralImgMensal from '../images/acerconceptd800@2x.png';
+import centralImgSemestral from '../images/eleva-soja@2x.png';
+import centralImgAnual from '../images/elevs@2x.png';
 
 // Mockups
-import centralImg from '../images/eleva-soja.png';
-import videoImg from '../images/pexels-photo-1326946.png';
+import videoImgMensal from '../images/mockups/person-holding-green-leafed-plant-2280551.png';
+import videoImgSemestral from '../images/mockups/pexels-photo-1326946.png';
+import videoImgAnual from '../images/mockups/Captura de Tela 2020-11-03 às 22.37.05.png';
 
 // Icons
 import cardIcon from '../images/icons/card-icon.svg';
 import barcodeIcon from '../images/icons/barcode-icon.svg';
+
 
 import cornerImg from '../images/corner.svg';
 
@@ -18,6 +27,27 @@ import cornerImg from '../images/corner.svg';
 import '../styles/pages/Plans.css';
 
 function Plans() {
+  const [selectedPlan, setSelectedPlan] = useState(2);
+  const [loginActive, setLoginActive] = useState(false);
+
+  function handleSelectPlan(planIndex) {
+    setSelectedPlan(planIndex);
+    setLoginActive(false);
+  }
+
+  function handleCentralImg() {
+    switch (selectedPlan) {
+      case 1: 
+        return centralImgMensal;
+      case 2: 
+        return centralImgSemestral;
+      case 3: 
+        return centralImgAnual;
+      default: 
+        break;
+    }
+  }
+
   return (
     <div id='plans-page'>
       <div className='content-wrapper'>
@@ -26,38 +56,140 @@ function Plans() {
 
           <h2>ESCOLHA O SEU PLANO PREMIUM</h2>
           <div className='plans-selector'>
-            <button>MENSAL</button>
+            <button
+              type="button"
+              onClick={() => handleSelectPlan(1)}
+              className={selectedPlan === 1 ? 'active' : ''}
+            >
+              MENSAL
+            </button>
 
-            <button className='active'>SEMESTRAL</button>
+            <button 
+              type="button"
+              onClick={() => handleSelectPlan(2)}
+              className={selectedPlan === 2 ? 'active' : ''}
+            >
+              SEMESTRAL
+            </button>
 
-            <button>ANUAL</button>
+            <button
+              type="button"
+              onClick={() => handleSelectPlan(3)}
+              className={selectedPlan === 3 ? 'active' : ''}
+            >
+              ANUAL
+            </button>
 
             <p>Maior desconto</p>
           </div>
 
-          <div id='plans-card'>
-            <img class='corner-img' src={cornerImg} alt='' />
-            <div class='corner'>
+          {/* Plano Mensal */}
+          <div className={`plans-card ${selectedPlan === 1 ? 'active' : ''}`}>
+            <div className={`corner ${selectedPlan === 1 ? 'hiden' : ''}`}>
+              <img 
+                className="corner-img"
+                src={cornerImg} 
+                alt='' 
+              />
+              <div className='corner-text'>
+                <span>SAVE <p>R$ 14,50</p></span>
+              </div>
+            </div>
+
+
+            <section className="animate-apper">
+              <h3 className="animate-apper">Plano Mensal</h3>
+              <p>Semestralmente, é descontado apenas R$ 29,80</p>
+            </section>
+
+            <section className="animate-apper">
+              <h2>R$ <span>29</span>,90</h2>
+              <p>(Valor do mês)</p>
+            </section>
+
+            <button 
+              type="button" 
+              onClick={setLoginActive}
+              className={!loginActive ? 'active' : ''}
+            >
+              Contratar plano <strong>Mensal</strong>
+            </button>
+
+            <section>
+              <p>Pagamento apenas via cartão.</p>
+              <div className='payment-options'>
+                <img src={cardIcon} alt='Pague com cartão' />
+              </div>
+            </section>
+
+          </div>
+
+          {/* Plano Semestral */}
+          <div className={`plans-card ${selectedPlan === 2 ? 'active' : ''}`}>
+            <img className='corner-img' src={cornerImg} alt='' />
+            <div className='corner-text'>
               <span>SAVE <p>R$ 14,50</p></span>
             </div>
-            <h3>Plano Semestral</h3>
-            <p>Semestralmente, é descontado apenas R$ 85,80</p>
+            <section className="animate-apper">
+              <h3>Plano Semestral</h3>
+              <p>Semestralmente, é descontado apenas R$ 85,80</p>
+            </section>
 
-            <h2>
-              R$ <span>14</span>,20
-            </h2>
-            <p>(Valor do mês)</p>
+            <section className="animate-apper">
+              <h2>R$ <span>14</span>,20</h2>
+              <p>(Valor do mês)</p>
+    	      </section>
 
-            <button>
+            <button 
+              type="button" 
+              onClick={setLoginActive}
+              className={!loginActive ? 'active' : ''}
+            >
               Contratar plano <strong>Semestral</strong>
             </button>
 
-            <p>Em até 5x de R$ 15,10 no cartão.</p>
+            <section>
+              <p>Em até 5x de R$ 15,10 no cartão.</p>
+              <div className='payment-options'>
+                <img src={cardIcon} alt='Pague com cartão' />
+                <img src={barcodeIcon} alt='Pague com boleto' />
+              </div>
+            </section>
+          </div>
 
-            <div className='payment-options'>
-              <img src={cardIcon} alt='Pague com cartão' />
-              <img src={barcodeIcon} alt='Pague com boleto' />
+          {/* Plano Anual */}
+          <div className={`plans-card ${selectedPlan === 3 ? 'active' : ''}`}>
+            <img className='corner-img' src={cornerImg} alt='' />
+            <div className='corner-text'>
+              <span>SAVE <p>R$ 44,50</p></span>
             </div>
+            <section className="animate-apper">
+              <h3>Plano anual</h3>
+              <p>Semestralmente, é descontado apenas R$ 134,80</p>
+            </section>
+
+            <section className="animate-apper">
+              <h2>
+                R$ <span>11</span>,20
+              </h2>
+              <p>(Valor do mês)</p>
+            </section>
+
+            <button 
+              type="button" 
+              onClick={setLoginActive}
+              className={!loginActive ? 'active' : ''}
+            >
+              Contratar plano <strong>Anual</strong>
+            </button>
+
+            <section>
+              <p>Em até 10x de R$ 14,10 no cartão.</p>
+              <div className='payment-options'>
+                <img src={cardIcon} alt='Pague com cartão' />
+                <img src={barcodeIcon} alt='Pague com boleto' />
+              </div>
+            </section>
           </div>
 
           <p>Você pode cancelar o plano a hora que quiser.</p>
@@ -68,18 +200,34 @@ function Plans() {
           </div>
         </main>
 
-        <img
-          className='central-img'
-          src={centralImg}
-          alt='Escolha seu plano Premium'
-        />
+        {/* Central Image */}
+        <div className={`central-img-container ${!loginActive ? 'active' : ''}`}>
+          <img
+            className={`central-img active animate-apper`}
+            src={handleCentralImg()}
+            alt='Escolha seu plano Premium'
+          />
+        </div>
+
 
         <aside>
-          <div>
-            <img src={videoImg} alt='' />
+          <div className={`premium-description ${!loginActive ? 'active' : ''}`}>
+            <video 
+              controls poster={videoImgMensal}
+              className={selectedPlan === 1 ? 'active' : ''}>
+            </video>
+            <video 
+              controls poster={videoImgSemestral}
+              className={selectedPlan === 2 ? 'active' : ''}>
+            </video>
+            <video 
+              controls poster={videoImgAnual} 
+              className={selectedPlan === 3 ? 'active' : ''}>
+            </video>
+
 
             <h2>COM O PLANO PREMIUM NA ELEVAGRO VOCÊ TEM:</h2>
-            <ul className='aside-description'>
+            <ul>
               <li>Descontos em todos os Cursos</li>
               <li>Catálogo de cultivares</li>
               <li>Vídeos estendidos e mais completos</li>
@@ -93,6 +241,72 @@ function Plans() {
               <li>Prioridade em todas as Palestras Online</li>
               <li>Palestras Online exclusivas</li>
             </ul>
+          </div>
+
+          <div className={`login ${loginActive ? 'active' : ''}`}>
+            <div className="create-account-card animate-apper">
+              <h3>AINDA NÃO TENHO CONTA</h3>
+              <button type="button">Criar conta</button>
+            </div>
+
+            <div className="login-card animate-apper">
+              <h3>JÁ TENHO CONTA</h3>
+
+              <form action="">
+                <fieldset>
+                  <label htmlFor="login">Login</label>
+                  <input 
+                    type="email" 
+                    name="e-mail" 
+                    id="e-mail" 
+                    placeholder="Seu e-mail de acesso"
+                  />
+                </fieldset>
+                
+                <fieldset>
+                  <label htmlFor="senha">Senha</label>
+                  <input 
+                    type="email" 
+                    name="e-mail" 
+                    id="e-mail" 
+                    placeholder="******"
+                  />
+                </fieldset>
+                <div className="login-options">
+                  <div>
+                    <section>
+                      <label class="toggle-switch">
+                          <input 
+                            type="checkbox"  
+                            id="label-reversed-toggle-switch-input" 
+                          />
+                          <label for="label-reversed-toggle-switch-input"></label>
+                          Salvar login
+                      </label>                    
+                    </section>
+                    <a href="#">Esqueci a senha</a>
+                  </div>
+
+                  <button type="button">Acessar</button>
+                </div>
+
+
+                <fieldset>
+                  <label htmlFor="senha">Login com:</label>
+                  <div>
+                    <button type="button"> 
+                      <img src={googleLogo} alt="Login com Google"/> 
+                      Google
+                    </button>
+                    <button type="button">
+                      <img src={faceLogo} alt="Login com Facebook"/>
+                      Facebook
+                    </button>
+                  </div>
+                </fieldset>
+              </form>
+
+            </div>
           </div>
         </aside>
 

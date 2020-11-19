@@ -96,8 +96,8 @@
 
 }
 
-
-#plans-card {
+/* ----- Plans Card ----- */
+.plans-card {
   height: 42.2rem;
   width: 52rem;
 
@@ -107,19 +107,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: initial;
+  justify-content: space-evenly;
 
   position: relative;
   overflow: hidden;
+
+  display: none;
 }
 
-.corner-img {
+.plans-card.active {
+  display: flex;
+}
+
+.plans-card .hiden {
+  visibility: hidden;
+}
+
+.plans-card .corner-img {
   position:absolute;
   right:-1rem;
   top:-1rem;
 }
 
-.corner span {
+.plans-card .corner-text span {
   position:absolute;
   top: 1.4rem;
   width: 6rem;
@@ -133,23 +143,31 @@
   display:block;
 }
 
-.corner span p {
+.plans-card .corner-text span p {
   margin-top: 0;
 }
 
-#plans-card h3 {
+.plans-card section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+.plans-card section h3 {
   font-size: 2.5rem;
   font-weight: normal;
   line-height: 4.2rem;
 
-  margin-top: 3.7rem;
+  margin-top: 1rem;
 }
 
-#plans-card > p:first-of-type {
+.plans-card section p {
+  color: var(--color-text-base);
   margin-top: 0.8rem;
 }
 
-#plans-card h2 { 
+.plans-card section h2 { 
   font-size: 3rem;
 
   color: var(--color-secondary);
@@ -158,27 +176,27 @@
   margin-bottom: -.2rem;
 }
 
-#plans-card h2 span {
+.plans-card section h2 span {
   font-size: 5rem;
 }
 
-#plans-card p {
+.plans-card section + section p {
+  margin-top: 0;
   font-size: 1.4rem;
 }
 
-
-#plans-card h2 + p{
+.plans-card h2 + p{
   font-family: Montserrat, sans-serif;
   font-size: 1.5rem;
 }
 
-#plans-card button {
+.plans-card button {
   width: 29.7rem;
   height: 4.8rem;
   border: 0;
   border-radius: 4rem;
 
-  margin-top: 4rem;
+  margin-top: 1.2rem;
 
   cursor: pointer;
 
@@ -188,33 +206,38 @@
   font-family: Helvetica Neue, sans-serif;
   font-weight: normal;
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 
   transition: background-color 200ms;
 }
 
-#plans-card button strong {
+.plans-card button.active {
+  display: flex;
+}
+
+.plans-card button strong {
   font-family: Helvetica Neue, sans-serif;
   margin-left: .6rem;
 }
 
-#plans-card button + p {
-  color: var(--color-secondary);
-  margin-top: 3rem;
+.plans-card button + section p {
+  /* color: var(--color-secondary); */
+  margin-top: 1rem;
 }
 
-#plans-card .payment-options {
-  margin-top: 1rem;
+.plans-card .payment-options {
+  margin-top: 1.1rem;
+  margin-bottom: 3rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#plans-card .payment-options img:first-of-type {
-  margin-right: 2.3rem;
+.plans-card .payment-options img + img {
+  margin-left: 2.3rem;
 }
 
 main > p {
@@ -244,6 +267,14 @@ main > p {
 
 
 /* ------ Central image ------ */
+.central-img-container {
+  display: none;
+}
+
+.central-img-container.active {
+  display: initial;
+}
+
 .central-img {
   width: min(17vw , 33.6rem);
 
@@ -251,6 +282,11 @@ main > p {
   top: 48%;
   left: 51%;
   transform: translate(-50%, -50%);
+  display: none;
+}
+
+.central-img.active {
+  display: block;
 }
 
 /* ------ Aside ------ */
@@ -265,19 +301,38 @@ main > p {
   flex-direction: column;
   justify-content: initial;
 
-  padding-left: min(9.5vw, 18.3rem);
+  overflow: auto;
 }
 
-#plans-page aside div {
+/* Descrição do plano premium */
+#plans-page aside .premium-description {
+  width: 100%;
+  height: 100%;
+  margin-left: min(9.5vw, 18.3rem);
+  display: none;
+
+  padding-bottom: 3rem;
+}
+
+#plans-page aside .premium-description.active {
+  display: block;
+}
+
+#plans-page aside .premium-description {
   width: clamp(30rem, 31vw, 51.2rem); 
 }
 
-#plans-page aside div img {
+#plans-page aside .premium-description video {
   width: 100%; 
   margin-top: 9.4rem;
+  display: none;
 }
 
-#plans-page aside div h2 {
+#plans-page aside .premium-description video.active {
+  display: block;
+}
+
+#plans-page aside .premium-description h2 {
   width: 100%; 
   color: var(--color-secondary);
 
@@ -287,7 +342,7 @@ main > p {
 #plans-page ul {
   list-style: none;
   list-style-position: inside;
-  width: 100%; 
+  width: 100%;
   color: #666666;
   font-family: Montserrat, sans-serif;
   font-size: 2rem;
@@ -307,7 +362,314 @@ main > p {
   margin-left: -1em;
 } 
 
-/* ------ Aside ------ */
+/* ----- Login da contratação ----- */
+#plans-page .login {
+  height: 100%;
+  width: 100%;
+  display: none;
+
+  flex-direction: column;
+  align-items: left;
+  justify-content: initial;
+
+  padding-left: min(12vw, 23.2rem);
+
+  background: var(--color-background-secondary)
+}
+
+#plans-page .login.active {
+  display: flex;
+}
+
+#plans-page .login .create-account-card {
+  width: 47rem;
+  height: 17.7rem;
+  border-radius: 1.7rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  margin-top: 11.6rem;
+
+  background: var(--color-secondary);
+}
+
+#plans-page .login .create-account-card h3 {
+  color: var(--color-text-white);
+  font-weight: normal; 
+  font-size: 2.2rem;
+}
+
+#plans-page .login .create-account-card button {
+  width: 16.4rem;
+  height: 4.5rem;
+
+  border-radius: 2.3rem;
+  border: 0;
+
+  background: var(--color-primary);
+  font-weight: normal;
+  font-size: 1.8rem;
+}
+
+#plans-page .login .login-card {
+  width: 47rem;
+  height: 54.8rem;
+  border-radius: 1.7rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+  margin-top: 6.6rem;
+  padding: 4.2rem 4.6rem 3.3rem 4.1rem;
+
+  background: var(--color-background);
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+#plans-page .login .login-card h3 {
+  font-weight: normal;
+  color: var(--color-secondary);
+}
+
+#plans-page .login .login-card fieldset {
+  border: 0;
+  margin-top: 2.1rem;
+}
+
+#plans-page .login .login-card fieldset + fieldset {
+  margin-top: 1.6rem;
+}
+
+#plans-page .login .login-card fieldset label {
+  width: 100%;
+
+  display: flex;
+
+  font-size: 2rem;
+  /* line-height: 34px; */
+  color: var(--color-text-base);
+  font-weight: normal;
+
+  margin-bottom: 0.8rem;
+  /*
+  padding-bottom: 24px; */
+}
+
+
+#plans-page .login .login-card fieldset input {
+  width: 38.3rem;
+  height: 5.9rem;
+  border: 1px solid #BFBFBF;
+  border-radius: 3rem;
+  outline: none;
+
+  padding: 1.7rem;
+  font-size: 1.6rem;
+}
+
+#plans-page .login .login-card fieldset input::placeholder {
+  color: #BFBFBF;
+  font-family: Montserrat, sans-serif;
+}
+
+#plans-page .login .login-card fieldset:last-of-type {
+  margin-top: 3rem;
+}
+
+#plans-page .login .login-card .login-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 2.3rem;
+}
+
+#plans-page .login .login-card .login-options button {
+  width: 17.6rem;
+  height: 4.5rem;
+
+  border-radius: 2.3rem;
+  border: 0;
+
+  background: var(--color-secondary);
+  color: var(--color-text-white);
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+
+
+/* ----- Switch ----- */
+.toggle-switch {
+  /** bar */
+  --bar-height: 14px;
+  --bar-width: 34px;
+  --bar-color: #221F1F;
+
+  /** knob */
+  --knob-size: 20px;
+  --knob-color: #F1F1F1;
+
+  /** switch */
+  --switch-offset: calc(var(--knob-size) - var(--bar-height));
+  --switch-width: calc(var(--bar-width) + var(--switch-offset));
+  --transition-duration: 150ms;
+  --switch-transition: all var(--transition-duration) ease-in-out;
+  --switch-theme-rgb: 0, 150, 136;
+  --switch-theme-color: rgb(var(--switch-theme-rgb));
+  --switch-box-shadow: 0 2px 2px #0000003D;
+  --switch-margin: 8px;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: var(--bar-width);
+  min-height: var(--bar-height);
+  margin: var(--switch-margin);
+  user-select: none;
+}
+
+.toggle-switch.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.toggle-switch > input,
+.toggle-switch-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.toggle-switch > label,
+.toggle-switch-label {
+  --knob-x: calc((var(--bar-height) - var(--bar-width)) / 2);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--bar-width);
+  height: var(--bar-height);
+  margin: var(--switch-margin);
+  user-select: none;
+}
+
+/* checked */
+.toggle-switch > :checked + label,
+:checked + .toggle-switch-label {
+  --knob-x: calc((var(--bar-width) - var(--bar-height)) / 2);
+}
+
+/* bar */
+.toggle-switch > label::before,
+.toggle-switch-label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background: var(--bar-color);
+  border: 0px solid var(--switch-theme-color);
+  border-radius: var(--bar-height);
+  opacity: 0.5;
+  transition: var(--switch-transition);
+  content: "";
+}
+
+/* checked bar */
+
+.toggle-switch > :checked + label::before,
+:checked + .toggle-switch-label::before {
+  background: var(--switch-theme-color);
+}
+
+/* knob */
+.toggle-switch > label::after,
+.toggle-switch-label::after {
+  box-sizing: border-box;
+  width: var(--knob-size);
+  height: var(--knob-size);
+  background: var(--knob-color);
+  border-radius: 50%;
+  box-shadow: var(--switch-box-shadow);
+  transform: translateX(var(--knob-x));
+  transition: var(--switch-transition);
+  content: "";
+}
+
+/* checked knob */
+.toggle-switch > :checked + label::after,
+:checked + .toggle-switch-label::after {
+  background: var(--switch-theme-color);
+}
+
+/* hover & focus knob */
+.toggle-switch > :focus + label::after,
+:focus + .toggle-switch-label::after,
+.toggle-switch:hover > label::after,
+:hover > .toggle-switch-label::after {
+  box-shadow: var(--switch-box-shadow), 0 0 0 calc(var(--knob-size) / 4) rgba(var(--switch-theme-rgb), 0.1);
+}
+
+/* font */ 
+.login-options,
+.login-options a {
+  font-family: Montserrat, sans-serif;
+  color: var(--color-text-base);
+}
+
+/* magin */ 
+.toggle-switch {
+  margin-top: 0;
+}
+
+#plans-page .login .login-card fieldset > div {
+  width: 37.8rem;
+  height: 9rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  border: 1px solid #BFBFBF;
+  border-radius: 0.6rem;
+}
+
+#plans-page .login .login-card fieldset > div button {
+  width: 13rem;
+  height: 4.1rem;
+
+  border-radius: 4px;
+  border: 1px solid #BFBFBF;
+  box-shadow: 0px 2px 2px #00000029;
+
+  background: var(--color-background);
+  font-weight: bold;
+  font-size: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#plans-page .login .login-card fieldset > div img {
+  width: 1.9rem;
+  margin-right: 0.5rem;
+}
+
+
+
+/* ------ Footer ------ */
 #plans-page footer {
   position: relative;
 
@@ -331,14 +693,14 @@ main > p {
   align-items: center;
 }
 
-#plans-page footer > div p {
-  text-decoration: none;
+#plans-page footer div p {
+  width: 255px;
   font-size: 1.6rem;
-
   margin-right: 1rem;
 }
 
 #plans-page footer .footer-links {
+  text-decoration: none;
   position: absolute;
   right: 10rem;
 }
