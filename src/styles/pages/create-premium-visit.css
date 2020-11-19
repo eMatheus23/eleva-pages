@@ -1,0 +1,127 @@
+#page-create-premium-visit {
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-background);
+}
+
+#page-create-premium-visit main {
+  width: 100vw;
+  height: 88vh;
+  background: var(--color-background-secondary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#page-create-premium-visit main h3 {
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.account-creation-visit-card {
+  width: 51.7rem;
+  height: 63.1rem;
+
+  background: var(--color-background);
+
+  border-radius: 1.3rem;
+  box-shadow: 0px 3px 6px #00000029;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  font-weight: normal;
+  color: var(--color-secondary);
+}
+
+form fieldset {
+  border: 0;
+  margin-top: 2.1rem;
+}
+
+/* form fieldset + fieldset {
+  margin-top: 1.6rem;
+} */
+
+form fieldset label {
+  width: 100%;
+
+  display: flex;
+
+  font-family: Montserrat, sans-serif;
+  font-size: 1.8rem;
+  color: var(--color-text-base);
+  font-weight: normal;
+
+  margin-bottom: 0.8rem;
+}
+
+form fieldset input {
+  width: 36.3rem;
+  height: 5rem;
+  border: 1px solid #BFBFBF;
+  border-radius: 9px;
+  outline: none;
+
+  padding: 1.7rem;
+  font-size: 1.6rem;
+}
+
+form fieldset input::placeholder {
+  color: #BFBFBF;
+  font-family: Montserrat, sans-serif;
+}
+
+/* form fieldset:last-of-type {
+  margin-top: 3rem;
+} */
+
+form section {
+  display: flex;
+  flex-direction: row;
+}
+
+form section fieldset + fieldset {
+  margin-left: 1.6rem;
+}
+
+form section fieldset + fieldset label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form section fieldset + fieldset label a {
+  color: var(--color-text-link);
+  font-size: 1.4rem;
+}
+
+form section fieldset input {
+  width: 17.3rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+
+input#password + img {
+  position: absolute;
+
+  top: 50%;
+  right: 8px;
+
+  transform: translate(0, -50%);
+}
+
+.account-creation-visit-card form + a {
+  margin-top: 2.4rem;
+}
+
+
