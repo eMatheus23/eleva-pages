@@ -1,9 +1,9 @@
 /* ------ Footer ------ */
-#plans-page footer {
+footer {
   position: relative;
 
   width: 100%;
-  height: 6vh;
+  height: max(6vh, 5rem);
   clear: both;
   background: var(--color-background-secondary);
 
@@ -16,31 +16,31 @@
   color: var(--color-text-base);
 }
 
-#plans-page footer > div {
+footer > div {
   display: flex;
   justify-items: center;
   align-items: center;
 }
 
-#plans-page footer div p {
+footer div p {
   width: 255px;
   font-size: 1.6rem;
   margin-right: 1rem;
 }
 
-#plans-page footer .footer-links {
+footer .footer-links {
   text-decoration: none;
   position: absolute;
   right: 10rem;
 }
 
-#plans-page footer a {
+footer a {
   text-decoration: none;
   font-family: Montserrat, sans-serif;
   color: var(--color-text-base);
   font-size: 1.6rem;
 }
 
-#plans-page footer a:last-of-type {
+footer a:last-of-type {
   margin-left: 4rem;
 }
