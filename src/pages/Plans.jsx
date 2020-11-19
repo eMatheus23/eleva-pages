@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // Logos 
 import logoElevagro from '../images/logos/marca-elevagro-01.svg';
-import logoElevagroFooter from '../images/logos/marca-footer.svg';
 import googleLogo from '../images/logos/google-logo.svg'
 import faceLogo from '../images/logos/facebook-logo.svg'
 
@@ -25,6 +25,9 @@ import cornerImg from '../images/corner.svg';
 
 //CSS
 import '../styles/pages/Plans.css';
+
+// Components
+import Footer from '../components/Footer'
 
 function Plans() {
   const [selectedPlan, setSelectedPlan] = useState(2);
@@ -246,7 +249,7 @@ function Plans() {
           <div className={`login ${loginActive ? 'active' : ''}`}>
             <div className="create-account-card animate-apper">
               <h3>AINDA NÃO TENHO CONTA</h3>
-              <button type="button">Criar conta</button>
+              <Link to="/create-premium/visit">Criar conta</Link>
             </div>
 
             <div className="login-card animate-apper">
@@ -310,17 +313,7 @@ function Plans() {
           </div>
         </aside>
 
-        <footer>
-          <div>
-            <p>© Todos os direitos reservados a</p>
-            <img src={logoElevagroFooter} alt='Elevagro' />
-          </div>
-
-          <div className='footer-links'>
-            <a href='#'>Ajuda</a>
-            <a href='#'>Termos de uso</a>
-          </div>
-        </footer>
+      <Footer/>
       </div>
     </div>
   );
