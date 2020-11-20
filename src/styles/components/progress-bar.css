@@ -1,0 +1,43 @@
+
+.progress-bar {
+  margin-top: 3.7rem;
+}
+
+.progress-legend {  
+  width: 70rem;
+
+  margin-top: 3px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 1.7rem;
+  color: var(--color-line-in-white);
+}
+
+.progress-legend span:first-of-type {
+  /* Sua conta */
+  margin-left: 8.5rem;
+}
+
+.progress-legend span:nth-of-type(2) {
+  /* Dados */
+  margin-left: 6rem;
+}
+
+.progress-legend span:nth-of-type(3) {
+  /* Pagameto */
+  margin-left: 10.5rem;
+}
+
+.progress-legend span:nth-of-type(4) {
+  /* Acesso */
+  margin-left: 11rem;
+}
+
+.progress-legend span.active {
+  color: var(--color-secondary);
+}
