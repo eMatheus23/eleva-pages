@@ -1,23 +1,30 @@
-#page-create-premium-visit {
+#page-signup {
   width: 100vw;
   height: 100vh;
   background: var(--color-background);
 }
 
-#page-create-premium-visit main {
+#page-signup main {
   width: 100vw;
   height: 88vh;
   background: var(--color-background-secondary);
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: initial;
   flex-direction: column;
 }
 
-#page-create-premium-visit main h3 {
+#page-signup main h3 {
   font-weight: bold;
+  margin-top: 6rem;
   margin-bottom: 2rem;
+
+  display: none;
+}
+
+#page-signup main h3.active {
+  display: block;
 }
 
 .account-creation-visit-card {
@@ -34,14 +41,30 @@
   align-items: center;
 }
 
+.account-creation-visit-card a {
+  color: var(--color-text-link);
+}
+
 h3 {
   font-weight: normal;
   color: var(--color-secondary);
 }
 
+form {
+  width: 100%;
+  height: 100%;
+
+  padding-top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 form fieldset {
   border: 0;
-  margin-top: 2.1rem;
+  /* margin-top: 2.1rem; */
 }
 
 /* form fieldset + fieldset {
@@ -81,6 +104,10 @@ form fieldset input::placeholder {
   margin-top: 3rem;
 } */
 
+input:valid {
+  border: 2px solid #B2D235;
+}
+
 form section {
   display: flex;
   flex-direction: row;
@@ -98,7 +125,6 @@ form section fieldset + fieldset label {
 }
 
 form section fieldset + fieldset label a {
-  color: var(--color-text-link);
   font-size: 1.4rem;
 }
 
@@ -108,10 +134,11 @@ form section fieldset input {
 
 .input-container {
   position: relative;
+  width: 36.3rem;
 }
 
 
-input#password + img {
+#password + img {
   position: absolute;
 
   top: 50%;
@@ -120,8 +147,52 @@ input#password + img {
   transform: translate(0, -50%);
 }
 
-.account-creation-visit-card form + a {
-  margin-top: 2.4rem;
+a.button-dark {
+  color: var(--color-background);
+  margin-top: 2.4rem
 }
 
+.terms-and-policies a {
+  margin: 0 5px;
+}
+
+.progress-bar {
+  margin-top: 3.7rem;
+}
+
+.progress-legend {  
+  width: 70rem;
+
+  margin-top: 3px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+
+  font-family: Helvetica Neue, sans-serif;
+  font-size: 1.7rem;
+  color: var(--color-line-in-white);
+}
+
+.progress-legend span:first-of-type {
+  /* Sua conta */
+  color: var(--color-secondary);
+  margin-left: 8.5rem;
+}
+
+.progress-legend span:nth-of-type(2) {
+  /* Dados */
+  margin-left: 6rem;
+}
+
+.progress-legend span:nth-of-type(3) {
+  /* Pagameto */
+  margin-left: 10.5rem;
+}
+
+.progress-legend span:nth-of-type(4) {
+  /* Acesso */
+  margin-left: 11rem;
+}
 

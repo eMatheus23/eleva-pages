@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //CSS
-import '../styles/pages/create-premium-visit.css';
+import '../styles/pages/signup.css';
 
 // Components
 import Footer from '../components/Footer'
-import HeaderCreateAccount from '../components/HeaderCreateAccount'
+import HeaderSignup from '../components/HeaderSignup'
 import { ButtonDark, ToggleSwitch } from '../components/Buttons'
 
 // Icons 
 import ArrowRight from '../images/icons/arrow-right.svg';
 import RevealPassword from '../images/icons/reveal-password.svg';
 
+import Progrogress from '../images/progress-bar/progress-your-accout.svg'
+
 function CreatePremiumVisit() {
+  const [passwordType, setPasswordType] = useState('password')
+
+function handlePasswordVisibility() {
+    setPasswordType('text')
+
+    setTimeout(() => setPasswordType('password'), 2000);
+  }
+
   return (
-    <div id='page-create-premium-visit'>
+    <div id='page-signup'>
       
-      <HeaderCreateAccount/>
+      <HeaderSignup/>
 
       <main>
-        <h3>Conta Premium Elevagro</h3>
+        <h3 className="active">Conta Premium Elevagro</h3>
+        <h3>Dados necessários para sua adesão Premium</h3>
         <div className="account-creation-visit-card">
           <form action="">
             <fieldset>
@@ -29,6 +40,7 @@ function CreatePremiumVisit() {
                 name="name" 
                 id="name" 
                 placeholder="Digite aqui"
+                required
               />
             </fieldset>
 
@@ -39,6 +51,7 @@ function CreatePremiumVisit() {
                 name="surname" 
                 id="surname" 
                 placeholder="Digite aqui"
+                required
               />
             </fieldset>
 
@@ -50,6 +63,7 @@ function CreatePremiumVisit() {
                   name="phone" 
                   id="phone" 
                   placeholder="(xx) 0 0000.0000"
+                  required
                 />
   	          </fieldset>
               
@@ -64,6 +78,7 @@ function CreatePremiumVisit() {
                   name="cpf" 
                   id="cpf" 
                   placeholder="000.000.000-00"
+                  required
                 />
               </fieldset>
             </section>
@@ -76,6 +91,7 @@ function CreatePremiumVisit() {
                 name="e-mail" 
                 id="e-mail" 
                 placeholder="Será o seu login"
+                required
               />
             </fieldset>
 
@@ -83,31 +99,47 @@ function CreatePremiumVisit() {
               <label htmlFor="password">Senha</label>
               <div className="input-container">
                 <input 
-                  type="password" 
+                  type={passwordType} 
                   name="password" 
                   id="password" 
                   placeholder="Sua senha de acesso"
+                  required
                 />
-                <img src={RevealPassword} alt="Revelar Senha"/>
+                <img 
+                  src={RevealPassword} 
+                  alt="Revelar Senha"
+                  onClick={handlePasswordVisibility}
+                />
               </div>
               
 
             </fieldset>
+            
+            <ButtonDark>
+                Próximo 
+                <img src={ArrowRight} alt="Próximo"/>
+            </ButtonDark>
+
+            <ToggleSwitch className="terms-and-policies">
+              Concordo com os 
+              <a href="">termos de uso</a>  
+              e 
+              <a href="">Política de privacidade</a> 
+            </ToggleSwitch>
           </form>
-
-          <ButtonDark>
-              Próximo 
-              <img src={ArrowRight} alt="Próximo"/>
-          </ButtonDark>
-
-          <ToggleSwitch>
-            Concordo com os 
-            <a href="">termos de uso</a>  
-            e 
-            <a href="">Política de privacidade</a> 
-          </ToggleSwitch>
         </div>
 
+        
+        <div className="progress-bar">
+          <img src={Progrogress} alt=""/>
+        </div>
+        <div className="progress-legend">
+            <span>Sua conta</span>
+            <span>Dados</span>
+            <span>Pagamento</span>
+            <span>Acesso</span>
+        </div>
+        
       </main>
 
         <Footer/>

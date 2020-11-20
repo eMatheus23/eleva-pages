@@ -19,9 +19,9 @@ export function ButtonDark({ children, linkTo }) {
   );
 }
 
-export function ToggleSwitch({ children }) {
+export function ToggleSwitch({ children, className }) {
   return (
-    <section>
+    <section className={className}>
       <label class="toggle-switch">
         <input 
           type="checkbox"  

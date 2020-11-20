@@ -251,7 +251,7 @@ function Plans() {
           <div className={`login ${loginActive ? 'active' : ''}`}>
             <div className="create-account-card animate-apper">
               <h3>AINDA NÃO TENHO CONTA</h3>
-              <ButtonLight linkTo="/create-premium/visit">Criar conta</ButtonLight>
+              <ButtonLight linkTo="/signup">Criar conta</ButtonLight>
             </div>
 
             <div className="login-card animate-apper">
