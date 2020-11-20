@@ -447,7 +447,6 @@ main > p {
   padding-bottom: 24px; */
 }
 
-
 #plans-page .login .login-card fieldset input {
   width: 38.3rem;
   height: 5.9rem;
@@ -468,6 +467,12 @@ main > p {
   margin-top: 3rem;
 }
 
+#plans-page .login-options,
+#plans-page .login-options div a {
+  font-family: Montserrat, sans-serif;
+  color: var(--color-text-base);
+}
+
 #plans-page .login .login-card .login-options {
   display: flex;
   flex-direction: row;
@@ -477,7 +482,11 @@ main > p {
   margin-top: 2.3rem;
 }
 
-#plans-page .login .login-card .login-options button {
+#plans-page .login .login-card .login-options a.button-dark {
+  font-weight: bold;
+}
+
+/* #plans-page .login .login-card .login-options button {
   width: 17.6rem;
   height: 4.5rem;
 
@@ -488,7 +497,7 @@ main > p {
   color: var(--color-text-white);
   font-weight: bold;
   font-size: 1.8rem;
-}
+} */
 
 #plans-page .login .login-card fieldset > div {
   width: 37.8rem;

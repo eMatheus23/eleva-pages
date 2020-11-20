@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border: 0; /* Para tirar a borda dos fieldsets */
 }
 
 :root {
@@ -22,7 +23,8 @@
   font-size: 62.5%; /* controle das medidas rem */
 }
 
-body {
+body, 
+input {
   font-family: Helvetica Neue, sans-serif;
   font-size: 1.4rem;
   color: var(--color-text-in-white);

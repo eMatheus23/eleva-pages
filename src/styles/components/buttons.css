@@ -22,13 +22,12 @@
   width: 16.4rem;
   height: 4.5rem;
 
-  padding: 0 2.7rem;
+  padding: 0 0.6rem;
 
   border-radius: 2.3rem;
   border: 0;
 
   background: var(--color-secondary);
-  color: var(--color-background);
   font-family: Montserrat, sans-serif;
   font-weight: normal;
   font-size: 1.8rem;
@@ -38,6 +37,12 @@
   justify-content: center;
 
   text-decoration: none;
+
+  box-sizing: content-box;
+}
+
+a.button-dark {
+  color: var(--color-background);
 }
 
 .button-dark img {
@@ -49,7 +54,7 @@
   /** bar */
   --bar-height: 14px;
   --bar-width: 34px;
-  --bar-color: #221F1F42;
+  --bar-color: #221f1f81;
 
   /** knob */
   --knob-size: 20px;
@@ -161,12 +166,12 @@
   box-shadow: var(--switch-box-shadow), 0 0 0 calc(var(--knob-size) / 4) rgba(var(--switch-theme-rgb), 0.1);
 }
 
-/* font */ 
+/* font 
 .login-options,
 .login-options a {
   font-family: Montserrat, sans-serif;
   color: var(--color-text-base);
-}
+} */
 
 /* magin */ 
 .toggle-switch {

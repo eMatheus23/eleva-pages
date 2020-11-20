@@ -12,15 +12,15 @@ import { ButtonDark, ToggleSwitch } from '../components/Buttons'
 import ArrowRight from '../images/icons/arrow-right.svg';
 import RevealPassword from '../images/icons/reveal-password.svg';
 
-import Progrogress from '../images/progress-bar/progress-your-accout.svg'
+import Progrogress from '../images/progress-bar/progress-data.svg'
 
-function CreatePremiumVisit() {
-  const [passwordType, setPasswordType] = useState('password')
+export default function SignupAddress() {
+  const [passwordType, setPasswordType] = useState('password');
 
-function handlePasswordVisibility() {
-    setPasswordType('text')
+  function handlePasswordVisibility() {
+      setPasswordType('text')
 
-    setTimeout(() => setPasswordType('password'), 2000);
+      setTimeout(() => setPasswordType('password'), 2000);
   }
 
   return (
@@ -29,8 +29,8 @@ function handlePasswordVisibility() {
       <HeaderSignup/>
 
       <main>
-        <h3 className="active">Conta Premium Elevagro</h3>
-        <h3>Dados necessários para sua adesão Premium</h3>
+        <h3>Conta Premium Elevagro</h3>
+        {/* <h3>Dados necessários para sua adesão Premium</h3> */}
         <div className="account-creation-visit-card">
           <form action="">
             <fieldset>
@@ -115,7 +115,7 @@ function handlePasswordVisibility() {
 
             </fieldset>
             
-            <ButtonDark>
+            <ButtonDark linkTo={'/signup/address'}>
                 Próximo 
                 <img src={ArrowRight} alt="Próximo"/>
             </ButtonDark>
@@ -146,5 +146,3 @@ function handlePasswordVisibility() {
       </div>
   );
 }
-
-export default CreatePremiumVisit;

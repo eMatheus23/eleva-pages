@@ -2,14 +2,22 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Plans from './pages/Plans';
-import Signup from './pages/Signup';
+import SignupVisitor from './pages/SignupVisitor';
+import SignupFree from './pages/SignupFree';
+import SignupAddress from './pages/SignupAddress';
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route exact path='/' component={Plans} />
         <Route path='/plans' component={Plans} />
-        <Route path='/signup' component={Signup} />
+        <Route path='/signup/visitor' component={SignupVisitor} />
+        <Route path='/signup/free' component={SignupFree} />
+        <Route path='/signup/address' component={SignupAddress} />
+        <Route path='/signup/checkout' component={Plans} />
+        <Route path='/signup/access' component={Plans} />
+
       </Switch>
     </BrowserRouter>
   );

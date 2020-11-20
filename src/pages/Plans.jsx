@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 //CSS
 import '../styles/pages/plans.css';
 
 // Components
 import Footer from '../components/Footer'
-import { ButtonLight, ToggleSwitch } from '../components/Buttons'
+import { ButtonLight, ButtonDark, ToggleSwitch } from '../components/Buttons'
 
 // Logos 
 import logoElevagro from '../images/logos/marca-elevagro-01.svg';
@@ -251,7 +250,7 @@ function Plans() {
           <div className={`login ${loginActive ? 'active' : ''}`}>
             <div className="create-account-card animate-apper">
               <h3>AINDA NÃO TENHO CONTA</h3>
-              <ButtonLight linkTo="/signup">Criar conta</ButtonLight>
+              <ButtonLight linkTo="/signup/visitor">Criar conta</ButtonLight>
             </div>
 
             <div className="login-card animate-apper">
@@ -286,7 +285,9 @@ function Plans() {
                     <a href="#">Esqueci a senha</a>
                   </div>
 
-                  <button type="button">Acessar</button>
+                  <ButtonDark linkTo='/signup/free'>
+                    Acessar
+                  </ButtonDark>
                 </div>
 
 
