@@ -97,7 +97,6 @@ export default function SignupAddress() {
             <section>
               <fieldset>
                 <label htmlFor="state">Estado</label>
-
                 <select 
                   name="state" 
                   id="state"
@@ -118,14 +117,6 @@ export default function SignupAddress() {
                       )
                     })}
                 </select>
-                {/* <input 
-                  className="form-small" 
-                  type="text" 
-                  name="state" 
-                  id="state" 
-                  placeholder="Digite aqui"
-                  required
-                /> */}
               </fieldset>
 
               <fieldset>
