@@ -84,7 +84,8 @@
   font-family: Montserrat, sans-serif;
 }
 
-#page-signup-address input:valid {
+#page-signup-address input:valid,
+#page-signup-address select:valid {
   border: 2px solid #B2D235;
 }
 
@@ -103,7 +104,7 @@
   width: 9.6rem;
 }
 
-.select-appearance {
+.account-creation-address-card .select-appearance {
   /* Remove estilo padrão do Chrome */  
   -webkit-appearance: none;  
   /* Remove estilo padrão do FireFox */

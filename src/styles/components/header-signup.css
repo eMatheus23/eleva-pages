@@ -1,4 +1,4 @@
-header {
+header.header-signup {
   width: 100vw;
   height: max(6vh, 5rem);
 
@@ -13,18 +13,18 @@ header {
   position: relative;
   z-index: 99999;
 }
-header a img {
+header.header-signup a img {
   margin-left: max(16.1rem, 8.3vw)
 }
 
-header .languages-selector {
+header.header-signup .languages-selector {
   margin-right: 7.6rem;
 
   display: flex;
 }
 
 
-header .languages-selector img {
+header.header-signup .languages-selector img {
   width: 23px;
   height: 16px;
 
@@ -35,7 +35,7 @@ header .languages-selector img {
   cursor: pointer;
 }
 
-header .languages-selector img.active,
-header .languages-selector img:hover {
+header.header-signup .languages-selector img.active,
+header.header-signup .languages-selector img:hover {
   opacity: 1;
 }
