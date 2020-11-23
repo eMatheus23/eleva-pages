@@ -285,7 +285,7 @@ function Plans() {
                     <a href="#">Esqueci a senha</a>
                   </div>
 
-                  <ButtonDark linkTo='/signup/free'>
+                  <ButtonDark linkTo='/signup/address'>
                     Acessar
                   </ButtonDark>
                 </div>

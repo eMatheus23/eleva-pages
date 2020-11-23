@@ -114,7 +114,7 @@ export default function SignupVisitor() {
 
             </fieldset>
             
-            <ButtonDark linkTo={'/signup/free'}>
+            <ButtonDark linkTo={'/signup/address'}>
                 Próximo 
                 <img src={ArrowRight} alt="Próximo"/>
             </ButtonDark>

@@ -79,7 +79,10 @@
   outline: none;
 
   padding: 1.7rem;
-  font-size: 1.6rem;
+
+  color: var(--color-text-base);
+  font-family: Montserrat, sans-serif;
+  font-size: 1.8rem;
 }
 
 #page-signup form fieldset input::placeholder {

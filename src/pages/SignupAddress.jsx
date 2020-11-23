@@ -1,145 +1,209 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 //CSS
-import '../styles/pages/signup.css';
+import '../styles/pages/signup-address.css';
+
+// import States from '../assets/states.json';
 
 // Components
 import Footer from '../components/Footer'
 import HeaderSignup from '../components/HeaderSignup'
-import { ButtonDark, ToggleSwitch } from '../components/Buttons'
+import { ButtonDark } from '../components/Buttons'
+import ProgressBar from '../components/ProgressBar'
 
 // Icons 
 import ArrowRight from '../images/icons/arrow-right.svg';
-import RevealPassword from '../images/icons/reveal-password.svg';
 
-import Progrogress from '../images/progress-bar/progress-data.svg'
+import brazilFlag from '../images/flags/brazil.svg'
 
 export default function SignupAddress() {
-  const [passwordType, setPasswordType] = useState('password');
+  const [stateOptions, setStateOptions] = useState([]);
+  const [selectedState, setSelectedState] = useState("");
+  const [cityOptions, setCityOptions] = useState([]);
 
-  function handlePasswordVisibility() {
-      setPasswordType('text')
+  const countryOptions = [
+    { value: 'brazil', label: 'Brasil', imgUrl: brazilFlag },
+    { value: 'spain', label: 'Spain', imgUrl: brazilFlag  },
+    { value: 'usa', label: 'USA', imgUrl: brazilFlag  }
+  ]
 
-      setTimeout(() => setPasswordType('password'), 2000);
+  useEffect(() => {
+    axios.get('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+      .then((response) => {
+        setStateOptions(response.data);
+      });
+  }, []);
+
+  function handleSelectState(event) {
+    const state = event.target.value 
+    const cities = document.querySelector('#city')
+
+    console.log(cities)
+    
+    setSelectedState(state)
+    
+    axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state}/municipios`)
+      .then((response) => {
+        console.log(response.data)
+        setCityOptions(response.data);
+      });
+
+    cities.removeAttribute('disabled');
   }
 
+  console.log(selectedState)
+  console.log(cityOptions)
+
   return (
-    <div id='page-signup'>
-      
+    <div id='page-signup-address'>
       <HeaderSignup/>
 
       <main>
-        <h3>Conta Premium Elevagro</h3>
-        {/* <h3>Dados necessários para sua adesão Premium</h3> */}
-        <div className="account-creation-visit-card">
+        <h3>Dados necessários para sua adesão Premium</h3>
+        <div className="account-creation-address-card">
           <form action="">
-            <fieldset>
-              <label htmlFor="name">Nome</label>
-              <input 
-                type="text" 
-                name="name" 
-                id="name" 
-                placeholder="Digite aqui"
-                required
-              />
-            </fieldset>
+            <section>
+              <fieldset>
+                <label htmlFor="cep">CEP</label>
+                <input 
+                  className="form-medium" 
+                  type="text" 
+                  name="cep" 
+                  id="cep" 
+                  placeholder="000000-000"
+                  required
+                />
+              </fieldset>
 
-            <fieldset>
-              <label htmlFor="surname">Sobrenome</label>
-              <input 
-                type="text" 
-                name="surname" 
-                id="surname" 
-                placeholder="Digite aqui"
-                required
-              />
-            </fieldset>
+              <fieldset>
+                <label htmlFor="country">País</label>
+
+                <select
+                  name="country" 
+                  id="country"
+                  className="select-appearance"
+                  required
+                >
+                  {countryOptions.map(country => 
+                    <option 
+                      value={country.value}>{country.label}</option>
+                    )}
+                </select>
+
+              </fieldset>
+            </section>
 
             <section>
               <fieldset>
-                <label htmlFor="phone">Nº celular</label>
-                <input 
-                  type="text" 
-                  name="phone" 
-                  id="phone" 
-                  placeholder="(xx) 0 0000.0000"
+                <label htmlFor="state">Estado</label>
+
+                <select 
+                  name="state" 
+                  id="state"
+                  className="select-appearance"
                   required
-                />
-  	          </fieldset>
-              
+                  defaultValue=""
+                  onChange={handleSelectState}
+                >
+                    <option value="" disabled>UF</option>
+                    {stateOptions.map(state => {
+                      return (
+                        <option 
+                          key={state.sigla} 
+                          value={state.sigla} 
+                        >
+                          {state.sigla}
+                        </option>
+                      )
+                    })}
+                </select>
+                {/* <input 
+                  className="form-small" 
+                  type="text" 
+                  name="state" 
+                  id="state" 
+                  placeholder="Digite aqui"
+                  required
+                /> */}
+              </fieldset>
+
               <fieldset>
-                <label htmlFor="cpf">
-                  CPF
-                  <a href="#">Não tem CPF?</a>
-                </label>
-                
+                <label htmlFor="city">Cidade</label>
+
+                <select 
+                  name="city" 
+                  id="city"
+                  className="select-appearance"
+                  defaultValue=""
+                  disabled
+                  required
+                >
+                    <option value="" disabled>Cidade</option>
+                    {cityOptions.map(city => {
+                      return (
+                        <option 
+                          key={city.id} 
+                          value={city.nome} 
+                        >
+                          {city.nome}
+                        </option>
+                      )
+                    })}
+                </select>
+
+              </fieldset>
+            </section>
+
+            <section>
+              <fieldset>
+                <label htmlFor="street">Logradouro</label>
                 <input 
                   type="text" 
-                  name="cpf" 
-                  id="cpf" 
-                  placeholder="000.000.000-00"
+                  name="street" 
+                  id="street" 
+                  placeholder="Digite aqui"
                   required
                 />
               </fieldset>
             </section>
 
-
-            <fieldset>
-              <label htmlFor="e-mail">e-mail</label>
-              <input 
-                type="e-mail" 
-                name="e-mail" 
-                id="e-mail" 
-                placeholder="Será o seu login"
-                required
-              />
-            </fieldset>
-
-            <fieldset>
-              <label htmlFor="password">Senha</label>
-              <div className="input-container">
+            <section>
+              <fieldset>
+                <label htmlFor="neighborhood">Bairro</label>
                 <input 
-                  type={passwordType} 
-                  name="password" 
-                  id="password" 
-                  placeholder="Sua senha de acesso"
+                  className="form-medium"
+                  type="text" 
+                  name="neighborhood" 
+                  id="neighborhood" 
+                  placeholder="Digite aqui"
                   required
                 />
-                <img 
-                  src={RevealPassword} 
-                  alt="Revelar Senha"
-                  onClick={handlePasswordVisibility}
-                />
-              </div>
-              
+              </fieldset>
 
-            </fieldset>
+              <fieldset>
+                <label htmlFor="street-number">Número</label>
+                <input 
+                  className="form-small" 
+                  type="text" 
+                  name="street-number" 
+                  id="street-number" 
+                  placeholder="0000"
+                  required
+                />
+  	          </fieldset>
+              
+            </section>
             
             <ButtonDark linkTo={'/signup/address'}>
                 Próximo 
                 <img src={ArrowRight} alt="Próximo"/>
             </ButtonDark>
-
-            <ToggleSwitch className="terms-and-policies">
-              Concordo com os 
-              <a href="">termos de uso</a>  
-              e 
-              <a href="">Política de privacidade</a> 
-            </ToggleSwitch>
           </form>
         </div>
 
-        
-        <div className="progress-bar">
-          <img src={Progrogress} alt=""/>
-        </div>
-        <div className="progress-legend">
-            <span>Sua conta</span>
-            <span>Dados</span>
-            <span>Pagamento</span>
-            <span>Acesso</span>
-        </div>
-        
+        <ProgressBar progress={1}/>
+
       </main>
 
         <Footer/>
