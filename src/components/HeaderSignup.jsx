@@ -15,7 +15,7 @@ export default function HeaderSignup () {
   const [selectedLanguage, setSelectedLanguage] = useState('pt-br');
 
   return (
-      <header>
+      <header className="header-signup">
         <Link to={'/'}>
           <img src={logoElevagroFooter} alt='Elevagro' />
         </Link>

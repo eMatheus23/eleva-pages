@@ -82,7 +82,6 @@ export default function SignupVisitor() {
               </fieldset>
             </section>
 
-
             <fieldset>
               <label htmlFor="e-mail">e-mail</label>
               <input 

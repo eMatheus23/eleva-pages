@@ -78,7 +78,6 @@ export default function SignupAddress() {
 
               <fieldset>
                 <label htmlFor="country">País</label>
-
                 <select
                   name="country" 
                   id="country"
@@ -90,7 +89,6 @@ export default function SignupAddress() {
                       value={country.value}>{country.label}</option>
                     )}
                 </select>
-
               </fieldset>
             </section>
 
@@ -186,7 +184,7 @@ export default function SignupAddress() {
               
             </section>
             
-            <ButtonDark linkTo={'/signup/address'}>
+            <ButtonDark linkTo={'/signup/checkout'}>
                 Próximo 
                 <img src={ArrowRight} alt="Próximo"/>
             </ButtonDark>
