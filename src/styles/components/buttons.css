@@ -20,7 +20,7 @@
 
   text-decoration: none;
 
-  box-sizing: content-box;
+  /* box-sizing: content-box; */
 }
 
 .button-dark {
@@ -43,7 +43,7 @@
 
   text-decoration: none;
 
-  box-sizing: content-box;
+  /* box-sizing: content-box; */
 }
 
 a.button-dark {
