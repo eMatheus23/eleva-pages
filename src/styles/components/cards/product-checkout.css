@@ -1,0 +1,88 @@
+.product-checkout-card {
+  width: 62.1rem;
+
+  display: flex;
+  align-items: initial;
+  justify-content: space-between;
+
+  position: relative;
+
+  padding-bottom: 2rem;
+  margin-top: 3.95rem;
+
+  border-bottom: 1px solid #BFBFBF;
+}
+
+.product-checkout-card img:first-of-type {
+  width: 9.7rem;
+  height: 6.0rem;
+
+  border-radius: 1.5rem;
+
+  margin-top: 0.4rem;
+
+  object-fit: cover;
+}
+
+.product-checkout-card .product-title {
+  width: 34.6rem;
+}
+
+.product-checkout-card .product-title h2 {
+  font: normal 2rem/2.4rem Montserrat;
+
+  margin-bottom: 0.4rem;
+}
+
+.product-checkout-card .product-title p {
+  font: normal 1.8rem/2.4rem Montserrat;
+}
+
+.product-checkout-card .product-price {
+  margin-right: 0.8rem;
+}
+
+.product-checkout-card .product-price p {
+  font: normal 1.5rem/2rem Montserrat;
+
+  text-decoration: line-through;
+}
+
+
+/* Price Style */
+.price-style {
+  font: normal 1.9rem/2.3rem Montserrat;
+
+  color: var(--color-secondary-alternative);
+
+  margin: 1rem 0;
+}
+
+.price-style.helvetica,
+.price-style.helvetica span,
+.price-style.helvetica strong {
+  font-family: Helvetica Neue, sans-serif;
+}
+
+.price-style span {
+  font-size: 2.5rem;
+
+  margin-right: 0.7rem;
+}
+
+.price-style strong {
+  font: normal 3.8rem/2.3rem Montserrat;
+}
+
+.product-checkout-card .delete-button {
+  position: absolute;
+
+  right: 0.15rem;
+  top: -0.8rem;
+
+  cursor: pointer;
+}
+
+.product-checkout-card a.button-light {
+  width: 13.5rem;
+}
