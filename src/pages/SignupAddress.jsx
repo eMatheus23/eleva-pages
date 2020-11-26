@@ -17,11 +17,14 @@ import ArrowRight from '../images/icons/arrow-right.svg';
 
 import brazilFlag from '../images/flags/brazil.svg'
 
-export default function SignupAddress() {
+export default function SignupAddress(props) {
   const [stateOptions, setStateOptions] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [cityOptions, setCityOptions] = useState([]);
 
+  document.title = "Elevagro | Criar Conta Premium";
+
+  console.log(props)
   const countryOptions = [
     { value: 'brazil', label: 'Brasil', imgUrl: brazilFlag },
     { value: 'spain', label: 'Spain', imgUrl: brazilFlag  },
@@ -38,8 +41,6 @@ export default function SignupAddress() {
   function handleSelectState(event) {
     const state = event.target.value 
     const cities = document.querySelector('#city')
-
-    console.log(cities)
     
     setSelectedState(state)
     
@@ -51,9 +52,6 @@ export default function SignupAddress() {
 
     cities.removeAttribute('disabled');
   }
-
-  console.log(selectedState)
-  console.log(cityOptions)
 
   return (
     <div id='page-signup-address'>
@@ -184,7 +182,7 @@ export default function SignupAddress() {
               
             </section>
             
-            <ButtonDark linkTo={'/signup/checkout'}>
+            <ButtonDark linkTo={'/signup/checkout'} props={props} >
                 Próximo 
                 <img src={ArrowRight} alt="Próximo"/>
             </ButtonDark>

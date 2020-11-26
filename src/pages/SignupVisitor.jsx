@@ -13,7 +13,11 @@ import ProgressBar from '../components/ProgressBar'
 import ArrowRight from '../images/icons/arrow-right.svg';
 import RevealPassword from '../images/icons/reveal-password.svg';
 
-export default function SignupVisitor() {
+export default function SignupVisitor(props) {
+  document.title = "Elevagro | Criar Conta Premium"
+
+  console.log(props)
+
   const [passwordType, setPasswordType] = useState('password');
 
   function handlePasswordVisibility() {
@@ -113,7 +117,7 @@ export default function SignupVisitor() {
 
             </fieldset>
             
-            <ButtonDark linkTo={'/signup/address'}>
+            <ButtonDark linkTo={'/signup/address'} params={{testetwo: 'exemplo4', ...props.location.state}}>
                 Próximo 
                 <img src={ArrowRight} alt="Próximo"/>
             </ButtonDark>
