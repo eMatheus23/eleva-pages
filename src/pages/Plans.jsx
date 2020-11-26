@@ -30,22 +30,24 @@ import barcodeIcon from '../images/icons/barcode-icon.svg';
 import cornerImg from '../images/corner.svg';
 
 
-function Plans() {
-  const [selectedPlan, setSelectedPlan] = useState(2);
-  const [loginActive, setLoginActive] = useState(false);
+export default function Plans() {
+  document.title = "Escolha seu plano premium"
+
+  const [selectedPlan, setSelectedPlan] = useState('semestral');
+  const [loginScreenActive, setLoginScreenActive] = useState(false);
 
   function handleSelectPlan(planIndex) {
     setSelectedPlan(planIndex);
-    setLoginActive(false);
+    setLoginScreenActive(false);
   }
 
   function handleCentralImg() {
     switch (selectedPlan) {
-      case 1: 
+      case 'mensal': 
         return centralImgMensal;
-      case 2: 
+      case 'semestral': 
         return centralImgSemestral;
-      case 3: 
+      case 'anual': 
         return centralImgAnual;
       default: 
         break;
@@ -62,24 +64,24 @@ function Plans() {
           <div className='plans-selector'>
             <button
               type="button"
-              onClick={() => handleSelectPlan(1)}
-              className={selectedPlan === 1 ? 'active' : ''}
+              onClick={() => handleSelectPlan('mensal')}
+              className={selectedPlan === 'mensal' ? 'active' : ''}
             >
               MENSAL
             </button>
 
             <button 
               type="button"
-              onClick={() => handleSelectPlan(2)}
-              className={selectedPlan === 2 ? 'active' : ''}
+              onClick={() => handleSelectPlan('semestral')}
+              className={selectedPlan === 'semestral' ? 'active' : ''}
             >
               SEMESTRAL
             </button>
 
             <button
               type="button"
-              onClick={() => handleSelectPlan(3)}
-              className={selectedPlan === 3 ? 'active' : ''}
+              onClick={() => handleSelectPlan('anual')}
+              className={selectedPlan === 'anual' ? 'active' : ''}
             >
               ANUAL
             </button>
@@ -88,8 +90,8 @@ function Plans() {
           </div>
 
           {/* Plano Mensal */}
-          <div className={`plans-card ${selectedPlan === 1 ? 'active' : ''}`}>
-            <div className={`corner ${selectedPlan === 1 ? 'hiden' : ''}`}>
+          <div className={`plans-card ${selectedPlan === 'mensal' ? 'active' : ''}`}>
+            <div className={`corner ${selectedPlan === 'mensal' ? 'hiden' : ''}`}>
               <img 
                 className="corner-img"
                 src={cornerImg} 
@@ -103,7 +105,7 @@ function Plans() {
 
             <section className="animate-apper">
               <h3 className="animate-apper">Plano Mensal</h3>
-              <p>Semestralmente, é descontado apenas R$ 29,80</p>
+              <p>É descontado todos os meses, R$29,90.</p>
             </section>
 
             <section className="animate-apper">
@@ -113,8 +115,8 @@ function Plans() {
 
             <button 
               type="button" 
-              onClick={setLoginActive}
-              className={!loginActive ? 'active' : ''}
+              onClick={setLoginScreenActive}
+              className={!loginScreenActive ? 'active' : ''}
             >
               Contratar plano <strong>Mensal</strong>
             </button>
@@ -129,7 +131,7 @@ function Plans() {
           </div>
 
           {/* Plano Semestral */}
-          <div className={`plans-card ${selectedPlan === 2 ? 'active' : ''}`}>
+          <div className={`plans-card ${selectedPlan === 'semestral' ? 'active' : ''}`}>
             <img className='corner-img' src={cornerImg} alt='' />
             <div className='corner-text'>
               <span>SAVE <p>R$ 14,50</p></span>
@@ -146,8 +148,8 @@ function Plans() {
 
             <button 
               type="button" 
-              onClick={setLoginActive}
-              className={!loginActive ? 'active' : ''}
+              onClick={setLoginScreenActive}
+              className={!loginScreenActive ? 'active' : ''}
             >
               Contratar plano <strong>Semestral</strong>
             </button>
@@ -162,14 +164,14 @@ function Plans() {
           </div>
 
           {/* Plano Anual */}
-          <div className={`plans-card ${selectedPlan === 3 ? 'active' : ''}`}>
+          <div className={`plans-card ${selectedPlan === 'anual' ? 'active' : ''}`}>
             <img className='corner-img' src={cornerImg} alt='' />
             <div className='corner-text'>
               <span>SAVE <p>R$ 44,50</p></span>
             </div>
             <section className="animate-apper">
               <h3>Plano anual</h3>
-              <p>Semestralmente, é descontado apenas R$ 134,80</p>
+              <p>Uma mensalidade anual apenas, de R$ 134,80</p>
             </section>
 
             <section className="animate-apper">
@@ -181,8 +183,8 @@ function Plans() {
 
             <button 
               type="button" 
-              onClick={setLoginActive}
-              className={!loginActive ? 'active' : ''}
+              onClick={setLoginScreenActive}
+              className={!loginScreenActive ? 'active' : ''}
             >
               Contratar plano <strong>Anual</strong>
             </button>
@@ -205,7 +207,7 @@ function Plans() {
         </main>
 
         {/* Central Image */}
-        <div className={`central-img-container ${!loginActive ? 'active' : ''}`}>
+        <div className={`central-img-container ${!loginScreenActive ? 'active' : ''}`}>
           <img
             className={`central-img active animate-apper`}
             src={handleCentralImg()}
@@ -215,18 +217,18 @@ function Plans() {
 
 
         <aside>
-          <div className={`premium-description ${!loginActive ? 'active' : ''}`}>
+          <div className={`premium-description ${!loginScreenActive ? 'active' : ''}`}>
             <video 
               controls poster={videoImgMensal}
-              className={selectedPlan === 1 ? 'active' : ''}>
+              className={selectedPlan === 'mensal' ? 'active' : ''}>
             </video>
             <video 
               controls poster={videoImgSemestral}
-              className={selectedPlan === 2 ? 'active' : ''}>
+              className={selectedPlan === 'semestral' ? 'active' : ''}>
             </video>
             <video 
               controls poster={videoImgAnual} 
-              className={selectedPlan === 3 ? 'active' : ''}>
+              className={selectedPlan === 'anual' ? 'active' : ''}>
             </video>
 
 
@@ -247,10 +249,10 @@ function Plans() {
             </ul>
           </div>
 
-          <div className={`login ${loginActive ? 'active' : ''}`}>
+          <div className={`login ${loginScreenActive ? 'active' : ''}`}>
             <div className="create-account-card animate-apper">
               <h3>AINDA NÃO TENHO CONTA</h3>
-              <ButtonLight linkTo="/signup/visitor">Criar conta</ButtonLight>
+              <ButtonLight linkTo="/signup/visitor" params={{exemplo: 'Teste'}} >Criar conta</ButtonLight>
             </div>
 
             <div className="login-card animate-apper">
@@ -316,4 +318,3 @@ function Plans() {
   );
 }
 
-export default Plans;
