@@ -125,6 +125,10 @@
   margin-top: 2rem;
 }
 
+#page-signup form fieldset .input-container input {
+  border: 0;
+}
+
 #page-signup .input-container {
   position: relative;
   width: 36.3rem;
