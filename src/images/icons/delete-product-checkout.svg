@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <g id="Grupo_448" data-name="Grupo 448" transform="translate(-998 -631)">
+    <g id="Grupo_449" data-name="Grupo 449">
+      <g id="Elipse_46" data-name="Elipse 46" transform="translate(998 631)" fill="none" stroke="#bfbfbf" stroke-width="1">
+        <circle cx="9" cy="9" r="9" stroke="none"/>
+        <circle cx="9" cy="9" r="8.5" fill="none"/>
+      </g>
+      <text id="x" transform="translate(1007 643)" fill="#bfbfbf" font-size="12" font-family="ArialMT, Arial"><tspan x="-3" y="0">x</tspan></text>
+    </g>
+  </g>
+</svg>
