@@ -1,0 +1,109 @@
+.anual-offer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.anual-offer-card > span {
+  font: normal 1.8rem/2.4rem Montserrat;
+  color: #656565;
+
+  cursor: pointer;
+}
+
+.anual-offer-card .card-wrapper {
+  width: 61.1rem;
+  height: 20.1rem;
+
+  border-radius: 1.1rem;
+  box-shadow: 0 0.3rem 0.6rem #00000029;
+
+  display: flex;
+  flex-direction: row;
+
+  overflow: hidden;
+}
+
+.anual-offer-card aside, 
+.anual-offer-card main {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.anual-offer-card aside {
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2.2rem 4.4rem 0 3.1rem;
+}
+
+.anual-offer-card aside h3 {
+  font: bold 1.8rem/2.4rem Montserrat, sans-serif;
+  color: var(--color-text-in-white);
+
+  text-align: right;
+}
+
+.anual-offer-card aside h3 span {
+  color: var(--color-secondary-alternative);
+}
+
+.anual-offer-card main {
+  align-items: flex-end;
+
+  padding: 2.2rem 2rem 1.5rem 1.9rem;
+
+  background: var(--color-background-secondary);
+}
+
+.anual-offer-card main h3 {
+  font: bold 2.2rem/1.6rem Montserrat;
+
+  margin-bottom: 2.2rem;
+}
+
+.anual-offer-card main p {
+  font: normal 1.5rem/1.6rem Montserrat;
+
+  margin-bottom: 0.6rem;
+}
+
+.anual-offer-card main p span {
+  text-decoration: line-through;
+}
+
+.anual-offer-card main h2 {
+  margin-bottom: 1.8rem;
+}
+
+.price-style span.for {
+  font: normal 15px/19px Montserrat;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+
+  color: var(--color-text-base);
+
+  margin-right: 0.5rem;
+}
+
+.anual-offer-card button {
+  width: 26.5rem;
+  height: 4.5rem;
+
+  border: 1px solid #707070;
+  border-radius: 23px;
+
+  font-size: 1.7rem;
+  background: var(--color-background-secondary);
+
+  cursor: pointer;
+}
+
+.anual-offer-card > p {
+  font: normal 1.5rem/1.6rem Montserrat;
+
+  margin-top: 1.6rem;
+}
