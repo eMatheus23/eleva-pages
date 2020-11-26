@@ -1,0 +1,163 @@
+#page-checkout {
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-background);
+
+  font-family: Montserrat, sans-serif;
+  color: var(--color-text-base);
+}
+
+#page-checkout > header {
+  width: 100vw;
+  height: 7.3vh;
+  background: var(--color-background);
+  box-shadow: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 99999;
+}
+
+#page-checkout > header a img {
+  width: 16.1rem;
+  margin-left: max(16.1rem, 8.3vw)
+}
+
+#page-checkout .content-wrapper {
+  width: 100%;
+  height: 92.7vh;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#page-checkout .content-wrapper > main {
+  /* width: 60rem;
+  height: 74.6rem;
+  
+  display: flex;
+  align-items: center;
+  justify-content: initial;
+  flex-direction: column; */
+
+  margin-right: clamp(5rem, 6vw, 11.8rem);
+}
+
+/* ---------------- ASIDE ---------------- */
+#page-checkout .content-wrapper > aside {
+  width: 62.5rem;
+  height: 74.6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+}
+
+#page-checkout .content-wrapper aside section > h3 {
+  font-family: Montserrat, sans-serif;
+  font-weight: normal;
+  font-size: 2rem;
+
+  padding-bottom: 2rem;
+  
+
+  width: 62.1rem;
+  border-bottom: 1px solid #BFBFBF;
+}
+
+.checkout-discounts,
+.checkout-total {
+  width: 62.1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  margin-top: 1rem;
+}
+
+.checkout-discounts h2 {
+  font: bold 1.8rem/2.4rem Montserrat;
+}
+
+.checkout-discounts h3 {
+  font: normal 1.8rem/2.4rem Montserrat;
+}
+
+.checkout-discounts h3 span {
+  color: #01AA9D;
+}
+
+.checkout-total p {
+  font: normal 2.0rem/2.4rem "Helvetica Neue";
+  font-family: Helvetica Neue, sans-serif;
+
+  margin-right: 8.5rem;
+}
+
+.coupon-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.coupon-input h3 {
+  font: normal 1.8rem/2.2rem Montserrat;
+
+  margin-top: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.input-container {
+  width: 33.7rem;
+  height: 4.8rem;
+
+  display: flex;
+
+  border: 0.1rem solid #BFBFBF;
+  border-radius: 0.9rem;
+
+  overflow: hidden;
+}
+
+.input-container input {
+  width: 23.7rem;
+  height: 100%;
+
+  outline: none;
+  padding: 1.7rem;
+
+  color: var(--color-text-base);
+  font-family: Montserrat, sans-serif;
+  font-size: 1.8rem;
+}
+
+.input-container input::placeholder {
+  color: #BFBFBF;
+  font-size: 1.5rem;
+  font-family: Montserrat, sans-serif;
+}
+
+.input-container button {
+  width: 10rem;
+  height: 100%;
+
+  background: var(--color-background-secondary);
+
+  font-weight: normal;
+  font-size: 1.7rem;
+
+  cursor: pointer;
+}
+
+/* Quando usado para compra bem sucedida */
+
+#page-checkout .content-wrapper aside section.checkout-cart-sucess > h3 {
+  font-weight: bold;
+}
