@@ -240,7 +240,7 @@
   margin-left: 2.3rem;
 }
 
-main > p {
+#plans-page main > p {
   font-family: Montserrat, sans-serif;
   color: var(--color-text-in-secondary);
   font-size: 1.6rem;
