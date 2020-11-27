@@ -1,4 +1,4 @@
-import React, {useState}   from 'react';
+import React, { useState, useEffect }   from 'react';
 import { Link } from 'react-router-dom';
 
 //CSS
@@ -15,38 +15,22 @@ import ProductCheckout from '../components/cards/ProductCheckout'
 import ProfileIcon from '../images/icons/complete-profile.svg';
 
 
-export default function CheckoutAccessPage() {
+export default function CheckoutAccessPage(props) {
   document.title = "Acesse seu produto!"
 
-  const [products, setProducts] = useState([
-    {
-      id:1,
-      subscription: "mensal",
-      name: "Plataforma Elevagro",
-      discription: "Assinatura Mensal Elevagro",
-      price_original: "265,00",
-      price: "189,00",
-      discount: "35%",
-    },
-    {
-      id:2,
-      subscription: "semestral",
-      name: "Plataforma Elevagro",
-      discription: "Assinatura Semestral Elevagro com valor promocional",
-      price_original: "265,00",
-      price: "189,00",
-      discount: "35%",
-    },
-    {
-      id:2,
-      subscription: "anual",
-      name: "Plataforma Elevagro",
-      discription: "Assinatura Anual Elevagro com valor promocional",
-      price_original: "239,00",
-      price: "189,00",
-      discount: "35%",
-    },
-  ])
+  const [ productsInCart, setProductsInCart ] = useState([]);
+
+  useEffect(() => {
+    setProductsInCart(props.location.state);
+
+
+    /* Filtra o array de produtos, retornando apenas os produtos escolhidos pelo cliente
+     const productList = productsIdInCart.map(productInChart => {
+       return products.filter(product => product.id === productInChart.id)
+    })
+
+    setProductsInCart(productList); */
+  }, [])
 
   return (
     <div id='page-checkout'>     
@@ -133,7 +117,7 @@ export default function CheckoutAccessPage() {
               <h3>O seu pedido</h3>
 
               {
-                products.map((product, key) => {
+                productsInCart.map((product, key) => {
                   return <ProductCheckout key={'produto_'+key} product={product} success={true}/>
                 })
               }

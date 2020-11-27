@@ -22,9 +22,10 @@ export default function SignupAddress(props) {
   const [selectedState, setSelectedState] = useState("");
   const [cityOptions, setCityOptions] = useState([]);
 
+  console.log(props.location.state)
+
   document.title = "Elevagro | Criar Conta Premium";
 
-  console.log(props)
   const countryOptions = [
     { value: 'brazil', label: 'Brasil', imgUrl: brazilFlag },
     { value: 'spain', label: 'Spain', imgUrl: brazilFlag  },
@@ -182,7 +183,7 @@ export default function SignupAddress(props) {
               
             </section>
             
-            <ButtonDark linkTo={'/signup/checkout'} props={props} >
+            <ButtonDark linkTo={'/signup/checkout'} params={props.location.state} >
                 Próximo 
                 <img src={ArrowRight} alt="Próximo"/>
             </ButtonDark>

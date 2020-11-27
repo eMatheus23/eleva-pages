@@ -16,8 +16,6 @@ import RevealPassword from '../images/icons/reveal-password.svg';
 export default function SignupVisitor(props) {
   document.title = "Elevagro | Criar Conta Premium"
 
-  console.log(props)
-
   const [passwordType, setPasswordType] = useState('password');
 
   function handlePasswordVisibility() {
@@ -114,10 +112,10 @@ export default function SignupVisitor(props) {
                 />
               </div>
               
-
+              
             </fieldset>
             
-            <ButtonDark linkTo={'/signup/address'} params={{testetwo: 'exemplo4', ...props.location.state}}>
+            <ButtonDark linkTo={'/signup/address'} params={props.location.state}>
                 Próximo 
                 <img src={ArrowRight} alt="Próximo"/>
             </ButtonDark>
