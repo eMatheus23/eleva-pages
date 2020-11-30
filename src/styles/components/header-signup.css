@@ -1,6 +1,6 @@
 header.header-signup {
   width: 100vw;
-  height: max(6vh, 5rem);
+  height: 6vh;
 
   background: var(--color-background-secondary);
   box-shadow: 0px 3px 6px #00000029;

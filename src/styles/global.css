@@ -1,3 +1,20 @@
+/* @font-face {
+  font-family: Helvetica Neue;
+  font-weight: normal;
+  src: url('../assets/fonts/helveticaneue/HelveticaNeueThin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Helvetica Neue;
+  font-weight: bold;
+  src: url('../assets/fonts/helveticaneue/HelveticaNeueBd.ttf') format('truetype');
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -33,7 +50,7 @@ input {
 }
 
 button {
-  font-family: Montserrat, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: bold;
   color: var(--color-text-in-white);
@@ -43,7 +60,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Montserrat, Regular;
+  font-family: 'Montserrat', Regular;
 }
 
 h1 {

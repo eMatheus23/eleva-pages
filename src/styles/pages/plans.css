@@ -26,6 +26,8 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  overflow: auto;
 }
 
 #plans-page main > img {
@@ -36,7 +38,7 @@
 #plans-page main > h2 {
   color: var(--color-primary);
 
-  margin-top: 8.4rem;
+  margin-top: clamp(2.4rem, 9vh, 8.4rem);
   margin-bottom: 2.8rem;
 }
 
@@ -48,7 +50,7 @@
   align-items: center;
   justify-content: center;
 
-  margin-bottom: 6rem;
+  margin-bottom: clamp(3rem, 7vh, 6rem);
 }
 
 .plans-selector button {
@@ -99,6 +101,7 @@
 /* ----- Plans Card ----- */
 .plans-card {
   height: 42.2rem;
+  min-height: 30rem;
   width: 52rem;
 
   background-color: var(--color-text-white);
@@ -253,7 +256,8 @@
   align-items: center;
   justify-content: center;
 
-  margin-top: 4rem;
+  margin-top: min(4vh, 4rem);
+  margin-bottom: min(4vh, 4rem);
 }
 
 .other-plans a {
@@ -324,7 +328,7 @@
 
 #plans-page aside .premium-description video {
   width: 100%; 
-  margin-top: 6rem;
+  margin-top: min(6vh, 6rem);
   display: none;
 }
 
@@ -333,10 +337,12 @@
 }
 
 #plans-page aside .premium-description h2 {
-  width: 100%; 
+  width: 52rem; 
   color: var(--color-secondary);
 
-  margin-top: 7.7rem;
+  margin-top: 2.7rem;
+
+  font-weight: normal;
 }
 
 #plans-page ul {
@@ -348,7 +354,7 @@
   font-size: 2rem;
   line-height: 1.6;
 
-  margin-top: 2rem;
+  margin-top: 0.8rem;
 }
 
 #plans-page ul li {
