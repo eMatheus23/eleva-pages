@@ -13,12 +13,14 @@
   align-items: center;
   justify-content: initial;
   flex-direction: column;
+
+  overflow: auto;
 }
 
 #page-signup-address main h3 {
   font-weight: bold;
-  margin-top: 6rem;
-  margin-bottom: 2rem;
+  margin-top: min(6vh, 6rem);
+  margin-bottom: min(2vh, 2rem);
 
   color: var(--color-secondary);
 }
@@ -40,7 +42,7 @@
 
 #page-signup-address form {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 
   padding-top: 3rem;
 
@@ -93,7 +95,7 @@
   display: flex;
   flex-direction: row;
 
-  margin-bottom: 2rem;
+  margin-bottom: min(2vh, 2rem);
 }
 
 #page-signup-address form section fieldset + fieldset {
@@ -163,5 +165,17 @@
 #page-signup-address a.button-dark {
   color: var(--color-background);
 
-  margin-top: 2.4rem
+  margin-top: min(2vh, 2.4rem);
+  margin-bottom: min(5vh, 4.8rem);
+}
+
+#page-signup-address .progress-bar {
+  margin-top: min(4vh, 3.7rem);
+}
+
+@media (max-height: 778px) {
+  #page-signup-address main h3,
+  #page-signup-address .progress-bar {
+    margin-top: 2rem;
+  }
 }

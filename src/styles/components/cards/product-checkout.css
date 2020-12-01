@@ -34,6 +34,10 @@
   margin-bottom: 0.4rem;
 }
 
+.product-checkout-card .product-title.bold h2 {
+  font-weight: bold;
+}
+
 .product-checkout-card .product-title p {
   font: normal 1.8rem/2.4rem Montserrat;
 }
@@ -85,4 +89,6 @@
 
 .product-checkout-card a.button-light {
   width: 13.5rem;
+
+  margin-top: 1.8rem;
 }

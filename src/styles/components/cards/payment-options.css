@@ -1,7 +1,7 @@
 /* ----- Pagamento no cartão de crédito ----- */
 .payment-options-wrapper {
   width: 60rem;
-  height: 74.6rem;
+  /* height: 74.6rem; */
   
   display: flex;
   align-items: center;
@@ -78,11 +78,6 @@
 
 .credit-card main {
   height: 45.7rem;
-
-  display: flex;
-  align-items: initial;
-  justify-content: initial;
-  flex-direction: column;
 
   border-top: 1px solid #BFBFBF;
 
@@ -243,14 +238,14 @@
 }
 
 .payment-card-bill main {
-  height: 45.7rem;
+  height: min(52vh, 45.7rem);
 
-  display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
 
   border-top: 1px solid #BFBFBF;
+  padding: 0 3.1rem 0 4.1rem;
 
   display: none;
 
@@ -262,19 +257,19 @@
 
 .payment-card-bill main > div {
   width: 44.5rem;
-  height: 31.1rem;
 }
 
-.payment-card-bill main > div p {
+.payment-card-bill main p {
   font-size: 1.6rem;
   color: var(--color-text-base);
   line-height: 2.3rem;
 }
 
 .payment-card-bill main > div p + p {
-  margin-top: 2.3rem;
+  margin-top: min(3vh, 2.3rem);
 }
 
 .payment-card-bill .button-light {
   width: 20rem;
+  margin-bottom: 2rem;
 }

@@ -22,7 +22,7 @@
 
 #page-checkout > header a img {
   width: 16.1rem;
-  margin-left: max(16.1rem, 8.3vw)
+  margin-left: min(16.1rem, 8.3vw)
 }
 
 #page-checkout .content-wrapper {
@@ -31,8 +31,10 @@
 
   display: flex;
   flex-direction: row;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
+
+  padding-top: min(5vh, 5rem);
 }
 
 #page-checkout .content-wrapper > main {
@@ -50,7 +52,8 @@
 /* ---------------- ASIDE ---------------- */
 #page-checkout .content-wrapper > aside {
   width: 62.5rem;
-  height: 74.6rem;
+  height: 90%;
+  max-height: 74.6rem;
 
   display: flex;
   flex-direction: column;
@@ -95,8 +98,7 @@
 }
 
 .checkout-total p {
-  font: normal 2.0rem/2.4rem "Helvetica Neue";
-  font-family: Helvetica Neue, sans-serif;
+  font: normal 2.0rem/2.4rem 'Source Sans Pro', sans-serif;
 
   margin-right: 8.5rem;
 }
@@ -156,8 +158,59 @@
   cursor: pointer;
 }
 
+.anual-offer-card {
+  margin-bottom: 2rem;
+}
+
 /* Quando usado para compra bem sucedida */
 
 #page-checkout .content-wrapper aside section.checkout-cart-sucess > h3 {
   font-weight: bold;
+}
+
+@media (max-height: 840px) {
+  #page-checkout .content-wrapper {
+    padding-top: 2rem;
+  }
+
+  #page-checkout .payment-options-title,
+  #page-checkout .credit-card.active  {
+    margin-bottom: 1rem;
+  }
+
+  #page-checkout .content-wrapper aside section > h3 {
+    padding-bottom: 1rem;
+  }
+
+  #page-checkout .credit-card main {
+    height: 40.7rem;
+  }
+
+  #page-checkout .payment-card-bill main > div p + p {
+    margin-top: 1rem;
+  }
+
+  #page-checkout .product-checkout-card {
+    margin-top: 2rem;
+  }
+
+  #page-checkout .coupon-input h3 {
+    margin: 0;
+  }
+
+  /* Estilização do card de pesquisa */
+  #page-checkout .complete-profile-title {
+    margin-bottom: 1rem;
+  }
+
+  #page-checkout .complete-profile-wrapper .card-container {
+    padding: 5rem 3.1rem 2.8rem 4rem;
+  }
+}
+
+@media (max-width: 1360px) {
+  #page-checkout .content-wrapper > main {
+    margin-right: 1vw;
+  }
+
 }

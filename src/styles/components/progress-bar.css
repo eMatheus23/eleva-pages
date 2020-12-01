@@ -1,6 +1,6 @@
 
 .progress-bar {
-  margin-top: 3.7rem;
+  margin-top: min(2vh, 3rem);
 }
 
 .progress-legend {  

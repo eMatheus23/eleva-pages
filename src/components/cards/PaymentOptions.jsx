@@ -145,24 +145,22 @@ export default function PaymentOptionsCard(props) {
         </header>
 
         <main>
-          <div>
-            <p>
-              Pagamento através de boleto bancário não poderá ser parcelado.
-            </p>
-            <p>
-              Pague seu boleto dentro de 5 dias para não ultrapassar a data de
-              vencimento.
-            </p>
-            <p>
-              Você obterá acesso ao conteúdo ou curso entre 3 a 7 dias úteis
-              após o pagamento devido à compensação das instituições
-              financeiras.
-            </p>
-            <p>
-              Após gerar o seu boleto, salve ele em seu computador ou celular.{' '}
-              <br></br> Por segurança, enviaremos para o seu e-mail.
-            </p>
-          </div>
+          <p>
+            Pagamento através de boleto bancário não poderá ser parcelado.
+          </p>
+          <p>
+            Pague seu boleto dentro de 5 dias para não ultrapassar a data de
+            vencimento.
+          </p>
+          <p>
+            Você obterá acesso ao conteúdo ou curso entre 3 a 7 dias úteis
+            após o pagamento devido à compensação das instituições
+            financeiras.
+          </p>
+          <p>
+            Após gerar o seu boleto, salve ele em seu computador ou celular.{' '}
+            <br></br> Por segurança, enviaremos para o seu e-mail.
+          </p>
 
           <ToggleSwitch className='terms-and-policies'>
             Li e concordo com os

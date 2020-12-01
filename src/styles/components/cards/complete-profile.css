@@ -1,6 +1,5 @@
 .complete-profile-wrapper {
   width: 60rem;
-  height: 74.6rem;
   
   display: flex;
   align-items: center;
@@ -9,7 +8,6 @@
 
 .complete-profile-wrapper .card-container {
   width: 51.7rem;
-  height: 62.5rem;
 
   display: flex;
   align-items: initial;
@@ -36,8 +34,9 @@
 }
 
 .complete-profile-wrapper .card-container h2 {
-  font: bold 2.4rem/2.8rem Montserrat;
+  margin-bottom: 1rem;
 
+  font: bold 2.4rem/2.8rem Montserrat;
   color: var(--color-secondary);
 }
 

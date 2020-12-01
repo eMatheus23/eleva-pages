@@ -31,15 +31,16 @@
 }
 
 #plans-page main > img {
-  width: 18.3rem;
+  /* width: 18.3rem; */
+  height: min(6vh, 5.8rem);
   margin-top: 1rem;
 }
 
 #plans-page main > h2 {
   color: var(--color-primary);
 
-  margin-top: clamp(2.4rem, 9vh, 8.4rem);
-  margin-bottom: 2.8rem;
+  margin-top: min(9vh, 8.4rem);
+  margin-bottom: min(3vh, 2.8rem);
 }
 
 
@@ -92,16 +93,14 @@
   right: 4rem;
   bottom: -2rem;
 
-  font-family: Helvetica Neue, sans-serif;
   color: var(--color-text-white);
   font-size: 1.4rem;
-
 }
 
 /* ----- Plans Card ----- */
 .plans-card {
   height: 42.2rem;
-  min-height: 30rem;
+  min-height: 31rem;
   width: 52rem;
 
   background-color: var(--color-text-white);
@@ -139,7 +138,6 @@
   right: 0;
   text-align: center;
   font-size: 1.4rem;
-  font-family: Helvetica Neue, sans-serif;
   font-weight: bold;
   color: var(--color-secondary);
   transform: rotate(45deg);
@@ -206,7 +204,7 @@
   background: var(--color-secondary);
   box-shadow: 0px 3px 10px #00000029;
   color: var(--color-text-white);
-  font-family: Helvetica Neue, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: normal;
 
   display: none;
@@ -221,7 +219,7 @@
 }
 
 .plans-card button strong {
-  font-family: Helvetica Neue, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   margin-left: .6rem;
 }
 
@@ -310,8 +308,6 @@
 
 /* Descrição do plano premium */
 #plans-page aside .premium-description {
-  width: 100%;
-  height: 100%;
   margin-left: min(9.5vw, 18.3rem);
   display: none;
 
@@ -355,6 +351,7 @@
   line-height: 1.6;
 
   margin-top: 0.8rem;
+  margin-bottom: 3rem;
 }
 
 #plans-page ul li {
@@ -375,12 +372,13 @@
   display: none;
 
   flex-direction: column;
-  align-items: left;
   justify-content: initial;
 
   padding-left: min(12vw, 23.2rem);
 
-  background: var(--color-background-secondary)
+  background: var(--color-background-secondary);
+
+  overflow: auto;
 }
 
 #plans-page .login.active {
@@ -390,6 +388,7 @@
 #plans-page .login .create-account-card {
   width: 47rem;
   height: 17.7rem;
+  max-height: 16rem;
   border-radius: 1.7rem;
 
   display: flex;
@@ -397,7 +396,7 @@
   align-items: center;
   justify-content: space-evenly;
 
-  margin-top: 5rem;
+  margin-top: min(5vh, 5rem);
 
   background: var(--color-secondary);
 }
@@ -406,6 +405,12 @@
   color: var(--color-text-white);
   font-weight: normal; 
   font-size: 2.2rem;
+
+  margin: 1rem;
+}
+
+#plans-page .login .create-account-card .button-light {
+  margin: 1rem;
 }
 
 #plans-page .login .login-card {
@@ -415,9 +420,9 @@
 
   display: flex;
   flex-direction: column;
-  align-items: left;
 
-  margin-top: 6.6rem;
+  margin-top: min(7vh, 6.6rem);
+  margin-bottom: min(2vh, 2rem);
   padding: 4.2rem 4.6rem 3.3rem 4.1rem;
 
   background: var(--color-background);
@@ -470,7 +475,7 @@
 }
 
 #plans-page .login .login-card fieldset:last-of-type {
-  margin-top: 3rem;
+  margin-top: min(3vh, 3rem);
 }
 
 #plans-page .login-options,
@@ -491,19 +496,6 @@
 #plans-page .login .login-card .login-options a.button-dark {
   font-weight: bold;
 }
-
-/* #plans-page .login .login-card .login-options button {
-  width: 17.6rem;
-  height: 4.5rem;
-
-  border-radius: 2.3rem;
-  border: 0;
-
-  background: var(--color-secondary);
-  color: var(--color-text-white);
-  font-weight: bold;
-  font-size: 1.8rem;
-} */
 
 #plans-page .login .login-card fieldset > div {
   width: 37.8rem;
@@ -537,4 +529,42 @@
 #plans-page .login .login-card fieldset > div img {
   width: 1.9rem;
   margin-right: 0.5rem;
+}
+
+@media (max-height: 810px) {
+  #plans-page main > h2,
+  #plans-page .login .create-account-card,
+  #plans-page .login .login-card,
+  .other-plans {
+    margin-top: 3rem;
+  }
+}
+
+
+@media (max-height: 780px) {
+  #plans-page main > h2,
+  #plans-page .login .create-account-card,
+  #plans-page .login .login-card,
+  .other-plans {
+    margin-top: 2rem;
+  }
+
+  .plans-selector {
+    margin-bottom: 2.5rem;
+  }
+
+  #plans-page .login .login-card {
+    padding: 2.2rem 4.6rem 2.3rem 4.1rem;
+  }
+
+  #plans-page .login .login-card fieldset {
+    margin-top: 1vh;
+  }
+}
+
+@media (max-width: 1360px) {
+  #plans-page .login {
+    padding-left: 6vw;
+  }
+  
 }

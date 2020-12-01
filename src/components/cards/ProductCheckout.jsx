@@ -36,7 +36,7 @@ export default function ProductCheckout(props) {
     <div className='product-checkout-card'>
       <img src={ProductImg} alt='Plataforma Elevagro' />
 
-      <div className='product-title'>
+      <div className={`product-title ${checkoutSucess && 'bold'} `}>
         <h2>{name}</h2>
         <p>{discription}</p>
       </div>
@@ -63,7 +63,7 @@ export default function ProductCheckout(props) {
         </>
       )}
 
-      {checkoutSucess && <ButtonLight>Acessar</ButtonLight>}
+      {checkoutSucess && <ButtonLight linkTo={'/'} >Acessar</ButtonLight>}
     </div>
   );
 }
