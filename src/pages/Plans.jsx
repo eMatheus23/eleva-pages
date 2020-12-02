@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import { ButtonLight, ButtonDark, ToggleSwitch } from '../components/Buttons';
 
 // Logos
-import logoElevagro from '../images/logos/marca-elevagro-01.svg';
+import logoElevagro from '../images/logos/marca-elevagro-negativa.svg';
 import googleLogo from '../images/logos/google-logo.svg';
 import faceLogo from '../images/logos/facebook-logo.svg';
 
@@ -28,41 +28,13 @@ import barcodeIcon from '../images/icons/barcode-icon.svg';
 
 import cornerImg from '../images/corner.svg';
 
+// Data and Functions 
+import addToCart from '../functions/addPlanToCart'
+
 export default function Plans() {
   document.title = 'Escolha seu plano premium';
 
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: 'Plataforma Elevagro',
-      subscription: 'mensal',
-      discription: 'Assinatura Mensal Elevagro',
-      price_original: '265,00',
-      price: '189,00',
-      discount: '35%',
-    },
-    {
-      id: 2,
-      name: 'Plataforma Elevagro',
-      subscription: 'semestral',
-      discription: 'Assinatura Semestral Elevagro com valor promocional',
-      price_original: '265,00',
-      price: '189,00',
-      discount: '35%',
-    },
-    {
-      id: 3,
-      name: 'Plataforma Elevagro',
-      subscription: 'anual',
-      discription: 'Assinatura Anual Elevagro com valor promocional',
-      price_original: '265,00',
-      price: '239,00',
-      discount: '35%',
-    },
-  ]);
-
   const [productsInCart, setProductsInCart] = useState([]);
-
   const [selectedPlan, setSelectedPlan] = useState('semestral');
   const [loginScreenActive, setLoginScreenActive] = useState(false);
 
@@ -72,36 +44,10 @@ export default function Plans() {
     setLoginScreenActive(false);
   }
 
-  function addToCart() {
-    // Procura o plano escolhido no array e guarda em uma variável
-    const planToCart = products.filter(
-      (product) => product.subscription === selectedPlan
-    );
-
-    // Coloca o cart em uma variável temporária
-    var temporaryCart = productsInCart;
-
-    // Se o carrinho não estiver vazio
-    if (productsInCart) { 
-      // Procura o index de outros planos no cart
-      const cartIndex = temporaryCart.findIndex(
-        (product) => product.subscription !== selectedPlan
-      );
-
-      // Se for encontrado algum plano, ele é excluído do cart
-      if (cartIndex >= 0) {
-        temporaryCart.splice(cartIndex, 1);
-      }
-    }
+  function HandleAddToCart() {
+    addToCart(selectedPlan);
   
-    // Adiciona o plano escolhido ao carrinho temporário
-    temporaryCart.push(planToCart);
-
-    setProductsInCart(temporaryCart);
-
     setLoginScreenActive(true);
-
-    console.log(temporaryCart)
   }
 
   function handleCentralImg() {
@@ -183,7 +129,7 @@ export default function Plans() {
 
             <button
               type='button'
-              onClick={addToCart}
+              onClick={HandleAddToCart}
               className={!loginScreenActive ? 'active' : ''}
             >
               Contratar plano <strong>Mensal</strong>
@@ -223,7 +169,7 @@ export default function Plans() {
 
             <button
               type='button'
-              onClick={addToCart}
+              onClick={HandleAddToCart}
               className={!loginScreenActive ? 'active' : ''}
             >
               Contratar plano <strong>Semestral</strong>
@@ -262,7 +208,7 @@ export default function Plans() {
 
             <button
               type='button'
-              onClick={addToCart}
+              onClick={HandleAddToCart}
               className={!loginScreenActive ? 'active' : ''}
             >
               Contratar plano <strong>Anual</strong>
@@ -341,10 +287,7 @@ export default function Plans() {
             <div className='create-account-card animate-apper'>
               <h3>AINDA NÃO TENHO CONTA</h3>
 
-              <ButtonLight
-                linkTo='/signup/visitor'
-                params={productsInCart}
-              >
+              <ButtonLight linkTo='/signup/visitor' params={productsInCart}>
                 Criar conta
               </ButtonLight>
             </div>
@@ -379,10 +322,7 @@ export default function Plans() {
                     <a href='#'>Esqueci a senha</a>
                   </div>
 
-                  <ButtonDark 
-                    linkTo='/signup/address'
-                    params={productsInCart}
-                  >
+                  <ButtonDark linkTo='/signup/address' params={productsInCart}>
                     Acessar
                   </ButtonDark>
                 </div>

@@ -16,6 +16,7 @@ export default function ProductCheckout(props) {
   document.title = 'Elevagro | Obrigado pela compra!';
 
   const {
+    id,
     name,
     discription,
     price_original,
@@ -56,7 +57,7 @@ export default function ProductCheckout(props) {
             className='delete-button'
             src={deleteIcon}
             onClick={() => {
-              props.deleteProduct(props.product.id);
+              props.deleteProduct(id);
             }}
             alt='Excluir produto'
           />

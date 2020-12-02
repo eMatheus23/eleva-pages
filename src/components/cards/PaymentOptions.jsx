@@ -108,7 +108,7 @@ export default function PaymentOptionsCard(props) {
               </fieldset>
             </section>
 
-            <ButtonLight linkTo={props.accessPage} params={props.products}>
+            <ButtonLight linkTo={props.accessPage}>
               Realizar pagamento
             </ButtonLight>
 
@@ -145,17 +145,14 @@ export default function PaymentOptionsCard(props) {
         </header>
 
         <main>
-          <p>
-            Pagamento através de boleto bancário não poderá ser parcelado.
-          </p>
+          <p>Pagamento através de boleto bancário não poderá ser parcelado.</p>
           <p>
             Pague seu boleto dentro de 5 dias para não ultrapassar a data de
             vencimento.
           </p>
           <p>
-            Você obterá acesso ao conteúdo ou curso entre 3 a 7 dias úteis
-            após o pagamento devido à compensação das instituições
-            financeiras.
+            Você obterá acesso ao conteúdo ou curso entre 3 a 7 dias úteis após
+            o pagamento devido à compensação das instituições financeiras.
           </p>
           <p>
             Após gerar o seu boleto, salve ele em seu computador ou celular.{' '}
@@ -168,7 +165,7 @@ export default function PaymentOptionsCard(props) {
             da compra
           </ToggleSwitch>
 
-          <ButtonLight>Gerar Boleto</ButtonLight>
+          <ButtonLight linkTo={props.billPage}>Gerar Boleto</ButtonLight>
         </main>
       </div>
 

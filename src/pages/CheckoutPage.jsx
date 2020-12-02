@@ -1,111 +1,84 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 //CSS
 import '../styles/pages/checkout-page.css';
 
-import logoElevagroFooter from '../images/logos/marca-footer.svg';
+import logoElevagroFooter from '../images/logos/marca-elevagro.svg';
 
 // Components
 import AnnualOfferCard from '../components/cards/AnnualOffer';
 import ProductCheckout from '../components/cards/ProductCheckout';
 import PaymentOptionsCard from '../components/cards/PaymentOptions';
 
-export default function CheckoutPage(props) {
+// Data and functions
+import products from '../data/products';
+import addToCart from '../functions/addPlanToCart';
+
+export default function CheckoutPage() {
   document.title = 'Elevagro | Checkout';
 
   const [productsInCart, setProductsInCart] = useState([]);
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: 'Plataforma Elevagro',
-      subscription: 'mensal',
-      discription: 'Assinatura Mensal Elevagro',
-      price_original: '265,00',
-      price: '189,00',
-      discount: '35%',
-    },
-    {
-      id: 2,
-      name: 'Plataforma Elevagro',
-      subscription: 'semestral',
-      discription: 'Assinatura Semestral Elevagro com valor promocional',
-      price_original: '265,00',
-      price: '189,00',
-      discount: '35%',
-    },
-    {
-      id: 3,
-      name: 'Plataforma Elevagro',
-      subscription: 'anual',
-      discription: 'Assinatura Anual Elevagro com valor promocional',
-      price_original: '265,00',
-      price: '239,00',
-      discount: '35%',
-    },
-  ]);
-  const [chosenPlan, setChosenPlan] = useState('');
   const [offerActive, setOfferActive] = useState(false);
 
+  const history = useHistory();
+
+  // Busca os produtos no carrinho
+  const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart'));
+
   useEffect(() => {
-    setProductsInCart(props.location.state[0]);
+    // Se o carrinho estiver vazio, retorna para a homepage
+    if (!cart | (cart.length === 0)) {
+      return history.push('/');
+    }
 
-    const plan = props.location.state[0].filter(product => product.subscription )
-    
-    plan && setChosenPlan(plan[0].subscription)
+    setProductsInCart(cart[0]);
 
-    plan[0].subscription === 'semestral' && setOfferActive(true)
+    // Procura os planos premium no carrinho
+    const plan = cart[0].filter((product) => product.subscription);
+
+    // Se existir algum, ele seta na const ChosenPlan
+    plan && plan[0].subscription === 'semestral' && setOfferActive(true);
   }, []);
 
   function deleteProduct(id) {
-    setProductsInCart(
-      productsInCart.filter((product) => {
-        if (product.id === id) {
-          return false;
-        }
+    var temporaryCart = cart;
 
-        return true;
-      })
-    );
+    // Procura o index de outros planos no cart
+    const cartIndex = temporaryCart.findIndex((product) => product.id !== id);
+
+    if (cartIndex >= 0) {
+      temporaryCart.splice(cartIndex, 1);
+    }
+
+    localStorage.setItem('@elevagro-app/cart', JSON.stringify(temporaryCart));
+
+    setProductsInCart(temporaryCart);
+
+    if (!cart | (cart.length === 0)) {
+      return history.push('/');
+    }
   }
 
   function switchPlan() {
-    if (chosenPlan === 'semestral') {
-      setChosenPlan('anual')
-      renderPlan('anual')
-    } else if (chosenPlan === 'anual') {
-     setChosenPlan('semestral')
-     renderPlan('semestral')
-    }
-  }
+    const planInCart = productsInCart.filter((product) => product.subscription);
 
-  function renderPlan(plan) {
-    // Procura o plano anual no array e guarda em uma variável
-    const anual = products.filter(
-      (product) => product.subscription === plan
+    const semestral = products.filter(
+      (product) => product.subscription === 'semestral'
     );
 
-    // Coloca o cart em uma variável temporária
-    var temporaryCart = productsInCart;
+    const anual = products.filter(
+      (product) => product.subscription === 'anual'
+    );
 
-    // Se o carrinho não estiver vazio
-    if (productsInCart) {
-      // Procura o index de outros planos no cart
-      const cartIndex = temporaryCart.findIndex(
-        (product) => product.subscription !== plan
-      );
-
-      // Se for encontrado algum plano, ele é excluído do cart
-      if (cartIndex >= 0) {
-        temporaryCart.splice(cartIndex, 1);
-      }
+    // Troca o plano
+    if (planInCart[0].subscription === 'semestral') {
+      addToCart('anual');
+      setProductsInCart(anual);
+    } else if (planInCart[0].subscription === 'anual') {
+      addToCart('semestral');
+      setProductsInCart(semestral);
     }
-
-    // Adiciona o plano escolhido ao carrinho temporário
-    temporaryCart.push(anual);
-
-    // setProductsInCart(temporaryCart);
-    setProductsInCart(temporaryCart[0]);
   }
 
   return (
@@ -120,7 +93,7 @@ export default function CheckoutPage(props) {
         <main>
           <PaymentOptionsCard
             accessPage={'/checkout/access'}
-            products={productsInCart}
+            billPage={'/signup/checkout/bill'}
           />
         </main>
 
