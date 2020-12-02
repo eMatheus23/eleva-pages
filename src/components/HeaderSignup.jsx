@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import logoElevagroFooter from '../images/logos/marca-footer.svg';
+import logoElevagro from '../images/logos/marca-elevagro.svg';
 
 //CSS
 import '../styles/components/header-signup.css';
@@ -17,7 +17,7 @@ export default function HeaderSignup () {
   return (
       <header className="header-signup">
         <Link to={'/'}>
-          <img src={logoElevagroFooter} alt='Elevagro' />
+          <img src={logoElevagro} alt='Elevagro' />
         </Link>
         
         <div className="languages-selector">

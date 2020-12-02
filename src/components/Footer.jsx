@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logoElevagroFooter from '../images/logos/marca-footer.svg';
+import logoElevagro from '../images/logos/marca-elevagro.svg';
 import '../styles/components/footer.css'
 
 function Footer() {
@@ -8,7 +8,7 @@ function Footer() {
     <footer>
       <div>
         <p>© Todos os direitos reservados a</p>
-        <img src={logoElevagroFooter} alt='Elevagro' />
+        <img src={logoElevagro} alt='Elevagro' />
       </div>
 
       <div className='footer-links'>

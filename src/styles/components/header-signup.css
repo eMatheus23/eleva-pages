@@ -13,8 +13,15 @@ header.header-signup {
   position: relative;
   z-index: 99999;
 }
+
+header.header-signup a {
+  display: flex;
+  align-items: center;
+}
+
 header.header-signup a img {
-  margin-left: max(16.1rem, 8.3vw)
+  margin-left: max(16.1rem, 8.3vw);
+  height: 3.8rem;
 }
 
 header.header-signup .languages-selector {
