@@ -19,6 +19,14 @@ export function ButtonDark(props) {
   );
 }
 
+export function ButtonWhite(props) {
+  return (
+    <Link to={{pathname:props.linkTo, state:props.params}} className='button-white'>
+      {props.children}  
+    </Link>
+  );
+}
+
 export function ToggleSwitch({ children, className }) {
   return (
     <section className={className}>
