@@ -1,0 +1,61 @@
+.checkout-bill-wrapper {
+  width: 60rem;
+  /* height: 74.6rem; */
+  
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.checkout-bill-title {
+  width: 51.7rem;
+
+  margin-bottom: 2rem;
+}
+
+.checkout-bill-title > h3 {
+  font-weight: normal;
+
+  color: #535353;
+}
+
+.checkout-bill-card {
+  width: 51.7rem;
+
+  background: var(--color-secondary);
+  color: var(--color-text-white);
+  
+  border: 1px solid #BFBFBF;
+  border-radius: 1.3rem;
+  padding: 6.6rem 6.1rem 7.1rem 5.3rem;
+
+  overflow: hidden;
+}
+
+.checkout-bill-card > h3 {
+  font-size: 2.1rem;
+  font-weight: normal;
+
+  margin-bottom: 2rem;
+}
+
+.checkout-bill-card > h2 {
+  font: normal 2.9rem/2.7rem Montserrat;
+
+  margin-bottom: 2rem;
+}
+
+.checkout-bill-card > p {
+  font: normal 1.6rem/2.7rem Montserrat;
+}
+
+.checkout-bill-card a.button-light {
+  width: 23.6rem;
+
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.checkout-bill-wrapper a.button-white {
+  margin-top: 3.4rem;
+}
