@@ -5,6 +5,7 @@ import Plans from './pages/Plans';
 import SignupVisitor from './pages/SignupVisitor';
 import SignupAddress from './pages/SignupAddress';
 import CheckoutPage from './pages/CheckoutPage';
+import CheckoutBill from './pages/CheckoutBill';
 import CheckoutAccessPage from './pages/CheckoutAccessPage';
 
 function Routes() {
@@ -12,11 +13,12 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Plans} />
-        <Route path='/plans' component={Plans} />
-        <Route path='/signup/visitor' component={SignupVisitor} />
-        <Route path='/signup/address' component={SignupAddress} />
-        <Route path='/signup/checkout' component={CheckoutPage} />
-        <Route path='/checkout/access' component={CheckoutAccessPage} />
+        <Route exact path='/plans' component={Plans} />
+        <Route exact path='/signup/visitor' component={SignupVisitor} />
+        <Route exact path='/signup/address' component={SignupAddress} />
+        <Route exact path='/signup/checkout' component={CheckoutPage} />
+        <Route exact path='/signup/checkout/bill' component={CheckoutBill} />
+        <Route exact path='/checkout/access' component={CheckoutAccessPage} />
 
       </Switch>
     </BrowserRouter>
