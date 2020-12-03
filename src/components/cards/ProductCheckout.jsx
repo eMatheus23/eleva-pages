@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
 
 import '../../styles/components/cards/product-checkout.css';
-
-// Mockups
-import ProductImg from '../../images/mockups/product-checkout-mockup.png';
 
 // Icons
 import deleteIcon from '../../images/icons/delete-product-checkout.svg';
@@ -15,6 +11,12 @@ import { ButtonLight } from '../Buttons';
 export default function ProductCheckout(props) {
   document.title = 'Elevagro | Obrigado pela compra!';
 
+  const currencyFormat = {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  };
+
   const {
     id,
     name,
@@ -22,20 +24,35 @@ export default function ProductCheckout(props) {
     price_original,
     price,
     discount,
+    img,
   } = props.product;
-  const [priceArray, setPriceArray] = useState([]);
+
+  var priceArray = [];
+
   const [checkoutSucess, setCheckoutSucess] = useState(false);
 
-  useEffect(() => {
+  function handlePrice() {
     // Evita que a função execute quando o props.product estiver vazio
-    price && setPriceArray(() => price.split(','));
+    if (price) {
+      priceArray = price
+        .toLocaleString('pt-BR', currencyFormat)
+        .split('$')
+        .join(',')
+        .split(',');
+    }
+  }
 
+  handlePrice();
+
+  useEffect(() => {
     setCheckoutSucess(props.success);
   }, []);
 
+  console.log(priceArray);
+
   return (
     <div className='product-checkout-card'>
-      <img src={ProductImg} alt='Plataforma Elevagro' />
+      <img src={img.default} alt='Plataforma Elevagro' />
 
       <div className={`product-title ${checkoutSucess && 'bold'} `}>
         <h2>{name}</h2>
@@ -45,10 +62,10 @@ export default function ProductCheckout(props) {
       {!checkoutSucess && (
         <>
           <div className='product-price'>
-            <p>R$: {price_original}</p>
+            <p>{price_original.toLocaleString('pt-BR', currencyFormat)}</p>
             <h2 className='price-style'>
               <span>R$</span>
-              <strong>{priceArray[0]}</strong>,{priceArray[1]}
+              <strong>{priceArray[1]}</strong>,{priceArray[2]}
             </h2>
             <span>{discount} de desconto</span>
           </div>
@@ -64,7 +81,7 @@ export default function ProductCheckout(props) {
         </>
       )}
 
-      {checkoutSucess && <ButtonLight linkTo={'/'} >Acessar</ButtonLight>}
+      {checkoutSucess && <ButtonLight linkTo={'/'}>Acessar</ButtonLight>}
     </div>
   );
 }

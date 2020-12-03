@@ -20,6 +20,11 @@ export default function CheckoutPage() {
 
   const [productsInCart, setProductsInCart] = useState([]);
   const [offerActive, setOfferActive] = useState(false);
+  const currencyFormat = {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  };
 
   const history = useHistory();
 
@@ -81,6 +86,12 @@ export default function CheckoutPage() {
     }
   }
 
+  const cartSum = cart[0]
+    .map((product) => product.price)
+    .reduce((prev, curr) => prev + curr, 0);
+
+  console.log(cartSum)
+
   return (
     <div id='page-checkout'>
       <header>
@@ -94,6 +105,7 @@ export default function CheckoutPage() {
           <PaymentOptionsCard
             accessPage={'/checkout/access'}
             billPage={'/signup/checkout/bill'}
+            cartSum={cartSum}
           />
         </main>
 
@@ -122,7 +134,7 @@ export default function CheckoutPage() {
               <p>Total:</p>
               <h2 className='price-style helvetica'>
                 <span>R$</span>
-                <strong>189</strong>,00
+                <strong>{cartSum}</strong>,00
               </h2>
             </div>
 

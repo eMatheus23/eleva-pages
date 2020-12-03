@@ -6,6 +6,7 @@ import '../../styles/components/cards/payment-options.css';
 import cardIcon from '../../images/icons/card-icon-gray.svg';
 import barcodeIcon from '../../images/icons/barcode-icon-gray.svg';
 import Radio from '@material-ui/core/Radio';
+import Switch from '@material-ui/core/Switch';
 
 // Components
 import { ToggleSwitch, ButtonLight } from '../../components/Buttons';
@@ -13,9 +14,22 @@ import ProgressBar from '../../components/ProgressBar';
 
 export default function PaymentOptionsCard(props) {
   const [creditSelected, setCreditSelected] = React.useState('true');
+  const [state, setState] = React.useState({
+    checkedA: false,
+  });
+  const currencyFormat = {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  };
+  const cartSum = props.cartSum.toLocaleString('pt-BR', currencyFormat);
 
   const handleChange = (event) => {
     setCreditSelected(event.target.value);
+  };
+
+  const handleSwitchChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
   };
 
   return (
@@ -55,8 +69,8 @@ export default function PaymentOptionsCard(props) {
                 className='select-appearance'
                 required
               >
-                <option value='1'>1 vez de R$ 189,00</option>
-                <option value='2'>2 vezes de R$ 94,50</option>
+                <option value='1'>1 vez de {cartSum}</option>
+                <option value='2'>2 vezes de {cartSum / 2}</option>
                 <option value='3'>3 vezes de R$ 63,00</option>
                 <option value='4'>4 vezes de R$ 47,25</option>
               </select>
@@ -112,11 +126,16 @@ export default function PaymentOptionsCard(props) {
               Realizar pagamento
             </ButtonLight>
 
-            <ToggleSwitch className='terms-and-policies'>
-              Li e concordo com os
-              <a href=''>termos de uso</a>
-              da compra
-            </ToggleSwitch>
+            <div className='switch'>
+              <Switch
+                checked={state.checkedA}
+                onChange={handleSwitchChange}
+                name='checkedA'
+              />
+              <label htmlFor=''>
+                Li e concordo com os <a href=''>termos de uso</a> da compra
+              </label>
+            </div>
           </form>
         </main>
       </div>
@@ -159,11 +178,16 @@ export default function PaymentOptionsCard(props) {
             <br></br> Por segurança, enviaremos para o seu e-mail.
           </p>
 
-          <ToggleSwitch className='terms-and-policies'>
-            Li e concordo com os
-            <a href=''>termos de uso</a>
-            da compra
-          </ToggleSwitch>
+          <div className='switch'>
+            <Switch
+              checked={state.checkedA}
+              onChange={handleSwitchChange}
+              name='checkedA'
+            />
+            <label htmlFor=''>
+              Li e concordo com os <a href=''>termos de uso</a> da compra
+            </label>
+          </div>
 
           <ButtonLight linkTo={props.billPage}>Gerar Boleto</ButtonLight>
         </main>
