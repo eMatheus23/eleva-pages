@@ -208,9 +208,22 @@
   }
 }
 
+@media (max-height: 700px) {
+  #page-checkout .content-wrapper {
+    padding-top: 0.5rem;
+  }
+  #page-checkout .payment-options-header {
+    height: 5rem;
+  }
+
+  #page-checkout  .product-checkout-card {
+    padding-bottom: 1rem;
+  }
+}
+
 @media (max-width: 1360px) {
   #page-checkout .content-wrapper > main {
     margin-right: 1vw;
   }
-
 }
+

@@ -11,7 +11,7 @@
 .payment-options-title {
   width: 51.7rem;
 
-  margin-bottom: 2rem;
+  margin-bottom: min(2vh, 2rem);
 }
 
 .payment-options-title h3 {
@@ -212,12 +212,33 @@
   width: 23.6rem;
 }
 
+/* Material Switch style */
+.payment-options-wrapper .MuiSwitch-colorSecondary.Mui-checked {
+  color: #009688;
+}
+
+.payment-options-wrapper .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+  background-color: #009688;
+}
+
+.payment-options-wrapper .MuiSwitch-switchBase {
+  color: #F1F1F1;
+}
+
+.payment-options-wrapper .MuiSwitch-track {
+  opacity: 0.25;
+}
+
 .credit-card form .toggle-switch {
   margin: 0;
 }
 
-.toggle-switch a {
-  margin: 0 0.4rem;
+.switch label {
+  margin-left: -0.2rem;
+}
+
+.switch a {
+  /* margin: 0 0.4rem; */
 
   color: #2B5564;
 }
@@ -273,3 +294,4 @@
   width: 20rem;
   margin-bottom: 2rem;
 }
+

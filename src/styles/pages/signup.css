@@ -20,18 +20,23 @@
 #page-signup main h3 {
   font-weight: bold;
   margin-top: min(4vh, 6rem);
-  margin-bottom: min(1vh, 3rem);
+  margin-bottom: min(2vh, 2rem);
 
   color: var(--color-secondary);
 }
 
-@media (max-height: 850px) {
+@media (max-height: 840px) {
   #page-signup main h3 {
     margin-top: 2vh;
+    margin-bottom: 0.5vh;
+  }
+
+  #page-signup .account-creation-visit-card form > fieldset {
+    margin-bottom: 0.5vh;
   }
 
   #page-signup form {
-    padding-top: 2rem;
+    padding-top: 1.8rem;
   }
 
   #page-signup form fieldset label {
@@ -42,12 +47,31 @@
     margin: 1rem 0;
   }
 
-  #page-signup a.button-dark,
-  #page-signup .terms-and-policies {
+  #page-signup a.button-dark {
     margin-top: 1rem;
+  }
+
+  #page-signup .terms-and-policies {
+    margin-top: 0;
   }
 
   .account-creation-address-card .progress-bar {
     margin-top: 2rem;
+  }
+
+  #page-signup .account-creation-visit-card form > fieldset:last-of-type {
+    margin-top: 2vh;
+  }
+}
+
+@media (max-height: 700px) {
+  #page-signup main h3 {
+    margin-top: 1vh;
+    margin-bottom: 0.5vh;
+  }
+
+  #page-signup .progress-container {
+    margin-top: min(1vh, 1rem);
+    margin-bottom: 1rem;
   }
 }

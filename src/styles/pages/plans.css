@@ -388,7 +388,6 @@
 #plans-page .login .create-account-card {
   width: 47rem;
   height: 17.7rem;
-  max-height: 16rem;
   border-radius: 1.7rem;
 
   display: flex;
@@ -415,7 +414,7 @@
 
 #plans-page .login .login-card {
   width: 47rem;
-  height: 54.8rem;
+  max-height: 54.8rem;
   border-radius: 1.7rem;
 
   display: flex;
@@ -541,14 +540,7 @@
 }
 
 
-@media (max-height: 780px) {
-  #plans-page main > h2,
-  #plans-page .login .create-account-card,
-  #plans-page .login .login-card,
-  .other-plans {
-    margin-top: 2rem;
-  }
-
+@media (max-height: 850px) {
   .plans-selector {
     margin-bottom: 2.5rem;
   }
@@ -557,7 +549,27 @@
     padding: 2.2rem 4.6rem 2.3rem 4.1rem;
   }
 
-  #plans-page .login .login-card fieldset {
+  #plans-page main > h2,
+  #plans-page .login .create-account-card,
+  #plans-page .login .login-card,
+  #plans-page .login .login-card fieldset,
+  #plans-page .login .login-card fieldset + fieldset,
+  #plans-page .login .login-card .login-options,
+  #plans-page .login .login-card fieldset:last-of-type,
+  .other-plans {
+    margin-top: 2vh;
+  }
+}
+
+@media (max-height: 700px) {
+  #plans-page main > h2,
+  #plans-page .login .create-account-card,
+  #plans-page .login .login-card,
+  #plans-page .login .login-card fieldset,
+  #plans-page .login .login-card fieldset + fieldset,
+  #plans-page .login .login-card .login-options,
+  #plans-page .login .login-card fieldset:last-of-type,
+  .other-plans {
     margin-top: 1vh;
   }
 }
