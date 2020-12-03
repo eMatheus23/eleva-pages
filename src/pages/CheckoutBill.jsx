@@ -66,13 +66,29 @@ export default function CheckoutPage() {
               <ButtonLight>Acessar boleto</ButtonLight>
             </div>
 
-            <ButtonWhite>Pagar com cartão</ButtonWhite>
+            <ButtonWhite linkTo={'/signup/checkout'}>
+              Pagar com cartão
+            </ButtonWhite>
 
             <ProgressBar progress={2} />
           </div>
         </main>
 
-        <aside></aside>
+        <aside>
+          <div className='call-center-card'>
+            <h2>Central de atendimento</h2>
+            <p>
+              Caso tenha dúvidas ou enfrente alguma dificuldade com sua compra,
+              estamos à disposição através dos contatos por telefone ou e-mail
+              disponível. Acesse a nossa seção de contato com o cliente.
+            </p>
+
+            <div className='buttons'>
+              <ButtonWhite>Fale conosco</ButtonWhite>
+              <ButtonWhite linkTo={'/'}>Página inicial</ButtonWhite>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   );

@@ -10,24 +10,26 @@
 .checkout-bill-title {
   width: 51.7rem;
 
-  margin-bottom: 2rem;
+  margin-bottom: min(2vh, 2rem);
 }
 
 .checkout-bill-title > h3 {
   font-weight: normal;
+  line-height: 2rem;
 
   color: #535353;
 }
 
 .checkout-bill-card {
   width: 51.7rem;
+  height: min(64.2vh, 52.7rem);
 
   background: var(--color-secondary);
   color: var(--color-text-white);
   
   border: 1px solid #BFBFBF;
   border-radius: 1.3rem;
-  padding: 6.6rem 6.1rem 7.1rem 5.3rem;
+  padding: min(6.6rem, 6vh) 6rem 7.1rem 5.3rem;
 
   overflow: hidden;
 }
@@ -36,26 +38,60 @@
   font-size: 2.1rem;
   font-weight: normal;
 
-  margin-bottom: 2rem;
+  margin-bottom: min(3rem, 3vh);
 }
 
 .checkout-bill-card > h2 {
   font: normal 2.9rem/2.7rem Montserrat;
 
-  margin-bottom: 2rem;
+  margin-bottom: min(3rem, 3vh);
 }
 
 .checkout-bill-card > p {
   font: normal 1.6rem/2.7rem Montserrat;
+
+  margin-bottom: min(4rem, 4vh);
 }
 
 .checkout-bill-card a.button-light {
   width: 23.6rem;
 
   margin: 0 auto;
-  margin-top: 3rem;
 }
 
 .checkout-bill-wrapper a.button-white {
-  margin-top: 3.4rem;
+  margin-top: min(3.5vh, 3.4rem);
+}
+.checkout-bill-wrapper .progress-container {
+  margin-top: min(3.5vh, 3.4rem);
+}
+
+.call-center-card {
+  width: 62.9rem;
+  height: min(64.2vh, 52.7rem);
+
+  margin-top: calc(2rem + min(2vh, 2rem));
+  padding: min(15.1rem, 15vh) 5.8rem 16rem 6.4rem;
+  border: 1px solid #BFBFBF;
+  border-radius: 13px;
+
+}
+
+.call-center-card h2 {
+  font: bold 2.0rem/2.3rem Montserrat;
+  color: var(--color-secondary);
+
+  margin-bottom: 0.2rem;
+}
+
+.call-center-card p {
+  font: normal 1.6rem/2.3rem Montserrat;
+}
+
+.call-center-card .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 6rem;
 }
