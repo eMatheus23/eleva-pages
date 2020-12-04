@@ -25,27 +25,15 @@ export default function ProductCheckout(props) {
 
   const priceDecimals = Math.round((price % Math.floor(price)) * 100)
 
-  var priceArray = [];
   const currencyFormat = {
     style: 'currency',
     currency: 'BRL',
     minimumFractionDigits: 2,
   };
-  function handlePrice() {
-    // Evita que a função execute quando o props.product estiver vazio
-    if (price) {
-      priceArray = price
-        .toLocaleString('pt-BR', currencyFormat)
-        .split('$')
-        .join(',')
-        .split(',');
-    }
-  }
-  handlePrice();
 
   useEffect(() => {
     setCheckoutSucess(props.success);
-  }, []);
+  }, [props.success]);
 
   return (
     <div className='product-checkout-card'>

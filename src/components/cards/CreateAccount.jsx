@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+// Components
 import { ButtonDark, ToggleSwitch } from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 
@@ -61,7 +64,7 @@ export default function CreateAccountCard() {
             <fieldset>
               <label htmlFor='cpf'>
                 CPF
-                <a href='#'>Não tem CPF?</a>
+                <Link to='#'>Não tem CPF?</Link>
               </label>
 
               <input
@@ -110,7 +113,7 @@ export default function CreateAccountCard() {
 
           <ToggleSwitch className='terms-and-policies'>
             Concordo com os
-            <a href=''>termos de uso</a>e<a href=''>Política de privacidade</a>
+            <Link to='#'>termos de uso</Link>e<Link to='#'>Política de privacidade</Link>
           </ToggleSwitch>
         </form>
       </div>

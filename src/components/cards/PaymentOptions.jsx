@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../../styles/components/cards/payment-options.css';
 
@@ -78,7 +79,8 @@ export default function PaymentOptionsCard(props) {
             <h3>CARTÃO DE CRÉDITO</h3>
           </div>
           <span>
-            [Em até {cardInstallments} {cardInstallments = 1 ? 'vez' : 'vezes'}]
+            [Em até {cardInstallments}{' '}
+            {(cardInstallments = 1 ? 'vez' : 'vezes')}]
           </span>
         </header>
 
@@ -93,8 +95,7 @@ export default function PaymentOptionsCard(props) {
                 required
               >
                 {installments.map((installment, index) => (
-                  <option value={installment}>
-                    {' '}
+                  <option value={installment} key={'parcela_' + index}>
                     {index + 1}x de {installment}
                   </option>
                 ))}
@@ -158,7 +159,8 @@ export default function PaymentOptionsCard(props) {
                 name='checkedA'
               />
               <label htmlFor=''>
-                Li e concordo com os <a href=''>termos de uso</a> da compra
+                Li e concordo com os <Link href=''>termos de uso</Link> da
+                compra
               </label>
             </div>
           </form>
@@ -210,7 +212,7 @@ export default function PaymentOptionsCard(props) {
               name='checkedA'
             />
             <label htmlFor=''>
-              Li e concordo com os <a href=''>termos de uso</a> da compra
+              Li e concordo com os <Link to='#'>termos de uso</Link> da compra
             </label>
           </div>
 

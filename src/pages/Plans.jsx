@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 //CSS
 import '../styles/pages/plans.css';
@@ -34,7 +35,6 @@ import addToCart from '../functions/addPlanToCart'
 export default function Plans() {
   document.title = 'Escolha seu plano premium';
 
-  const [productsInCart, setProductsInCart] = useState([]);
   const [selectedPlan, setSelectedPlan] = useState('semestral');
   const [loginScreenActive, setLoginScreenActive] = useState(false);
 
@@ -226,8 +226,8 @@ export default function Plans() {
           <p>Você pode cancelar o plano a hora que quiser.</p>
 
           <div className='other-plans'>
-            <a href='#'>Para estudantes</a>
-            <a href='#'>Planos empresariais</a>
+            <Link to='#'>Para estudantes</Link>
+            <Link to='#'>Planos empresariais</Link>
           </div>
         </main>
 
@@ -287,7 +287,7 @@ export default function Plans() {
             <div className='create-account-card animate-apper'>
               <h3>AINDA NÃO TENHO CONTA</h3>
 
-              <ButtonLight linkTo='/signup/visitor' params={productsInCart}>
+              <ButtonLight linkTo='/signup/visitor'>
                 Criar conta
               </ButtonLight>
             </div>
@@ -319,10 +319,10 @@ export default function Plans() {
                   <div>
                     <ToggleSwitch>Salvar login</ToggleSwitch>
 
-                    <a href='#'>Esqueci a senha</a>
+                    <Link to='#'>Esqueci a senha</Link>
                   </div>
 
-                  <ButtonDark linkTo='/signup/address' params={productsInCart}>
+                  <ButtonDark linkTo='/signup/address'>
                     Acessar
                   </ButtonDark>
                 </div>

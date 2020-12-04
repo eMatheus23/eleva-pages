@@ -15,7 +15,6 @@ import countryOptions from '../../data/countries';
 
 export default function CreateAccountAddressCard() {
   const [stateOptions, setStateOptions] = useState([]);
-  const [selectedState, setSelectedState] = useState('');
   const [cityOptions, setCityOptions] = useState([]);
 
   document.title = 'Elevagro | Criar Conta Premium';
@@ -31,8 +30,6 @@ export default function CreateAccountAddressCard() {
   function handleSelectState(event) {
     const state = event.target.value;
     const cities = document.querySelector('#city');
-
-    setSelectedState(state);
 
     axios
       .get(

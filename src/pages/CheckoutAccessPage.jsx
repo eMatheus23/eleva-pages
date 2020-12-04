@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 //CSS
 import '../styles/pages/checkout-page.css';
@@ -17,20 +17,9 @@ import ProfileIcon from '../images/icons/complete-profile.svg';
 export default function CheckoutAccessPage(props) {
   document.title = 'Acesse seu produto!';
 
-  const [productsInCart, setProductsInCart] = useState([]);
-  const history = useHistory();
-
   // Busca os produtos no carrinho
   const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart'));
-
-  useEffect(() => {
-    // Se o carrinho estiver vazio, retorna para a homepage
-    if (!cart) {
-      return history.push('/');
-    }
-
-    setProductsInCart(cart[0]);
-  }, []);
+  const productsInCart = cart[0];
 
   return (
     <div id='page-checkout'>

@@ -30,12 +30,12 @@ export function ButtonWhite(props) {
 export function ToggleSwitch({ children, className }) {
   return (
     <section className={className}>
-      <label class="toggle-switch">
+      <label className="toggle-switch">
         <input 
           type="checkbox"  
           id="label-reversed-toggle-switch-input" 
         />
-        <label for="label-reversed-toggle-switch-input"></label>
+        <label htmlFor="label-reversed-toggle-switch-input"></label>
         {children}
       </label>                    
   </section>

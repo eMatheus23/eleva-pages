@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 import logoElevagro from '../images/logos/marca-elevagro.svg';
 import '../styles/components/footer.css'
@@ -12,8 +13,8 @@ function Footer() {
       </div>
 
       <div className='footer-links'>
-        <a href='#'>Ajuda</a>
-        <a href='#'>Termos de uso</a>
+        <Link to='#'>Ajuda</Link>
+        <Link to='#'>Termos de uso</Link>
       </div>
   </footer>
   )
