@@ -163,9 +163,27 @@
 }
 
 /* Quando usado para compra bem sucedida */
-
-#page-checkout .content-wrapper aside section.checkout-cart-sucess > h3 {
+section.checkout-cart-success > h3 {
   font-weight: bold;
+}
+
+section.checkout-premium-success {
+  width: 100%;
+
+  margin: auto 0;
+}
+
+section.checkout-premium-success h2 {
+  font: normal 2.4rem/2.8rem Montserrat;
+  color: var(--color-secondary);
+
+  margin-bottom: 1rem;
+}
+
+section.checkout-premium-success p {
+  font: normal 1.8rem/2.8rem Montserrat;
+
+  margin-bottom: 3rem;
 }
 
 @media (max-height: 840px) {
@@ -212,13 +230,31 @@
   #page-checkout .content-wrapper {
     padding-top: 0.5rem;
   }
+
   #page-checkout .payment-options-header {
     height: 5rem;
+  }
+
+  #page-checkout .complete-profile-wrapper .card-container {
+    padding: 4rem 3.1rem 1.8rem 4rem;
   }
 
   #page-checkout  .product-checkout-card {
     padding-bottom: 1rem;
   }
+
+  #page-checkout .complete-profile-wrapper .progress-bar {
+    margin-top: 0;
+  }
+
+  #page-checkout .complete-profile-wrapper .button-dark {
+    margin-top: 0;
+  }
+
+  #page-checkout .complete-profile-wrapper form .select-appearance {
+    margin-bottom: 1.5rem;
+  }
+
 }
 
 @media (max-width: 1360px) {

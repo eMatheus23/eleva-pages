@@ -117,7 +117,7 @@ export default function CheckoutAccessPage(props) {
         </main>
 
         <aside>
-          <section className='checkout-cart-sucess'>
+          <section className='checkout-cart-success'>
             <h3>O seu pedido</h3>
 
             {productsInCart.map((product, key) => {
@@ -129,6 +129,21 @@ export default function CheckoutAccessPage(props) {
                 />
               );
             })}
+          </section>
+
+          <section className='checkout-premium-success'>
+            <h2>MARCOS, SEJA BEM-VINDO(A).</h2>
+            <p>
+              Queremos que você aprenda muito com nossos conteúdos e cursos.
+              Trabalhamos para a capacitação constante do profissional do
+              agronegócio.
+            </p>
+            <p>
+              Para qualquer dúvida ou sugestão, por favor, entre em contato com
+              a gente. 
+            </p>
+
+            <p><strong>Esperamos que sua experiência seja ótima.</strong></p>
           </section>
         </aside>
       </div>
