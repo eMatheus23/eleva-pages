@@ -11,11 +11,7 @@ import { ButtonLight } from '../Buttons';
 export default function ProductCheckout(props) {
   document.title = 'Elevagro | Obrigado pela compra!';
 
-  const currencyFormat = {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  };
+  const [checkoutSucess, setCheckoutSucess] = useState(false);
 
   const {
     id,
@@ -27,10 +23,14 @@ export default function ProductCheckout(props) {
     img,
   } = props.product;
 
+  const priceDecimals = Math.round((price % Math.floor(price)) * 100)
+
   var priceArray = [];
-
-  const [checkoutSucess, setCheckoutSucess] = useState(false);
-
+  const currencyFormat = {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  };
   function handlePrice() {
     // Evita que a função execute quando o props.product estiver vazio
     if (price) {
@@ -41,14 +41,11 @@ export default function ProductCheckout(props) {
         .split(',');
     }
   }
-
   handlePrice();
 
   useEffect(() => {
     setCheckoutSucess(props.success);
   }, []);
-
-  console.log(priceArray);
 
   return (
     <div className='product-checkout-card'>
@@ -65,7 +62,8 @@ export default function ProductCheckout(props) {
             <p>{price_original.toLocaleString('pt-BR', currencyFormat)}</p>
             <h2 className='price-style'>
               <span>R$</span>
-              <strong>{priceArray[1]}</strong>,{priceArray[2]}
+              <strong>{Math.floor(price)}</strong>,
+              {priceDecimals}
             </h2>
             <span>{discount} de desconto</span>
           </div>
