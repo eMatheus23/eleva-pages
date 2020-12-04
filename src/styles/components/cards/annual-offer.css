@@ -14,7 +14,6 @@
   display: flex;
 }
 
-
 .anual-offer-card .semestral-view > span {
   font: normal 1.8rem/2.4rem Montserrat;
   color: #656565;
@@ -35,10 +34,9 @@
   overflow: hidden;
 }
 
-.anual-offer-card aside, 
+.anual-offer-card aside,
 .anual-offer-card main {
   width: 50%;
-  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -134,4 +132,57 @@
 
   margin-bottom: 6rem;
   margin-right: 0.5rem;
+}
+
+@media (max-height: 800px) {
+  .anual-offer-card .card-wrapper {
+    width: 40.7rem;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .anual-offer-card aside,
+  .anual-offer-card main {
+    width: 100%;
+  }
+
+  .anual-offer-card aside {
+    padding: 1.5rem 2.2rem 0 2.1rem;
+    background: var(--color-background-secondary);
+  }
+
+  .anual-offer-card aside h3 {
+    text-align: left;
+  }
+
+  .anual-offer-card aside img {
+    display: none;
+  }
+
+  .anual-offer-card main {
+    padding: 1rem 2rem 1.5rem 1.9rem;
+
+    display: block;
+  }
+
+  .anual-offer-card main h3 {
+    float: left;
+
+    font: bold 1.8rem/1.6rem Montserrat;
+  }
+
+  .anual-offer-card main p,
+  .anual-offer-card main h2,
+  .anual-offer-card button {
+    float: right;
+  }
+
+  .anual-offer-card main h2 {
+    margin-bottom: 1vh;
+  }
+
+  .anual-offer-card .semestral-view > p {
+    margin-top: 1vh;
+  }
 }
