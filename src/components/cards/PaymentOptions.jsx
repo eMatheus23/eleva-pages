@@ -9,11 +9,12 @@ import Radio from '@material-ui/core/Radio';
 import Switch from '@material-ui/core/Switch';
 
 // Components
-import { ToggleSwitch, ButtonLight } from '../../components/Buttons';
+import { ButtonLight } from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 
 export default function PaymentOptionsCard(props) {
   const [creditSelected, setCreditSelected] = React.useState('true');
+
   const [state, setState] = React.useState({
     checkedA: false,
   });
@@ -22,7 +23,27 @@ export default function PaymentOptionsCard(props) {
     currency: 'BRL',
     minimumFractionDigits: 2,
   };
-  const cartSum = props.cartSum.toLocaleString('pt-BR', currencyFormat);
+
+  const cartSum = props.cartSum;
+
+  var installments = [];
+  var cardInstallments = 0;
+
+  function handleInstallments() {
+    if (cartSum > 150) {
+      cardInstallments = 10;
+    } else {
+      cardInstallments = 1;
+    }
+
+    for (let i = 0; i < cardInstallments; i++) {
+      let installment = cartSum / (i + 1);
+
+      installments.push(installment.toLocaleString('pt-BR', currencyFormat));
+    }
+  }
+
+  handleInstallments();
 
   const handleChange = (event) => {
     setCreditSelected(event.target.value);
@@ -56,7 +77,9 @@ export default function PaymentOptionsCard(props) {
 
             <h3>CARTÃO DE CRÉDITO</h3>
           </div>
-          <span>[Em até 10 vezes]</span>
+          <span>
+            [Em até {cardInstallments} {cardInstallments = 1 ? 'vez' : 'vezes'}]
+          </span>
         </header>
 
         <main>
@@ -69,10 +92,12 @@ export default function PaymentOptionsCard(props) {
                 className='select-appearance'
                 required
               >
-                <option value='1'>1 vez de {cartSum}</option>
-                <option value='2'>2 vezes de {cartSum / 2}</option>
-                <option value='3'>3 vezes de R$ 63,00</option>
-                <option value='4'>4 vezes de R$ 47,25</option>
+                {installments.map((installment, index) => (
+                  <option value={installment}>
+                    {' '}
+                    {index + 1}x de {installment}
+                  </option>
+                ))}
               </select>
             </fieldset>
 
