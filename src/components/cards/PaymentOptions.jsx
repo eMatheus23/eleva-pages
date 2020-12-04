@@ -13,17 +13,14 @@ import Switch from '@material-ui/core/Switch';
 import { ButtonLight } from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 
+import currencyFormat from '../../data/currency-format'
+
 export default function PaymentOptionsCard(props) {
   const [creditSelected, setCreditSelected] = React.useState('true');
 
   const [state, setState] = React.useState({
     checkedA: false,
   });
-  const currencyFormat = {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  };
 
   const cartSum = props.cartSum;
 

@@ -14,6 +14,7 @@ import PaymentOptionsCard from '../components/cards/PaymentOptions';
 // Data and functions
 import products from '../data/products';
 import addToCart from '../functions/addPlanToCart';
+import currencyFormat from '../data/currency-format';
 
 export default function CheckoutPage() {
   document.title = 'Elevagro | Checkout';
@@ -21,17 +22,13 @@ export default function CheckoutPage() {
   const history = useHistory();
   const [productsInCart, setProductsInCart] = useState([]);
   const [offerActive, setOfferActive] = useState(false);
-  const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart'));   // Busca os produtos no carrinho
-  
+  const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart')); // Busca os produtos no carrinho
+
   const cartSum = cart[0]
     .map((product) => product.price)
     .reduce((prev, curr) => prev + curr, 0);
 
-  const discountSum = cart[0]
-    .map((product) => product.discount)
-    .reduce((prev, curr) => prev + curr, 0);
-  
-  const cartSumDecimals = Math.round((cartSum % Math.floor(cartSum)) * 100)
+  const cartSumDecimals = Math.round((cartSum % Math.floor(cartSum)) * 100);
 
   useEffect(() => {
     // Se o carrinho estiver vazio, retorna para a homepage
@@ -120,10 +117,24 @@ export default function CheckoutPage() {
             })}
 
             <div className='checkout-discounts'>
-              <h2>SEUS DESCONTOS</h2>
-              <h3>
-                PREMIUM SEMESTRAL: - <span>R$ 68.00</span>
-              </h3>
+              {productsInCart.map((product) => {
+                if (product.discount && product.subscription) {
+                  return (
+                    <>
+                      <h2>SEUS DESCONTOS</h2>
+                      <h3>
+                        PREMIUM {product.subscription.toUpperCase()}: -
+                        <span>
+                          {(
+                            product.price_original - product.price
+                          ).toLocaleString('pt-BR', currencyFormat)}
+                        </span>
+                      </h3>
+                    </>
+                  );
+                }
+                return <></>;
+              })}
             </div>
 
             <div className='checkout-total'>
@@ -131,7 +142,12 @@ export default function CheckoutPage() {
               <h2 className='price-style helvetica'>
                 <span>R$</span>
                 <strong>{Math.floor(cartSum)}</strong>,
-                {cartSumDecimals}
+                {cartSumDecimals
+                  .toLocaleString('pt-BR', {
+                    maximumFractionDigits: 2,
+                    minimumFractionDigits: 2,
+                  })
+                  .slice(-2)}
               </h2>
             </div>
 

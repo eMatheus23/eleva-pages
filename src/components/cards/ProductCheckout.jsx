@@ -8,6 +8,8 @@ import deleteIcon from '../../images/icons/delete-product-checkout.svg';
 // Components
 import { ButtonLight } from '../Buttons';
 
+import currencyFormat from '../../data/currency-format'
+
 export default function ProductCheckout(props) {
   document.title = 'Elevagro | Obrigado pela compra!';
 
@@ -24,12 +26,6 @@ export default function ProductCheckout(props) {
   } = props.product;
 
   const priceDecimals = Math.round((price % Math.floor(price)) * 100)
-
-  const currencyFormat = {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  };
 
   useEffect(() => {
     setCheckoutSucess(props.success);
@@ -51,9 +47,12 @@ export default function ProductCheckout(props) {
             <h2 className='price-style'>
               <span>R$</span>
               <strong>{Math.floor(price)}</strong>,
-              {priceDecimals}
+              {priceDecimals.toLocaleString('pt-BR', {
+                  maximumFractionDigits: 2,
+                  minimumFractionDigits: 2,
+                }).slice(-2)}
             </h2>
-            <span>{discount} de desconto</span>
+            <span>{discount}% de desconto</span>
           </div>
 
           <img
