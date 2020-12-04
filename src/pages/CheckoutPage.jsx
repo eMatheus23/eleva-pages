@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import CurrencyFormat from 'react-currency-format';
 
 //CSS
 import '../styles/pages/checkout-page.css';
@@ -18,18 +19,20 @@ import addToCart from '../functions/addPlanToCart';
 export default function CheckoutPage() {
   document.title = 'Elevagro | Checkout';
 
+  const history = useHistory();
   const [productsInCart, setProductsInCart] = useState([]);
   const [offerActive, setOfferActive] = useState(false);
-  const currencyFormat = {
-    style: 'currency',
-    currency: 'BRL',
-    minimumFractionDigits: 2,
-  };
+  const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart'));   // Busca os produtos no carrinho
+  
+  const cartSum = cart[0]
+    .map((product) => product.price)
+    .reduce((prev, curr) => prev + curr, 0);
 
-  const history = useHistory();
-
-  // Busca os produtos no carrinho
-  const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart'));
+  const discountSum = cart[0]
+    .map((product) => product.discount)
+    .reduce((prev, curr) => prev + curr, 0);
+  
+  const cartSumDecimals = Math.round((cartSum % Math.floor(cartSum)) * 100)
 
   useEffect(() => {
     // Se o carrinho estiver vazio, retorna para a homepage
@@ -86,12 +89,6 @@ export default function CheckoutPage() {
     }
   }
 
-  const cartSum = cart[0]
-    .map((product) => product.price)
-    .reduce((prev, curr) => prev + curr, 0);
-
-  console.log(cartSum)
-
   return (
     <div id='page-checkout'>
       <header>
@@ -134,7 +131,8 @@ export default function CheckoutPage() {
               <p>Total:</p>
               <h2 className='price-style helvetica'>
                 <span>R$</span>
-                <strong>{cartSum}</strong>,00
+                <strong>{Math.floor(cartSum)}</strong>,
+                {cartSumDecimals}
               </h2>
             </div>
 
