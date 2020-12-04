@@ -9,7 +9,9 @@ import ProgressBar from '../../components/ProgressBar';
 import ArrowRight from '../../images/icons/arrow-right.svg';
 
 // CSS
-import '../../styles/components/cards/create-account-address.css'
+import '../../styles/components/cards/create-account-address.css';
+
+import countryOptions from '../../data/countries';
 
 export default function CreateAccountAddressCard() {
   const [stateOptions, setStateOptions] = useState([]);
@@ -17,12 +19,6 @@ export default function CreateAccountAddressCard() {
   const [cityOptions, setCityOptions] = useState([]);
 
   document.title = 'Elevagro | Criar Conta Premium';
-
-  const countryOptions = [
-    { value: 'brazil', label: 'Brasil' },
-    { value: 'spain', label: 'Spain' },
-    { value: 'usa', label: 'USA' },
-  ];
 
   useEffect(() => {
     axios
@@ -75,8 +71,13 @@ export default function CreateAccountAddressCard() {
                 className='select-appearance'
                 required
               >
-                {countryOptions.map((country) => (
-                  <option value={country.value}>{country.label}</option>
+                {countryOptions.map((country, key) => (
+                  <option
+                    key={key}
+                    value={country.value}
+                  >
+                    {country.label}
+                  </option>
                 ))}
               </select>
             </fieldset>
