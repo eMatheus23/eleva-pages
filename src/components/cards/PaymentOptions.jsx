@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import '../../styles/components/cards/payment-options.css';
 
@@ -15,14 +15,12 @@ import ProgressBar from '../../components/ProgressBar';
 
 import currencyFormat from '../../data/currency-format'
 
-export default function PaymentOptionsCard(props) {
+export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
   const [creditSelected, setCreditSelected] = React.useState('true');
-
   const [state, setState] = React.useState({
     checkedA: false,
   });
-
-  const cartSum = props.cartSum;
+  const history = useHistory();
 
   var installments = [];
   var cardInstallments = 0;
@@ -50,6 +48,21 @@ export default function PaymentOptionsCard(props) {
   const handleSwitchChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
+
+  const handlePurchase = () => {
+    console.log('Cheguei')
+
+    // Busca os produtos no carrinho do localStorage
+    const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart')); 
+
+    // Exclui o carrinho do localStorage
+    localStorage.setItem('@elevagro-app/cart', JSON.stringify([]));
+
+    // Envia as compras para outra sessão do localStorage
+    localStorage.setItem('@elevagro-app/purchases', JSON.stringify(cart));
+
+    history.push('/checkout/access')
+  }
 
   return (
     <div className='payment-options-wrapper'>
@@ -145,7 +158,7 @@ export default function PaymentOptionsCard(props) {
               </fieldset>
             </section>
 
-            <ButtonLight linkTo={props.accessPage}>
+            <ButtonLight onClick={handlePurchase}>
               Realizar pagamento
             </ButtonLight>
 
@@ -213,7 +226,7 @@ export default function PaymentOptionsCard(props) {
             </label>
           </div>
 
-          <ButtonLight linkTo={props.billPage}>Gerar Boleto</ButtonLight>
+          <ButtonLight linkTo={billPage}>Gerar Boleto</ButtonLight>
         </main>
       </div>
 

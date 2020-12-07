@@ -3,26 +3,26 @@ import { Link } from 'react-router-dom';
 
 import '../styles/components/buttons.css'
 
-export function ButtonLight(props) {
+export function ButtonLight({linkTo, onClick, children}) {
   return (
-    <Link to={{pathname:props.linkTo, state:props.params}} className='button-light'>
-      {props.children}  
+    <Link to={linkTo} className='button-light' onClick={onClick}>
+      {children}  
     </Link>
   );
 }
 
-export function ButtonDark(props) {
+export function ButtonDark({linkTo, onClick, children}) {
   return (
-    <Link to={{pathname:props.linkTo, state:props.params}} className='button-dark'>
-      {props.children}  
+    <Link to={linkTo} className='button-dark' onClick={onClick}>
+      {children}  
     </Link>
   );
 }
 
-export function ButtonWhite(props) {
+export function ButtonWhite({linkTo, onClick, children}) {
   return (
-    <Link to={{pathname:props.linkTo, state:props.params}} className='button-white'>
-      {props.children}  
+    <Link to={linkTo} className='button-white' onClick={onClick}>
+      {children}  
     </Link>
   );
 }

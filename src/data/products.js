@@ -1,6 +1,7 @@
 const products = [
   {
     id: 1,
+    type: 'premium-subscription',
     name: 'Plataforma Elevagro',
     subscription: 'mensal',
     discription: 'Assinatura Mensal Elevagro',
@@ -11,6 +12,7 @@ const products = [
   },
   {
     id: 2,
+    type: 'premium-subscription',
     name: 'Plataforma Elevagro',
     subscription: 'semestral',
     discription: 'Assinatura Semestral Elevagro com valor promocional',
@@ -21,6 +23,7 @@ const products = [
   },
   {
     id: 3,
+    type: 'premium-subscription',
     name: 'Plataforma Elevagro',
     subscription: 'anual',
     discription: 'Assinatura Anual Elevagro com valor promocional',
@@ -29,6 +32,13 @@ const products = [
     discount: 10,
     img: require('../images/mockups/product-checkout-mockup3.png'),
   },
+  {
+    id: 4,
+    type: 'coupon',
+    code: 'COUPON34',
+    name: 'Voucher',
+    price: -34.00,
+  }
 ];
 
 export default products

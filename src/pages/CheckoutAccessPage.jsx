@@ -14,12 +14,16 @@ import ProductCheckout from '../components/cards/ProductCheckout';
 
 import ProfileIcon from '../images/icons/complete-profile.svg';
 
-export default function CheckoutAccessPage(props) {
+import { professions, formations } from '../data/research-options';
+
+export default function CheckoutAccessPage() {
   document.title = 'Acesse seu produto!';
 
   // Busca os produtos no carrinho
-  const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart'));
-  const productsInCart = cart[0];
+  const purchases = JSON.parse(localStorage.getItem('@elevagro-app/purchases'));
+  const productsInCart = purchases;
+
+  console.log(purchases);
 
   return (
     <div id='page-checkout'>
@@ -52,7 +56,9 @@ export default function CheckoutAccessPage(props) {
                     className='select-appearance'
                     required
                   >
-                    <option value='soja'>Selecione aqui</option>
+                    <option value='soja' disabled>
+                      Selecione aqui
+                    </option>
                     <option value='soja'>Soja</option>
                     <option value='milho'>Milho</option>
                     <option value='trigo'>Trigo</option>
@@ -70,7 +76,9 @@ export default function CheckoutAccessPage(props) {
                     className='select-appearance'
                     required
                   >
-                    <option value='soja'>Selecione aqui</option>
+                    <option value='soja' disabled>
+                      Selecione aqui
+                    </option>
                     <option value='fitopatologia1'>Fitopatologia</option>
                     <option value='fitopatologia12'>Fitopatologia</option>
                     <option value='fitopatologia13'>Fitopatologia</option>
@@ -86,11 +94,14 @@ export default function CheckoutAccessPage(props) {
                     className='select-appearance'
                     required
                   >
-                    <option value='soja'>Selecione aqui</option>
-                    <option value='1'>Profissão 01</option>
-                    <option value='2'>Profissão 02</option>
-                    <option value='3'>Profissão 03</option>
-                    <option value='4'>...</option>
+                    <option value='soja' disabled>
+                      Selecione aqui
+                    </option>
+                    {professions.map((profession, key) => (
+                      <option key={key} value={profession.value}>
+                        {profession.label}
+                      </option>
+                    ))}
                   </select>
                 </fieldset>
 
@@ -110,13 +121,16 @@ export default function CheckoutAccessPage(props) {
             <h3>O seu pedido</h3>
 
             {productsInCart.map((product, key) => {
-              return (
-                <ProductCheckout
-                  key={'produto_' + key}
-                  product={product}
-                  success={true}
-                />
-              );
+              if (product.type !== 'coupon') {
+                return (
+                  <ProductCheckout
+                    key={'produto_' + key}
+                    product={product}
+                    success={true}
+                  />
+                );
+              }
+              return false;
             })}
           </section>
 
@@ -129,10 +143,12 @@ export default function CheckoutAccessPage(props) {
             </p>
             <p>
               Para qualquer dúvida ou sugestão, por favor, entre em contato com
-              a gente. 
+              a gente.
             </p>
 
-            <p><strong>Esperamos que sua experiência seja ótima.</strong></p>
+            <p>
+              <strong>Esperamos que sua experiência seja ótima.</strong>
+            </p>
           </section>
         </aside>
       </div>

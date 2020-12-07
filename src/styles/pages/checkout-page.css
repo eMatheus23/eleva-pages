@@ -224,6 +224,11 @@ section.checkout-premium-success p {
   #page-checkout .complete-profile-wrapper .card-container {
     padding: 5rem 3.1rem 2.8rem 4rem;
   }
+
+  #page-checkout .progress-container {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+  }
 }
 
 @media (max-height: 700px) {

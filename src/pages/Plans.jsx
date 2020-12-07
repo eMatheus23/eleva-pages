@@ -29,8 +29,9 @@ import barcodeIcon from '../images/icons/barcode-icon.svg';
 
 import cornerImg from '../images/corner.svg';
 
-// Data and Functions 
-import addToCart from '../functions/addPlanToCart'
+// Data and Functions
+import products from '../data/products';
+import addToCart from '../functions/addToCart';
 
 export default function Plans() {
   document.title = 'Escolha seu plano premium';
@@ -45,8 +46,15 @@ export default function Plans() {
   }
 
   function HandleAddToCart() {
-    addToCart(selectedPlan);
-  
+    const productId = products.filter((product) => {
+      if (product.subscription === selectedPlan) {
+        return product.id;
+      }
+      return false;
+    });
+
+    addToCart(productId[0].id);
+
     setLoginScreenActive(true);
   }
 
@@ -287,9 +295,7 @@ export default function Plans() {
             <div className='create-account-card animate-apper'>
               <h3>AINDA NÃO TENHO CONTA</h3>
 
-              <ButtonLight linkTo='/signup/visitor'>
-                Criar conta
-              </ButtonLight>
+              <ButtonLight linkTo='/signup/visitor'>Criar conta</ButtonLight>
             </div>
 
             <div className='login-card animate-apper'>
@@ -322,9 +328,7 @@ export default function Plans() {
                     <Link to='#'>Esqueci a senha</Link>
                   </div>
 
-                  <ButtonDark linkTo='/signup/address'>
-                    Acessar
-                  </ButtonDark>
+                  <ButtonDark linkTo='/signup/address'>Acessar</ButtonDark>
                 </div>
 
                 <fieldset>
