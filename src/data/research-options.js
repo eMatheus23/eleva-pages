@@ -1,3 +1,37 @@
+export const cultures = [
+  {
+    value: 'fitopatologia',
+    label: 'Fitopatologia',
+  },
+  {
+    value: 'fitopatologia',
+    label: 'Fitopatologia',
+  },
+  {
+    value: 'fitopatologia',
+    label: 'Fitopatologia',
+  },
+  {
+    value: 'fitopatologia',
+    label: 'Fitopatologia',
+  },
+]
+
+export const areas = [
+  {
+    value: 'area1',
+    label: 'Area 01',
+  },
+  {
+    value: 'area2',
+    label: 'Area 02',
+  },
+  {
+    value: 'area3',
+    label: 'Area 03',
+  },
+]
+
 export const professions = [
   {
     value: 'produtor',
