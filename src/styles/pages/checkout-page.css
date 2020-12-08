@@ -186,6 +186,13 @@ section.checkout-premium-success p {
   margin-bottom: 3rem;
 }
 
+@media (max-height: 900px) {
+  /* Estilização do card de pesquisa */
+  #page-checkout .complete-profile-wrapper .card-container {
+    height: 75vh;
+  }
+}
+
 @media (max-height: 840px) {
   #page-checkout .content-wrapper {
     padding-top: 2rem;
@@ -221,13 +228,26 @@ section.checkout-premium-success p {
     margin-bottom: 1rem;
   }
 
+  #page-checkout .complete-profile-wrapper .select-appearance,
+  #page-checkout .complete-profile-wrapper .input-container-research {
+    margin-bottom: 1vh;
+  }
+
   #page-checkout .complete-profile-wrapper .card-container {
-    padding: 5rem 3.1rem 2.8rem 4rem;
+    padding: 3rem 3.1rem 2.8rem 4rem;
+  }
+
+  #page-checkout .complete-profile-wrapper form fieldset label {
+    margin-bottom: 0.5vh;
   }
 
   #page-checkout .progress-container {
     margin-top: 1vh;
     margin-bottom: 2vh;
+  }
+
+  #page-checkout .complete-profile-wrapper .button-dark {
+    margin-top: 1vh;
   }
 }
 
@@ -241,25 +261,26 @@ section.checkout-premium-success p {
   }
 
   #page-checkout .complete-profile-wrapper .card-container {
-    padding: 4rem 3.1rem 1.8rem 4rem;
+    padding: 1.5rem 3.1rem 1.8rem 4rem;
   }
 
-  #page-checkout  .product-checkout-card {
-    padding-bottom: 1rem;
+  #page-checkout .complete-profile-wrapper .card-container h2,
+  #page-checkout .complete-profile-wrapper .card-container p {
+    margin-bottom: 1vh;
+  }
+
+  #page-checkout .complete-profile-wrapper form .select-appearance,
+  #page-checkout .input-container-research {
+    height: 4.5rem;
   }
 
   #page-checkout .complete-profile-wrapper .progress-bar {
     margin-top: 0;
   }
 
-  #page-checkout .complete-profile-wrapper .button-dark {
-    margin-top: 0;
+  #page-checkout  .product-checkout-card {
+    padding-bottom: 1rem;
   }
-
-  #page-checkout .complete-profile-wrapper form .select-appearance {
-    margin-bottom: 1.5rem;
-  }
-
 }
 
 @media (max-width: 1360px) {

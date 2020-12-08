@@ -10,11 +10,17 @@ import logoElevagroFooter from '../images/logos/marca-elevagro.svg';
 // Components
 import ProgressBar from '../components/ProgressBar';
 import { ButtonDark } from '../components/Buttons';
+import OptionsGenerator from '../components/SelectorOptionsGenerator';
 import ProductCheckout from '../components/cards/ProductCheckout';
 
 import ProfileIcon from '../images/icons/complete-profile.svg';
 
-import { professions, formations } from '../data/research-options';
+import {
+  professions,
+  formations,
+  cultures,
+  areas,
+} from '../data/research-options';
 
 export default function CheckoutAccessPage() {
   document.title = 'Acesse seu produto!';
@@ -23,7 +29,30 @@ export default function CheckoutAccessPage() {
   const purchases = JSON.parse(localStorage.getItem('@elevagro-app/purchases'));
   const productsInCart = purchases;
 
-  console.log(purchases);
+  function handleSelectChange(event) {
+    const select = event.target;
+    const input = event.target.nextSibling;
+
+    console.log(input);
+
+    if (select.value === 'outro') {
+      select.style.display = 'none';
+      input.style.display = 'flex';
+    }
+  }
+
+  function handleInputCancel(event) {
+    const inputContainer = event.target.parentNode;
+    const input = event.target.parentNode.firstChild;
+    const select = event.target.parentNode.previousSibling;
+
+    console.log(event);
+
+    inputContainer.style.display = 'none';
+    input.value = '';
+    select.style.display = 'flex';
+    select.value = 0;
+  }
 
   return (
     <div id='page-checkout'>
@@ -54,15 +83,13 @@ export default function CheckoutAccessPage() {
                     name='user-prefered-culture'
                     id='user-prefered-culture'
                     className='select-appearance'
+                    defaultValue={0}
                     required
                   >
-                    <option value='soja' disabled>
+                    <option value={0} disabled>
                       Selecione aqui
                     </option>
-                    <option value='soja'>Soja</option>
-                    <option value='milho'>Milho</option>
-                    <option value='trigo'>Trigo</option>
-                    <option value='...'>...</option>
+                    <OptionsGenerator array={cultures} />
                   </select>
                 </fieldset>
 
@@ -74,15 +101,13 @@ export default function CheckoutAccessPage() {
                     name='user-prefered-area'
                     id='user-prefered-area'
                     className='select-appearance'
+                    defaultValue={0}
                     required
                   >
-                    <option value='soja' disabled>
+                    <option value={0} disabled>
                       Selecione aqui
                     </option>
-                    <option value='fitopatologia1'>Fitopatologia</option>
-                    <option value='fitopatologia12'>Fitopatologia</option>
-                    <option value='fitopatologia13'>Fitopatologia</option>
-                    <option value='...'>...</option>
+                    <OptionsGenerator array={areas} />
                   </select>
                 </fieldset>
 
@@ -92,17 +117,46 @@ export default function CheckoutAccessPage() {
                     name='user-profession'
                     id='user-profession'
                     className='select-appearance'
+                    onChange={handleSelectChange}
+                    defaultValue={0}
                     required
                   >
-                    <option value='soja' disabled>
+                    <option value={0} disabled>
                       Selecione aqui
                     </option>
-                    {professions.map((profession, key) => (
-                      <option key={key} value={profession.value}>
-                        {profession.label}
-                      </option>
-                    ))}
+                    <OptionsGenerator array={professions} />
                   </select>
+
+                  <div className='input-container-research'>
+                    <input type='text' placeholder='Digite aqui' />
+                    <button type='button' onClick={handleInputCancel}>
+                      Cancelar
+                    </button>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <label htmlFor='user-formation'>Formação</label>
+                  <select
+                    name='user-formation'
+                    id='user-formation'
+                    className='select-appearance'
+                    onChange={handleSelectChange}
+                    defaultValue={0}
+                    required
+                  >
+                    <option value={0} disabled>
+                      Selecione aqui
+                    </option>
+                    <OptionsGenerator array={formations} />
+                  </select>
+
+                  <div className='input-container-research'>
+                    <input type='text' placeholder='Digite aqui' />
+                    <button type='button' onClick={handleInputCancel}>
+                      Cancelar
+                    </button>
+                  </div>
                 </fieldset>
 
                 <ButtonDark>
