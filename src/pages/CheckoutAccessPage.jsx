@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import '../styles/pages/checkout-page.css';
 import '../styles/components/cards/complete-profile.css';
 
-import logoElevagroFooter from '../images/logos/marca-elevagro.svg';
+import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
 
 // Components
 import ProgressBar from '../components/ProgressBar';
@@ -13,7 +13,7 @@ import { ButtonDark } from '../components/Buttons';
 import OptionsGenerator from '../components/SelectorOptionsGenerator';
 import ProductCheckout from '../components/cards/ProductCheckout';
 
-import ProfileIcon from '../images/icons/complete-profile.svg';
+import ProfileIcon from '../assets/images/icons/complete-profile.svg';
 
 import {
   professions,

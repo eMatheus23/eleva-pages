@@ -4,8 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 import '../../styles/components/cards/payment-options.css';
 
 // Icons
-import cardIcon from '../../images/icons/card-icon-gray.svg';
-import barcodeIcon from '../../images/icons/barcode-icon-gray.svg';
+import cardIcon from '../../assets/images/icons/card-icon-gray.svg';
+import barcodeIcon from '../../assets/images/icons/barcode-icon-gray.svg';
 import Radio from '@material-ui/core/Radio';
 import Switch from '@material-ui/core/Switch';
 

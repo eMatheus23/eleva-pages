@@ -6,8 +6,8 @@ import { ButtonDark, ToggleSwitch } from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 
 // Icons
-import ArrowRight from '../../images/icons/arrow-right.svg';
-import RevealPassword from '../../images/icons/reveal-password.svg';
+import ArrowRight from '../../assets/images/icons/arrow-right.svg';
+import RevealPassword from '../../assets/images/icons/reveal-password.svg';
 
 // CSS
 import '../../styles/components/cards/create-account.css';

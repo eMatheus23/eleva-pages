@@ -6,7 +6,7 @@ import { ButtonDark } from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 
 // Icons
-import ArrowRight from '../../images/icons/arrow-right.svg';
+import ArrowRight from '../../assets/images/icons/arrow-right.svg';
 
 // CSS
 import '../../styles/components/cards/create-account-address.css';

@@ -83,7 +83,7 @@
   /* Remove estilo padrão do FireFox*/      
   appearance: none; 
   /* Imagem de fundo (Seta) */
-  background: url('../../../images/icons/form-select-open.svg') no-repeat #ffffff;  
+  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;  
 
   width: 9.6rem; 
   height: 5rem;   

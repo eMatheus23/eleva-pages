@@ -67,7 +67,7 @@
   /* Remove estilo padrão do FireFox*/      
   appearance: none; 
   /* Imagem de fundo (Seta) */
-  background: url('../../../images/icons/form-select-open.svg') no-repeat #ffffff;  
+  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;  
   /*Posição da imagem do background*/   
   background-position: 41rem center;  
 

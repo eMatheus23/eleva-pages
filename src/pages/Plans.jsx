@@ -9,25 +9,25 @@ import Footer from '../components/Footer';
 import { ButtonLight, ButtonDark, ToggleSwitch } from '../components/Buttons';
 
 // Logos
-import logoElevagro from '../images/logos/marca-elevagro-negativa.svg';
-import googleLogo from '../images/logos/google-logo.svg';
-import faceLogo from '../images/logos/facebook-logo.svg';
+import logoElevagro from '../assets/images/logos/marca-elevagro-negativa.svg';
+import googleLogo from '../assets/images/logos/google-logo.svg';
+import faceLogo from '../assets/images/logos/facebook-logo.svg';
 
 // Imagens
-import centralImgMensal from '../images/acerconceptd800@2x.png';
-import centralImgSemestral from '../images/eleva-soja@2x.png';
-import centralImgAnual from '../images/elevs@2x.png';
+import centralImgMensal from '../assets/images/acerconceptd800@2x.png';
+import centralImgSemestral from '../assets/images/eleva-soja@2x.png';
+import centralImgAnual from '../assets/images/elevs@2x.png';
 
 // Mockups
-import videoImgMensal from '../images/mockups/person-holding-green-leafed-plant-2280551.png';
-import videoImgSemestral from '../images/mockups/pexels-photo-1326946.png';
-import videoImgAnual from '../images/mockups/Captura de Tela 2020-11-03 às 22.37.05.png';
+import videoImgMensal from '../assets/images/mockups/person-holding-green-leafed-plant-2280551.png';
+import videoImgSemestral from '../assets/images/mockups/pexels-photo-1326946.png';
+import videoImgAnual from '../assets/images/mockups/Captura de Tela 2020-11-03 às 22.37.05.png';
 
 // Icons
-import cardIcon from '../images/icons/card-icon.svg';
-import barcodeIcon from '../images/icons/barcode-icon.svg';
+import cardIcon from '../assets/images/icons/card-icon.svg';
+import barcodeIcon from '../assets/images/icons/barcode-icon.svg';
 
-import cornerImg from '../images/corner.svg';
+import cornerImg from '../assets/images/corner.svg';
 
 // Data and Functions
 import products from '../data/products';

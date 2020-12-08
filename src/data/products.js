@@ -8,7 +8,7 @@ const products = [
     price_original: 39.90,
     price: 29.90,
     discount: 25,
-    img: require('../images/mockups/product-checkout-mockup.png'),
+    img: require('../assets/images/mockups/product-checkout-mockup.png'),
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const products = [
     price_original: 265.00,
     price: 189.00,
     discount: 30,
-    img: require('../images/mockups/product-checkout-mockup2.png'),
+    img: require('../assets/images/mockups/product-checkout-mockup2.png'),
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const products = [
     price_original: 265.00,
     price: 239.00,
     discount: 10,
-    img: require('../images/mockups/product-checkout-mockup3.png'),
+    img: require('../assets/images/mockups/product-checkout-mockup3.png'),
   },
   {
     id: 4,

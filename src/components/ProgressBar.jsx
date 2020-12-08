@@ -1,9 +1,9 @@
 import React from 'react';
 
-import ProgrogressImg0 from '../images/progress-bar/progress-your-accout.svg';
-import ProgrogressImg1 from '../images/progress-bar/progress-data.svg';
-import ProgrogressImg2 from '../images/progress-bar/progress-payment.svg';
-import ProgrogressImg3 from '../images/progress-bar/progress-access.svg';
+import ProgrogressImg0 from '../assets/images/progress-bar/progress-your-accout.svg';
+import ProgrogressImg1 from '../assets/images/progress-bar/progress-data.svg';
+import ProgrogressImg2 from '../assets/images/progress-bar/progress-payment.svg';
+import ProgrogressImg3 from '../assets/images/progress-bar/progress-access.svg';
 
 import '../styles/components/progress-bar.css';
 

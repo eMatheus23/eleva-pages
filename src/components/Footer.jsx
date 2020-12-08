@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import logoElevagro from '../images/logos/marca-elevagro.svg';
+import logoElevagro from '../assets/images/logos/marca-elevagro.svg';
 import '../styles/components/footer.css'
 
 function Footer() {

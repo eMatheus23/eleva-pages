@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import '../../styles/components/cards/annual-offer.css';
 
-import ilustrationImg from '../../images/ilustrations/annual-premium-offer.png';
+import ilustrationImg from '../../assets/images/ilustrations/annual-premium-offer.png';
 
 export default function AnnualOfferCard(props) {
   const [closed, setClosed] = useState(false);

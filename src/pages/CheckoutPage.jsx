@@ -4,7 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 //CSS
 import '../styles/pages/checkout-page.css';
 
-import logoElevagroFooter from '../images/logos/marca-elevagro.svg';
+import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
 
 // Components
 import AnnualOfferCard from '../components/cards/AnnualOffer';

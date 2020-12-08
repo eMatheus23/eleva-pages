@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import logoElevagro from '../images/logos/marca-elevagro.svg';
+import logoElevagro from '../assets/images/logos/marca-elevagro.svg';
 
 //CSS
 import '../styles/components/header-signup.css';
 
 // Flags
-import brazilFlag from '../images/flags/brazil.svg'
-import spainFlag from '../images/flags/spain.svg'
-import usaFlag from '../images/flags/usa.svg'
+import brazilFlag from '../assets/images/flags/brazil.svg'
+import spainFlag from '../assets/images/flags/spain.svg'
+import usaFlag from '../assets/images/flags/usa.svg'
 
 export default function HeaderSignup () {
   const [selectedLanguage, setSelectedLanguage] = useState('pt-br');

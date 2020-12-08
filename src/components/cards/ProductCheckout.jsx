@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import '../../styles/components/cards/product-checkout.css';
 
 // Icons
-import deleteIcon from '../../images/icons/delete-product-checkout.svg';
+import deleteIcon from '../../assets/images/icons/delete-product-checkout.svg';
 
 // Components
 import { ButtonLight } from '../Buttons';
