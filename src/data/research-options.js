@@ -69,6 +69,10 @@ export const professions = [
 
 export const formations = [
   {
+    value: 'administracao/marketing',
+    label: 'Administração/Marketing',
+  },
+  {
     value: 'biologia',
     label: 'Biologia',
   },
