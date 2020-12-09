@@ -4,6 +4,7 @@ import axios from 'axios';
 // Components
 import { ButtonDark } from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
+import OptionsGenerator from '../SelectorOptionsGenerator';
 
 // Icons
 import ArrowRight from '../../assets/images/icons/arrow-right.svg';
@@ -68,14 +69,7 @@ export default function CreateAccountAddressCard() {
                 className='select-appearance'
                 required
               >
-                {countryOptions.map((country, key) => (
-                  <option
-                    key={key}
-                    value={country.value}
-                  >
-                    {country.label}
-                  </option>
-                ))}
+                <OptionsGenerator array={countryOptions} />
               </select>
             </fieldset>
           </section>
@@ -118,9 +112,9 @@ export default function CreateAccountAddressCard() {
                 <option value='' disabled>
                   Cidade
                 </option>
-                {cityOptions.map((city) => {
+                {cityOptions.map((city, key) => {
                   return (
-                    <option key={city.id} value={city.nome}>
+                    <option key={city.id + key} value={city.nome}>
                       {city.nome}
                     </option>
                   );

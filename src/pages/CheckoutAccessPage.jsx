@@ -26,7 +26,7 @@ export default function CheckoutAccessPage() {
   document.title = 'Acesse seu produto!';
 
   // Busca os produtos no carrinho
-  const purchases = JSON.parse(localStorage.getItem('@elevagro-app/purchases'));
+  const purchases = JSON.parse(sessionStorage.getItem('@elevagro-app/purchases'));
   const productsInCart = purchases;
 
   function handleSelectChange(event) {

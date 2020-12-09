@@ -34,6 +34,17 @@ const products = [
   },
   {
     id: 4,
+    type: 'course',
+    name: 'CURSO',
+    subscription: '',
+    discription: 'Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas',
+    price_original: 265.00,
+    price: 245.00,
+    discount: 30,
+    img: require('../assets/images/mockups/product-checkout-mockup3.png'),
+  },
+  {
+    id: 4,
     type: 'coupon',
     code: 'COUPON34',
     name: 'Voucher',

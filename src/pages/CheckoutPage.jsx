@@ -22,7 +22,7 @@ export default function CheckoutPage() {
   const history = useHistory();
   const [productsInCart, setProductsInCart] = useState([]);
   const [offerActive, setOfferActive] = useState(false);
-  const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart')); // Busca os produtos no carrinho
+  const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart')); // Busca os produtos no carrinho
   const [couponAplied, setCouponAplied] = useState(false);
 
   function cartSumFunction() {
@@ -81,7 +81,7 @@ export default function CheckoutPage() {
       temporaryCart.splice(cartIndex, 1);
     }
 
-    localStorage.setItem('@elevagro-app/cart', JSON.stringify(temporaryCart));
+    sessionStorage.setItem('@elevagro-app/cart', JSON.stringify(temporaryCart));
 
     setProductsInCart(temporaryCart);
 
@@ -105,13 +105,13 @@ export default function CheckoutPage() {
     var temporaryCart = deleteOtherPlans(productsInCart);
 
     if (planInCart[0].subscription === 'semestral') {
-      // Adiciona o plano anual ao localStorage
+      // Adiciona o plano anual ao sessionStorage
       addToCart(anual[0].id);
 
       // Adiciona o plano anual aos produtos do cart do component
       setProductsInCart([...temporaryCart, anual[0]]);
     } else if (planInCart[0].subscription === 'anual') {
-      // Adiciona o plano semestral ao localStorage
+      // Adiciona o plano semestral ao sessionStorage
       addToCart(semestral[0].id);
 
       // Adiciona o plano semestral aos produtos do cart do component
