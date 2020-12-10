@@ -1,13 +1,34 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
 
+// CSS
 import '../../styles/components/cards/annual-offer.css';
 
+// Images
 import ilustrationImg from '../../assets/images/ilustrations/annual-premium-offer.png';
+
+// Data
+import products from '../../data/products';
+import currencyFormat from '../../data/currency-format';
 
 export default function AnnualOfferCard(props) {
   const [closed, setClosed] = useState(false);
   const [semestralView, setSemestralView] = useState(true);
+
+  const { price_original, price, discount } = products.filter((product) => {
+    if (product.subscription) {
+      return product.subscription === 'anual';
+    }
+    return false;
+  })[0];
+
+  const { discount: semestralDiscount } = products.filter((product) => {
+    if (product.subscription) {
+      return product.subscription === 'semestral';
+    }
+    return false;
+  })[0];
+
+  const priceDecimals = Math.round((price % Math.floor(price)) * 100);
 
   function handleClick() {
     // Envia para o componente pai, a chamada da função que muda para o plano anual
@@ -42,15 +63,23 @@ export default function AnnualOfferCard(props) {
             <img src={ilustrationImg} alt='Contrate o plano Premium anual' />
           </aside>
           <main>
-            <h3>+ 5% de desc.</h3>
+            <h3>+ {discount - semestralDiscount}% de desc.</h3>
             <p>
-              De <span>R$: 265,00</span>
+              De{' '}
+              <span>
+                {price_original.toLocaleString('pt-BR', currencyFormat)}
+              </span>
             </p>
             <h2 className='price-style helvetica'>
               <span className='for'>Por</span>
               <span>R$:</span>
-              <strong>239</strong>
-              ,00
+              <strong>{Math.floor(price)}</strong>,
+              {priceDecimals
+                .toLocaleString('pt-BR', {
+                  maximumFractionDigits: 2,
+                  minimumFractionDigits: 2,
+                })
+                .slice(-2)}
             </h2>
             <button type='button' onClick={handleClick}>
               Trocar para Anual
