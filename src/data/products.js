@@ -16,9 +16,9 @@ const products = [
     name: 'Plataforma Elevagro',
     subscription: 'semestral',
     discription: 'Assinatura Semestral Elevagro com valor promocional',
-    price_original: 265.00,
-    price: 189.00,
-    discount: 30,
+    price_original: 160.00,
+    price: 120.00,
+    discount: 25,
     img: require('../assets/images/mockups/product-checkout-mockup2.png'),
   },
   {
@@ -28,8 +28,8 @@ const products = [
     subscription: 'anual',
     discription: 'Assinatura Anual Elevagro com valor promocional',
     price_original: 265.00,
-    price: 239.00,
-    discount: 10,
+    price: 189.00,
+    discount: 30,
     img: require('../assets/images/mockups/product-checkout-mockup3.png'),
   },
   {
