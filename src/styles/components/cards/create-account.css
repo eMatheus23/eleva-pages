@@ -192,13 +192,7 @@
 }
 
 
-.create-account-card a.button-dark {
-  color: var(--color-background);
-
-  margin-top: 0.9rem;
-}
-
-.create-account-card a.button-dark {
+.create-account-card #button-rounded.secondary {
   color: var(--color-background);
 
   margin-top: min(2vh, 2.4rem);
@@ -224,6 +218,12 @@
 
   margin-top: min(4vh, 4rem);
   margin-bottom: min(5.5vh, 5.5rem);
+}
+
+.login-option a {
+  color: var(--color-text-link);
+
+  margin-left: 0.5rem;
 }
 
 .create-account-card .progress-bar {

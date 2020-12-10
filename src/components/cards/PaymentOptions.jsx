@@ -10,10 +10,10 @@ import Radio from '@material-ui/core/Radio';
 import Switch from '@material-ui/core/Switch';
 
 // Components
-import { ButtonLight } from '../../components/Buttons';
+import ButtonRounded from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 
-import currencyFormat from '../../data/currency-format'
+import currencyFormat from '../../data/currency-format';
 
 export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
   const [creditSelected, setCreditSelected] = React.useState('true');
@@ -50,10 +50,10 @@ export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
   };
 
   const handlePurchase = () => {
-    console.log('Cheguei')
+    console.log('Cheguei');
 
     // Busca os produtos no carrinho do sessionStorage
-    const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart')); 
+    const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart'));
 
     // Exclui o carrinho do sessionStorage
     sessionStorage.setItem('@elevagro-app/cart', JSON.stringify([]));
@@ -61,8 +61,8 @@ export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
     // Envia as compras para outra sessão do sessionStorage
     sessionStorage.setItem('@elevagro-app/purchases', JSON.stringify(cart));
 
-    history.push('/checkout/access')
-  }
+    history.push('/checkout/access');
+  };
 
   return (
     <div className='payment-options-wrapper'>
@@ -158,9 +158,9 @@ export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
               </fieldset>
             </section>
 
-            <ButtonLight onClick={handlePurchase}>
+            <ButtonRounded onClick={handlePurchase} buttonStyle='primary'>
               Realizar pagamento
-            </ButtonLight>
+            </ButtonRounded>
 
             <div className='switch'>
               <Switch
@@ -226,7 +226,9 @@ export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
             </label>
           </div>
 
-          <ButtonLight linkTo={billPage}>Gerar Boleto</ButtonLight>
+          <ButtonRounded linkTo={billPage} buttonStyle='primary'>
+            Gerar Boleto
+          </ButtonRounded>
         </main>
       </div>
 

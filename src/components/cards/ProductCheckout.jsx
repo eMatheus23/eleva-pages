@@ -6,7 +6,7 @@ import '../../styles/components/cards/product-checkout.css';
 import deleteIcon from '../../assets/images/icons/delete-product-checkout.svg';
 
 // Components
-import { ButtonLight } from '../Buttons';
+import ButtonRounded from '../Buttons';
 
 import currencyFormat from '../../data/currency-format'
 
@@ -66,7 +66,7 @@ export default function ProductCheckout(props) {
         </>
       )}
 
-      {checkoutSucess && <ButtonLight linkTo={'/'}>Acessar</ButtonLight>}
+      {checkoutSucess && <ButtonRounded linkTo={'/'} buttonStyle='primary'>Acessar</ButtonRounded>}
     </div>
   );
 }

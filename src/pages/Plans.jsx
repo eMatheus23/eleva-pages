@@ -6,7 +6,7 @@ import '../styles/pages/plans.css';
 
 // Components
 import Footer from '../components/Footer';
-import { ButtonLight, ButtonDark, ToggleSwitch } from '../components/Buttons';
+import ButtonRounded, { ToggleSwitch } from '../components/Buttons';
 
 // Logos
 import logoElevagro from '../assets/images/logos/marca-elevagro-negativa.svg';
@@ -329,10 +329,10 @@ export default function Plans() {
           </div>
 
           <div className={`login ${loginScreenActive ? 'active' : ''}`}>
-            <div className='create-account-card animate-apper'>
+            <div className='create-account animate-apper'>
               <h3>AINDA NÃO TENHO CONTA</h3>
 
-              <ButtonLight linkTo='/signup/visitor'>Criar conta</ButtonLight>
+              <ButtonRounded linkTo='/signup/visitor' buttonStyle='primary'>Criar conta</ButtonRounded>
             </div>
 
             <div className='login-card animate-apper'>
@@ -365,7 +365,7 @@ export default function Plans() {
                     <Link to='#'>Esqueci a senha</Link>
                   </div>
 
-                  <ButtonDark onClick={handleLogin}>Acessar</ButtonDark>
+                  <ButtonRounded onClick={handleLogin} buttonStyle='secondary'>Acessar</ButtonRounded>
                 </div>
 
                 <fieldset>

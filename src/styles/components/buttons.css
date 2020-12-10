@@ -1,6 +1,4 @@
-.button-light,
-.button-dark,
-.button-white {
+#button-rounded {
   width: 16.4rem;
   height: 4.5rem;
 
@@ -20,24 +18,33 @@
 
   text-decoration: none;
 
-}
-
-.button-light {
   background: var(--color-primary);
   color: var(--color-text-in-white);
-
 }
 
-.button-dark {
+#button-rounded.primary {
+  background: var(--color-primary);
+  color: var(--color-text-in-white);
+}
+
+#button-rounded.secondary {
   background: var(--color-secondary);
   color: var(--color-background);
 }
 
-.button-dark img {
+#button-rounded.secondary img,
+#button-rounded.alternative img {
   margin-left: 1rem;
 }
 
-.button-white {
+#button-rounded.alternative {
+  background: var(--color-secondary-alternative);
+  color: var(--color-background);
+
+  font-weight: bold;
+}
+
+#button-rounded.white {
   width: 23.6rem;
 
   background: var(--color-background);
@@ -45,6 +52,7 @@
 
   border: 1px solid #707070;
 }
+
 
 /* ----- Switch ----- */
 .toggle-switch {

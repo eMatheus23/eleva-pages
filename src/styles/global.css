@@ -24,7 +24,7 @@
   --color-text-link: #01aa9d;
   --color-alert: #ff5741;
   /* Tamanho da fonte padrão: 16px - 100% - 1rem */
-  /* Tamanho da fonte: 10px - 62.5% - 1rem */
+  /* Tamanho da fonte no projeto: 10px - 62.5% - 1rem */
   font-size: 62.5%; /* controle das medidas rem */
 }
 

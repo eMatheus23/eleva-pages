@@ -8,6 +8,7 @@ import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
 
 // Components
 import AnnualOfferCard from '../components/cards/AnnualOffer';
+import PremiumOfferCard from '../components/cards/PremiumOffer';
 import ProductCheckout from '../components/cards/ProductCheckout';
 import PaymentOptionsCard from '../components/cards/PaymentOptions';
 import CreateAccountCard from '../components/cards/create-account/CreateAccount';
@@ -20,13 +21,14 @@ import currencyFormat from '../data/currency-format';
 export default function CheckoutPage() {
   document.title = 'Elevagro | Checkout';
 
-  const history = useHistory();
   const [productsInCart, setProductsInCart] = useState([]);
   const [offerActive, setOfferActive] = useState(false);
-  const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart')); // Busca os produtos no carrinho
   const [couponAplied, setCouponAplied] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isPremium, setIsPremium] = useState(false);
+
+  const history = useHistory();
+  const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart')); // Busca os produtos no carrinho
 
   function cartSumFunction() {
     const sum = cart
@@ -166,7 +168,7 @@ export default function CheckoutPage() {
   }
 
   function handleFinish() {
-    console.log('Cheguei')
+    console.log('Cheguei');
   }
 
   return (
@@ -188,7 +190,10 @@ export default function CheckoutPage() {
           )}
 
           {!isLoggedIn && (
-            <CreateAccountCard handleFinish={handleFinish} isInCheckout={true}/>
+            <CreateAccountCard
+              handleFinish={handleFinish}
+              isInCheckout={true}
+            />
           )}
         </main>
 
@@ -273,6 +278,7 @@ export default function CheckoutPage() {
           </section>
 
           {offerActive && <AnnualOfferCard switchPlan={switchPlan} />}
+          <PremiumOfferCard />
         </aside>
       </div>
     </div>

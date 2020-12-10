@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
-import { ButtonDark, ToggleSwitch } from '../../Buttons';
+import ButtonRounded, { ToggleSwitch } from '../../Buttons';
 import ProgressBar from '../../ProgressBar';
 
 // Icons
@@ -116,10 +116,10 @@ export default function Page01({ handleNextPage, isInCheckout }) {
             </div>
           </fieldset>
 
-          <ButtonDark onClick={handleNextPage}>
+          <ButtonRounded onClick={handleNextPage} buttonStyle='secondary'>
             Próximo
             <img src={ArrowRight} alt='Próximo' />
-          </ButtonDark>
+          </ButtonRounded>
 
           <ToggleSwitch className='terms-and-policies'>
             Concordo com os

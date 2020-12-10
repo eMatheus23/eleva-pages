@@ -208,7 +208,7 @@
   align-items: flex-end;
 }
 
-.credit-card form .button-light {
+.credit-card form #button-rounded.primary {
   width: 23.6rem;
 }
 
@@ -290,7 +290,7 @@
   margin-top: min(3vh, 2.3rem);
 }
 
-.payment-card-bill .button-light {
+.payment-card-bill #button-rounded.primary {
   width: 20rem;
   margin-bottom: 2rem;
 }

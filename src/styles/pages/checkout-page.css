@@ -240,7 +240,7 @@ section.checkout-premium-success p {
     margin-bottom: 2vh;
   }
 
-  #page-checkout .complete-profile-wrapper .button-dark {
+  #page-checkout .complete-profile-wrapper #button-rounded.secondary {
     margin-top: 1vh;
   }
 }

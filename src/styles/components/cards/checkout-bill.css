@@ -53,13 +53,13 @@
   margin-bottom: min(4rem, 4vh);
 }
 
-.checkout-bill-card a.button-light {
+.checkout-bill-card #button-rounded.primary {
   width: 23.6rem;
 
   margin: 0 auto;
 }
 
-.checkout-bill-wrapper a.button-white {
+.checkout-bill-wrapper #button-rounded.white {
   margin-top: min(3.5vh, 3.4rem);
 }
 .checkout-bill-wrapper .progress-container {

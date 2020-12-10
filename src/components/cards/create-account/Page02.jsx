@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 // Components
-import { ButtonDark } from '../../Buttons';
+import ButtonRounded from '../../Buttons';
 import ProgressBar from '../../ProgressBar';
 import OptionsGenerator from '../../SelectorOptionsGenerator';
 
@@ -173,10 +173,10 @@ export default function Page02({ handleNextPage, isInCheckout }) {
             </fieldset>
           </section>
 
-          <ButtonDark onClick={handleNextPage}>
+          <ButtonRounded onClick={handleNextPage} buttonStyle='secondary'>
             Próximo
             <img src={ArrowRight} alt='Próximo' />
-          </ButtonDark>
+          </ButtonRounded>
         </form>
       </div>
 

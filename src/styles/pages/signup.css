@@ -43,7 +43,7 @@
     margin: 1rem 0;
   }
 
-  #page-signup a.button-dark {
+  #page-signup #button-rounded.secondary {
     margin-top: 1rem;
   }
 }

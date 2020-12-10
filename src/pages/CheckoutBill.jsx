@@ -8,7 +8,7 @@ import '../styles/components/cards/checkout-bill.css';
 import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
 
 // Components
-import { ButtonLight, ButtonWhite } from '../components/Buttons';
+import ButtonRounded from '../components/Buttons';
 import ProgressBar from '../components/ProgressBar';
 
 export default function CheckoutPage() {
@@ -40,12 +40,14 @@ export default function CheckoutPage() {
                 automaticamente pelo banco.
               </p>
 
-              <ButtonLight>Acessar boleto</ButtonLight>
+              <ButtonRounded buttonStyle='primary'>
+                Acessar boleto
+              </ButtonRounded>
             </div>
 
-            <ButtonWhite linkTo={'/checkout'}>
+            <ButtonRounded linkTo={'/checkout'} buttonStyle='white'>
               Pagar com cartão
-            </ButtonWhite>
+            </ButtonRounded>
 
             <ProgressBar progress={2} />
           </div>
@@ -61,8 +63,10 @@ export default function CheckoutPage() {
             </p>
 
             <div className='buttons'>
-              <ButtonWhite>Fale conosco</ButtonWhite>
-              <ButtonWhite linkTo={'/'}>Página inicial</ButtonWhite>
+              <ButtonRounded buttonStyle='white'>Fale conosco</ButtonRounded>
+              <ButtonRounded linkTo={'/'} buttonStyle='white'>
+                Página inicial
+              </ButtonRounded>
             </div>
           </div>
         </aside>

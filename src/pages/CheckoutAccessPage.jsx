@@ -9,7 +9,7 @@ import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
 
 // Components
 import ProgressBar from '../components/ProgressBar';
-import { ButtonDark } from '../components/Buttons';
+import ButtonRounded from '../components/Buttons';
 import OptionsGenerator from '../components/SelectorOptionsGenerator';
 import ProductCheckout from '../components/cards/ProductCheckout';
 
@@ -159,10 +159,10 @@ export default function CheckoutAccessPage() {
                   </div>
                 </fieldset>
 
-                <ButtonDark>
+                <ButtonRounded buttonStyle='secondary'>
                   <img src={ProfileIcon} alt='Complete seu perfil' />
                   Completar meu perfil
-                </ButtonDark>
+                </ButtonRounded>
               </form>
             </div>
 
