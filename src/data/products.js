@@ -41,10 +41,10 @@ const products = [
     price_original: 265.00,
     price: 245.00,
     discount: 30,
-    img: require('../assets/images/mockups/product-checkout-mockup3.png'),
+    img: require('../assets/images/mockups/course-thumbnail.jpg'),
   },
   {
-    id: 4,
+    id: 5,
     type: 'coupon',
     code: 'COUPON34',
     name: 'Voucher',
