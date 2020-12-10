@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 //CSS
 import '../styles/pages/plans.css';
@@ -36,13 +36,23 @@ import addToCart from '../functions/addToCart';
 export default function Plans() {
   document.title = 'Escolha seu plano premium';
 
+  const history = useHistory();
+
   const [selectedPlan, setSelectedPlan] = useState('semestral');
   const [loginScreenActive, setLoginScreenActive] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isPremium, setIsPremium] = useState(false);
 
   function handleSelectPlan(plan) {
     setSelectedPlan(plan);
 
     setLoginScreenActive(false);
+  }
+
+  function handleMockupClick() {
+    addToCart(4);
+
+    history.push('/checkout');
   }
 
   function HandleAddToCart() {
@@ -55,7 +65,11 @@ export default function Plans() {
 
     addToCart(productId[0].id);
 
-    setLoginScreenActive(true);
+    if (isLoggedIn && isPremium) {
+      history.push('/checkout')
+    } else {
+      setLoginScreenActive(true);
+    }
   }
 
   function handleCentralImg() {
@@ -70,6 +84,28 @@ export default function Plans() {
         break;
     }
   }
+
+  function handleLogin() {
+
+    // Caso o login seja bem sucedido
+    sessionStorage.setItem('@elevagro-app/viewer-status|is-logged-in', JSON.stringify(true));
+    history.push('/signup/address')
+  }
+
+  useEffect(() => {
+    const checkIsLoggedIn = JSON.parse(sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in'));
+    const checkIsPremium = JSON.parse(sessionStorage.getItem('@elevagro-app/viewer-status|is-premium'));
+
+    if (checkIsLoggedIn === null) {
+      sessionStorage.setItem('@elevagro-app/viewer-status|is-logged-in', JSON.stringify(false));
+      sessionStorage.setItem('@elevagro-app/viewer-status|is-premium', JSON.stringify(false));
+    }
+
+    setIsLoggedIn(checkIsLoggedIn)
+
+    setIsPremium(checkIsPremium)
+
+  }, [])
 
   return (
     <div id='plans-page'>
@@ -246,6 +282,7 @@ export default function Plans() {
           }`}
         >
           <img
+            onClick={handleMockupClick}
             className={`central-img active animate-apper`}
             src={handleCentralImg()}
             alt='Escolha seu plano Premium'
@@ -328,7 +365,7 @@ export default function Plans() {
                     <Link to='#'>Esqueci a senha</Link>
                   </div>
 
-                  <ButtonDark linkTo='/signup/address'>Acessar</ButtonDark>
+                  <ButtonDark onClick={handleLogin}>Acessar</ButtonDark>
                 </div>
 
                 <fieldset>

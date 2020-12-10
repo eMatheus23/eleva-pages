@@ -10,6 +10,7 @@ import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
 import AnnualOfferCard from '../components/cards/AnnualOffer';
 import ProductCheckout from '../components/cards/ProductCheckout';
 import PaymentOptionsCard from '../components/cards/PaymentOptions';
+import CreateAccountCard from '../components/cards/create-account/CreateAccount';
 
 // Data and functions
 import products from '../data/products';
@@ -24,6 +25,8 @@ export default function CheckoutPage() {
   const [offerActive, setOfferActive] = useState(false);
   const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart')); // Busca os produtos no carrinho
   const [couponAplied, setCouponAplied] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isPremium, setIsPremium] = useState(false);
 
   function cartSumFunction() {
     const sum = cart
@@ -42,6 +45,17 @@ export default function CheckoutPage() {
   const cartSumDecimals = Math.round((cartSum % Math.floor(cartSum)) * 100);
 
   useEffect(() => {
+    setIsLoggedIn(
+      JSON.parse(
+        sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in')
+      )
+    );
+    setIsPremium(
+      JSON.parse(
+        sessionStorage.getItem('@elevagro-app/viewer-status|is-premium')
+      )
+    );
+
     // Se o carrinho estiver vazio, retorna para a homepage
     if (!cart | (cart.length === 0)) {
       return history.push('/');
@@ -66,16 +80,18 @@ export default function CheckoutPage() {
     });
 
     // Se existir algum, ele seta na const ChosenPlan
-    if (plan) {
+    if (plan.length !== 0) {
       plan[0].subscription === 'semestral' && setOfferActive(true);
     }
   }, []);
 
   function deleteProduct(id) {
-    var temporaryCart = cart;
+    console.log('Cheguei');
+
+    var temporaryCart = productsInCart;
 
     // Procura o index de outros planos no cart
-    const cartIndex = temporaryCart.findIndex((product) => product.id !== id);
+    const cartIndex = temporaryCart.findIndex((product) => product.id === id);
 
     if (cartIndex >= 0) {
       temporaryCart.splice(cartIndex, 1);
@@ -83,9 +99,9 @@ export default function CheckoutPage() {
 
     sessionStorage.setItem('@elevagro-app/cart', JSON.stringify(temporaryCart));
 
-    setProductsInCart(temporaryCart);
+    setProductsInCart([...temporaryCart]);
 
-    if (!cart | (cart.length === 0)) {
+    if (!productsInCart | (productsInCart.length === 0)) {
       return history.push('/');
     }
   }
@@ -149,6 +165,10 @@ export default function CheckoutPage() {
     setCouponAplied(true);
   }
 
+  function handleFinish() {
+    console.log('Cheguei')
+  }
+
   return (
     <div id='page-checkout'>
       <header>
@@ -159,11 +179,17 @@ export default function CheckoutPage() {
 
       <div className='content-wrapper'>
         <main>
-          <PaymentOptionsCard
-            accessPage={'/checkout/access'}
-            billPage={'/signup/checkout/bill'}
-            cartSum={cartSum}
-          />
+          {isLoggedIn && (
+            <PaymentOptionsCard
+              accessPage={'/checkout/access'}
+              billPage={'/checkout/bill'}
+              cartSum={cartSum}
+            />
+          )}
+
+          {!isLoggedIn && (
+            <CreateAccountCard handleFinish={handleFinish} isInCheckout={true}/>
+          )}
         </main>
 
         <aside>
