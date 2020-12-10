@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
-import { ButtonDark, ToggleSwitch } from '../../components/Buttons';
-import ProgressBar from '../../components/ProgressBar';
+import { ButtonDark, ToggleSwitch } from '../../Buttons';
+import ProgressBar from '../../ProgressBar';
 
 // Icons
-import ArrowRight from '../../assets/images/icons/arrow-right.svg';
-import RevealPassword from '../../assets/images/icons/reveal-password.svg';
+import ArrowRight from '../../../assets/images/icons/arrow-right.svg';
+import RevealPassword from '../../../assets/images/icons/reveal-password.svg';
 
 // CSS
-import '../../styles/components/cards/create-account.css';
+import '../../../styles/components/cards/create-account.css';
 
-export default function CreateAccountCard() {
+export default function Page01({ handleNextPage, isInCheckout }) {
   const [passwordType, setPasswordType] = useState('password');
+  const [inCheckout, setInCheckout] = useState(false);
 
   function handlePasswordVisibility() {
     setPasswordType('text');
@@ -21,11 +22,20 @@ export default function CreateAccountCard() {
     setTimeout(() => setPasswordType('password'), 2000);
   }
 
+  useEffect(() => {
+    if (isInCheckout) {
+      setInCheckout(isInCheckout);
+    }
+  }, [isInCheckout]);
+
   return (
     <>
-      <h3>Conta Premium Elevagro</h3>
+      <div className='create-account-title'>
+        {!inCheckout && <h3>Conta Premium Elevagro</h3>}
+        {inCheckout && <h3>Criar sua conta para acesso</h3>}
+      </div>
 
-      <div className='account-creation-visit-card'>
+      <div className='create-account-card'>
         <form action=''>
           <fieldset>
             <label htmlFor='name'>Nome</label>
@@ -49,7 +59,7 @@ export default function CreateAccountCard() {
             />
           </fieldset>
 
-          <section>
+          <section className='middle-section'>
             <fieldset>
               <label htmlFor='phone'>Nº celular</label>
               <input
@@ -106,17 +116,25 @@ export default function CreateAccountCard() {
             </div>
           </fieldset>
 
-          <ButtonDark linkTo={'/signup/address'}>
+          <ButtonDark onClick={handleNextPage}>
             Próximo
             <img src={ArrowRight} alt='Próximo' />
           </ButtonDark>
 
           <ToggleSwitch className='terms-and-policies'>
             Concordo com os
-            <Link to='#'>termos de uso</Link>e<Link to='#'>Política de privacidade</Link>
+            <Link to='#'>termos de uso</Link>e
+            <Link to='#'>Política de privacidade</Link>
           </ToggleSwitch>
         </form>
       </div>
+
+      {inCheckout && (
+        <p className='login-option'>
+          Já tem conta na Elevagro?
+          <Link>Faça o login aqui.</Link>
+        </p>
+      )}
 
       <ProgressBar progress={0} />
     </>

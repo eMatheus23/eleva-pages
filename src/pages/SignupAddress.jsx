@@ -6,7 +6,7 @@ import '../styles/pages/signup.css';
 // Components
 import Footer from '../components/Footer';
 import HeaderSignup from '../components/HeaderSignup';
-import CreateAccountAddressCard from '../components/cards/CreateAccountAddress';
+import CreateAccountCard from '../components/cards/create-account/CreateAccount';
 
 export default function SignupAddress() {
   return (
@@ -14,7 +14,7 @@ export default function SignupAddress() {
       <HeaderSignup />
 
       <main>
-        <CreateAccountAddressCard />
+        <CreateAccountCard renderPage={2}/>
       </main>
 
       <Footer />

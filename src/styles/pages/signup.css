@@ -31,10 +31,6 @@
     margin-bottom: 0.5vh;
   }
 
-  #page-signup .account-creation-visit-card form > fieldset {
-    margin-bottom: 0.5vh;
-  }
-
   #page-signup form {
     padding-top: 1.8rem;
   }
@@ -49,18 +45,6 @@
 
   #page-signup a.button-dark {
     margin-top: 1rem;
-  }
-
-  #page-signup .terms-and-policies {
-    margin-top: 0;
-  }
-
-  .account-creation-address-card .progress-bar {
-    margin-top: 2rem;
-  }
-
-  #page-signup .account-creation-visit-card form > fieldset:last-of-type {
-    margin-top: 2vh;
   }
 }
 

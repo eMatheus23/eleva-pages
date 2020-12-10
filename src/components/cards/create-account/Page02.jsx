@@ -2,21 +2,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 // Components
-import { ButtonDark } from '../../components/Buttons';
-import ProgressBar from '../../components/ProgressBar';
-import OptionsGenerator from '../SelectorOptionsGenerator';
+import { ButtonDark } from '../../Buttons';
+import ProgressBar from '../../ProgressBar';
+import OptionsGenerator from '../../SelectorOptionsGenerator';
 
 // Icons
-import ArrowRight from '../../assets/images/icons/arrow-right.svg';
+import ArrowRight from '../../../assets/images/icons/arrow-right.svg';
 
 // CSS
-import '../../styles/components/cards/create-account-address.css';
+import '../../../styles/components/cards/create-account.css';
 
-import countryOptions from '../../data/countries';
+import countryOptions from '../../../data/countries';
 
-export default function CreateAccountAddressCard() {
+export default function Page02({ handleNextPage, isInCheckout }) {
   const [stateOptions, setStateOptions] = useState([]);
   const [cityOptions, setCityOptions] = useState([]);
+  const [inCheckout, setInCheckout] = useState(false);
 
   document.title = 'Elevagro | Criar Conta Premium';
 
@@ -27,6 +28,12 @@ export default function CreateAccountAddressCard() {
         setStateOptions(response.data);
       });
   }, []);
+
+  useEffect(() => {
+    if (isInCheckout) {
+      setInCheckout(isInCheckout);
+    }
+  }, [isInCheckout]);
 
   function handleSelectState(event) {
     const state = event.target.value;
@@ -45,8 +52,12 @@ export default function CreateAccountAddressCard() {
   }
   return (
     <>
-      <h3>Dados necessários para sua adesão Premium</h3>
-      <div className='account-creation-address-card'>
+      <div className='create-account-title'>
+        {!inCheckout && <h3>Dados necessários para sua adesão Premium</h3>}
+        {inCheckout && <h3>Dados para realizar a sua compra.</h3>}
+      </div>
+
+      <div className='create-account-card'>
         <form action=''>
           <section>
             <fieldset>
@@ -162,14 +173,16 @@ export default function CreateAccountAddressCard() {
             </fieldset>
           </section>
 
-          <ButtonDark linkTo={'/signup/checkout'}>
+          <ButtonDark onClick={handleNextPage}>
             Próximo
             <img src={ArrowRight} alt='Próximo' />
           </ButtonDark>
         </form>
       </div>
 
-      <ProgressBar progress={1} />
+      <div className={inCheckout && 'large-margin'}>
+        <ProgressBar progress={1} />
+      </div>
     </>
   );
 }

@@ -22,7 +22,7 @@
 
 #page-checkout > header a img {
   width: 16.1rem;
-  margin-left: min(16.1rem, 8.3vw)
+  margin-left: min(16.1rem, 8.3vw);
 }
 
 #page-checkout .content-wrapper {
@@ -38,13 +38,9 @@
 }
 
 #page-checkout .content-wrapper > main {
-  /* width: 60rem;
-  height: 74.6rem;
-  
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: initial;
-  flex-direction: column; */
 
   margin-right: clamp(5rem, 6vw, 11.8rem);
 }
@@ -59,7 +55,6 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-
 }
 
 #page-checkout .content-wrapper aside section > h3 {
@@ -68,10 +63,9 @@
   font-size: 2rem;
 
   padding-bottom: 2rem;
-  
 
   width: 62.1rem;
-  border-bottom: 1px solid #BFBFBF;
+  border-bottom: 1px solid #bfbfbf;
 }
 
 .checkout-discounts,
@@ -94,11 +88,11 @@
 }
 
 .checkout-discounts h3 span {
-  color: #01AA9D;
+  color: #01aa9d;
 }
 
 .checkout-total p {
-  font: normal 2.0rem/2.4rem 'Source Sans Pro', sans-serif;
+  font: normal 2rem/2.4rem 'Source Sans Pro', sans-serif;
 
   margin-right: 8.5rem;
 }
@@ -122,7 +116,7 @@
 
   display: flex;
 
-  border: 0.1rem solid #BFBFBF;
+  border: 0.1rem solid #bfbfbf;
   border-radius: 0.9rem;
 
   overflow: hidden;
@@ -141,7 +135,7 @@
 }
 
 .input-container input::placeholder {
-  color: #BFBFBF;
+  color: #bfbfbf;
   font-size: 1.5rem;
   font-family: Montserrat, sans-serif;
 }
@@ -199,7 +193,7 @@ section.checkout-premium-success p {
   }
 
   #page-checkout .payment-options-title,
-  #page-checkout .credit-card.active  {
+  #page-checkout .credit-card.active {
     margin-bottom: 1rem;
   }
 
@@ -278,7 +272,7 @@ section.checkout-premium-success p {
     margin-top: 0;
   }
 
-  #page-checkout  .product-checkout-card {
+  #page-checkout .product-checkout-card {
     padding-bottom: 1rem;
   }
 }
@@ -288,4 +282,3 @@ section.checkout-premium-success p {
     margin-right: 1vw;
   }
 }
-
