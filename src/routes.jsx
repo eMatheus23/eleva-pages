@@ -16,8 +16,8 @@ function Routes() {
         <Route exact path='/plans' component={Plans} />
         <Route exact path='/signup/visitor' component={SignupVisitor} />
         <Route exact path='/signup/address' component={SignupAddress} />
-        <Route exact path='/signup/checkout' component={CheckoutPage} />
-        <Route exact path='/signup/checkout/bill' component={CheckoutBill} />
+        <Route exact path='/checkout' component={CheckoutPage} />
+        <Route exact path='/checkout/bill' component={CheckoutBill} />
         <Route exact path='/checkout/access' component={CheckoutAccessPage} />
 
       </Switch>

@@ -43,7 +43,7 @@ export default function CheckoutPage() {
               <ButtonLight>Acessar boleto</ButtonLight>
             </div>
 
-            <ButtonWhite linkTo={'/signup/checkout'}>
+            <ButtonWhite linkTo={'/checkout'}>
               Pagar com cartão
             </ButtonWhite>
 
