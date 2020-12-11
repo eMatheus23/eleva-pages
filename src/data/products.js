@@ -7,7 +7,7 @@ const products = [
     discription: 'Assinatura Mensal Elevagro',
     price_original: 39.90,
     price: 29.90,
-    discount: 25,
+    promo_discount: 25,
     img: require('../assets/images/mockups/product-checkout-mockup.png'),
   },
   {
@@ -18,7 +18,7 @@ const products = [
     discription: 'Assinatura Semestral Elevagro com valor promocional',
     price_original: 160.00,
     price: 120.00,
-    discount: 25,
+    promo_discount: 25,
     img: require('../assets/images/mockups/product-checkout-mockup2.png'),
   },
   {
@@ -29,7 +29,7 @@ const products = [
     discription: 'Assinatura Anual Elevagro com valor promocional',
     price_original: 265.00,
     price: 189.00,
-    discount: 30,
+    promo_discount: 30,
     img: require('../assets/images/mockups/product-checkout-mockup3.png'),
   },
   {
@@ -40,7 +40,7 @@ const products = [
     discription: 'Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas',
     price_original: 265.00,
     price: 245.00,
-    discount: 30,
+    promo_discount: 30,
     img: require('../assets/images/mockups/course-thumbnail.jpg'),
   },
   {
