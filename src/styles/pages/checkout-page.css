@@ -58,13 +58,15 @@
 }
 
 #page-checkout .content-wrapper aside section > h3 {
+  width: 62.1rem;
+  
   font-family: Montserrat, sans-serif;
   font-weight: normal;
   font-size: 2rem;
 
   padding-bottom: 2rem;
 
-  width: 62.1rem;
+
   border-bottom: 1px solid #bfbfbf;
 }
 
@@ -76,7 +78,13 @@
   flex-direction: column;
   align-items: flex-end;
 
-  margin-top: 1rem;
+  margin-top: min(2vh, 2rem);
+}
+
+.checkout-discounts {
+  border-bottom: 1px solid #BFBFBF;
+
+  padding-bottom: min(2vh, 2rem);
 }
 
 .checkout-discounts h2 {
