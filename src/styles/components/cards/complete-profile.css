@@ -6,6 +6,32 @@
   flex-direction: column;
 }
 
+/* Estilização da primeira tela */
+.complete-profile-wrapper .card-container.page01 {
+  align-items: center;
+
+  padding: 6.2rem 10.5rem 5.8rem;
+}
+
+.complete-profile-wrapper .card-container.page01 img {
+  width: 9.3rem;
+}
+
+.complete-profile-wrapper .card-container.page01 h2 {
+  font: normal 2.4rem/2.8rem Montserrat;
+  color: #5D883E;
+  text-align: center;
+}
+
+#button-rounded.transparent {
+  margin-bottom: min(14vh, 14rem);
+}
+
+.complete-profile-wrapper .card-container.page01 p {
+  font: normal 1.8rem/2.4rem Montserrat;
+  text-align: center;
+}
+
 .complete-profile-wrapper .card-container {
   width: 51.7rem;
 
