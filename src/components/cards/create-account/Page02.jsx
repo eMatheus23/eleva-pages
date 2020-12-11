@@ -7,7 +7,8 @@ import ProgressBar from '../../ProgressBar';
 import OptionsGenerator from '../../SelectorOptionsGenerator';
 
 // Icons
-import ArrowRight from '../../../assets/images/icons/arrow-right.svg';
+import ArrowRight from '../../../assets/images/icons/arrow-right-white.svg';
+import ArrowRightGray from '../../../assets/images/icons/arrow-right-gray.svg';
 
 // CSS
 import '../../../styles/components/cards/create-account.css';
@@ -44,7 +45,6 @@ export default function Page02({ handleNextPage, isInCheckout }) {
         `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state}/municipios`
       )
       .then((response) => {
-        console.log(response.data);
         setCityOptions(response.data);
       });
 
@@ -173,9 +173,13 @@ export default function Page02({ handleNextPage, isInCheckout }) {
             </fieldset>
           </section>
 
-          <ButtonRounded onClick={handleNextPage} buttonStyle='secondary'>
+          <ButtonRounded
+            onClick={handleNextPage}
+            buttonStyle={inCheckout ? 'primary' : 'secondary'}
+          >
             Próximo
-            <img src={ArrowRight} alt='Próximo' />
+            {!inCheckout && <img src={ArrowRight} alt='Próximo' />}
+            {inCheckout && <img src={ArrowRightGray} alt='Próximo' />}
           </ButtonRounded>
         </form>
       </div>

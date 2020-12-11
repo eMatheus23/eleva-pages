@@ -8,15 +8,13 @@ import '../../../styles/components/cards/create-account.css';
 import Page01 from './Page01';
 import Page02 from './Page02';
 
-export default function CreateAccountCard({
-  renderPage,
-  handleFinish,
-  isInCheckout,
-}) {
+export default function CreateAccountCard(props) {
   const [page, setPage] = useState(1);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [inCheckout, setInCheckout] = useState(false);
   const history = useHistory();
+
+  const {renderPage, isInCheckout} = props;
 
   useEffect(() => {
     if (renderPage === 2) {
@@ -30,14 +28,25 @@ export default function CreateAccountCard({
 
   function handleNextPage() {
     if (page === 1) {
+      // Se estiver na página 1, ao clicar, renderiza a pág 2
       return setPage(2);
     }
+
+    // Se não estiver na página 1 habilita o login
     sessionStorage.setItem(
       '@elevagro-app/viewer-status|is-logged-in',
       JSON.stringify(true)
-    );
-    setIsLoggedIn(true);
+    );    
+
+
+    // setIsLoggedIn(true);
+
+    // Se o card estiver no checkout, envia a função para atualizar a tela
+    inCheckout && props.handleFinish()
+
     history.push('/checkout');
+
+
   }
 
   return (

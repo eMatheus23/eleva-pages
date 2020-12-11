@@ -6,7 +6,8 @@ import ButtonRounded, { ToggleSwitch } from '../../Buttons';
 import ProgressBar from '../../ProgressBar';
 
 // Icons
-import ArrowRight from '../../../assets/images/icons/arrow-right.svg';
+import ArrowRight from '../../../assets/images/icons/arrow-right-white.svg';
+import ArrowRightGray from '../../../assets/images/icons/arrow-right-gray.svg';
 import RevealPassword from '../../../assets/images/icons/reveal-password.svg';
 
 // CSS
@@ -116,9 +117,13 @@ export default function Page01({ handleNextPage, isInCheckout }) {
             </div>
           </fieldset>
 
-          <ButtonRounded onClick={handleNextPage} buttonStyle='secondary'>
+          <ButtonRounded
+            onClick={handleNextPage}
+            buttonStyle={inCheckout ? 'primary' : 'secondary'}
+          >
             Próximo
-            <img src={ArrowRight} alt='Próximo' />
+            {!inCheckout && <img src={ArrowRight} alt='Próximo' />}
+            {inCheckout && <img src={ArrowRightGray} alt='Próximo' />}
           </ButtonRounded>
 
           <ToggleSwitch className='terms-and-policies'>
