@@ -1,0 +1,44 @@
+.accepted-cards-container {
+  width: 61.1rem;
+
+  display: flex;
+  align-items: flex-start;
+
+  padding: 2.1rem 4rem 1.4rem 6.7rem;
+  border: 1px solid #bfbfbf;
+  border-radius: 11px;
+}
+
+.accepted-cards-container div:first-of-type {
+  width: 4.2rem;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+}
+
+.accepted-cards-container div > img {
+  height: 2.4rem;
+
+  margin-top: 0.5rem;
+  margin-right: 1rem;
+}
+
+.accepted-cards-container div + div p {
+  font: normal 1.8rem/2.6rem Montserrat;
+}
+
+.accepted-cards-container div + div img {
+  margin-top: 0.2rem;
+}
+
+.accepted-cards-container div + div img + p {
+  margin-top: 1rem;
+}
+
+.accepted-cards-container .MuiSwitch-root {
+  margin-bottom: 2rem;
+}
