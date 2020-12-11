@@ -69,7 +69,7 @@ export default function ProductCheckout(props) {
       )}
 
       {checkoutSucess && (
-        <ButtonRounded linkTo={'/'} buttonStyle='primary'>
+        <ButtonRounded type='link' linkTo={'/'} buttonStyle='primary'>
           Acessar
         </ButtonRounded>
       )}

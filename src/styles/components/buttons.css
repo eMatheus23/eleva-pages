@@ -17,6 +17,8 @@
   justify-content: center;
 
   text-decoration: none;
+
+  cursor: pointer;
 }
 
 #button-rounded.primary {
@@ -40,10 +42,10 @@
   font-weight: bold;
 }
 
-#button-rounded.white {
+#button-rounded.transparent {
   width: 23.6rem;
 
-  background: var(--color-background);
+  background: none;
   color: var(--color-text-in-white);
 
   border: 1px solid #707070;

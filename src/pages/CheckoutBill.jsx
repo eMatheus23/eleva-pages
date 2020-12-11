@@ -45,7 +45,7 @@ export default function CheckoutPage() {
               </ButtonRounded>
             </div>
 
-            <ButtonRounded linkTo={'/checkout'} buttonStyle='white'>
+            <ButtonRounded type='link' linkTo={'/checkout'} buttonStyle='transparent'>
               Pagar com cartão
             </ButtonRounded>
 
@@ -63,8 +63,8 @@ export default function CheckoutPage() {
             </p>
 
             <div className='buttons'>
-              <ButtonRounded buttonStyle='white'>Fale conosco</ButtonRounded>
-              <ButtonRounded linkTo={'/'} buttonStyle='white'>
+              <ButtonRounded buttonStyle='transparent'>Fale conosco</ButtonRounded>
+              <ButtonRounded type='link' linkTo={'/'} buttonStyle='transparent'>
                 Página inicial
               </ButtonRounded>
             </div>

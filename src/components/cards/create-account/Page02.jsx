@@ -184,7 +184,7 @@ export default function Page02({ handleNextPage, isInCheckout }) {
         </form>
       </div>
 
-      <div className={inCheckout && 'large-margin'}>
+      <div className={inCheckout ? 'large-margin' : ''}>
         <ProgressBar progress={1} />
       </div>
     </>

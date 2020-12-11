@@ -60,10 +60,15 @@ export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
     sessionStorage.setItem('@elevagro-app/purchases', JSON.stringify(cart));
 
     // Procura pela assinatura premium no cart
-    const plan = cart.filter(product => product.type === 'premium-subscription')
+    const plan = cart.filter(
+      (product) => product.type === 'premium-subscription'
+    );
 
     if (plan) {
-      sessionStorage.setItem('@elevagro-app/viewer-status|is-premium', JSON.stringify(true));
+      sessionStorage.setItem(
+        '@elevagro-app/viewer-status|is-premium',
+        JSON.stringify(true)
+      );
     }
 
     history.push('/checkout/access');
@@ -231,7 +236,7 @@ export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
             </label>
           </div>
 
-          <ButtonRounded linkTo={billPage} buttonStyle='primary'>
+          <ButtonRounded type='link' linkTo={billPage} buttonStyle='primary'>
             Gerar Boleto
           </ButtonRounded>
         </main>

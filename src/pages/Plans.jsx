@@ -332,7 +332,7 @@ export default function Plans() {
             <div className='create-account animate-apper'>
               <h3>AINDA NÃO TENHO CONTA</h3>
 
-              <ButtonRounded linkTo='/signup/visitor' buttonStyle='primary'>Criar conta</ButtonRounded>
+              <ButtonRounded type='link' linkTo='/signup/visitor' buttonStyle='primary'>Criar conta</ButtonRounded>
             </div>
 
             <div className='login-card animate-apper'>

@@ -59,7 +59,7 @@
   margin: 0 auto;
 }
 
-.checkout-bill-wrapper #button-rounded.white {
+.checkout-bill-wrapper #button-rounded.transparent {
   margin-top: min(3.5vh, 3.4rem);
 }
 .checkout-bill-wrapper .progress-container {

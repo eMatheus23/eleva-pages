@@ -8,16 +8,33 @@ export default function ButtonRounded({
   onClick,
   children,
   buttonStyle,
+  type,
 }) {
   return (
-    <Link
-      to={linkTo ? linkTo : undefined}
-      id='button-rounded'
-      className={buttonStyle ? buttonStyle : 'primary'}
-      onClick={onClick}
-    >
-      {children}
-    </Link>
+    <>
+      {type === 'link' && (
+        <Link
+          to={linkTo}
+          id='button-rounded'
+          className={buttonStyle ? buttonStyle : 'primary'}
+          onClick={onClick}
+        >
+          {children}
+        </Link>
+      )}
+
+      {type !== 'link' && (
+        <button
+          type="button"
+          id='button-rounded'
+          className={buttonStyle ? buttonStyle : 'primary'}
+          onClick={onClick}
+        >
+          {children}
+        </button>
+      )}
+
+    </>
   );
 }
 

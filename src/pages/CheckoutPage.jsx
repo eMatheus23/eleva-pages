@@ -199,7 +199,7 @@ export default function CheckoutPage() {
   return (
     <div id='page-checkout'>
       <header>
-        <Link to={'/'}>
+        <Link to='/'>
           <img src={logoElevagroFooter} alt='Elevagro' />
         </Link>
       </header>
