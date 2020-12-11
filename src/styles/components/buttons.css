@@ -17,9 +17,6 @@
   justify-content: center;
 
   text-decoration: none;
-
-  background: var(--color-primary);
-  color: var(--color-text-in-white);
 }
 
 #button-rounded.primary {
@@ -32,8 +29,7 @@
   color: var(--color-background);
 }
 
-#button-rounded.secondary img,
-#button-rounded.alternative img {
+#button-rounded img {
   margin-left: 1rem;
 }
 

@@ -192,9 +192,7 @@
 }
 
 
-.create-account-card #button-rounded.secondary {
-  color: var(--color-background);
-
+.create-account-card #button-rounded {
   margin-top: min(2vh, 2.4rem);
   margin-bottom: min(5vh, 4.8rem);
 }

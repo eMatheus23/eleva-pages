@@ -91,9 +91,8 @@
   font: normal 1.2rem/1.6rem Montserrat;
   text-align: right;
 
-  margin-top: 1.8rem;
+  margin-top: 1.6rem;
 }
-
 
 .premium-offer-card main h2 {
   margin-bottom: 1.8rem;
@@ -120,6 +119,12 @@
   background: var(--color-background-secondary);
 
   cursor: pointer;
+}
+
+.premium-offer-card #button-rounded.alternative {
+  width: 26.5rem;
+
+  font-size: 1.7rem;
 }
 
 .anual-view {
