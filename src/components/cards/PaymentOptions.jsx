@@ -50,8 +50,6 @@ export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
   };
 
   const handlePurchase = () => {
-    console.log('Cheguei');
-
     // Busca os produtos no carrinho do sessionStorage
     const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart'));
 
@@ -60,6 +58,13 @@ export default function PaymentOptionsCard({ accessPage, billPage, cartSum }) {
 
     // Envia as compras para outra sessão do sessionStorage
     sessionStorage.setItem('@elevagro-app/purchases', JSON.stringify(cart));
+
+    // Procura pela assinatura premium no cart
+    const plan = cart.filter(product => product.type === 'premium-subscription')
+
+    if (plan) {
+      sessionStorage.setItem('@elevagro-app/viewer-status|is-premium', JSON.stringify(true));
+    }
 
     history.push('/checkout/access');
   };
