@@ -3,9 +3,19 @@ import { Link } from 'react-router-dom';
 
 import '../styles/components/buttons.css';
 
-export default function ButtonRounded({ linkTo, onClick, children, buttonStyle, width }) {
+export default function ButtonRounded({
+  linkTo,
+  onClick,
+  children,
+  buttonStyle,
+}) {
   return (
-    <Link to={linkTo} id='button-rounded' className={buttonStyle} onClick={onClick} style={{width: width}}>
+    <Link
+      to={linkTo ? linkTo : undefined}
+      id='button-rounded'
+      className={buttonStyle ? buttonStyle : 'primary'}
+      onClick={onClick}
+    >
       {children}
     </Link>
   );
