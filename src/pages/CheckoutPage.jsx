@@ -7,6 +7,7 @@ import '../styles/pages/checkout-page.css';
 import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
 
 // Components
+import AcceptedCards from '../components/cards/AcceptedCards';
 import AnnualOfferCard from '../components/cards/AnnualOffer';
 import PremiumOfferCard from '../components/cards/PremiumOffer';
 import ProductCheckout from '../components/cards/ProductCheckout';
@@ -22,7 +23,7 @@ export default function CheckoutPage() {
   document.title = 'Elevagro | Checkout';
 
   const [productsInCart, setProductsInCart] = useState([]);
-  const [offerActive, setOfferActive] = useState(false);
+  const [planInCart, setPlanInCart] = useState(false);
   const [couponAplied, setCouponAplied] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isPremium, setIsPremium] = useState(false);
@@ -41,6 +42,21 @@ export default function CheckoutPage() {
 
     return sum;
   }
+
+  const promoDiscountSumFunction = () => {
+    const sum = productsInCart
+      .map((product) => {
+        if (product.promo_discount) {
+          return product.price_original - product.price;
+        }
+        return false;
+      })
+      .reduce((prev, curr) => prev + curr, 0);
+
+    return sum;
+  };
+
+  const promoDiscountSum = promoDiscountSumFunction();
 
   const cartSum = cartSumFunction();
 
@@ -83,13 +99,11 @@ export default function CheckoutPage() {
 
     // Se existir algum, ele seta na const ChosenPlan
     if (plan.length !== 0) {
-      plan[0].subscription === 'semestral' && setOfferActive(true);
+      plan[0].subscription === 'semestral' && setPlanInCart(true);
     }
   }, []);
 
   function deleteProduct(id) {
-    console.log('Cheguei');
-
     var temporaryCart = productsInCart;
 
     // Procura o index de outros planos no cart
@@ -109,37 +123,47 @@ export default function CheckoutPage() {
   }
 
   function switchPlan() {
-    const planInCart = productsInCart.filter((product) => product.subscription);
+    const inCart = productsInCart.filter((product) => product.subscription)[0];
 
     const semestral = products.filter(
       (product) => product.subscription === 'semestral'
-    );
+    )[0];
 
     const anual = products.filter(
       (product) => product.subscription === 'anual'
-    );
+    )[0];
 
     // Deleta todos os planos existentes no cart
     var temporaryCart = deleteOtherPlans(productsInCart);
 
-    if (planInCart[0].subscription === 'semestral') {
+    if (inCart.subscription === 'semestral') {
       // Adiciona o plano anual ao sessionStorage
-      addToCart(anual[0].id);
+      addToCart(anual.id);
 
       // Adiciona o plano anual aos produtos do cart do component
-      setProductsInCart([...temporaryCart, anual[0]]);
-    } else if (planInCart[0].subscription === 'anual') {
+      setProductsInCart([...temporaryCart, anual]);
+    } else if (inCart.subscription === 'anual') {
       // Adiciona o plano semestral ao sessionStorage
-      addToCart(semestral[0].id);
+      addToCart(semestral.id);
 
       // Adiciona o plano semestral aos produtos do cart do component
-      setProductsInCart([...temporaryCart, semestral[0]]);
+      setProductsInCart([...temporaryCart, semestral]);
     }
+  }
+
+  function addAnnualPlan() {
+    const anual = products.filter(
+      (product) => product.subscription === 'anual'
+    )[0];
+
+    addToCart(anual.id);
+
+    setProductsInCart([...productsInCart, anual]);
   }
 
   function handleCoupon() {
     const code = document.getElementById('coupon-input').value.toUpperCase();
-    const coupon = products.filter((product) => product.code === code);
+    const coupon = products.filter((product) => product.code === code)[0];
 
     if (!code) {
       alert('Insira um cupom!');
@@ -162,13 +186,14 @@ export default function CheckoutPage() {
       alert('Já existe um cupom aplicado à esta compra!');
       return;
     }
-    addToCart(coupon[0].id);
-    setProductsInCart([...productsInCart, coupon[0]]);
+
+    addToCart(coupon.id);
+    setProductsInCart([...productsInCart, coupon]);
     setCouponAplied(true);
   }
 
   function handleFinish() {
-    console.log('Cheguei');
+    setIsLoggedIn(true);
   }
 
   return (
@@ -214,37 +239,46 @@ export default function CheckoutPage() {
               return false;
             })}
 
-            <div className='checkout-discounts'>
-              <h2>SEUS DESCONTOS</h2>
-              {productsInCart.map((product, key) => {
-                if (product.discount && product.subscription) {
-                  return (
-                    <h3 key={'discount_' + key}>
-                      PREMIUM {product.subscription.toUpperCase()}: -
-                      <span>
-                        {(
-                          product.price_original - product.price
-                        ).toLocaleString('pt-BR', currencyFormat)}
-                      </span>
-                    </h3>
-                  );
-                }
-                return <></>;
-              })}
-              {productsInCart.map((product, key) => {
-                if (product.type === 'coupon') {
-                  return (
-                    <h3 key={'discount_' + key}>
-                      {product.name}:&nbsp;
-                      <span>
-                        {product.price.toLocaleString('pt-BR', currencyFormat)}
-                      </span>
-                    </h3>
-                  );
-                }
-                return <></>;
-              })}
-            </div>
+            {promoDiscountSum | couponAplied && (
+              <div className='checkout-discounts'>
+                <h2>SEUS DESCONTOS</h2>
+
+                {isPremium && (
+                  <h3>
+                    PREMIUM: -{' '}
+                    <span>
+                      {promoDiscountSum.toLocaleString('pt-BR', currencyFormat)}
+                    </span>
+                  </h3>
+                )}
+
+                {promoDiscountSum && (
+                  <h3>
+                    Promocional: -{' '}
+                    <span>
+                      {promoDiscountSum.toLocaleString('pt-BR', currencyFormat)}
+                    </span>
+                  </h3>
+                )}
+
+                {productsInCart.map((product, key) => {
+                  if (product.type === 'coupon') {
+                    return (
+                      <h3 key={'discount_' + key}>
+                        {product.name}: -
+                        <span>
+                          {Math.abs(product.price).toLocaleString(
+                            'pt-BR',
+                            currencyFormat
+                          )}
+                        </span>
+                      </h3>
+                    );
+                  }
+                  return <></>;
+                })}
+              </div>
+            )}
 
             <div className='checkout-total'>
               <p>Total:</p>
@@ -277,8 +311,15 @@ export default function CheckoutPage() {
             )}
           </section>
 
-          {offerActive && <AnnualOfferCard switchPlan={switchPlan} />}
-          <PremiumOfferCard />
+          {planInCart && !isPremium && (
+            <AnnualOfferCard switchPlan={switchPlan} />
+          )}
+          {!planInCart && !isPremium && (
+            <PremiumOfferCard addAnnualPlan={addAnnualPlan} />
+          )}
+
+          <AcceptedCards saveCard={isLoggedIn} />
+          
         </aside>
       </div>
     </div>
