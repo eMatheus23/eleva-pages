@@ -33,8 +33,6 @@ export default function CheckoutAccessPage() {
     const select = event.target;
     const input = event.target.nextSibling;
 
-    console.log(input);
-
     if (select.value === 'outro') {
       select.style.display = 'none';
       input.style.display = 'flex';
@@ -45,8 +43,6 @@ export default function CheckoutAccessPage() {
     const inputContainer = event.target.parentNode;
     const input = event.target.parentNode.firstChild;
     const select = event.target.parentNode.previousSibling;
-
-    console.log(event);
 
     inputContainer.style.display = 'none';
     input.value = '';
