@@ -8,7 +8,7 @@ import deleteIcon from '../../assets/images/icons/delete-product-checkout.svg';
 // Components
 import ButtonRounded from '../Buttons';
 
-import currencyFormat from '../../data/currency-format'
+import currencyFormat from '../../data/currency-format';
 
 export default function ProductCheckout(props) {
   document.title = 'Elevagro | Obrigado pela compra!';
@@ -21,11 +21,11 @@ export default function ProductCheckout(props) {
     discription,
     price_original,
     price,
-    discount,
+    promo_discount,
     img,
   } = props.product;
 
-  const priceDecimals = Math.round((price % Math.floor(price)) * 100)
+  const priceDecimals = Math.round((price % Math.floor(price)) * 100);
 
   useEffect(() => {
     setCheckoutSucess(props.success);
@@ -47,12 +47,14 @@ export default function ProductCheckout(props) {
             <h2 className='price-style'>
               <span>R$</span>
               <strong>{Math.floor(price)}</strong>,
-              {priceDecimals.toLocaleString('pt-BR', {
+              {priceDecimals
+                .toLocaleString('pt-BR', {
                   maximumFractionDigits: 2,
                   minimumFractionDigits: 2,
-                }).slice(-2)}
+                })
+                .slice(-2)}
             </h2>
-            <span>{discount}% de desconto</span>
+            <span>{promo_discount}% de desconto</span>
           </div>
 
           <img
@@ -66,7 +68,11 @@ export default function ProductCheckout(props) {
         </>
       )}
 
-      {checkoutSucess && <ButtonRounded linkTo={'/'} buttonStyle='primary'>Acessar</ButtonRounded>}
+      {checkoutSucess && (
+        <ButtonRounded linkTo={'/'} buttonStyle='primary'>
+          Acessar
+        </ButtonRounded>
+      )}
     </div>
   );
 }

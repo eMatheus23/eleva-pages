@@ -16,7 +16,6 @@ import ButtonRounded from '../Buttons';
 
 export default function PremiumOfferCard(props) {
   const [closed, setClosed] = useState(false);
-  const [semestralView, setSemestralView] = useState(true);
   const anualSubscription = products.filter((product) => {
     if (product.subscription) {
       return product.subscription === 'anual';
@@ -24,18 +23,14 @@ export default function PremiumOfferCard(props) {
     return false;
   });
 
-  const { price_original, price, discount } = anualSubscription[0];
+  const { price_original, price, promo_discount } = anualSubscription[0];
   const priceDecimals = Math.round((price % Math.floor(price)) * 100);
 
   function handleClick() {
     // Envia para o componente pai, a chamada da função que muda para o plano anual
-    props.switchPlan();
+    props.addAnnualPlan();
 
-    if (semestralView) {
-      return setSemestralView(false);
-    }
-
-    setSemestralView(true);
+    setClosed(true);
   }
 
   return (
@@ -43,7 +38,7 @@ export default function PremiumOfferCard(props) {
       className='premium-offer-card'
       style={{ display: closed ? 'none' : 'flex' }}
     >
-      <div className={`semestral-view ${semestralView && 'active'}`}>
+      <div className='semestral-view active'>
         <span
           onClick={() => {
             setClosed(true);
@@ -62,7 +57,7 @@ export default function PremiumOfferCard(props) {
           <main>
             <p>
               Torne-se um associado Premium por um ano com{' '}
-              <span>{discount}%</span> de desconto.
+              <span>{promo_discount}%</span> de desconto.
             </p>
             <p>
               De{' '}
@@ -84,7 +79,6 @@ export default function PremiumOfferCard(props) {
             <ButtonRounded
               onClick={handleClick}
               buttonStyle='alternative'
-              width='26.5rem'
             >
               Adicionar assinatura
               <img src={addCart} alt='' />

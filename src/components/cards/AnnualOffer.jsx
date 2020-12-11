@@ -14,14 +14,14 @@ export default function AnnualOfferCard(props) {
   const [closed, setClosed] = useState(false);
   const [semestralView, setSemestralView] = useState(true);
 
-  const { price_original, price, discount } = products.filter((product) => {
+  const { price_original, price, promo_discount } = products.filter((product) => {
     if (product.subscription) {
       return product.subscription === 'anual';
     }
     return false;
   })[0];
 
-  const { discount: semestralDiscount } = products.filter((product) => {
+  const { promo_discount: semestralDiscount } = products.filter((product) => {
     if (product.subscription) {
       return product.subscription === 'semestral';
     }
@@ -63,7 +63,7 @@ export default function AnnualOfferCard(props) {
             <img src={ilustrationImg} alt='Contrate o plano Premium anual' />
           </aside>
           <main>
-            <h3>+ {discount - semestralDiscount}% de desc.</h3>
+            <h3>+ {promo_discount - semestralDiscount}% de desc.</h3>
             <p>
               De{' '}
               <span>
