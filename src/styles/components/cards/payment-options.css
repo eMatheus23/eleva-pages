@@ -212,23 +212,6 @@
   width: 23.6rem;
 }
 
-/* Material Switch style */
-.payment-options-wrapper .MuiSwitch-colorSecondary.Mui-checked {
-  color: #009688;
-}
-
-.payment-options-wrapper .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-  background-color: #009688;
-}
-
-.payment-options-wrapper .MuiSwitch-switchBase {
-  color: #F1F1F1;
-}
-
-.payment-options-wrapper .MuiSwitch-track {
-  opacity: 0.25;
-}
-
 .credit-card form .toggle-switch {
   margin: 0;
 }
