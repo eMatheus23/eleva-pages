@@ -78,9 +78,16 @@ export default function Page02({ handleNextPage, isInCheckout }) {
                 name='country'
                 id='country'
                 className='select-appearance'
+                defaultValue='Brasil'
                 required
               >
-                <OptionsGenerator array={countryOptions} />
+                {countryOptions.map((country) => {
+                  return (
+                    <option key={country.sigla} value={country.nome_pais}>
+                      {country.nome_pais}
+                    </option>
+                  );
+                })}
               </select>
             </fieldset>
           </section>
