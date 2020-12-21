@@ -43,7 +43,6 @@
   margin-bottom: min(3vh, 2.8rem);
 }
 
-
 .plans-selector {
   position: relative;
 
@@ -126,13 +125,13 @@
 }
 
 .plans-card .corner-img {
-  position:absolute;
-  right:-1rem;
-  top:-1rem;
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
 }
 
 .plans-card .corner-text span {
-  position:absolute;
+  position: absolute;
   top: 1.4rem;
   width: 6rem;
   right: 0;
@@ -141,7 +140,7 @@
   font-weight: bold;
   color: var(--color-secondary);
   transform: rotate(45deg);
-  display:block;
+  display: block;
 }
 
 .plans-card .corner-text span p {
@@ -152,7 +151,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
 }
 
 .plans-card section h3 {
@@ -168,13 +167,13 @@
   margin-top: 0.8rem;
 }
 
-.plans-card section h2 { 
+.plans-card section h2 {
   font-size: 3rem;
 
   color: var(--color-secondary);
 
   margin-top: 2.2rem;
-  margin-bottom: -.2rem;
+  margin-bottom: -0.2rem;
 }
 
 .plans-card section h2 span {
@@ -186,7 +185,7 @@
   font-size: 1.4rem;
 }
 
-.plans-card h2 + p{
+.plans-card h2 + p {
   font-family: Montserrat, sans-serif;
   font-size: 1.5rem;
 }
@@ -220,7 +219,7 @@
 
 .plans-card button strong {
   font-family: 'Source Sans Pro', sans-serif;
-  margin-left: .6rem;
+  margin-left: 0.6rem;
 }
 
 .plans-card button + section p {
@@ -267,7 +266,6 @@
   margin-right: 6rem;
 }
 
-
 /* ------ Central image ------ */
 .central-img-container {
   display: none;
@@ -278,7 +276,7 @@
 }
 
 .central-img {
-  width: min(17vw , 33.6rem);
+  width: min(17vw, 33.6rem);
 
   position: absolute;
   top: 48%;
@@ -319,11 +317,11 @@
 }
 
 #plans-page aside .premium-description {
-  width: clamp(30rem, 31vw, 51.2rem); 
+  width: clamp(30rem, 31vw, 51.2rem);
 }
 
 #plans-page aside .premium-description video {
-  width: 100%; 
+  width: 100%;
   margin-top: min(6vh, 6rem);
   display: none;
 }
@@ -333,7 +331,7 @@
 }
 
 #plans-page aside .premium-description h2 {
-  width: 52rem; 
+  width: 52rem;
   color: var(--color-secondary);
 
   margin-top: 2.7rem;
@@ -359,11 +357,11 @@
 }
 
 #plans-page ul li::before {
-  content: "• ";
+  content: '• ';
   font-weight: normal;
   width: 0.5em;
   margin-left: -1em;
-} 
+}
 
 /* ----- Login da contratação ----- */
 #plans-page .login {
@@ -402,7 +400,7 @@
 
 #plans-page .login .create-account h3 {
   color: var(--color-text-white);
-  font-weight: normal; 
+  font-weight: normal;
   font-size: 2.2rem;
 
   margin: 1rem;
@@ -412,163 +410,28 @@
   margin: 1rem;
 }
 
-#plans-page .login .login-card {
-  width: 47rem;
-  max-height: 54.8rem;
-  border-radius: 1.7rem;
-
-  display: flex;
-  flex-direction: column;
-
-  margin-top: min(7vh, 6.6rem);
-  margin-bottom: min(2vh, 2rem);
-  padding: 4.2rem 4.6rem 3.3rem 4.1rem;
-
-  background: var(--color-background);
-  box-shadow: 0px 3px 6px #00000029;
-}
-
-#plans-page .login .login-card h3 {
-  font-weight: normal;
-  color: var(--color-secondary);
-}
-
-#plans-page .login .login-card fieldset {
-  border: 0;
-  margin-top: 2.1rem;
-}
-
-#plans-page .login .login-card fieldset + fieldset {
-  margin-top: 1.6rem;
-}
-
-#plans-page .login .login-card fieldset label {
-  width: 100%;
-
-  display: flex;
-
-  font-size: 2rem;
-  /* line-height: 34px; */
-  color: var(--color-text-base);
-  font-weight: normal;
-
-  margin-bottom: 0.8rem;
-  /*
-  padding-bottom: 24px; */
-}
-
-#plans-page .login .login-card fieldset input {
-  width: 38.3rem;
-  height: 5.9rem;
-  border: 1px solid #BFBFBF;
-  border-radius: 3rem;
-  outline: none;
-
-  padding: 1.7rem;
-  font-size: 1.6rem;
-}
-
-#plans-page .login .login-card fieldset input::placeholder {
-  color: #BFBFBF;
-  font-family: Montserrat, sans-serif;
-}
-
-#plans-page .login .login-card fieldset:last-of-type {
-  margin-top: min(3vh, 3rem);
-}
-
-#plans-page .login-options,
-#plans-page .login-options div a {
-  font-family: Montserrat, sans-serif;
-  color: var(--color-text-base);
-}
-
-#plans-page .login .login-card .login-options {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  margin-top: 2.3rem;
-}
-
-#plans-page .login .login-card .login-options #button-rounded.secondary {
-  font-weight: bold;
-}
-
-#plans-page .login .login-card fieldset > div {
-  width: 37.8rem;
-  height: 9rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
-  border: 1px solid #BFBFBF;
-  border-radius: 0.6rem;
-}
-
-#plans-page .login .login-card fieldset > div button {
-  width: 13rem;
-  height: 4.1rem;
-
-  border-radius: 4px;
-  border: 1px solid #BFBFBF;
-  box-shadow: 0px 2px 2px #00000029;
-
-  background: var(--color-background);
-  font-weight: bold;
-  font-size: 1.5rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#plans-page .login .login-card fieldset > div img {
-  width: 1.9rem;
-  margin-right: 0.5rem;
-}
-
-@media (max-height: 810px) {
-  #plans-page main > h2,
-  #plans-page .login .create-account-card,
-  #plans-page .login .login-card,
-  .other-plans {
-    margin-top: 3rem;
-  }
-}
-
-
 @media (max-height: 850px) {
   .plans-selector {
     margin-bottom: 2.5rem;
   }
 
-  #plans-page .login .login-card {
-    padding: 2.2rem 4.6rem 2.3rem 4.1rem;
-  }
-
   #plans-page main > h2,
-  #plans-page .login .create-account-card,
-  #plans-page .login .login-card,
-  #plans-page .login .login-card fieldset,
-  #plans-page .login .login-card fieldset + fieldset,
-  #plans-page .login .login-card .login-options,
-  #plans-page .login .login-card fieldset:last-of-type,
   .other-plans {
     margin-top: 2vh;
   }
 }
 
+@media (max-height: 810px) {
+  #plans-page main > h2,
+  #plans-page .login .create-account,
+  .other-plans {
+    margin-top: 3rem;
+  }
+}
+
 @media (max-height: 700px) {
   #plans-page main > h2,
-  #plans-page .login .create-account-card,
-  #plans-page .login .login-card,
-  #plans-page .login .login-card fieldset,
-  #plans-page .login .login-card fieldset + fieldset,
-  #plans-page .login .login-card .login-options,
-  #plans-page .login .login-card fieldset:last-of-type,
+  #plans-page .login .create-account,
   .other-plans {
     margin-top: 1vh;
   }
@@ -578,5 +441,4 @@
   #plans-page .login {
     padding-left: 6vw;
   }
-  
 }

@@ -1,0 +1,157 @@
+.login .login-card {
+  width: 47rem;
+  max-height: 54.8rem;
+  border-radius: 1.7rem;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top: min(7vh, 6.6rem);
+  margin-bottom: min(2vh, 2rem);
+  padding: 4.2rem 4.6rem 3.3rem 4.1rem;
+
+  background: var(--color-background);
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.login .login-card h3 {
+  font-weight: normal;
+  color: var(--color-secondary);
+}
+
+.login .login-card fieldset {
+  border: 0;
+  margin-top: 2.1rem;
+}
+
+.login .login-card fieldset + fieldset {
+  margin-top: 1.6rem;
+}
+
+.login .login-card fieldset label {
+  width: 100%;
+
+  display: flex;
+
+  font-size: 2rem;
+  /* line-height: 34px; */
+  color: var(--color-text-base);
+  font-weight: normal;
+
+  margin-bottom: 0.8rem;
+  /*
+  padding-bottom: 24px; */
+}
+
+.login .login-card fieldset input {
+  width: 38.3rem;
+  height: 5.9rem;
+  border: 1px solid #bfbfbf;
+  border-radius: 3rem;
+  outline: none;
+
+  padding: 1.7rem;
+  font-size: 1.6rem;
+}
+
+.login .login-card fieldset input::placeholder {
+  color: #bfbfbf;
+  font-family: Montserrat, sans-serif;
+}
+
+.login .login-card fieldset:last-of-type {
+  margin-top: min(3vh, 3rem);
+}
+
+.login-options,
+.login-options div a {
+  font-family: Montserrat, sans-serif;
+  color: var(--color-text-base);
+}
+
+.login .login-card .login-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 2.3rem;
+}
+
+.login .login-card .login-options span.MuiSwitch-root {
+  margin-right: -0.4rem;
+  margin-left: 0.4rem;
+}
+
+.login .login-card .login-options > div {
+  display: flex;
+  align-items: center
+}
+
+.login .login-card .login-options #button-rounded.secondary {
+  font-weight: bold;
+}
+
+.login .login-card fieldset > div {
+  width: 37.8rem;
+  height: 9rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  border: 1px solid #bfbfbf;
+  border-radius: 0.6rem;
+}
+
+.login .login-card fieldset > div button {
+  width: 13rem;
+  height: 4.1rem;
+
+  border-radius: 4px;
+  border: 1px solid #bfbfbf;
+  box-shadow: 0px 2px 2px #00000029;
+
+  background: var(--color-background);
+  font-weight: bold;
+  font-size: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login .login-card fieldset > div img {
+  width: 1.9rem;
+  margin-right: 0.5rem;
+}
+
+@media (max-height: 850px) {
+  .login .login-card {
+    padding: 2.2rem 4.6rem 2.3rem 4.1rem;
+  }
+
+  .login .login-card,
+  .login .login-card fieldset,
+  .login .login-card fieldset + fieldset,
+  .login .login-card .login-options,
+  .login .login-card fieldset:last-of-type {
+    margin-top: 2vh;
+  }
+}
+
+@media (max-height: 810px) {
+  .login .login-card {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .login .login-card,
+  .login .login-card fieldset,
+  .login .login-card fieldset + fieldset,
+  .login .login-card .login-options,
+  .login .login-card fieldset:last-of-type {
+    margin-top: 1vh;
+  }
+}

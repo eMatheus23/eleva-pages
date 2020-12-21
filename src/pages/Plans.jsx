@@ -6,12 +6,11 @@ import '../styles/pages/plans.css';
 
 // Components
 import Footer from '../components/Footer';
-import ButtonRounded, { ToggleSwitch } from '../components/Buttons';
+import ButtonRounded from '../components/Buttons';
+import LoginCard from '../components/cards/LoginCard';
 
 // Logos
 import logoElevagro from '../assets/images/logos/marca-elevagro-negativa.svg';
-import googleLogo from '../assets/images/logos/google-logo.svg';
-import faceLogo from '../assets/images/logos/facebook-logo.svg';
 
 // Imagens
 import centralImgMensal from '../assets/images/acerconceptd800@2x.png';
@@ -66,7 +65,7 @@ export default function Plans() {
     addToCart(productId[0].id);
 
     if (isLoggedIn && isPremium) {
-      history.push('/checkout')
+      history.push('/checkout');
     } else {
       setLoginScreenActive(true);
     }
@@ -85,27 +84,29 @@ export default function Plans() {
     }
   }
 
-  function handleLogin() {
-
-    // Caso o login seja bem sucedido
-    sessionStorage.setItem('@elevagro-app/viewer-status|is-logged-in', JSON.stringify(true));
-    history.push('/signup/address')
-  }
-
   useEffect(() => {
-    const checkIsLoggedIn = JSON.parse(sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in'));
-    const checkIsPremium = JSON.parse(sessionStorage.getItem('@elevagro-app/viewer-status|is-premium'));
+    const checkIsLoggedIn = JSON.parse(
+      sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in')
+    );
+    const checkIsPremium = JSON.parse(
+      sessionStorage.getItem('@elevagro-app/viewer-status|is-premium')
+    );
 
     if (checkIsLoggedIn === null) {
-      sessionStorage.setItem('@elevagro-app/viewer-status|is-logged-in', JSON.stringify(false));
-      sessionStorage.setItem('@elevagro-app/viewer-status|is-premium', JSON.stringify(false));
+      sessionStorage.setItem(
+        '@elevagro-app/viewer-status|is-logged-in',
+        JSON.stringify(false)
+      );
+      sessionStorage.setItem(
+        '@elevagro-app/viewer-status|is-premium',
+        JSON.stringify(false)
+      );
     }
 
-    setIsLoggedIn(checkIsLoggedIn)
+    setIsLoggedIn(checkIsLoggedIn);
 
-    setIsPremium(checkIsPremium)
-
-  }, [])
+    setIsPremium(checkIsPremium);
+  }, []);
 
   return (
     <div id='plans-page'>
@@ -332,57 +333,16 @@ export default function Plans() {
             <div className='create-account animate-apper'>
               <h3>AINDA NÃO TENHO CONTA</h3>
 
-              <ButtonRounded type='link' linkTo='/signup/visitor' buttonStyle='primary'>Criar conta</ButtonRounded>
+              <ButtonRounded
+                type='link'
+                linkTo='/signup/visitor'
+                buttonStyle='primary'
+              >
+                Criar conta
+              </ButtonRounded>
             </div>
 
-            <div className='login-card animate-apper'>
-              <h3>JÁ TENHO CONTA</h3>
-
-              <form action=''>
-                <fieldset>
-                  <label htmlFor='login'>Login</label>
-                  <input
-                    type='email'
-                    name='e-mail'
-                    id='e-mail'
-                    placeholder='Seu e-mail de acesso'
-                  />
-                </fieldset>
-
-                <fieldset>
-                  <label htmlFor='senha'>Senha</label>
-                  <input
-                    type='email'
-                    name='e-mail'
-                    id='e-mail'
-                    placeholder='******'
-                  />
-                </fieldset>
-                <div className='login-options'>
-                  <div>
-                    <ToggleSwitch>Salvar login</ToggleSwitch>
-
-                    <Link to='#'>Esqueci a senha</Link>
-                  </div>
-
-                  <ButtonRounded onClick={handleLogin} buttonStyle='secondary'>Acessar</ButtonRounded>
-                </div>
-
-                <fieldset>
-                  <label htmlFor='senha'>Login com:</label>
-                  <div>
-                    <button type='button'>
-                      <img src={googleLogo} alt='Login com Google' />
-                      Google
-                    </button>
-                    <button type='button'>
-                      <img src={faceLogo} alt='Login com Facebook' />
-                      Facebook
-                    </button>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
+            <LoginCard />
           </div>
         </aside>
 
