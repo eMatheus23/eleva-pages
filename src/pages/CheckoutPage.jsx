@@ -68,6 +68,22 @@ export default function CheckoutPage() {
       return history.push('/');
     }
 
+    const isLoggedStatus = JSON.parse(
+      sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
+    );
+
+    setIsLoggedIn(isLoggedStatus);
+
+    const isPremiumStatus = JSON.parse(
+      sessionStorage.getItem('@elevagro-app/viewer-status|is-premium'),
+    );
+
+    setIsPremium(isPremiumStatus);
+
+    return setProductsInCart(cart);
+  }, []);
+
+  useEffect(() => {
     // Procura cupons no carrinho
     productsInCart.filter(product => {
       if (product.type === 'coupon') {
@@ -89,19 +105,7 @@ export default function CheckoutPage() {
       if (plan[0].subscription === 'semestral') return setPlanInCart(true);
     }
 
-    setIsLoggedIn(
-      JSON.parse(
-        sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
-      ),
-    );
-
-    setIsPremium(
-      JSON.parse(
-        sessionStorage.getItem('@elevagro-app/viewer-status|is-premium'),
-      ),
-    );
-
-    return setProductsInCart(cart);
+    return setPlanInCart(false);
   }, []);
 
   function deleteProduct(id) {
@@ -208,11 +212,7 @@ export default function CheckoutPage() {
       <div className="content-wrapper">
         <main>
           {isLoggedIn && (
-            <PaymentOptionsCard
-              accessPage="/checkout/access"
-              billPage="/checkout/bill"
-              cartSum={cartSum}
-            />
+            <PaymentOptionsCard billPage="/checkout/bill" cartSum={cartSum} />
           )}
 
           {!isLoggedIn && (
@@ -224,11 +224,11 @@ export default function CheckoutPage() {
           <section className="checkout-cart">
             <h3>O seu pedido</h3>
 
-            {productsInCart.map((product, key) => {
+            {productsInCart.map(product => {
               if (product.type !== 'coupon') {
                 return (
                   <ProductCheckout
-                    key={`produto_${key}`}
+                    key={`produto_${product.id}`}
                     deleteProduct={deleteProduct}
                     product={product}
                   />
@@ -237,54 +237,47 @@ export default function CheckoutPage() {
               return false;
             })}
 
-            {promoDiscountSum ||
-              (couponAplied && (
-                <div className="checkout-discounts">
-                  <h2>SEUS DESCONTOS</h2>
+            {promoDiscountSum | couponAplied && (
+              <div className="checkout-discounts">
+                <h2>SEUS DESCONTOS</h2>
 
-                  {isPremium && (
-                    <h3>
-                      PREMIUM: -
-                      <span>
-                        {promoDiscountSum.toLocaleString(
-                          'pt-BR',
-                          currencyFormat,
-                        )}
-                      </span>
-                    </h3>
-                  )}
+                {isPremium && (
+                  <h3>
+                    PREMIUM: -
+                    <span>
+                      {promoDiscountSum.toLocaleString('pt-BR', currencyFormat)}
+                    </span>
+                  </h3>
+                )}
 
-                  {promoDiscountSum && (
-                    <h3>
-                      Promocional: -
-                      <span>
-                        {promoDiscountSum.toLocaleString(
-                          'pt-BR',
-                          currencyFormat,
-                        )}
-                      </span>
-                    </h3>
-                  )}
+                {promoDiscountSum && (
+                  <h3>
+                    Promocional: -
+                    <span>
+                      {promoDiscountSum.toLocaleString('pt-BR', currencyFormat)}
+                    </span>
+                  </h3>
+                )}
 
-                  {productsInCart.map((product, key) => {
-                    if (product.type === 'coupon') {
-                      return (
-                        <h3 key={`discount_${key}`}>
-                          {product.name}
-                          <>: -</>
-                          <span>
-                            {Math.abs(product.price).toLocaleString(
-                              'pt-BR',
-                              currencyFormat,
-                            )}
-                          </span>
-                        </h3>
-                      );
-                    }
-                    return <></>;
-                  })}
-                </div>
-              ))}
+                {productsInCart.map((product, key) => {
+                  if (product.type === 'coupon') {
+                    return (
+                      <h3 key={`discount_${key}`}>
+                        {product.name}
+                        <>: -</>
+                        <span>
+                          {Math.abs(product.price).toLocaleString(
+                            'pt-BR',
+                            currencyFormat,
+                          )}
+                        </span>
+                      </h3>
+                    );
+                  }
+                  return <></>;
+                })}
+              </div>
+            )}
 
             <div className="checkout-total">
               <p>Total:</p>

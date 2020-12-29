@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import '../../styles/components/cards/payment-options.css';
@@ -16,8 +16,8 @@ import ProgressBar from '../ProgressBar';
 import currencyFormat from '../../data/currency-format';
 
 export default function PaymentOptionsCard({ billPage, cartSum }) {
-  const [creditSelected, setCreditSelected] = React.useState('true');
-  const [state, setState] = React.useState({
+  const [creditSelected, setCreditSelected] = useState('true');
+  const [state, setState] = useState({
     checkedA: false,
   });
   const history = useHistory();
@@ -25,19 +25,19 @@ export default function PaymentOptionsCard({ billPage, cartSum }) {
   const installments = [];
   let cardInstallments = 0;
 
-  function handleInstallments() {
-    if (cartSum > 150) {
-      cardInstallments = 10;
-    } else {
-      cardInstallments = 1;
-    }
+  if (cartSum > 150) {
+    cardInstallments = 10;
+  } else {
+    cardInstallments = 1;
+  }
 
-    for (let i = 0; i < cardInstallments; i += i) {
+  const handleInstallments = () => {
+    for (let i = 0; i < cardInstallments; i++) {
       const installment = cartSum / (i + 1);
 
       installments.push(installment.toLocaleString('pt-BR', currencyFormat));
     }
-  }
+  };
 
   handleInstallments();
 
@@ -100,9 +100,10 @@ export default function PaymentOptionsCard({ billPage, cartSum }) {
           </div>
           <span>
             [Em até
+            <> </>
             <>
               {cardInstallments}
-              {cardInstallments === 1 ? 'vez' : 'vezes'}
+              {cardInstallments === 1 ? ' vez' : ' vezes'}
             </>
             ]
           </span>
@@ -120,9 +121,7 @@ export default function PaymentOptionsCard({ billPage, cartSum }) {
               >
                 {installments.map((installment, index) => (
                   <option value={installment} key={`parcela_${index}`}>
-                    {index + 1}
-                    <>x de</>
-                    {installment}
+                    {`${index + 1} x de ${installment}`}
                   </option>
                 ))}
               </select>
@@ -185,9 +184,9 @@ export default function PaymentOptionsCard({ billPage, cartSum }) {
                 name="checkedA"
               />
               <label htmlFor="">
-                <>Li e concordo com os</>
+                <>Li e concordo com os </>
                 <Link href="/">termos de uso</Link>
-                <>da compra</>
+                <> da compra</>
               </label>
             </div>
           </form>

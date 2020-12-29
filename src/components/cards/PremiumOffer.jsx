@@ -59,14 +59,17 @@ export default function PremiumOfferCard(props) {
           <main>
             <p>
               Torne-se um associado Premium por um ano com
+              <> </>
               <span>
                 {promo_discount}
                 <>%</>
               </span>
+              <> </>
               de desconto.
             </p>
             <p>
               De
+              <> </>
               <span>
                 {price_original.toLocaleString('pt-BR', currencyFormat)}
               </span>

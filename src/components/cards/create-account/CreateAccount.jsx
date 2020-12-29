@@ -10,7 +10,6 @@ import Page02 from './Page02';
 
 export default function CreateAccountCard(props) {
   const [page, setPage] = useState(1);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [inCheckout, setInCheckout] = useState(false);
   const history = useHistory();
 
@@ -37,8 +36,6 @@ export default function CreateAccountCard(props) {
       '@elevagro-app/viewer-status|is-logged-in',
       JSON.stringify(true),
     );
-
-    // setIsLoggedIn(true);
 
     /* eslint-disable no-unused-expressions */
     // Se o card estiver no checkout, envia a função para atualizar a tela
