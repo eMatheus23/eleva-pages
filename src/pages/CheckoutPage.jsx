@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-//CSS
+// CSS
 import '../styles/pages/checkout-page.css';
 
 import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
@@ -33,7 +33,7 @@ export default function CheckoutPage() {
 
   function cartSumFunction() {
     const sum = cart
-      .map((product) => product.price)
+      .map(product => product.price)
       .reduce((prev, curr) => prev + curr, 0);
 
     if (sum < 0) {
@@ -45,7 +45,7 @@ export default function CheckoutPage() {
 
   const promoDiscountSumFunction = () => {
     const sum = productsInCart
-      .map((product) => {
+      .map(product => {
         if (product.promo_discount) {
           return product.price_original - product.price;
         }
@@ -63,26 +63,13 @@ export default function CheckoutPage() {
   const cartSumDecimals = Math.round((cartSum % Math.floor(cartSum)) * 100);
 
   useEffect(() => {
-    setIsLoggedIn(
-      JSON.parse(
-        sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in')
-      )
-    );
-    setIsPremium(
-      JSON.parse(
-        sessionStorage.getItem('@elevagro-app/viewer-status|is-premium')
-      )
-    );
-
     // Se o carrinho estiver vazio, retorna para a homepage
-    if (!cart | (cart.length === 0)) {
+    if (!cart || cart.length === 0) {
       return history.push('/');
     }
 
-    setProductsInCart(cart);
-
     // Procura cupons no carrinho
-    productsInCart.filter((product) => {
+    productsInCart.filter(product => {
       if (product.type === 'coupon') {
         return setCouponAplied(true);
       }
@@ -90,7 +77,7 @@ export default function CheckoutPage() {
     });
 
     // Procura os planos premium no carrinho
-    const plan = cart.filter((product) => {
+    const plan = cart.filter(product => {
       if (product.type === 'premium-subscription') {
         return product.subscription;
       }
@@ -99,15 +86,29 @@ export default function CheckoutPage() {
 
     // Se existir algum, ele seta na const ChosenPlan
     if (plan.length !== 0) {
-      plan[0].subscription === 'semestral' && setPlanInCart(true);
+      if (plan[0].subscription === 'semestral') return setPlanInCart(true);
     }
+
+    setIsLoggedIn(
+      JSON.parse(
+        sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
+      ),
+    );
+
+    setIsPremium(
+      JSON.parse(
+        sessionStorage.getItem('@elevagro-app/viewer-status|is-premium'),
+      ),
+    );
+
+    return setProductsInCart(cart);
   }, []);
 
   function deleteProduct(id) {
-    var temporaryCart = productsInCart;
+    const temporaryCart = productsInCart;
 
     // Procura o index de outros planos no cart
-    const cartIndex = temporaryCart.findIndex((product) => product.id === id);
+    const cartIndex = temporaryCart.findIndex(product => product.id === id);
 
     if (cartIndex >= 0) {
       temporaryCart.splice(cartIndex, 1);
@@ -115,26 +116,26 @@ export default function CheckoutPage() {
 
     sessionStorage.setItem('@elevagro-app/cart', JSON.stringify(temporaryCart));
 
-    setProductsInCart([...temporaryCart]);
-
-    if (!productsInCart | (productsInCart.length === 0)) {
+    if (!productsInCart || productsInCart.length === 0) {
       return history.push('/');
     }
+
+    return setProductsInCart([...temporaryCart]);
   }
 
   function switchPlan() {
-    const inCart = productsInCart.filter((product) => product.subscription)[0];
+    const inCart = productsInCart.filter(product => product.subscription)[0];
 
     const semestral = products.filter(
-      (product) => product.subscription === 'semestral'
+      product => product.subscription === 'semestral',
     )[0];
 
     const anual = products.filter(
-      (product) => product.subscription === 'anual'
+      product => product.subscription === 'anual',
     )[0];
 
     // Deleta todos os planos existentes no cart
-    var temporaryCart = deleteOtherPlans(productsInCart);
+    const temporaryCart = deleteOtherPlans(productsInCart);
 
     if (inCart.subscription === 'semestral') {
       // Adiciona o plano anual ao sessionStorage
@@ -153,7 +154,7 @@ export default function CheckoutPage() {
 
   function addAnnualPlan() {
     const anual = products.filter(
-      (product) => product.subscription === 'anual'
+      product => product.subscription === 'anual',
     )[0];
 
     addToCart(anual.id);
@@ -163,7 +164,7 @@ export default function CheckoutPage() {
 
   function handleCoupon() {
     const code = document.getElementById('coupon-input').value.toUpperCase();
-    const coupon = products.filter((product) => product.code === code)[0];
+    const coupon = products.filter(product => product.code === code)[0];
 
     if (!code) {
       alert('Insira um cupom!');
@@ -175,7 +176,7 @@ export default function CheckoutPage() {
       return;
     }
 
-    const couponInCart = productsInCart.find((product) => {
+    const couponInCart = productsInCart.find(product => {
       if (product.type === 'coupon') {
         return true;
       }
@@ -197,40 +198,37 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div id='page-checkout'>
+    <div id="page-checkout">
       <header>
-        <Link to='/'>
-          <img src={logoElevagroFooter} alt='Elevagro' />
+        <Link to="/">
+          <img src={logoElevagroFooter} alt="Elevagro" />
         </Link>
       </header>
 
-      <div className='content-wrapper'>
+      <div className="content-wrapper">
         <main>
           {isLoggedIn && (
             <PaymentOptionsCard
-              accessPage={'/checkout/access'}
-              billPage={'/checkout/bill'}
+              accessPage="/checkout/access"
+              billPage="/checkout/bill"
               cartSum={cartSum}
             />
           )}
 
           {!isLoggedIn && (
-            <CreateAccountCard
-              handleFinish={handleFinish}
-              isInCheckout={true}
-            />
+            <CreateAccountCard handleFinish={handleFinish} isInCheckout />
           )}
         </main>
 
         <aside>
-          <section className='checkout-cart'>
+          <section className="checkout-cart">
             <h3>O seu pedido</h3>
 
             {productsInCart.map((product, key) => {
               if (product.type !== 'coupon') {
                 return (
                   <ProductCheckout
-                    key={'produto_' + key}
+                    key={`produto_${key}`}
                     deleteProduct={deleteProduct}
                     product={product}
                   />
@@ -239,52 +237,61 @@ export default function CheckoutPage() {
               return false;
             })}
 
-            {promoDiscountSum | couponAplied && (
-              <div className='checkout-discounts'>
-                <h2>SEUS DESCONTOS</h2>
+            {promoDiscountSum ||
+              (couponAplied && (
+                <div className="checkout-discounts">
+                  <h2>SEUS DESCONTOS</h2>
 
-                {isPremium && (
-                  <h3>
-                    PREMIUM: -{' '}
-                    <span>
-                      {promoDiscountSum.toLocaleString('pt-BR', currencyFormat)}
-                    </span>
-                  </h3>
-                )}
+                  {isPremium && (
+                    <h3>
+                      PREMIUM: -
+                      <span>
+                        {promoDiscountSum.toLocaleString(
+                          'pt-BR',
+                          currencyFormat,
+                        )}
+                      </span>
+                    </h3>
+                  )}
 
-                {promoDiscountSum && (
-                  <h3>
-                    Promocional: -{' '}
-                    <span>
-                      {promoDiscountSum.toLocaleString('pt-BR', currencyFormat)}
-                    </span>
-                  </h3>
-                )}
+                  {promoDiscountSum && (
+                    <h3>
+                      Promocional: -
+                      <span>
+                        {promoDiscountSum.toLocaleString(
+                          'pt-BR',
+                          currencyFormat,
+                        )}
+                      </span>
+                    </h3>
+                  )}
 
-                {productsInCart.map((product, key) => {
-                  if (product.type === 'coupon') {
-                    return (
-                      <h3 key={'discount_' + key}>
-                        {product.name}: -
-                        <span>
-                          {Math.abs(product.price).toLocaleString(
-                            'pt-BR',
-                            currencyFormat
-                          )}
-                        </span>
-                      </h3>
-                    );
-                  }
-                  return <></>;
-                })}
-              </div>
-            )}
+                  {productsInCart.map((product, key) => {
+                    if (product.type === 'coupon') {
+                      return (
+                        <h3 key={`discount_${key}`}>
+                          {product.name}
+                          <>: -</>
+                          <span>
+                            {Math.abs(product.price).toLocaleString(
+                              'pt-BR',
+                              currencyFormat,
+                            )}
+                          </span>
+                        </h3>
+                      );
+                    }
+                    return <></>;
+                  })}
+                </div>
+              ))}
 
-            <div className='checkout-total'>
+            <div className="checkout-total">
               <p>Total:</p>
-              <h2 className='price-style helvetica'>
+              <h2 className="price-style helvetica">
                 <span>R$</span>
-                <strong>{Math.floor(cartSum)}</strong>,
+                <strong>{Math.floor(cartSum)}</strong>
+                <>,</>
                 {cartSumDecimals
                   .toLocaleString('pt-BR', {
                     maximumFractionDigits: 2,
@@ -295,15 +302,15 @@ export default function CheckoutPage() {
             </div>
 
             {!couponAplied && (
-              <div className='coupon-input'>
+              <div className="coupon-input">
                 <h3>Você tem cupom de desconto?</h3>
-                <div className='input-container'>
+                <div className="input-container">
                   <input
-                    type='text'
-                    placeholder='Digite aqui'
-                    id='coupon-input'
+                    type="text"
+                    placeholder="Digite aqui"
+                    id="coupon-input"
                   />
-                  <button type='button' onClick={handleCoupon}>
+                  <button type="button" onClick={handleCoupon}>
                     Aplicar
                   </button>
                 </div>
@@ -319,7 +326,6 @@ export default function CheckoutPage() {
           )}
 
           <AcceptedCards saveCard={isLoggedIn} />
-          
         </aside>
       </div>
     </div>

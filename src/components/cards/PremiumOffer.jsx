@@ -16,7 +16,7 @@ import ButtonRounded from '../Buttons';
 
 export default function PremiumOfferCard(props) {
   const [closed, setClosed] = useState(false);
-  const anualSubscription = products.filter((product) => {
+  const anualSubscription = products.filter(product => {
     if (product.subscription) {
       return product.subscription === 'anual';
     }
@@ -35,40 +35,47 @@ export default function PremiumOfferCard(props) {
 
   return (
     <div
-      className='premium-offer-card'
+      className="premium-offer-card"
       style={{ display: closed ? 'none' : 'flex' }}
     >
-      <div className='semestral-view active'>
+      <div className="semestral-view active">
         <span
+          role="button"
           onClick={() => {
             setClosed(true);
           }}
+          tabIndex={0}
         >
           x
         </span>
-        <div className='card-wrapper'>
+        <div className="card-wrapper">
           <aside>
             <p>
               Os cursos Elevagro são melhores com o apoio completo da plataforma
               Elevagro.
             </p>
-            <img src={ilustrationImg} alt='Contrate o plano Premium anual' />
+            <img src={ilustrationImg} alt="Contrate o plano Premium anual" />
           </aside>
           <main>
             <p>
-              Torne-se um associado Premium por um ano com{' '}
-              <span>{promo_discount}%</span> de desconto.
+              Torne-se um associado Premium por um ano com
+              <span>
+                {promo_discount}
+                <>%</>
+              </span>
+              de desconto.
             </p>
             <p>
-              De{' '}
+              De
               <span>
                 {price_original.toLocaleString('pt-BR', currencyFormat)}
               </span>
             </p>
-            <h2 className='price-style helvetica'>
-              <span className='for'>Por</span>
+            <h2 className="price-style helvetica">
+              <span className="for">Por</span>
               <span>R$:</span>
-              <strong>{Math.floor(price)}</strong>,
+              <strong>{Math.floor(price)}</strong>
+              <>,</>
               {priceDecimals
                 .toLocaleString('pt-BR', {
                   maximumFractionDigits: 2,
@@ -76,12 +83,9 @@ export default function PremiumOfferCard(props) {
                 })
                 .slice(-2)}
             </h2>
-            <ButtonRounded
-              onClick={handleClick}
-              buttonStyle='alternative'
-            >
+            <ButtonRounded onClick={handleClick} buttonStyle="alternative">
               Adicionar assinatura
-              <img src={addCart} alt='' />
+              <img src={addCart} alt="" />
             </ButtonRounded>
             <p>Promoção válida apenas para esta transação.</p>
           </main>

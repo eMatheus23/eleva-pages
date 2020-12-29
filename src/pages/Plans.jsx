@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-//CSS
+// CSS
 import '../styles/pages/plans.css';
 
 // Components
@@ -55,7 +55,7 @@ export default function Plans() {
   }
 
   function HandleAddToCart() {
-    const productId = products.filter((product) => {
+    const productId = products.filter(product => {
       if (product.subscription === selectedPlan) {
         return product.id;
       }
@@ -80,26 +80,26 @@ export default function Plans() {
       case 'anual':
         return centralImgAnual;
       default:
-        break;
+        return centralImgMensal;
     }
   }
 
   useEffect(() => {
     const checkIsLoggedIn = JSON.parse(
-      sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in')
+      sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
     );
     const checkIsPremium = JSON.parse(
-      sessionStorage.getItem('@elevagro-app/viewer-status|is-premium')
+      sessionStorage.getItem('@elevagro-app/viewer-status|is-premium'),
     );
 
     if (checkIsLoggedIn === null) {
       sessionStorage.setItem(
         '@elevagro-app/viewer-status|is-logged-in',
-        JSON.stringify(false)
+        JSON.stringify(false),
       );
       sessionStorage.setItem(
         '@elevagro-app/viewer-status|is-premium',
-        JSON.stringify(false)
+        JSON.stringify(false),
       );
     }
 
@@ -109,15 +109,15 @@ export default function Plans() {
   }, []);
 
   return (
-    <div id='plans-page'>
-      <div className='content-wrapper'>
+    <div id="plans-page">
+      <div className="content-wrapper">
         <main>
-          <img src={logoElevagro} alt='' />
+          <img src={logoElevagro} alt="" />
 
           <h2>ESCOLHA O SEU PLANO PREMIUM</h2>
-          <div className='plans-selector'>
+          <div className="plans-selector">
             <button
-              type='button'
+              type="button"
               onClick={() => handleSelectPlan('mensal')}
               className={selectedPlan === 'mensal' ? 'active' : ''}
             >
@@ -125,7 +125,7 @@ export default function Plans() {
             </button>
 
             <button
-              type='button'
+              type="button"
               onClick={() => handleSelectPlan('semestral')}
               className={selectedPlan === 'semestral' ? 'active' : ''}
             >
@@ -133,7 +133,7 @@ export default function Plans() {
             </button>
 
             <button
-              type='button'
+              type="button"
               onClick={() => handleSelectPlan('anual')}
               className={selectedPlan === 'anual' ? 'active' : ''}
             >
@@ -152,38 +152,42 @@ export default function Plans() {
             <div
               className={`corner ${selectedPlan === 'mensal' ? 'hiden' : ''}`}
             >
-              <img className='corner-img' src={cornerImg} alt='' />
-              <div className='corner-text'>
+              <img className="corner-img" src={cornerImg} alt="" />
+              <div className="corner-text">
                 <span>
-                  SAVE <p>R$ 14,50</p>
+                  SAVE
+                  <p>R$ 14,50</p>
                 </span>
               </div>
             </div>
 
-            <section className='animate-apper'>
-              <h3 className='animate-apper'>Plano Mensal</h3>
+            <section className="animate-apper">
+              <h3 className="animate-apper">Plano Mensal</h3>
               <p>É descontado todos os meses, R$29,90.</p>
             </section>
 
-            <section className='animate-apper'>
+            <section className="animate-apper">
               <h2>
-                R$ <span>29</span>,90
+                R$
+                <span>29</span>
+                ,90
               </h2>
               <p>(Valor do mês)</p>
             </section>
 
             <button
-              type='button'
+              type="button"
               onClick={HandleAddToCart}
               className={!loginScreenActive ? 'active' : ''}
             >
-              Contratar plano <strong>Mensal</strong>
+              Contratar plano
+              <strong>Mensal</strong>
             </button>
 
             <section>
               <p>Pagamento apenas via cartão.</p>
-              <div className='payment-options'>
-                <img src={cardIcon} alt='Pague com cartão' />
+              <div className="payment-options">
+                <img src={cardIcon} alt="Pague com cartão" />
               </div>
             </section>
           </div>
@@ -194,37 +198,41 @@ export default function Plans() {
               selectedPlan === 'semestral' ? 'active' : ''
             }`}
           >
-            <img className='corner-img' src={cornerImg} alt='' />
-            <div className='corner-text'>
+            <img className="corner-img" src={cornerImg} alt="" />
+            <div className="corner-text">
               <span>
-                SAVE <p>R$ 14,50</p>
+                SAVE
+                <p>R$ 14,50</p>
               </span>
             </div>
-            <section className='animate-apper'>
+            <section className="animate-apper">
               <h3>Plano Semestral</h3>
               <p>Semestralmente, é descontado apenas R$ 85,80</p>
             </section>
 
-            <section className='animate-apper'>
+            <section className="animate-apper">
               <h2>
-                R$ <span>14</span>,20
+                R$
+                <span>14</span>
+                ,20
               </h2>
               <p>(Valor do mês)</p>
             </section>
 
             <button
-              type='button'
+              type="button"
               onClick={HandleAddToCart}
               className={!loginScreenActive ? 'active' : ''}
             >
-              Contratar plano <strong>Semestral</strong>
+              Contratar plano
+              <strong>Semestral</strong>
             </button>
 
             <section>
               <p>Em até 5x de R$ 15,10 no cartão.</p>
-              <div className='payment-options'>
-                <img src={cardIcon} alt='Pague com cartão' />
-                <img src={barcodeIcon} alt='Pague com boleto' />
+              <div className="payment-options">
+                <img src={cardIcon} alt="Pague com cartão" />
+                <img src={barcodeIcon} alt="Pague com boleto" />
               </div>
             </section>
           </div>
@@ -233,46 +241,50 @@ export default function Plans() {
           <div
             className={`plans-card ${selectedPlan === 'anual' ? 'active' : ''}`}
           >
-            <img className='corner-img' src={cornerImg} alt='' />
-            <div className='corner-text'>
+            <img className="corner-img" src={cornerImg} alt="" />
+            <div className="corner-text">
               <span>
-                SAVE <p>R$ 44,50</p>
+                SAVE
+                <p>R$ 44,50</p>
               </span>
             </div>
-            <section className='animate-apper'>
+            <section className="animate-apper">
               <h3>Plano anual</h3>
               <p>Uma mensalidade anual apenas, de R$ 134,80</p>
             </section>
 
-            <section className='animate-apper'>
+            <section className="animate-apper">
               <h2>
-                R$ <span>11</span>,20
+                R$
+                <span>11</span>
+                ,20
               </h2>
               <p>(Valor do mês)</p>
             </section>
 
             <button
-              type='button'
+              type="button"
               onClick={HandleAddToCart}
               className={!loginScreenActive ? 'active' : ''}
             >
-              Contratar plano <strong>Anual</strong>
+              Contratar plano
+              <strong>Anual</strong>
             </button>
 
             <section>
               <p>Em até 10x de R$ 14,10 no cartão.</p>
-              <div className='payment-options'>
-                <img src={cardIcon} alt='Pague com cartão' />
-                <img src={barcodeIcon} alt='Pague com boleto' />
+              <div className="payment-options">
+                <img src={cardIcon} alt="Pague com cartão" />
+                <img src={barcodeIcon} alt="Pague com boleto" />
               </div>
             </section>
           </div>
 
           <p>Você pode cancelar o plano a hora que quiser.</p>
 
-          <div className='other-plans'>
-            <Link to='#'>Para estudantes</Link>
-            <Link to='#'>Planos empresariais</Link>
+          <div className="other-plans">
+            <Link to="/">Para estudantes</Link>
+            <Link to="/">Planos empresariais</Link>
           </div>
         </main>
 
@@ -284,9 +296,9 @@ export default function Plans() {
         >
           <img
             onClick={handleMockupClick}
-            className={`central-img active animate-apper`}
+            className="central-img active animate-apper"
             src={handleCentralImg()}
-            alt='Escolha seu plano Premium'
+            alt="Escolha seu plano Premium"
           />
         </div>
 
@@ -300,17 +312,17 @@ export default function Plans() {
               controls
               poster={videoImgMensal}
               className={selectedPlan === 'mensal' ? 'active' : ''}
-            ></video>
+            />
             <video
               controls
               poster={videoImgSemestral}
               className={selectedPlan === 'semestral' ? 'active' : ''}
-            ></video>
+            />
             <video
               controls
               poster={videoImgAnual}
               className={selectedPlan === 'anual' ? 'active' : ''}
-            ></video>
+            />
 
             <h2>COM O PLANO PREMIUM NA ELEVAGRO VOCÊ TEM:</h2>
             <ul>
@@ -330,13 +342,13 @@ export default function Plans() {
           </div>
 
           <div className={`login ${loginScreenActive ? 'active' : ''}`}>
-            <div className='create-account animate-apper'>
+            <div className="create-account animate-apper">
               <h3>AINDA NÃO TENHO CONTA</h3>
 
               <ButtonRounded
-                type='link'
-                linkTo='/signup/visitor'
-                buttonStyle='primary'
+                type="link"
+                linkTo="/signup/visitor"
+                buttonStyle="primary"
               >
                 Criar conta
               </ButtonRounded>

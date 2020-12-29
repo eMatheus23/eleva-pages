@@ -14,7 +14,7 @@ export default function CreateAccountCard(props) {
   const [inCheckout, setInCheckout] = useState(false);
   const history = useHistory();
 
-  const {renderPage, isInCheckout} = props;
+  const { renderPage, isInCheckout } = props;
 
   useEffect(() => {
     if (renderPage === 2) {
@@ -35,18 +35,17 @@ export default function CreateAccountCard(props) {
     // Se não estiver na página 1 habilita o login
     sessionStorage.setItem(
       '@elevagro-app/viewer-status|is-logged-in',
-      JSON.stringify(true)
-    );    
-
+      JSON.stringify(true),
+    );
 
     // setIsLoggedIn(true);
 
+    /* eslint-disable no-unused-expressions */
     // Se o card estiver no checkout, envia a função para atualizar a tela
-    inCheckout && props.handleFinish()
+    inCheckout && props.handleFinish();
+    /* eslint-enable no-unused-expressions */
 
-    history.push('/checkout');
-
-
+    return history.push('/checkout');
   }
 
   return (

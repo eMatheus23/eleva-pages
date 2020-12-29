@@ -42,19 +42,19 @@ export default function CompleteProfileCard() {
   }
 
   function handleNextPage() {
-    setPage(2)
+    setPage(2);
   }
 
   return (
-    <div className='complete-profile-wrapper'>
+    <div className="complete-profile-wrapper">
       {page === 1 && (
         <>
-          <div className='complete-profile-title'>
+          <div className="complete-profile-title">
             <h3>Acesso</h3>
           </div>
 
-          <div className='card-container page01'>
-            <img src={successIlustration} alt='Compra realizada com sucesso' />
+          <div className="card-container page01">
+            <img src={successIlustration} alt="Compra realizada com sucesso" />
 
             <h2>COMPRA REALIZADA COM SUCESSO.</h2>
 
@@ -63,7 +63,7 @@ export default function CompleteProfileCard() {
               melhor você.
             </p>
 
-            <ButtonRounded buttonStyle='transparent' onClick={handleNextPage}>
+            <ButtonRounded buttonStyle="transparent" onClick={handleNextPage}>
               Complete seu perfil
             </ButtonRounded>
           </div>
@@ -72,25 +72,25 @@ export default function CompleteProfileCard() {
 
       {page === 2 && (
         <>
-          <div className='complete-profile-title'>
+          <div className="complete-profile-title">
             <h3>Compra realizada com sucesso.</h3>
           </div>
 
-          <div className='card-container'>
+          <div className="card-container">
             <h2>Melhore a sua experiência.</h2>
             <p>
               A Elevagro sugere conteúdos mais úteis e relevantes para você, se
               você tiver o seu perfil mais completo.
             </p>
-            <form action=''>
+            <form action="">
               <fieldset>
-                <label htmlFor='user-prefered-culture'>
+                <label htmlFor="user-prefered-culture">
                   Principal cultura de interesse
                 </label>
                 <select
-                  name='user-prefered-culture'
-                  id='user-prefered-culture'
-                  className='select-appearance'
+                  name="user-prefered-culture"
+                  id="user-prefered-culture"
+                  className="select-appearance"
                   defaultValue={0}
                   required
                 >
@@ -102,13 +102,13 @@ export default function CompleteProfileCard() {
               </fieldset>
 
               <fieldset>
-                <label htmlFor='user-prefered-area'>
+                <label htmlFor="user-prefered-area">
                   Principal área de interesse
                 </label>
                 <select
-                  name='user-prefered-area'
-                  id='user-prefered-area'
-                  className='select-appearance'
+                  name="user-prefered-area"
+                  id="user-prefered-area"
+                  className="select-appearance"
                   defaultValue={0}
                   required
                 >
@@ -120,11 +120,11 @@ export default function CompleteProfileCard() {
               </fieldset>
 
               <fieldset>
-                <label htmlFor='user-profession'>Profissão</label>
+                <label htmlFor="user-profession">Profissão</label>
                 <select
-                  name='user-profession'
-                  id='user-profession'
-                  className='select-appearance'
+                  name="user-profession"
+                  id="user-profession"
+                  className="select-appearance"
                   onChange={handleSelectChange}
                   defaultValue={0}
                   required
@@ -135,20 +135,20 @@ export default function CompleteProfileCard() {
                   <OptionsGenerator array={professions} />
                 </select>
 
-                <div className='input-container-research'>
-                  <input type='text' placeholder='Digite aqui' />
-                  <button type='button' onClick={handleInputCancel}>
+                <div className="input-container-research">
+                  <input type="text" placeholder="Digite aqui" />
+                  <button type="button" onClick={handleInputCancel}>
                     Cancelar
                   </button>
                 </div>
               </fieldset>
 
               <fieldset>
-                <label htmlFor='user-formation'>Formação</label>
+                <label htmlFor="user-formation">Formação</label>
                 <select
-                  name='user-formation'
-                  id='user-formation'
-                  className='select-appearance'
+                  name="user-formation"
+                  id="user-formation"
+                  className="select-appearance"
                   onChange={handleSelectChange}
                   defaultValue={0}
                   required
@@ -159,16 +159,16 @@ export default function CompleteProfileCard() {
                   <OptionsGenerator array={formations} />
                 </select>
 
-                <div className='input-container-research'>
-                  <input type='text' placeholder='Digite aqui' />
-                  <button type='button' onClick={handleInputCancel}>
+                <div className="input-container-research">
+                  <input type="text" placeholder="Digite aqui" />
+                  <button type="button" onClick={handleInputCancel}>
                     Cancelar
                   </button>
                 </div>
               </fieldset>
 
-              <ButtonRounded buttonStyle='secondary'>
-                <img src={ProfileIcon} alt='Complete seu perfil' />
+              <ButtonRounded buttonStyle="secondary">
+                <img src={ProfileIcon} alt="Complete seu perfil" />
                 Completar meu perfil
               </ButtonRounded>
             </form>

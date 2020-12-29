@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-//CSS
+// CSS
 import '../styles/pages/checkout-page.css';
 
 import logoElevagroFooter from '../assets/images/logos/marca-elevagro.svg';
@@ -14,33 +14,35 @@ export default function CheckoutAccessPage() {
   document.title = 'Acesse seu produto!';
 
   // Busca os produtos no carrinho
-  const purchases = JSON.parse(sessionStorage.getItem('@elevagro-app/purchases'));
+  const purchases = JSON.parse(
+    sessionStorage.getItem('@elevagro-app/purchases'),
+  );
   const productsInCart = purchases;
 
   return (
-    <div id='page-checkout'>
+    <div id="page-checkout">
       <header>
-        <Link to={'/'}>
-          <img src={logoElevagroFooter} alt='Elevagro' />
+        <Link to="/">
+          <img src={logoElevagroFooter} alt="Elevagro" />
         </Link>
       </header>
 
-      <div className='content-wrapper'>
+      <div className="content-wrapper">
         <main>
           <CompleteProfileCard />
         </main>
 
         <aside>
-          <section className='checkout-cart-success'>
+          <section className="checkout-cart-success">
             <h3>O seu pedido</h3>
 
             {productsInCart.map((product, key) => {
               if (product.type !== 'coupon') {
                 return (
                   <ProductCheckout
-                    key={'produto_' + key}
+                    key={`produto_${key}`}
                     product={product}
-                    success={true}
+                    success
                   />
                 );
               }
@@ -48,7 +50,7 @@ export default function CheckoutAccessPage() {
             })}
           </section>
 
-          <section className='checkout-premium-success'>
+          <section className="checkout-premium-success">
             <h2>MARCOS, SEJA BEM-VINDO(A).</h2>
             <p>
               Queremos que você aprenda muito com nossos conteúdos e cursos.

@@ -15,7 +15,7 @@ export const cultures = [
     value: 'fitopatologia',
     label: 'Fitopatologia',
   },
-]
+];
 
 export const areas = [
   {
@@ -30,7 +30,7 @@ export const areas = [
     value: 'area3',
     label: 'Area 03',
   },
-]
+];
 
 export const professions = [
   {
@@ -96,5 +96,4 @@ export const formations = [
     value: 'outro',
     label: 'Outro',
   },
-]
-
+];

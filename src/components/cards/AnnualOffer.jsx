@@ -14,14 +14,14 @@ export default function AnnualOfferCard(props) {
   const [closed, setClosed] = useState(false);
   const [semestralView, setSemestralView] = useState(true);
 
-  const { price_original, price, promo_discount } = products.filter((product) => {
+  const { price_original, price, promo_discount } = products.filter(product => {
     if (product.subscription) {
       return product.subscription === 'anual';
     }
     return false;
   })[0];
 
-  const { promo_discount: semestralDiscount } = products.filter((product) => {
+  const { promo_discount: semestralDiscount } = products.filter(product => {
     if (product.subscription) {
       return product.subscription === 'semestral';
     }
@@ -38,42 +38,49 @@ export default function AnnualOfferCard(props) {
       return setSemestralView(false);
     }
 
-    setSemestralView(true);
+    return setSemestralView(true);
   }
 
   return (
     <div
-      className='anual-offer-card'
+      className="anual-offer-card"
       style={{ display: closed ? 'none' : 'flex' }}
     >
       <div className={`semestral-view ${semestralView && 'active'}`}>
         <span
+          role="button"
           onClick={() => {
             setClosed(true);
           }}
+          tabIndex={0}
         >
           x
         </span>
-        <div className='card-wrapper'>
+        <div className="card-wrapper">
           <aside>
             <h3>
-              Torne-se um associado Premium por um ano e{' '}
+              Torne-se um associado Premium por um ano e
               <span>pague menos.</span>
             </h3>
-            <img src={ilustrationImg} alt='Contrate o plano Premium anual' />
+            <img src={ilustrationImg} alt="Contrate o plano Premium anual" />
           </aside>
           <main>
-            <h3>+ {promo_discount - semestralDiscount}% de desc.</h3>
+            <h3>
+              <>+</>
+              {promo_discount - semestralDiscount}
+              <>% de desc.</>
+            </h3>
             <p>
-              De{' '}
+              De
               <span>
                 {price_original.toLocaleString('pt-BR', currencyFormat)}
               </span>
             </p>
-            <h2 className='price-style helvetica'>
-              <span className='for'>Por</span>
+            <h2 className="price-style helvetica">
+              <span className="for">Por</span>
               <span>R$:</span>
-              <strong>{Math.floor(price)}</strong>,
+              <strong>{Math.floor(price)}</strong>
+              <>,</>
               {priceDecimals
                 .toLocaleString('pt-BR', {
                   maximumFractionDigits: 2,
@@ -81,7 +88,7 @@ export default function AnnualOfferCard(props) {
                 })
                 .slice(-2)}
             </h2>
-            <button type='button' onClick={handleClick}>
+            <button type="button" onClick={handleClick}>
               Trocar para Anual
             </button>
           </main>
@@ -90,7 +97,7 @@ export default function AnnualOfferCard(props) {
       </div>
 
       <div className={`anual-view ${!semestralView && 'active'}`}>
-        <button type='button' onClick={handleClick}>
+        <button type="button" onClick={handleClick}>
           Voltar ao plano semestral
         </button>
       </div>

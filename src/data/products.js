@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 const products = [
   {
     id: 1,
@@ -5,8 +6,8 @@ const products = [
     name: 'Plataforma Elevagro',
     subscription: 'mensal',
     discription: 'Assinatura Mensal Elevagro',
-    price_original: 39.90,
-    price: 29.90,
+    price_original: 39.9,
+    price: 29.9,
     promo_discount: 25,
     img: require('../assets/images/mockups/product-checkout-mockup.png'),
   },
@@ -16,8 +17,8 @@ const products = [
     name: 'Plataforma Elevagro',
     subscription: 'semestral',
     discription: 'Assinatura Semestral Elevagro com valor promocional',
-    price_original: 160.00,
-    price: 120.00,
+    price_original: 160.0,
+    price: 120.0,
     promo_discount: 25,
     img: require('../assets/images/mockups/product-checkout-mockup2.png'),
   },
@@ -27,8 +28,8 @@ const products = [
     name: 'Plataforma Elevagro',
     subscription: 'anual',
     discription: 'Assinatura Anual Elevagro com valor promocional',
-    price_original: 265.00,
-    price: 189.00,
+    price_original: 265.0,
+    price: 189.0,
     promo_discount: 30,
     img: require('../assets/images/mockups/product-checkout-mockup3.png'),
   },
@@ -37,9 +38,10 @@ const products = [
     type: 'course',
     name: 'CURSO',
     subscription: '',
-    discription: 'Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas',
-    price_original: 265.00,
-    price: 245.00,
+    discription:
+      'Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas',
+    price_original: 265.0,
+    price: 245.0,
     promo_discount: 30,
     img: require('../assets/images/mockups/course-thumbnail.jpg'),
   },
@@ -48,8 +50,9 @@ const products = [
     type: 'coupon',
     code: 'COUPON34',
     name: 'Voucher',
-    price: -34.00,
-  }
+    price: -34.0,
+  },
 ];
+/* eslint-enable global-require */
 
-export default products
+export default products;

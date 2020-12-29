@@ -31,87 +31,87 @@ export default function Page01({ handleNextPage, isInCheckout }) {
 
   return (
     <>
-      <div className='create-account-title'>
+      <div className="create-account-title">
         {!inCheckout && <h3>Conta Premium Elevagro</h3>}
         {inCheckout && <h3>Criar sua conta para acesso</h3>}
       </div>
 
-      <div className='create-account-card'>
-        <form action=''>
+      <div className="create-account-card">
+        <form action="">
           <fieldset>
-            <label htmlFor='name'>Nome</label>
+            <label htmlFor="name">Nome</label>
             <input
-              type='text'
-              name='name'
-              id='name'
-              placeholder='Digite aqui'
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Digite aqui"
               required
             />
           </fieldset>
 
           <fieldset>
-            <label htmlFor='surname'>Sobrenome</label>
+            <label htmlFor="surname">Sobrenome</label>
             <input
-              type='text'
-              name='surname'
-              id='surname'
-              placeholder='Digite aqui'
+              type="text"
+              name="surname"
+              id="surname"
+              placeholder="Digite aqui"
               required
             />
           </fieldset>
 
-          <section className='middle-section'>
+          <section className="middle-section">
             <fieldset>
-              <label htmlFor='phone'>Nº celular</label>
+              <label htmlFor="phone">Nº celular</label>
               <input
-                type='text'
-                name='phone'
-                id='phone'
-                placeholder='(xx) 0 0000.0000'
+                type="text"
+                name="phone"
+                id="phone"
+                placeholder="(xx) 0 0000.0000"
                 required
               />
             </fieldset>
 
             <fieldset>
-              <label htmlFor='cpf'>
+              <label htmlFor="cpf">
                 CPF
-                <Link to='#'>Não tem CPF?</Link>
+                <Link to="/">Não tem CPF?</Link>
               </label>
 
               <input
-                type='text'
-                name='cpf'
-                id='cpf'
-                placeholder='000.000.000-00'
+                type="text"
+                name="cpf"
+                id="cpf"
+                placeholder="000.000.000-00"
                 required
               />
             </fieldset>
           </section>
 
           <fieldset>
-            <label htmlFor='e-mail'>e-mail</label>
+            <label htmlFor="e-mail">e-mail</label>
             <input
-              type='e-mail'
-              name='e-mail'
-              id='e-mail'
-              placeholder='Será o seu login'
+              type="e-mail"
+              name="e-mail"
+              id="e-mail"
+              placeholder="Será o seu login"
               required
             />
           </fieldset>
 
           <fieldset>
-            <label htmlFor='password'>Senha</label>
-            <div className='input-container'>
+            <label htmlFor="password">Senha</label>
+            <div className="input-container">
               <input
                 type={passwordType}
-                name='password'
-                id='password'
-                placeholder='Sua senha de acesso'
+                name="password"
+                id="password"
+                placeholder="Sua senha de acesso"
                 required
               />
               <img
                 src={RevealPassword}
-                alt='Revelar Senha'
+                alt="Revelar Senha"
                 onClick={handlePasswordVisibility}
               />
             </div>
@@ -122,22 +122,23 @@ export default function Page01({ handleNextPage, isInCheckout }) {
             buttonStyle={inCheckout ? 'primary' : 'secondary'}
           >
             Próximo
-            {!inCheckout && <img src={ArrowRight} alt='Próximo' />}
-            {inCheckout && <img src={ArrowRightGray} alt='Próximo' />}
+            {!inCheckout && <img src={ArrowRight} alt="Próximo" />}
+            {inCheckout && <img src={ArrowRightGray} alt="Próximo" />}
           </ButtonRounded>
 
-          <ToggleSwitch className='terms-and-policies'>
+          <ToggleSwitch className="terms-and-policies">
             Concordo com os
-            <Link to='#'>termos de uso</Link>e
-            <Link to='#'>Política de privacidade</Link>
+            <Link to="/">termos de uso</Link>
+            <>e</>
+            <Link to="/">Política de privacidade</Link>
           </ToggleSwitch>
         </form>
       </div>
 
       {inCheckout && (
-        <p className='login-option'>
+        <p className="login-option">
           Já tem conta na Elevagro?
-          <Link>Faça o login aqui.</Link>
+          <Link to="/">Faça o login aqui.</Link>
         </p>
       )}
 

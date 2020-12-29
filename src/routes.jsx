@@ -12,14 +12,13 @@ function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={Plans} />
-        <Route exact path='/plans' component={Plans} />
-        <Route exact path='/signup/visitor' component={SignupVisitor} />
-        <Route exact path='/signup/address' component={SignupAddress} />
-        <Route exact path='/checkout' component={CheckoutPage} />
-        <Route exact path='/checkout/bill' component={CheckoutBill} />
-        <Route exact path='/checkout/access' component={CheckoutAccessPage} />
-
+        <Route exact path="/" component={Plans} />
+        <Route exact path="/plans" component={Plans} />
+        <Route exact path="/signup/visitor" component={SignupVisitor} />
+        <Route exact path="/signup/address" component={SignupAddress} />
+        <Route exact path="/checkout" component={CheckoutPage} />
+        <Route exact path="/checkout/bill" component={CheckoutBill} />
+        <Route exact path="/checkout/access" component={CheckoutAccessPage} />
       </Switch>
     </BrowserRouter>
   );

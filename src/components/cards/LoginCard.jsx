@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-//CSS
+// CSS
 import '../../styles/components/cards/login-card.css';
 
 // Components
+import Switch from '@material-ui/core/Switch';
 import ButtonRounded from '../Buttons';
 
 // Logos
 import googleLogo from '../../assets/images/logos/google-logo.svg';
 import faceLogo from '../../assets/images/logos/facebook-logo.svg';
-
-// Icons
-import Switch from '@material-ui/core/Switch';
 
 export default function LoginCard() {
   const history = useHistory();
@@ -21,7 +19,7 @@ export default function LoginCard() {
     checkedA: false,
   });
 
-  const handleSwitchChange = (event) => {
+  const handleSwitchChange = event => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
 
@@ -29,55 +27,55 @@ export default function LoginCard() {
     // Caso o login seja bem sucedido
     sessionStorage.setItem(
       '@elevagro-app/viewer-status|is-logged-in',
-      JSON.stringify(true)
+      JSON.stringify(true),
     );
     history.push('/signup/address');
   }
 
   return (
-    <div className='login-card animate-apper'>
+    <div className="login-card animate-apper">
       <h3>JÁ TENHO CONTA</h3>
 
-      <form action=''>
+      <form action="">
         <fieldset>
-          <label htmlFor='login'>Login</label>
+          <label htmlFor="login">Login</label>
           <input
-            type='email'
-            name='e-mail'
-            id='e-mail'
-            placeholder='Seu e-mail de acesso'
+            type="email"
+            name="e-mail"
+            id="e-mail"
+            placeholder="Seu e-mail de acesso"
           />
         </fieldset>
 
         <fieldset>
-          <label htmlFor='senha'>Senha</label>
-          <input type='email' name='e-mail' id='e-mail' placeholder='******' />
+          <label htmlFor="senha">Senha</label>
+          <input type="email" name="e-mail" id="e-mail" placeholder="******" />
         </fieldset>
-        <div className='login-options'>
+        <div className="login-options">
           <div>
             <Switch
               checked={state.checkedA}
               onChange={handleSwitchChange}
-              name='checkedA'
+              name="checkedA"
             />
 
             <p>Salvar login</p>
           </div>
 
-          <ButtonRounded onClick={handleLogin} buttonStyle='secondary'>
+          <ButtonRounded onClick={handleLogin} buttonStyle="secondary">
             Acessar
           </ButtonRounded>
         </div>
 
         <fieldset>
-          <label htmlFor='senha'>Login com:</label>
+          <label htmlFor="senha">Login com:</label>
           <div>
-            <button type='button'>
-              <img src={googleLogo} alt='Login com Google' />
+            <button type="button">
+              <img src={googleLogo} alt="Login com Google" />
               Google
             </button>
-            <button type='button'>
-              <img src={faceLogo} alt='Login com Facebook' />
+            <button type="button">
+              <img src={faceLogo} alt="Login com Facebook" />
               Facebook
             </button>
           </div>

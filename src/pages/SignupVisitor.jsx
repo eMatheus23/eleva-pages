@@ -1,6 +1,6 @@
 import React from 'react';
 
-//CSS
+// CSS
 import '../styles/pages/signup.css';
 
 // Components
@@ -12,7 +12,7 @@ export default function SignupVisitor() {
   document.title = 'Elevagro | Criar Conta Premium';
 
   return (
-    <div id='page-signup'>
+    <div id="page-signup">
       <HeaderSignup />
       <main>
         <CreateAccountCard />

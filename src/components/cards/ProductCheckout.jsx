@@ -10,7 +10,7 @@ import ButtonRounded from '../Buttons';
 
 import currencyFormat from '../../data/currency-format';
 
-export default function ProductCheckout(props) {
+export default function ProductCheckout({ product, success, ...props }) {
   document.title = 'Elevagro | Obrigado pela compra!';
 
   const [checkoutSucess, setCheckoutSucess] = useState(false);
@@ -23,17 +23,17 @@ export default function ProductCheckout(props) {
     price,
     promo_discount,
     img,
-  } = props.product;
+  } = product;
 
   const priceDecimals = Math.round((price % Math.floor(price)) * 100);
 
   useEffect(() => {
-    setCheckoutSucess(props.success);
-  }, [props.success]);
+    setCheckoutSucess(success);
+  }, [success]);
 
   return (
-    <div className='product-checkout-card'>
-      <img src={img.default} alt='Plataforma Elevagro' />
+    <div className="product-checkout-card">
+      <img src={img.default} alt="Plataforma Elevagro" />
 
       <div className={`product-title ${checkoutSucess && 'bold'} `}>
         <h2>{name}</h2>
@@ -42,11 +42,12 @@ export default function ProductCheckout(props) {
 
       {!checkoutSucess && (
         <>
-          <div className='product-price'>
+          <div className="product-price">
             <p>{price_original.toLocaleString('pt-BR', currencyFormat)}</p>
-            <h2 className='price-style'>
+            <h2 className="price-style">
               <span>R$</span>
-              <strong>{Math.floor(price)}</strong>,
+              <strong>{Math.floor(price)}</strong>
+              <>,</>
               {priceDecimals
                 .toLocaleString('pt-BR', {
                   maximumFractionDigits: 2,
@@ -54,22 +55,25 @@ export default function ProductCheckout(props) {
                 })
                 .slice(-2)}
             </h2>
-            <span>{promo_discount}% de desconto</span>
+            <span>
+              {promo_discount}
+              <> % de desconto </>
+            </span>
           </div>
 
           <img
-            className='delete-button'
+            className="delete-button"
             src={deleteIcon}
             onClick={() => {
               props.deleteProduct(id);
             }}
-            alt='Excluir produto'
+            alt="Excluir produto"
           />
         </>
       )}
 
       {checkoutSucess && (
-        <ButtonRounded type='link' linkTo={'/'} buttonStyle='primary'>
+        <ButtonRounded type="link" linkTo="/" buttonStyle="primary">
           Acessar
         </ButtonRounded>
       )}

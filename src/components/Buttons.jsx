@@ -15,8 +15,8 @@ export default function ButtonRounded({
       {type === 'link' && (
         <Link
           to={linkTo}
-          id='button-rounded'
-          className={buttonStyle ? buttonStyle : 'primary'}
+          id="button-rounded"
+          className={buttonStyle || 'primary'}
           onClick={onClick}
         >
           {children}
@@ -26,14 +26,13 @@ export default function ButtonRounded({
       {type !== 'link' && (
         <button
           type="button"
-          id='button-rounded'
-          className={buttonStyle ? buttonStyle : 'primary'}
+          id="button-rounded"
+          className={buttonStyle || 'primary'}
           onClick={onClick}
         >
           {children}
         </button>
       )}
-
     </>
   );
 }
@@ -41,9 +40,9 @@ export default function ButtonRounded({
 export function ToggleSwitch({ children, className }) {
   return (
     <section className={className}>
-      <label className='toggle-switch'>
-        <input type='checkbox' id='label-reversed-toggle-switch-input' />
-        <label htmlFor='label-reversed-toggle-switch-input'></label>
+      <label className="toggle-switch">
+        <input type="checkbox" id="label-reversed-toggle-switch-input" />
+        <label htmlFor="label-reversed-toggle-switch-input" />
         {children}
       </label>
     </section>

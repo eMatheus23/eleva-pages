@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function OptionsGenerator({array}) {
+export default function OptionsGenerator({ array }) {
   return (
     <>
       {array.map((item, key) => (
@@ -9,5 +9,5 @@ export default function OptionsGenerator({array}) {
         </option>
       ))}
     </>
-  )
+  );
 }
