@@ -30,7 +30,7 @@ import cornerImg from '../assets/images/corner.svg';
 
 // Data and Functions
 import products from '../data/products';
-import addToCart from '../functions/addToCart';
+import addProductToCart from '../services/AddProductToCart';
 
 export default function Plans() {
   document.title = 'Escolha seu plano premium';
@@ -49,20 +49,20 @@ export default function Plans() {
   }
 
   function handleMockupClick() {
-    addToCart(4);
+    addProductToCart({ productId: 4 });
 
     history.push('/checkout');
   }
 
   function HandleAddToCart() {
-    const productId = products.filter(product => {
+    const [chosenProduct] = products.filter(product => {
       if (product.subscription === selectedPlan) {
-        return product.id;
+        return true;
       }
       return false;
     });
 
-    addToCart(productId[0].id);
+    addProductToCart({ productId: chosenProduct.id });
 
     if (isLoggedIn && isPremium) {
       history.push('/checkout');

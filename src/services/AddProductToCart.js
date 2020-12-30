@@ -15,15 +15,12 @@ export function deleteOtherPlans(array) {
   return newArray;
 }
 
-export default function addToCart(productId) {
-  // Busca o cart conteúdo do sessionStorage
+function addProductToCart({ productId }) {
+  // Busca o conteúdo do cart no sessionStorage
   const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart'));
 
   // Procura o produto escolhido no array e guarda em uma variável
   const productToCart = products.filter(product => product.id === productId);
-
-  // // Inicia a variável temporária como um array vazio
-  // var temporaryCart = [];
 
   // Coloca o cart na variável temporária
   let temporaryCart = cart;
@@ -37,10 +34,9 @@ export default function addToCart(productId) {
     // Adiciona o plano escolhido ao carrinho temporário
     temporaryCart.push(productToCart[0]);
 
-    return sessionStorage.setItem(
-      '@elevagro-app/cart',
-      JSON.stringify(temporaryCart),
-    );
+    sessionStorage.setItem('@elevagro-app/cart', JSON.stringify(temporaryCart));
+
+    return temporaryCart;
   }
 
   temporaryCart = productToCart;
@@ -50,3 +46,5 @@ export default function addToCart(productId) {
     JSON.stringify(temporaryCart),
   );
 }
+
+export default addProductToCart;

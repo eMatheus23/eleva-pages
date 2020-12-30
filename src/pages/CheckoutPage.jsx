@@ -16,7 +16,7 @@ import CreateAccountCard from '../components/cards/create-account/CreateAccount'
 
 // Data and functions
 import products from '../data/products';
-import addToCart, { deleteOtherPlans } from '../functions/addToCart';
+import addProductToCart from '../services/AddProductToCart';
 import currencyFormat from '../data/currency-format';
 
 export default function CheckoutPage() {
@@ -128,47 +128,44 @@ export default function CheckoutPage() {
   }
 
   function switchPlan() {
-    const inCart = productsInCart.filter(product => product.subscription)[0];
+    const [inCart] = productsInCart.filter(product => product.subscription);
 
-    const semestral = products.filter(
+    const [semestral] = products.filter(
       product => product.subscription === 'semestral',
-    )[0];
+    );
 
-    const anual = products.filter(
+    const [anual] = products.filter(
       product => product.subscription === 'anual',
-    )[0];
-
-    // Deleta todos os planos existentes no cart
-    const temporaryCart = deleteOtherPlans(productsInCart);
+    );
 
     if (inCart.subscription === 'semestral') {
       // Adiciona o plano anual ao sessionStorage
-      addToCart(anual.id);
+      const temporaryCart = addProductToCart({ productId: anual.id });
 
       // Adiciona o plano anual aos produtos do cart do component
-      setProductsInCart([...temporaryCart, anual]);
+      setProductsInCart(temporaryCart);
     } else if (inCart.subscription === 'anual') {
       // Adiciona o plano semestral ao sessionStorage
-      addToCart(semestral.id);
+      const temporaryCart = addProductToCart({ productId: semestral.id });
 
       // Adiciona o plano semestral aos produtos do cart do component
-      setProductsInCart([...temporaryCart, semestral]);
+      setProductsInCart(temporaryCart);
     }
   }
 
   function addAnnualPlan() {
-    const anual = products.filter(
+    const [anual] = products.filter(
       product => product.subscription === 'anual',
-    )[0];
+    );
 
-    addToCart(anual.id);
+    addProductToCart({ productId: anual.id });
 
     setProductsInCart([...productsInCart, anual]);
   }
 
   function handleCoupon() {
     const code = document.getElementById('coupon-input').value.toUpperCase();
-    const coupon = products.filter(product => product.code === code)[0];
+    const [coupon] = products.filter(product => product.code === code);
 
     if (!code) {
       alert('Insira um cupom!');
@@ -192,7 +189,7 @@ export default function CheckoutPage() {
       return;
     }
 
-    addToCart(coupon.id);
+    addProductToCart({ productId: coupon.id });
     setProductsInCart([...productsInCart, coupon]);
     setCouponAplied(true);
   }
@@ -224,11 +221,11 @@ export default function CheckoutPage() {
           <section className="checkout-cart">
             <h3>O seu pedido</h3>
 
-            {productsInCart.map(product => {
+            {productsInCart.map((product, key) => {
               if (product.type !== 'coupon') {
                 return (
                   <ProductCheckout
-                    key={`produto_${product.id}`}
+                    key={`produto_${key}`}
                     deleteProduct={deleteProduct}
                     product={product}
                   />
