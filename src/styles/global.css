@@ -28,7 +28,11 @@
   font-size: 62.5%; /* controle das medidas rem */
 }
 
-body, 
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
 input {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.4rem;
