@@ -31,12 +31,11 @@
     "import/prefer-default-export": "off",
     "camelcase": "off",
     "prettier/prettier": "error",
-    "no-plusplus": "off", // Remover
-    "no-return-assign": "off", // Remover
-    "no-bitwise": "off", // Remover
-    "jsx-a11y/click-events-have-key-events": "off", // Remover
-    "jsx-a11y/label-has-associated-control": "off", // Remover
-    "jsx-a11y/no-noninteractive-element-interactions": "off", // Remover
-    "jsx-a11y/media-has-caption": "off" // Remover
+    "no-return-assign": "warn", // Remover
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "jsx-a11y/click-events-have-key-events": "warn", // Remover
+    "jsx-a11y/label-has-associated-control": "warn", // Remover
+    "jsx-a11y/no-noninteractive-element-interactions": "warn", // Remover
+    "jsx-a11y/media-has-caption": "warn" // Remover
   }
 }
