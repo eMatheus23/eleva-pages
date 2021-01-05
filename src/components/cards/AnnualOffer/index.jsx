@@ -60,7 +60,7 @@ export default function AnnualOfferCard(props) {
           <aside>
             <h3>
               Torne-se um associado Premium por um ano e
-              <span>pague menos.</span>
+              <span> pague menos.</span>
             </h3>
             <img src={ilustrationImg} alt="Contrate o plano Premium anual" />
           </aside>
