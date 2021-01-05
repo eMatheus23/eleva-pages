@@ -25,7 +25,7 @@ export default function LoginCard() {
 
   function handleLogin() {
     // Caso o login seja bem sucedido
-    sessionStorage.setItem(
+    localStorage.setItem(
       '@elevagro-app/viewer-status|is-logged-in',
       JSON.stringify(true),
     );

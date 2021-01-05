@@ -50,14 +50,14 @@ export default function PaymentOptionsCard({ billPage, cartSum }) {
   };
 
   const handlePurchase = () => {
-    // Busca os produtos no carrinho do sessionStorage
-    const cart = JSON.parse(sessionStorage.getItem('@elevagro-app/cart'));
+    // Busca os produtos no carrinho do localStorage
+    const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart'));
 
-    // Exclui o carrinho do sessionStorage
-    sessionStorage.setItem('@elevagro-app/cart', JSON.stringify([]));
+    // Exclui o carrinho do localStorage
+    localStorage.setItem('@elevagro-app/cart', JSON.stringify([]));
 
-    // Envia as compras para outra sessão do sessionStorage
-    sessionStorage.setItem('@elevagro-app/purchases', JSON.stringify(cart));
+    // Envia as compras para outra sessão do localStorage
+    localStorage.setItem('@elevagro-app/purchases', JSON.stringify(cart));
 
     // Procura pela assinatura premium no cart
     const plan = cart.filter(
@@ -65,7 +65,7 @@ export default function PaymentOptionsCard({ billPage, cartSum }) {
     );
 
     if (plan) {
-      sessionStorage.setItem(
+      localStorage.setItem(
         '@elevagro-app/viewer-status|is-premium',
         JSON.stringify(true),
       );

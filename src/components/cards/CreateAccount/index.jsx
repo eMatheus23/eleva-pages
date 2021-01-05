@@ -32,7 +32,7 @@ export default function CreateAccountCard(props) {
     }
 
     // Se não estiver na página 1 habilita o login
-    sessionStorage.setItem(
+    localStorage.setItem(
       '@elevagro-app/viewer-status|is-logged-in',
       JSON.stringify(true),
     );

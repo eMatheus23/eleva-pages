@@ -86,18 +86,18 @@ function Plans() {
 
   useEffect(() => {
     const checkIsLoggedIn = JSON.parse(
-      sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
+      localStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
     );
     const checkIsPremium = JSON.parse(
-      sessionStorage.getItem('@elevagro-app/viewer-status|is-premium'),
+      localStorage.getItem('@elevagro-app/viewer-status|is-premium'),
     );
 
     if (checkIsLoggedIn === null) {
-      sessionStorage.setItem(
+      localStorage.setItem(
         '@elevagro-app/viewer-status|is-logged-in',
         JSON.stringify(false),
       );
-      sessionStorage.setItem(
+      localStorage.setItem(
         '@elevagro-app/viewer-status|is-premium',
         JSON.stringify(false),
       );

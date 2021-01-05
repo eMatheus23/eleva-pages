@@ -13,7 +13,7 @@ function SignupAddress() {
 
   useEffect(() => {
     const isLoggedStatus = JSON.parse(
-      sessionStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
+      localStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
     );
 
     setIsLoggedIn(isLoggedStatus);
