@@ -14,7 +14,7 @@ import currencyFormat from '../../../data/currency-format';
 // Components
 import ButtonRounded from '../../Buttons';
 
-const PremiumOfferCard = props => {
+const PremiumOfferCard = ({ addAnnualPlan }) => {
   const [closed, setClosed] = useState(false);
   const anualSubscription = products.filter(product => {
     if (product.subscription) {
@@ -25,13 +25,6 @@ const PremiumOfferCard = props => {
 
   const { price_original, price, promo_discount } = anualSubscription[0];
   const priceDecimals = Math.round((price % Math.floor(price)) * 100);
-
-  function handleClick() {
-    // Envia para o componente pai, a chamada da função que muda para o plano anual
-    props.addAnnualPlan();
-
-    setClosed(true);
-  }
 
   return (
     <div
@@ -86,7 +79,14 @@ const PremiumOfferCard = props => {
                 })
                 .slice(-2)}
             </h2>
-            <ButtonRounded onClick={handleClick} buttonStyle="alternative">
+            <ButtonRounded
+              onClick={() => {
+                addAnnualPlan();
+
+                setClosed(true);
+              }}
+              buttonStyle="alternative"
+            >
               Adicionar assinatura
               <img src={addCart} alt="" />
             </ButtonRounded>
