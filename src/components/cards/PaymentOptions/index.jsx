@@ -15,7 +15,7 @@ import ProgressBar from '../../ProgressBar';
 
 import currencyFormat from '../../../data/currency-format';
 
-export default function PaymentOptionsCard({ billPage, cartSum }) {
+const PaymentOptionsCard = ({ billPage, cartSum }) => {
   const [creditSelected, setCreditSelected] = useState('true');
   const [state, setState] = useState({
     checkedA: false,
@@ -255,4 +255,6 @@ export default function PaymentOptionsCard({ billPage, cartSum }) {
       <ProgressBar progress={2} />
     </div>
   );
-}
+};
+
+export default PaymentOptionsCard;

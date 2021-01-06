@@ -12,7 +12,7 @@ import ButtonRounded from '../../Buttons';
 import googleLogo from '../../../assets/images/logos/google-logo.svg';
 import faceLogo from '../../../assets/images/logos/facebook-logo.svg';
 
-export default function LoginCard() {
+const LoginCard = () => {
   const history = useHistory();
 
   const [state, setState] = useState({
@@ -83,4 +83,6 @@ export default function LoginCard() {
       </form>
     </div>
   );
-}
+};
+
+export default LoginCard;

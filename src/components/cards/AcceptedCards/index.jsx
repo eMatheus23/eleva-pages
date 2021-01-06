@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import './styles.css';
 
@@ -6,8 +6,14 @@ import Switch from '@material-ui/core/Switch';
 import cardImg from '../../../assets/images/icons/card-icon-gray.svg';
 import acceptedCardsImg from '../../../assets/images/icons/accepted-cards.png';
 
-export default function AcceptedCards({ saveCard }) {
-  const [saveCardActive, setSaveCardActive] = useState(false);
+const AcceptedCards = ({ saveCardOptionActive }) => {
+  const [saveCardActive] = useState(() => {
+    if (saveCardOptionActive) {
+      return true;
+    }
+
+    return false;
+  });
   const [state, setState] = useState({
     checkedB: false,
   });
@@ -15,10 +21,6 @@ export default function AcceptedCards({ saveCard }) {
   const handleSwitchChange = event => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-
-  useEffect(() => {
-    setSaveCardActive(saveCard);
-  }, [saveCard]);
 
   return (
     <div className="accepted-cards-container">
@@ -43,4 +45,6 @@ export default function AcceptedCards({ saveCard }) {
       </div>
     </div>
   );
-}
+};
+
+export default AcceptedCards;

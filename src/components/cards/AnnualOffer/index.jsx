@@ -10,7 +10,7 @@ import ilustrationImg from '../../../assets/images/ilustrations/annual-premium-o
 import products from '../../../data/products';
 import currencyFormat from '../../../data/currency-format';
 
-export default function AnnualOfferCard(props) {
+const AnnualOfferCard = props => {
   const [closed, setClosed] = useState(false);
   const [semestralView, setSemestralView] = useState(true);
 
@@ -103,4 +103,6 @@ export default function AnnualOfferCard(props) {
       </div>
     </div>
   );
-}
+};
+
+export default AnnualOfferCard;

@@ -10,7 +10,7 @@ import brazilFlag from '../../assets/images/flags/brazil.svg';
 import spainFlag from '../../assets/images/flags/spain.svg';
 import usaFlag from '../../assets/images/flags/usa.svg';
 
-export default function HeaderSignup() {
+const HeaderSignup = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('pt-br');
 
   return (
@@ -43,4 +43,6 @@ export default function HeaderSignup() {
       </div>
     </header>
   );
-}
+};
+
+export default HeaderSignup;

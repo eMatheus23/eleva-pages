@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Components
-import ButtonRounded, { ToggleSwitch } from '../../Buttons';
+import Switch from '@material-ui/core/Switch';
+import ButtonRounded from '../../Buttons';
 import ProgressBar from '../../ProgressBar';
 
 // Icons
@@ -10,21 +11,28 @@ import ArrowRight from '../../../assets/images/icons/arrow-right-white.svg';
 import ArrowRightGray from '../../../assets/images/icons/arrow-right-gray.svg';
 import RevealPassword from '../../../assets/images/icons/reveal-password.svg';
 
-export default function Page01({ handleNextPage, isInCheckout }) {
+const Page01 = ({ handleNextPage, isInCheckout }) => {
   const [passwordType, setPasswordType] = useState('password');
-  const [inCheckout, setInCheckout] = useState(false);
+  const [inCheckout] = useState(() => {
+    if (isInCheckout) {
+      return true;
+    }
+
+    return false;
+  });
+  const [state, setState] = useState({
+    checkedA: false,
+  });
+
+  const handleSwitchChange = event => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+  };
 
   function handlePasswordVisibility() {
     setPasswordType('text');
 
     setTimeout(() => setPasswordType('password'), 2000);
   }
-
-  useEffect(() => {
-    if (isInCheckout) {
-      setInCheckout(isInCheckout);
-    }
-  }, [isInCheckout]);
 
   return (
     <>
@@ -123,12 +131,17 @@ export default function Page01({ handleNextPage, isInCheckout }) {
             {inCheckout && <img src={ArrowRightGray} alt="Próximo" />}
           </ButtonRounded>
 
-          <ToggleSwitch className="terms-and-policies">
+          <div className="terms-and-policies">
+            <Switch
+              checked={state.checkedA}
+              onChange={handleSwitchChange}
+              name="checkedA"
+            />
             Concordo com os
             <Link to="/">termos de uso</Link>
             <>e</>
             <Link to="/">Política de privacidade</Link>
-          </ToggleSwitch>
+          </div>
         </form>
       </div>
 
@@ -142,4 +155,6 @@ export default function Page01({ handleNextPage, isInCheckout }) {
       <ProgressBar progress={0} />
     </>
   );
-}
+};
+
+export default Page01;

@@ -7,7 +7,7 @@ import CheckoutPage from '../pages/CheckoutPage';
 import CheckoutBill from '../pages/CheckoutBill';
 import CheckoutAccessPage from '../pages/CheckoutAccessPage';
 
-function Routes() {
+const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -20,6 +20,6 @@ function Routes() {
       </Switch>
     </BrowserRouter>
   );
-}
+};
 
 export default Routes;

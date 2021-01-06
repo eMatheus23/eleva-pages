@@ -17,7 +17,7 @@ import {
   areas,
 } from '../../../data/research-options';
 
-export default function CompleteProfileCard() {
+const CompleteProfileCard = () => {
   const [page, setPage] = useState(1);
 
   function handleSelectChange(event) {
@@ -179,4 +179,6 @@ export default function CompleteProfileCard() {
       <ProgressBar progress={3} />
     </div>
   );
-}
+};
+
+export default CompleteProfileCard;

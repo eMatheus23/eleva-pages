@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 // CSS
 import './styles.css';
@@ -8,16 +8,12 @@ import Footer from '../../components/Footer';
 import HeaderSignup from '../../components/HeaderSignup';
 import CreateAccountCard from '../../components/cards/CreateAccount';
 
-function SignupAddress() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const isLoggedStatus = JSON.parse(
+const SignupAddress = () => {
+  const [isLoggedIn] = useState(() => {
+    return JSON.parse(
       localStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
     );
-
-    setIsLoggedIn(isLoggedStatus);
-  }, []);
+  });
 
   return (
     <div id="page-signup">
@@ -30,6 +26,6 @@ function SignupAddress() {
       <Footer />
     </div>
   );
-}
+};
 
 export default SignupAddress;

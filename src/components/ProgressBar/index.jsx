@@ -7,7 +7,7 @@ import ProgrogressImg3 from '../../assets/images/progress-bar/progress-access.sv
 
 import './styles.css';
 
-export default function ProgressBar({ progress }) {
+const ProgressBar = ({ progress }) => {
   function handleProgressBar() {
     switch (progress) {
       case 0:
@@ -36,4 +36,6 @@ export default function ProgressBar({ progress }) {
       </div>
     </div>
   );
-}
+};
+
+export default ProgressBar;

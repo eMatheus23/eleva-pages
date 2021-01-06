@@ -19,20 +19,69 @@ import products from '../../data/products';
 import addProductToCart from '../../services/AddProductToCart';
 import currencyFormat from '../../data/currency-format';
 
-export default function CheckoutPage() {
+const CheckoutPage = () => {
   document.title = 'Elevagro | Checkout';
 
-  const [productsInCart, setProductsInCart] = useState([]);
-  const [planInCart, setPlanInCart] = useState(false);
-  const [couponAplied, setCouponAplied] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isPremium, setIsPremium] = useState(false);
-
   const history = useHistory();
-  const cart = JSON.parse(localStorage.getItem('@elevagro-app/cart')); // Busca os produtos no carrinho
+
+  const [productsInCart, setProductsInCart] = useState(
+    JSON.parse(localStorage.getItem('@elevagro-app/cart')),
+  );
+  const [couponAplied, setCouponAplied] = useState(() => {
+    // Procura cupons no carrinho
+    productsInCart.filter(product => {
+      if (product.type === 'coupon') {
+        return true;
+      }
+      return false;
+    });
+  });
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    const checkIsLoggedIn = localStorage.getItem(
+      '@elevagro-app/viewer-status|is-logged-in',
+    );
+
+    if (checkIsLoggedIn) {
+      return JSON.parse(checkIsLoggedIn);
+    }
+
+    return false;
+  });
+  const [isPremium] = useState(() => {
+    const checkIsPremium = localStorage.getItem(
+      '@elevagro-app/viewer-status|is-premium',
+    );
+
+    if (checkIsPremium) {
+      return JSON.parse(checkIsPremium);
+    }
+
+    return false;
+  });
+  const [semestralPlanInCart] = useState(() => {
+    // Procura o plano premium semestral no carrinho
+    productsInCart.filter(product => {
+      if (
+        product.type === 'premium-subscription' &&
+        product.subscription === 'semestral'
+      ) {
+        return true;
+      }
+      return false;
+    });
+  });
+  const [inputError, setInputError] = useState('');
+
+  useEffect(() => {
+    if (!productsInCart || productsInCart.length === 0) {
+      return history.push('/');
+    }
+
+    return true;
+  }, [productsInCart, history]);
 
   function cartSumFunction() {
-    const sum = cart
+    const sum = productsInCart
       .map(product => product.price)
       .reduce((prev, curr) => prev + curr, 0);
 
@@ -61,52 +110,6 @@ export default function CheckoutPage() {
   const cartSum = cartSumFunction();
 
   const cartSumDecimals = Math.round((cartSum % Math.floor(cartSum)) * 100);
-
-  useEffect(() => {
-    // Se o carrinho estiver vazio, retorna para a homepage
-    if (!cart || cart.length === 0) {
-      return history.push('/');
-    }
-
-    const isLoggedStatus = JSON.parse(
-      localStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
-    );
-
-    setIsLoggedIn(isLoggedStatus);
-
-    const isPremiumStatus = JSON.parse(
-      localStorage.getItem('@elevagro-app/viewer-status|is-premium'),
-    );
-
-    setIsPremium(isPremiumStatus);
-
-    return setProductsInCart(cart);
-  }, []);
-
-  useEffect(() => {
-    // Procura cupons no carrinho
-    productsInCart.filter(product => {
-      if (product.type === 'coupon') {
-        return setCouponAplied(true);
-      }
-      return false;
-    });
-
-    // Procura os planos premium no carrinho
-    const plan = cart.filter(product => {
-      if (product.type === 'premium-subscription') {
-        return product.subscription;
-      }
-      return false;
-    });
-
-    // Se existir algum, ele seta na const ChosenPlan
-    if (plan.length !== 0) {
-      if (plan[0].subscription === 'semestral') return setPlanInCart(true);
-    }
-
-    return setPlanInCart(false);
-  }, []);
 
   function deleteProduct(id) {
     const temporaryCart = productsInCart;
@@ -168,12 +171,16 @@ export default function CheckoutPage() {
     const [coupon] = products.filter(product => product.code === code);
 
     if (!code) {
-      alert('Insira um cupom!');
+      setInputError('Insira um cupom!');
+
+      setTimeout(() => setInputError(''), 3000);
       return;
     }
 
     if (!coupon) {
-      alert('Cupom inválido!');
+      setInputError('Cupom inválido!');
+
+      setTimeout(() => setInputError(''), 3000);
       return;
     }
 
@@ -185,7 +192,9 @@ export default function CheckoutPage() {
     });
 
     if (couponInCart) {
-      alert('Já existe um cupom aplicado à esta compra!');
+      setInputError('Já existe um cupom aplicado à esta compra!');
+
+      setTimeout(() => setInputError(''), 3000);
       return;
     }
 
@@ -194,7 +203,7 @@ export default function CheckoutPage() {
     setCouponAplied(true);
   }
 
-  function handleFinish() {
+  function sigupFinished() {
     setIsLoggedIn(true);
   }
 
@@ -213,7 +222,7 @@ export default function CheckoutPage() {
           )}
 
           {!isLoggedIn && (
-            <CreateAccountCard handleFinish={handleFinish} isInCheckout />
+            <CreateAccountCard sigupFinished={sigupFinished} isInCheckout />
           )}
         </main>
 
@@ -304,20 +313,23 @@ export default function CheckoutPage() {
                     Aplicar
                   </button>
                 </div>
+                {inputError && <span>{inputError}</span>}
               </div>
             )}
           </section>
 
-          {planInCart && !isPremium && (
+          {semestralPlanInCart && !isPremium && (
             <AnnualOfferCard switchPlan={switchPlan} />
           )}
-          {!planInCart && !isPremium && (
+          {!semestralPlanInCart && !isPremium && (
             <PremiumOfferCard addAnnualPlan={addAnnualPlan} />
           )}
 
-          <AcceptedCards saveCard={isLoggedIn} />
+          <AcceptedCards saveCardOptionActive={isLoggedIn} />
         </aside>
       </div>
     </div>
   );
-}
+};
+
+export default CheckoutPage;

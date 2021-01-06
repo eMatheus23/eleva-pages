@@ -4,17 +4,22 @@ import axios from 'axios';
 // Components
 import ButtonRounded from '../../Buttons';
 import ProgressBar from '../../ProgressBar';
+import CountryPicker from '../../CountryPicker';
 
 // Icons
 import ArrowRight from '../../../assets/images/icons/arrow-right-white.svg';
 import ArrowRightGray from '../../../assets/images/icons/arrow-right-gray.svg';
 
-import countryOptions from '../../../data/countries';
-
 export default function Page02({ handleNextPage, isInCheckout }) {
   const [stateOptions, setStateOptions] = useState([]);
   const [cityOptions, setCityOptions] = useState([]);
-  const [inCheckout, setInCheckout] = useState(false);
+  const [inCheckout] = useState(() => {
+    if (isInCheckout) {
+      return true;
+    }
+
+    return false;
+  });
 
   document.title = 'Elevagro | Criar Conta Premium';
 
@@ -25,12 +30,6 @@ export default function Page02({ handleNextPage, isInCheckout }) {
         setStateOptions(response.data);
       });
   }, []);
-
-  useEffect(() => {
-    if (isInCheckout) {
-      setInCheckout(isInCheckout);
-    }
-  }, [isInCheckout]);
 
   function handleSelectState(event) {
     const state = event.target.value;
@@ -46,6 +45,7 @@ export default function Page02({ handleNextPage, isInCheckout }) {
 
     cities.removeAttribute('disabled');
   }
+
   return (
     <>
       <div className="create-account-title">
@@ -70,7 +70,7 @@ export default function Page02({ handleNextPage, isInCheckout }) {
 
             <fieldset>
               <label htmlFor="country">País</label>
-              <select
+              {/* <select
                 name="country"
                 id="country"
                 className="select-appearance"
@@ -79,12 +79,13 @@ export default function Page02({ handleNextPage, isInCheckout }) {
               >
                 {countryOptions.map(country => {
                   return (
-                    <option key={country.sigla} value={country.nome_pais}>
-                      {country.nome_pais}
+                    <option key={country.code} value={country.name}>
+                      {country.name}
                     </option>
                   );
                 })}
-              </select>
+              </select> */}
+              <CountryPicker />
             </fieldset>
           </section>
 

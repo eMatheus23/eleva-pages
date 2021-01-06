@@ -11,7 +11,7 @@ import logoElevagroFooter from '../../assets/images/logos/marca-elevagro.svg';
 import ButtonRounded from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 
-export default function CheckoutPage() {
+const CheckoutPage = () => {
   document.title = 'Elevagro | Checkout';
 
   return (
@@ -79,4 +79,6 @@ export default function CheckoutPage() {
       </div>
     </div>
   );
-}
+};
+
+export default CheckoutPage;

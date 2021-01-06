@@ -10,7 +10,7 @@ import logoElevagroFooter from '../../assets/images/logos/marca-elevagro.svg';
 import ProductCheckout from '../../components/cards/ProductCheckout';
 import CompleteProfileCard from '../../components/cards/CompleteProfile';
 
-export default function CheckoutAccessPage() {
+const CheckoutAccessPage = () => {
   document.title = 'Acesse seu produto!';
 
   // Busca os produtos no carrinho
@@ -68,4 +68,6 @@ export default function CheckoutAccessPage() {
       </div>
     </div>
   );
-}
+};
+
+export default CheckoutAccessPage;

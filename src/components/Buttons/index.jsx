@@ -3,13 +3,7 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-export default function ButtonRounded({
-  linkTo,
-  onClick,
-  children,
-  buttonStyle,
-  type,
-}) {
+const ButtonRounded = ({ linkTo, onClick, children, buttonStyle, type }) => {
   return (
     <>
       {type === 'link' && (
@@ -35,16 +29,6 @@ export default function ButtonRounded({
       )}
     </>
   );
-}
+};
 
-export function ToggleSwitch({ children, className }) {
-  return (
-    <section className={className}>
-      <label className="toggle-switch">
-        <input type="checkbox" id="label-reversed-toggle-switch-input" />
-        <label htmlFor="label-reversed-toggle-switch-input" />
-        {children}
-      </label>
-    </section>
-  );
-}
+export default ButtonRounded;

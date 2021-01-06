@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 // CSS
@@ -32,15 +32,37 @@ import cornerImg from '../../assets/images/corner.svg';
 import products from '../../data/products';
 import addProductToCart from '../../services/AddProductToCart';
 
-function Plans() {
+const Plans = () => {
   document.title = 'Escolha seu plano premium';
 
   const history = useHistory();
 
   const [selectedPlan, setSelectedPlan] = useState('semestral');
   const [loginScreenActive, setLoginScreenActive] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isPremium, setIsPremium] = useState(false);
+
+  const [isLoggedIn] = useState(() => {
+    const checkIsLoggedIn = localStorage.getItem(
+      '@elevagro-app/viewer-status|is-logged-in',
+    );
+
+    if (checkIsLoggedIn) {
+      return JSON.parse(checkIsLoggedIn);
+    }
+
+    return false;
+  });
+
+  const [isPremium] = useState(() => {
+    const checkIsPremium = localStorage.getItem(
+      '@elevagro-app/viewer-status|is-premium',
+    );
+
+    if (checkIsPremium) {
+      return true;
+    }
+
+    return false;
+  });
 
   function handleSelectPlan(plan) {
     setSelectedPlan(plan);
@@ -83,30 +105,6 @@ function Plans() {
         return centralImgMensal;
     }
   }
-
-  useEffect(() => {
-    const checkIsLoggedIn = JSON.parse(
-      localStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
-    );
-    const checkIsPremium = JSON.parse(
-      localStorage.getItem('@elevagro-app/viewer-status|is-premium'),
-    );
-
-    if (checkIsLoggedIn === null) {
-      localStorage.setItem(
-        '@elevagro-app/viewer-status|is-logged-in',
-        JSON.stringify(false),
-      );
-      localStorage.setItem(
-        '@elevagro-app/viewer-status|is-premium',
-        JSON.stringify(false),
-      );
-    }
-
-    setIsLoggedIn(checkIsLoggedIn);
-
-    setIsPremium(checkIsPremium);
-  }, []);
 
   return (
     <div id="plans-page">
@@ -358,6 +356,6 @@ function Plans() {
       </div>
     </div>
   );
-}
+};
 
 export default Plans;

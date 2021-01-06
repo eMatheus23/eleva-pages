@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // CSS
@@ -8,22 +8,23 @@ import './styles.css';
 import Page01 from './Page01';
 import Page02 from './Page02';
 
-export default function CreateAccountCard(props) {
-  const [page, setPage] = useState(1);
-  const [inCheckout, setInCheckout] = useState(false);
-  const history = useHistory();
-
-  const { renderPage, isInCheckout } = props;
-
-  useEffect(() => {
-    if (renderPage === 2) {
-      setPage(renderPage);
+const CreateAccountCard = ({ renderPage, isInCheckout, ...props }) => {
+  const [page, setPage] = useState(() => {
+    if (renderPage !== 2) {
+      return 1;
     }
 
+    return 2;
+  });
+  const [inCheckout] = useState(() => {
     if (isInCheckout) {
-      setInCheckout(isInCheckout);
+      return true;
     }
-  }, [renderPage, isInCheckout]);
+
+    return false;
+  });
+
+  const history = useHistory();
 
   function handleNextPage() {
     if (page === 1) {
@@ -39,7 +40,7 @@ export default function CreateAccountCard(props) {
 
     /* eslint-disable no-unused-expressions */
     // Se o card estiver no checkout, envia a função para atualizar a tela
-    inCheckout && props.handleFinish();
+    inCheckout && props.sigupFinished();
     /* eslint-enable no-unused-expressions */
 
     return history.push('/checkout');
@@ -55,4 +56,6 @@ export default function CreateAccountCard(props) {
       )}
     </>
   );
-}
+};
+
+export default CreateAccountCard;

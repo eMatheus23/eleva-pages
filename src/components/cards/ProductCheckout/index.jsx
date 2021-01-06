@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import './styles.css';
 
@@ -10,10 +10,14 @@ import ButtonRounded from '../../Buttons';
 
 import currencyFormat from '../../../data/currency-format';
 
-export default function ProductCheckout({ product, success, ...props }) {
+const ProductCheckout = ({ product, success, ...props }) => {
   document.title = 'Elevagro | Obrigado pela compra!';
 
-  const [checkoutSucess, setCheckoutSucess] = useState(false);
+  const [checkoutSucess] = useState(() => {
+    if (success) return true;
+
+    return false;
+  });
 
   const {
     id,
@@ -26,10 +30,6 @@ export default function ProductCheckout({ product, success, ...props }) {
   } = product;
 
   const priceDecimals = Math.round((price % Math.floor(price)) * 100);
-
-  useEffect(() => {
-    setCheckoutSucess(success);
-  }, [success]);
 
   return (
     <div className="product-checkout-card">
@@ -79,4 +79,6 @@ export default function ProductCheckout({ product, success, ...props }) {
       )}
     </div>
   );
-}
+};
+
+export default ProductCheckout;

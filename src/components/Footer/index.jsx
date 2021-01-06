@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logoElevagro from '../../assets/images/logos/marca-elevagro.svg';
 import './styles.css';
 
-function Footer() {
+const Footer = () => {
   return (
     <footer>
       <div>
@@ -18,6 +18,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

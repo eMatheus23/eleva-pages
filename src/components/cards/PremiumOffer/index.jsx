@@ -14,7 +14,7 @@ import currencyFormat from '../../../data/currency-format';
 // Components
 import ButtonRounded from '../../Buttons';
 
-export default function PremiumOfferCard(props) {
+const PremiumOfferCard = props => {
   const [closed, setClosed] = useState(false);
   const anualSubscription = products.filter(product => {
     if (product.subscription) {
@@ -96,4 +96,6 @@ export default function PremiumOfferCard(props) {
       </div>
     </div>
   );
-}
+};
+
+export default PremiumOfferCard;
