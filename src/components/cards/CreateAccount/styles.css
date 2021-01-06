@@ -1,6 +1,6 @@
 .create-account-title h3{
   width: 51.7rem;
-  
+
   font-family: Montserrat, sans-serif;
   font-weight: normal;
   font-size: 2rem;
@@ -142,18 +142,18 @@
 }
 
 .create-account-card .select-appearance {
-  /* Remove estilo padrão do Chrome */  
-  -webkit-appearance: none;  
+  /* Remove estilo padrão do Chrome */
+  -webkit-appearance: none;
   /* Remove estilo padrão do FireFox */
-  -moz-appearance: none; 
-  /* Remove estilo padrão do FireFox*/      
-  appearance: none; 
+  -moz-appearance: none;
+  /* Remove estilo padrão do FireFox*/
+  appearance: none;
   /* Imagem de fundo (Seta) */
-  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;  
+  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;
 
-  width: 9.6rem; 
-  height: 5rem;   
-  
+  width: 9.6rem;
+  height: 5rem;
+
   border: 1px solid #BFBFBF;
   border-radius: 9px;
 
@@ -162,28 +162,28 @@
   font-size: 1.8rem;
 }
 
-#country {   
-  background-position: 1rem center;  
-  /*Posição da imagem do background*/   
+#country {
+  background-position: 1rem center;
+  /*Posição da imagem do background*/
 
   padding-left: 3.1rem;
 }
 
-#state {     
-  background-position: 6.5rem center;  
-  /*Posição da imagem do background*/   
-  
+#state {
+  background-position: 6.5rem center;
+  /*Posição da imagem do background*/
+
   padding-top: 0.2rem;
   padding-left: 2rem;
 
   font-size: 2rem;
 }
 
-#city {    
-  /*Posição da imagem do background*/   
-  background-position: 21.5rem center;  
-  
-  width: 25rem; 
+#city {
+  /*Posição da imagem do background*/
+  background-position: 21.5rem center;
+
+  width: 25rem;
 
   padding-left: 2rem;
 
@@ -193,12 +193,13 @@
 
 
 .create-account-card #button-rounded {
-  margin-top: min(2vh, 2.4rem);
-  margin-bottom: min(5vh, 4.8rem);
+  margin-top: min(2vh, 2rem);
+  margin-bottom: min(4vh, 4.8rem);
 }
 
 .create-account-card .terms-and-policies {
-  margin-top: 2rem;
+  margin-top: -2rem;
+  margin-bottom: 1.5rem;
 
   font-size: 1.2rem;
   font-family: Montserrat, sans-serif;
@@ -215,7 +216,7 @@
   text-align: right;
 
   margin-top: min(4vh, 4rem);
-  margin-bottom: min(5.5vh, 5.5rem);
+  margin-bottom: min(4.5vh, 4.5rem);
 }
 
 .login-option a {
@@ -239,10 +240,6 @@
 
   .create-account-card form > fieldset:last-of-type {
     margin-top: 1vh;
-  }
-
-  .create-account-card .terms-and-policies {
-    margin-top: 0;
   }
 
   .large-margin {
