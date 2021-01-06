@@ -14,7 +14,7 @@ import logoElevagro from '../../assets/images/logos/marca-elevagro-negativa.svg'
 
 // Imagens
 import centralImgMensal from '../../assets/images/acerconceptd800@2x.png';
-import centralImgSemestral from '../../assets/images/eleva-soja@2x.png';
+import centralImgSemestral from '../../assets/images/eleva-soja.png';
 import centralImgAnual from '../../assets/images/elevs@2x.png';
 
 // Mockups
