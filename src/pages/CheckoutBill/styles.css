@@ -59,7 +59,7 @@
 
 #page-checkout .content-wrapper aside section > h3 {
   width: 62.1rem;
-  
+
   font-family: Montserrat, sans-serif;
   font-weight: normal;
   font-size: 2rem;
@@ -146,18 +146,6 @@
   color: #bfbfbf;
   font-size: 1.5rem;
   font-family: Montserrat, sans-serif;
-}
-
-.input-container button {
-  width: 10rem;
-  height: 100%;
-
-  background: var(--color-background-secondary);
-
-  font-weight: normal;
-  font-size: 1.7rem;
-
-  cursor: pointer;
 }
 
 .anual-offer-card {
