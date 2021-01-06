@@ -1,4 +1,4 @@
-#page-checkout {
+#page-checkout-bill {
   width: 100vw;
   height: 100vh;
   background: var(--color-background);
@@ -7,7 +7,7 @@
   color: var(--color-text-base);
 }
 
-#page-checkout > header {
+#page-checkout-bill > header {
   width: 100vw;
   height: 7.3vh;
   background: var(--color-background);
@@ -20,12 +20,12 @@
   z-index: 99999;
 }
 
-#page-checkout > header a img {
+#page-checkout-bill > header a img {
   width: 16.1rem;
   margin-left: min(16.1rem, 8.3vw);
 }
 
-#page-checkout .content-wrapper {
+#page-checkout-bill .content-wrapper {
   width: 100%;
   height: 92.7vh;
 
@@ -37,7 +37,7 @@
   padding-top: min(5vh, 5rem);
 }
 
-#page-checkout .content-wrapper > main {
+#page-checkout-bill .content-wrapper > main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,7 @@
 }
 
 /* ---------------- ASIDE ---------------- */
-#page-checkout .content-wrapper > aside {
+#page-checkout-bill .content-wrapper > aside {
   width: 62.5rem;
   height: 90%;
   max-height: 74.6rem;
@@ -57,7 +57,7 @@
   justify-content: space-between;
 }
 
-#page-checkout .content-wrapper aside section > h3 {
+#page-checkout-bill .content-wrapper aside section > h3 {
   width: 62.1rem;
 
   font-family: Montserrat, sans-serif;
@@ -178,103 +178,103 @@ section.checkout-premium-success p {
 
 @media (max-height: 900px) {
   /* Estilização do card de pesquisa */
-  #page-checkout .complete-profile-wrapper .card-container {
+  #page-checkout-bill .complete-profile-wrapper .card-container {
     height: 75vh;
   }
 }
 
 @media (max-height: 840px) {
-  #page-checkout .content-wrapper {
+  #page-checkout-bill .content-wrapper {
     padding-top: 2rem;
   }
 
-  #page-checkout .payment-options-title,
-  #page-checkout .credit-card.active {
+  #page-checkout-bill .payment-options-title,
+  #page-checkout-bill .credit-card.active {
     margin-bottom: 1rem;
   }
 
-  #page-checkout .content-wrapper aside section > h3 {
+  #page-checkout-bill .content-wrapper aside section > h3 {
     padding-bottom: 1rem;
   }
 
-  #page-checkout .credit-card main {
+  #page-checkout-bill .credit-card main {
     height: 40.7rem;
   }
 
-  #page-checkout .payment-card-bill main > div p + p {
+  #page-checkout-bill .payment-card-bill main > div p + p {
     margin-top: 1rem;
   }
 
-  #page-checkout .product-checkout-card {
+  #page-checkout-bill .product-checkout-card {
     margin-top: 2rem;
   }
 
-  #page-checkout .coupon-input h3 {
+  #page-checkout-bill .coupon-input h3 {
     margin: 0;
   }
 
   /* Estilização do card de pesquisa */
-  #page-checkout .complete-profile-title {
+  #page-checkout-bill .complete-profile-title {
     margin-bottom: 1rem;
   }
 
-  #page-checkout .complete-profile-wrapper .select-appearance,
-  #page-checkout .complete-profile-wrapper .input-container-research {
+  #page-checkout-bill .complete-profile-wrapper .select-appearance,
+  #page-checkout-bill .complete-profile-wrapper .input-container-research {
     margin-bottom: 1vh;
   }
 
-  #page-checkout .complete-profile-wrapper .card-container {
+  #page-checkout-bill .complete-profile-wrapper .card-container {
     padding: 3rem 3.1rem 2.8rem 4rem;
   }
 
-  #page-checkout .complete-profile-wrapper form fieldset label {
+  #page-checkout-bill .complete-profile-wrapper form fieldset label {
     margin-bottom: 0.5vh;
   }
 
-  #page-checkout .progress-container {
+  #page-checkout-bill .progress-container {
     margin-top: 1vh;
     margin-bottom: 2vh;
   }
 
-  #page-checkout .complete-profile-wrapper #button-rounded.secondary {
+  #page-checkout-bill .complete-profile-wrapper #button-rounded.secondary {
     margin-top: 1vh;
   }
 }
 
 @media (max-height: 700px) {
-  #page-checkout .content-wrapper {
+  #page-checkout-bill .content-wrapper {
     padding-top: 0.5rem;
   }
 
-  #page-checkout .payment-options-header {
+  #page-checkout-bill .payment-options-header {
     height: 5rem;
   }
 
-  #page-checkout .complete-profile-wrapper .card-container {
+  #page-checkout-bill .complete-profile-wrapper .card-container {
     padding: 1.5rem 3.1rem 1.8rem 4rem;
   }
 
-  #page-checkout .complete-profile-wrapper .card-container h2,
-  #page-checkout .complete-profile-wrapper .card-container p {
+  #page-checkout-bill .complete-profile-wrapper .card-container h2,
+  #page-checkout-bill .complete-profile-wrapper .card-container p {
     margin-bottom: 1vh;
   }
 
-  #page-checkout .complete-profile-wrapper form .select-appearance,
-  #page-checkout .input-container-research {
+  #page-checkout-bill .complete-profile-wrapper form .select-appearance,
+  #page-checkout-bill .input-container-research {
     height: 4.5rem;
   }
 
-  #page-checkout .complete-profile-wrapper .progress-bar {
+  #page-checkout-bill .complete-profile-wrapper .progress-bar {
     margin-top: 0;
   }
 
-  #page-checkout .product-checkout-card {
+  #page-checkout-bill .product-checkout-card {
     padding-bottom: 1rem;
   }
 }
 
 @media (max-width: 1360px) {
-  #page-checkout .content-wrapper > main {
+  #page-checkout-bill .content-wrapper > main {
     margin-right: 1vw;
   }
 }

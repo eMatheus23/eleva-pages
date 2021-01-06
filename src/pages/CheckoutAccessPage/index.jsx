@@ -18,7 +18,7 @@ const CheckoutAccessPage = () => {
   const productsInCart = purchases;
 
   return (
-    <div id="page-checkout">
+    <div id="page-checkout-access">
       <header>
         <Link to="/">
           <img src={logoElevagroFooter} alt="Elevagro" />

@@ -15,7 +15,7 @@ const CheckoutPage = () => {
   document.title = 'Elevagro | Checkout';
 
   return (
-    <div id="page-checkout">
+    <div id="page-checkout-bill">
       <header>
         <Link to="/">
           <img src={logoElevagroFooter} alt="Elevagro" />

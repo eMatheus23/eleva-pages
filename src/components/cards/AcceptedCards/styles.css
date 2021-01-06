@@ -1,9 +1,11 @@
 .accepted-cards-container {
-  width: 61.1rem;
-
   display: flex;
   align-items: flex-start;
 
+  width: 100%;
+
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   padding: 2.1rem 4rem 1.4rem 6.7rem;
   border: 1px solid #bfbfbf;
   border-radius: 11px;

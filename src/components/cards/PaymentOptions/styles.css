@@ -2,7 +2,7 @@
 .payment-options-wrapper {
   width: 60rem;
   /* height: 74.6rem; */
-  
+
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -22,7 +22,7 @@
 
 .credit-card {
   width: 51.7rem;
-  
+
   border: 1px solid #BFBFBF;
   border-radius: 1.3rem;
 
@@ -30,7 +30,7 @@
 }
 
 .credit-card.active {
-  margin-bottom: 2.2rem;
+  margin-bottom: 1rem;
 }
 
 /* Trecho que estiliza os dois headers, do cartão e do boleto */
@@ -126,18 +126,18 @@
 }
 
 .credit-card form .select-appearance {
-  /* Remove estilo padrão do Chrome */  
-  -webkit-appearance: none;  
+  /* Remove estilo padrão do Chrome */
+  -webkit-appearance: none;
   /* Remove estilo padrão do FireFox */
-  -moz-appearance: none; 
-  /* Remove estilo padrão do FireFox*/      
-  appearance: none; 
+  -moz-appearance: none;
+  /* Remove estilo padrão do FireFox*/
+  appearance: none;
   /* Imagem de fundo (Seta) */
-  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;  
+  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;
 
-  width: 24.3rem; 
-  height: 5rem;   
-  
+  width: 24.3rem;
+  height: 5rem;
+
   border: 1px solid #BFBFBF;
   border-radius: 1.1rem;
 
@@ -146,11 +146,11 @@
   font-size: 1.8rem;
 }
 
-.credit-card form #payment {    
-  /*Posição da imagem do background*/   
-  background-position: 21.5rem center;  
-  
-  width: 25rem; 
+.credit-card form #payment {
+  /*Posição da imagem do background*/
+  background-position: 21.5rem center;
+
+  width: 25rem;
 
   padding-left: 4.5rem;
 
@@ -230,7 +230,7 @@
 /* ----- Pagamento por boleto ----- */
 .payment-card-bill {
   width: 51.7rem;
-  
+
   border: 1px solid #BFBFBF;
   border-radius: 1.3rem;
 

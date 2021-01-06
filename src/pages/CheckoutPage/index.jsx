@@ -173,14 +173,14 @@ const CheckoutPage = () => {
     if (!code) {
       setInputError('Insira um cupom!');
 
-      setTimeout(() => setInputError(''), 3000);
+      setTimeout(() => setInputError(''), 4000);
       return;
     }
 
     if (!coupon) {
       setInputError('Cupom inválido!');
 
-      setTimeout(() => setInputError(''), 3000);
+      setTimeout(() => setInputError(''), 4000);
       return;
     }
 
@@ -194,7 +194,7 @@ const CheckoutPage = () => {
     if (couponInCart) {
       setInputError('Já existe um cupom aplicado à esta compra!');
 
-      setTimeout(() => setInputError(''), 3000);
+      setTimeout(() => setInputError(''), 4000);
       return;
     }
 
@@ -316,6 +316,8 @@ const CheckoutPage = () => {
                 {inputError && <span>{inputError}</span>}
               </div>
             )}
+
+            <AcceptedCards saveCardOptionActive={isLoggedIn} />
           </section>
 
           {semestralPlanInCart && !isPremium && (
@@ -324,8 +326,6 @@ const CheckoutPage = () => {
           {!semestralPlanInCart && !isPremium && (
             <PremiumOfferCard addAnnualPlan={addAnnualPlan} />
           )}
-
-          <AcceptedCards saveCardOptionActive={isLoggedIn} />
         </aside>
       </div>
     </div>
