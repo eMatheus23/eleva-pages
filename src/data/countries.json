@@ -1,0 +1,1538 @@
+[
+  {
+    "gentilico": "afegãne",
+    "name": "Afeganistão",
+    "name_int": "Afghanistan",
+    "code": "AF"
+  },
+  {
+    "gentilico": "sul-africana",
+    "name": "África do Sul",
+    "name_int": "South Africa",
+    "code": "ZA"
+  },
+  {
+    "gentilico": "albanesa",
+    "name": "Albânia",
+    "name_int": "Albania",
+    "code": "AL"
+  },
+  {
+    "gentilico": "alemã",
+    "name": "Alemanha",
+    "name_int": "Germany",
+    "code": "DE"
+  },
+  {
+    "gentilico": "andorrana",
+    "name": "Andorra",
+    "name_int": "Andorra",
+    "code": "AD"
+  },
+  {
+    "gentilico": "angolana",
+    "name": "Angola",
+    "name_int": "Angola",
+    "code": "AO"
+  },
+  {
+    "gentilico": "anguillana",
+    "name": "Anguilla",
+    "name_int": "Anguilla",
+    "code": "AI"
+  },
+  {
+    "gentilico": "de antártida",
+    "name": "Antártida",
+    "name_int": "Antarctica",
+    "code": "AQ"
+  },
+  {
+    "gentilico": "antiguana",
+    "name": "Antígua e Barbuda",
+    "name_int": "Antigua & Barbuda",
+    "code": "AG"
+  },
+  {
+    "gentilico": "saudita",
+    "name": "Arábia Saudita",
+    "name_int": "Saudi Arabia",
+    "code": "SA"
+  },
+  {
+    "gentilico": "argelina",
+    "name": "Argélia",
+    "name_int": "Algeria",
+    "code": "DZ"
+  },
+  {
+    "gentilico": "argentina",
+    "name": "Argentina",
+    "name_int": "Argentina",
+    "code": "AR"
+  },
+  {
+    "gentilico": "armênia",
+    "name": "Armênia",
+    "name_int": "Armenia",
+    "code": "AM"
+  },
+  {
+    "gentilico": "arubana",
+    "name": "Aruba",
+    "name_int": "Aruba",
+    "code": "AW"
+  },
+  {
+    "gentilico": "australiana",
+    "name": "Austrália",
+    "name_int": "Australia",
+    "code": "AU"
+  },
+  {
+    "gentilico": "austríaca",
+    "name": "Áustria",
+    "name_int": "Austria",
+    "code": "AT"
+  },
+  {
+    "gentilico": "azerbaijano",
+    "name": "Azerbaijão",
+    "name_int": "Azerbaijan",
+    "code": "AZ"
+  },
+  {
+    "gentilico": "bahamense",
+    "name": "Bahamas",
+    "name_int": "Bahamas",
+    "code": "BS"
+  },
+  {
+    "gentilico": "barenita",
+    "name": "Bahrein",
+    "name_int": "Bahrain",
+    "code": "BH"
+  },
+  {
+    "gentilico": "bengali",
+    "name": "Bangladesh",
+    "name_int": "Bangladesh",
+    "code": "BD"
+  },
+  {
+    "gentilico": "barbadiana",
+    "name": "Barbados",
+    "name_int": "Barbados",
+    "code": "BB"
+  },
+  {
+    "gentilico": "bielo-russa",
+    "name": "Belarus",
+    "name_int": "Belarus",
+    "code": "BY"
+  },
+  {
+    "gentilico": "belga",
+    "name": "Bélgica",
+    "name_int": "Belgium",
+    "code": "BE"
+  },
+  {
+    "gentilico": "belizenha",
+    "name": "Belize",
+    "name_int": "Belize",
+    "code": "BZ"
+  },
+  {
+    "gentilico": "beninense",
+    "name": "Benin",
+    "name_int": "Benin",
+    "code": "BJ"
+  },
+  {
+    "gentilico": "bermudiana",
+    "name": "Bermudas",
+    "name_int": "Bermuda",
+    "code": "BM"
+  },
+  {
+    "gentilico": "boliviana",
+    "name": "Bolívia",
+    "name_int": "Bolivia",
+    "code": "BO"
+  },
+  {
+    "gentilico": "bósnia",
+    "name": "Bósnia-Herzegóvina",
+    "name_int": "Bosnia & Herzegovina",
+    "code": "BA"
+  },
+  {
+    "gentilico": "betchuana",
+    "name": "Botsuana",
+    "name_int": "Botswana",
+    "code": "BW"
+  },
+  {
+    "gentilico": "brasileira",
+    "name": "Brasil",
+    "name_int": "Brazil",
+    "code": "BR"
+  },
+  {
+    "gentilico": "bruneiana",
+    "name": "Brunei",
+    "name_int": "Brunei",
+    "code": "BN"
+  },
+  {
+    "gentilico": "búlgara",
+    "name": "Bulgária",
+    "name_int": "Bulgaria",
+    "code": "BG"
+  },
+  {
+    "gentilico": "burquinês",
+    "name": "Burkina Fasso",
+    "name_int": "Burkina Faso",
+    "code": "BF"
+  },
+  {
+    "gentilico": "burundinesa",
+    "name": "Burundi",
+    "name_int": "Burundi",
+    "code": "BI"
+  },
+  {
+    "gentilico": "butanesa",
+    "name": "Butão",
+    "name_int": "Bhutan",
+    "code": "BT"
+  },
+  {
+    "gentilico": "cabo-verdiana",
+    "name": "Cabo Verde",
+    "name_int": "Cape Verde",
+    "code": "CV"
+  },
+  {
+    "gentilico": "camaronesa",
+    "name": "Camarões",
+    "name_int": "Cameroon",
+    "code": "CM"
+  },
+  {
+    "gentilico": "cambojana",
+    "name": "Camboja",
+    "name_int": "Cambodia",
+    "code": "KH"
+  },
+  {
+    "gentilico": "canadense",
+    "name": "Canadá",
+    "name_int": "Canada",
+    "code": "CA"
+  },
+  {
+    "gentilico": "canário",
+    "name": "Canárias",
+    "name_int": "Canary Islands",
+    "code": "IC"
+  },
+  {
+    "gentilico": "cazaque",
+    "name": "Cazaquistão",
+    "name_int": "Kazakhstan",
+    "code": "KZ"
+  },
+  {
+    "gentilico": "de ceuta e melilla",
+    "name": "Ceuta e Melilla",
+    "name_int": "Ceuta & Melilla",
+    "code": "EA"
+  },
+  {
+    "gentilico": "chadiana",
+    "name": "Chade",
+    "name_int": "Chad",
+    "code": "TD"
+  },
+  {
+    "gentilico": "chilena",
+    "name": "Chile",
+    "name_int": "Chile",
+    "code": "CL"
+  },
+  {
+    "gentilico": "chinesa",
+    "name": "China",
+    "name_int": "China",
+    "code": "CN"
+  },
+  {
+    "gentilico": "cipriota",
+    "name": "Chipre",
+    "name_int": "Cyprus",
+    "code": "CY"
+  },
+  {
+    "gentilico": "cingapuriana",
+    "name": "Cingapura",
+    "name_int": "Singapore",
+    "code": "SG"
+  },
+  {
+    "gentilico": "colombiana",
+    "name": "Colômbia",
+    "name_int": "Colombia",
+    "code": "CO"
+  },
+  {
+    "gentilico": "comorense",
+    "name": "Comores",
+    "name_int": "Comoros",
+    "code": "KM"
+  },
+  {
+    "gentilico": "congolesa",
+    "name": "Congo",
+    "name_int": "Congo (Republic)",
+    "code": "CG"
+  },
+  {
+    "gentilico": "norte-coreano",
+    "name": "Coréia do Norte",
+    "name_int": "North Korea",
+    "code": "KP"
+  },
+  {
+    "gentilico": "norte-coreana",
+    "name": "Coréia do Sul",
+    "name_int": "South Korea",
+    "code": "KR"
+  },
+  {
+    "gentilico": "marfinense",
+    "name": "Costa do Marfim",
+    "name_int": "Côte d¿Ivoire",
+    "code": "CI"
+  },
+  {
+    "gentilico": "costarriquenha",
+    "name": "Costa Rica",
+    "name_int": "Costa Rica",
+    "code": "CR"
+  },
+  {
+    "gentilico": "croata",
+    "name": "Croácia",
+    "name_int": "Croatia",
+    "code": "HR"
+  },
+  {
+    "gentilico": "cubana",
+    "name": "Cuba",
+    "name_int": "Cuba",
+    "code": "CU"
+  },
+  {
+    "gentilico": "curaçauense",
+    "name": "Curaçao",
+    "name_int": "Curaçao",
+    "code": "CW"
+  },
+  {
+    "gentilico": "chagositano",
+    "name": "Diego Garcia",
+    "name_int": "Diego Garcia",
+    "code": "DG"
+  },
+  {
+    "gentilico": "dinamarquesa",
+    "name": "Dinamarca",
+    "name_int": "Denmark",
+    "code": "DK"
+  },
+  {
+    "gentilico": "djibutiana",
+    "name": "Djibuti",
+    "name_int": "Djibouti",
+    "code": "DJ"
+  },
+  {
+    "gentilico": "dominiquense",
+    "name": "Dominica",
+    "name_int": "Dominica",
+    "code": "DM"
+  },
+  {
+    "gentilico": "egípcia",
+    "name": "Egito",
+    "name_int": "Egypt",
+    "code": "EG"
+  },
+  {
+    "gentilico": "salvadorenha",
+    "name": "El Salvador",
+    "name_int": "El Salvador",
+    "code": "SV"
+  },
+  {
+    "gentilico": "árabe",
+    "name": "Emirados Árabes Unidos",
+    "name_int": "United Arab Emirates",
+    "code": "AE"
+  },
+  {
+    "gentilico": "equatoriana",
+    "name": "Equador",
+    "name_int": "Ecuador",
+    "code": "EC"
+  },
+  {
+    "gentilico": "eritreia",
+    "name": "Eritréia",
+    "name_int": "Eritrea",
+    "code": "ER"
+  },
+  {
+    "gentilico": "eslovaco",
+    "name": "Eslováquia",
+    "name_int": "Slovakia",
+    "code": "SK"
+  },
+  {
+    "gentilico": "esloveno",
+    "name": "Eslovênia",
+    "name_int": "Slovenia",
+    "code": "SI"
+  },
+  {
+    "gentilico": "espanhola",
+    "name": "Espanha",
+    "name_int": "Spain",
+    "code": "ES"
+  },
+  {
+    "gentilico": "norte-americana",
+    "name": "Estados Unidos",
+    "name_int": "United States",
+    "code": "US"
+  },
+  {
+    "gentilico": "estoniana",
+    "name": "Estônia",
+    "name_int": "Estonia",
+    "code": "EE"
+  },
+  {
+    "gentilico": "etíope",
+    "name": "Etiópia",
+    "name_int": "Ethiopia",
+    "code": "ET"
+  },
+  {
+    "gentilico": "fijiana",
+    "name": "Fiji",
+    "name_int": "Fiji",
+    "code": "FJ"
+  },
+  {
+    "gentilico": "filipina",
+    "name": "Filipinas",
+    "name_int": "Philippines",
+    "code": "PH"
+  },
+  {
+    "gentilico": "finlandesa",
+    "name": "Finlândia",
+    "name_int": "Finland",
+    "code": "FI"
+  },
+  {
+    "gentilico": "francesa",
+    "name": "França",
+    "name_int": "France",
+    "code": "FR"
+  },
+  {
+    "gentilico": "gabonesa",
+    "name": "Gabão",
+    "name_int": "Gabon",
+    "code": "GA"
+  },
+  {
+    "gentilico": "gambiana",
+    "name": "Gâmbia",
+    "name_int": "Gambia",
+    "code": "GM"
+  },
+  {
+    "gentilico": "ganense",
+    "name": "Gana",
+    "name_int": "Ghana",
+    "code": "GH"
+  },
+  {
+    "gentilico": "georgiana",
+    "name": "Geórgia",
+    "name_int": "Georgia",
+    "code": "GE"
+  },
+  {
+    "gentilico": "gibraltariana",
+    "name": "Gibraltar",
+    "name_int": "Gibraltar",
+    "code": "GI"
+  },
+  {
+    "gentilico": "inglesa",
+    "name": "Grã-Bretanha (Reino Unido, UK)",
+    "name_int": "United Kingdom",
+    "code": "GB"
+  },
+  {
+    "gentilico": "granadina",
+    "name": "Granada",
+    "name_int": "Grenada",
+    "code": "GD"
+  },
+  {
+    "gentilico": "grega",
+    "name": "Grécia",
+    "name_int": "Greece",
+    "code": "GR"
+  },
+  {
+    "gentilico": "groenlandesa",
+    "name": "Groelândia",
+    "name_int": "Greenland",
+    "code": "GL"
+  },
+  {
+    "gentilico": "guadalupense",
+    "name": "Guadalupe",
+    "name_int": "Guadeloupe",
+    "code": "GP"
+  },
+  {
+    "gentilico": "guamês",
+    "name": "Guam (Território dos Estados Unidos)",
+    "name_int": "Guam",
+    "code": "GU"
+  },
+  {
+    "gentilico": "guatemalteca",
+    "name": "Guatemala",
+    "name_int": "Guatemala",
+    "code": "GT"
+  },
+  {
+    "gentilico": "guernesiano",
+    "name": "Guernsey",
+    "name_int": "Guernsey",
+    "code": "GG"
+  },
+  {
+    "gentilico": "guianense",
+    "name": "Guiana",
+    "name_int": "Guyana",
+    "code": "GY"
+  },
+  {
+    "gentilico": "franco-guianense",
+    "name": "Guiana Francesa",
+    "name_int": "French Guiana",
+    "code": "GF"
+  },
+  {
+    "gentilico": "guinéu-equatoriano ou equatoguineana",
+    "name": "Guiné",
+    "name_int": "Guinea",
+    "code": "GN"
+  },
+  {
+    "gentilico": "guinéu-equatoriano",
+    "name": "Guiné Equatorial",
+    "name_int": "Equatorial Guinea",
+    "code": "GQ"
+  },
+  {
+    "gentilico": "guineense",
+    "name": "Guiné-Bissau",
+    "name_int": "Guinea-Bissau",
+    "code": "GW"
+  },
+  {
+    "gentilico": "haitiana",
+    "name": "Haiti",
+    "name_int": "Haiti",
+    "code": "HT"
+  },
+  {
+    "gentilico": "holandês",
+    "name": "Holanda",
+    "name_int": "Netherlands",
+    "code": "NL"
+  },
+  {
+    "gentilico": "hondurenha",
+    "name": "Honduras",
+    "name_int": "Honduras",
+    "code": "HN"
+  },
+  {
+    "gentilico": "hong-konguiana ou chinesa",
+    "name": "Hong Kong",
+    "name_int": "Hong Kong",
+    "code": "HK"
+  },
+  {
+    "gentilico": "húngara",
+    "name": "Hungria",
+    "name_int": "Hungary",
+    "code": "HU"
+  },
+  {
+    "gentilico": "iemenita",
+    "name": "Iêmen",
+    "name_int": "Yemen",
+    "code": "YE"
+  },
+  {
+    "gentilico": "da ilha bouvet",
+    "name": "Ilha Bouvet",
+    "name_int": "Bouvet Island",
+    "code": "BV"
+  },
+  {
+    "gentilico": "da ilha de ascensão",
+    "name": "Ilha de Ascensão",
+    "name_int": "Ascension Island",
+    "code": "AC"
+  },
+  {
+    "gentilico": "da ilha de clipperton",
+    "name": "Ilha de Clipperton",
+    "name_int": "Clipperton Island",
+    "code": "CP"
+  },
+  {
+    "gentilico": "manês",
+    "name": "Ilha de Man",
+    "name_int": "Isle of Man",
+    "code": "IM"
+  },
+  {
+    "gentilico": "natalense",
+    "name": "Ilha Natal",
+    "name_int": "Christmas Island",
+    "code": "CX"
+  },
+  {
+    "gentilico": "pitcairnense",
+    "name": "Ilha Pitcairn",
+    "name_int": "Pitcairn Islands",
+    "code": "PN"
+  },
+  {
+    "gentilico": "reunionense",
+    "name": "Ilha Reunião",
+    "name_int": "Réunion",
+    "code": "RE"
+  },
+  {
+    "gentilico": "alandês",
+    "name": "Ilhas Aland",
+    "name_int": "Åland Islands",
+    "code": "AX"
+  },
+  {
+    "gentilico": "caimanês",
+    "name": "Ilhas Cayman",
+    "name_int": "Cayman Islands",
+    "code": "KY"
+  },
+  {
+    "gentilico": "coquense",
+    "name": "Ilhas Cocos",
+    "name_int": "Cocos (Keeling) Islands",
+    "code": "CC"
+  },
+  {
+    "gentilico": "cookense",
+    "name": "Ilhas Cook",
+    "name_int": "Cook Islands",
+    "code": "CK"
+  },
+  {
+    "gentilico": "faroense",
+    "name": "Ilhas Faroes",
+    "name_int": "Faroe Islands",
+    "code": "FO"
+  },
+  {
+    "gentilico": "das ilhas geórgia do sul e sandwich do sul",
+    "name": "Ilhas Geórgia do Sul e Sandwich do Sul",
+    "name_int": "South Georgia & South Sandwich Islands",
+    "code": "GS"
+  },
+  {
+    "gentilico": "das ilhas heard e mcdonald",
+    "name": "Ilhas Heard e McDonald (Território da Austrália)",
+    "name_int": "Heard & McDonald Islands",
+    "code": "HM"
+  },
+  {
+    "gentilico": "malvinense",
+    "name": "Ilhas Malvinas",
+    "name_int": "Falkland Islands (Islas Malvinas)",
+    "code": "FK"
+  },
+  {
+    "gentilico": "norte-marianense",
+    "name": "Ilhas Marianas do Norte",
+    "name_int": "Northern Mariana Islands",
+    "code": "MP"
+  },
+  {
+    "gentilico": "marshallino",
+    "name": "Ilhas Marshall",
+    "name_int": "Marshall Islands",
+    "code": "MH"
+  },
+  {
+    "gentilico": "das ilhas menores afastadas",
+    "name": "Ilhas Menores dos Estados Unidos",
+    "name_int": "U.S. Outlying Islands",
+    "code": "UM"
+  },
+  {
+    "gentilico": "norfolquino",
+    "name": "Ilhas Norfolk",
+    "name_int": "Norfolk Island",
+    "code": "NF"
+  },
+  {
+    "gentilico": "salomônico",
+    "name": "Ilhas Salomão",
+    "name_int": "Solomon Islands",
+    "code": "SB"
+  },
+  {
+    "gentilico": "seichelense",
+    "name": "Ilhas Seychelles",
+    "name_int": "Seychelles",
+    "code": "SC"
+  },
+  {
+    "gentilico": "toquelauano",
+    "name": "Ilhas Tokelau",
+    "name_int": "Tokelau",
+    "code": "TK"
+  },
+  {
+    "gentilico": "turquês",
+    "name": "Ilhas Turks e Caicos",
+    "name_int": "Turks & Caicos Islands",
+    "code": "TC"
+  },
+  {
+    "gentilico": "virginense",
+    "name": "Ilhas Virgens (Estados Unidos)",
+    "name_int": "U.S. Virgin Islands",
+    "code": "VI"
+  },
+  {
+    "gentilico": "virginense",
+    "name": "Ilhas Virgens (Inglaterra)",
+    "name_int": "British Virgin Islands",
+    "code": "VG"
+  },
+  {
+    "gentilico": "indiano",
+    "name": "Índia",
+    "name_int": "India",
+    "code": "IN"
+  },
+  {
+    "gentilico": "indonésia",
+    "name": "Indonésia",
+    "name_int": "Indonesia",
+    "code": "ID"
+  },
+  {
+    "gentilico": "iraniano",
+    "name": "Irã",
+    "name_int": "Iran",
+    "code": "IR"
+  },
+  {
+    "gentilico": "iraquiana",
+    "name": "Iraque",
+    "name_int": "Iraq",
+    "code": "IQ"
+  },
+  {
+    "gentilico": "irlandesa",
+    "name": "Irlanda",
+    "name_int": "Ireland",
+    "code": "IE"
+  },
+  {
+    "gentilico": "islandesa",
+    "name": "Islândia",
+    "name_int": "Iceland",
+    "code": "IS"
+  },
+  {
+    "gentilico": "israelense",
+    "name": "Israel",
+    "name_int": "Israel",
+    "code": "IL"
+  },
+  {
+    "gentilico": "italiana",
+    "name": "Itália",
+    "name_int": "Italy",
+    "code": "IT"
+  },
+  {
+    "gentilico": "jamaicana",
+    "name": "Jamaica",
+    "name_int": "Jamaica",
+    "code": "JM"
+  },
+  {
+    "gentilico": "japonesa",
+    "name": "Japão",
+    "name_int": "Japan",
+    "code": "JP"
+  },
+  {
+    "gentilico": "canalina",
+    "name": "Jersey",
+    "name_int": "Jersey",
+    "code": "JE"
+  },
+  {
+    "gentilico": "jordaniana",
+    "name": "Jordânia",
+    "name_int": "Jordan",
+    "code": "JO"
+  },
+  {
+    "gentilico": "kiribatiana",
+    "name": "Kiribati",
+    "name_int": "Kiribati",
+    "code": "KI"
+  },
+  {
+    "gentilico": "kosovar",
+    "name": "Kosovo",
+    "name_int": "Kosovo",
+    "code": "XK"
+  },
+  {
+    "gentilico": "kuwaitiano",
+    "name": "Kuait",
+    "name_int": "Kuwait",
+    "code": "KW"
+  },
+  {
+    "gentilico": "laosiana",
+    "name": "Laos",
+    "name_int": "Laos",
+    "code": "LA"
+  },
+  {
+    "gentilico": "lesota",
+    "name": "Lesoto",
+    "name_int": "Lesotho",
+    "code": "LS"
+  },
+  {
+    "gentilico": "letão",
+    "name": "Letônia",
+    "name_int": "Latvia",
+    "code": "LV"
+  },
+  {
+    "gentilico": "libanesa",
+    "name": "Líbano",
+    "name_int": "Lebanon",
+    "code": "LB"
+  },
+  {
+    "gentilico": "liberiana",
+    "name": "Libéria",
+    "name_int": "Liberia",
+    "code": "LR"
+  },
+  {
+    "gentilico": "líbia",
+    "name": "Líbia",
+    "name_int": "Libya",
+    "code": "LY"
+  },
+  {
+    "gentilico": "liechtensteiniense",
+    "name": "Liechtenstein",
+    "name_int": "Liechtenstein",
+    "code": "LI"
+  },
+  {
+    "gentilico": "lituana",
+    "name": "Lituânia",
+    "name_int": "Lithuania",
+    "code": "LT"
+  },
+  {
+    "gentilico": "luxemburguesa",
+    "name": "Luxemburgo",
+    "name_int": "Luxembourg",
+    "code": "LU"
+  },
+  {
+    "gentilico": "macauense",
+    "name": "Macau",
+    "name_int": "Macau",
+    "code": "MO"
+  },
+  {
+    "gentilico": "macedônio",
+    "name": "Macedônia (República Yugoslava)",
+    "name_int": "Macedonia (FYROM)",
+    "code": "MK"
+  },
+  {
+    "gentilico": "malgaxe",
+    "name": "Madagascar",
+    "name_int": "Madagascar",
+    "code": "MG"
+  },
+  {
+    "gentilico": "malaia",
+    "name": "Malásia",
+    "name_int": "Malaysia",
+    "code": "MY"
+  },
+  {
+    "gentilico": "malauiano",
+    "name": "Malaui",
+    "name_int": "Malawi",
+    "code": "MW"
+  },
+  {
+    "gentilico": "maldívia",
+    "name": "Maldivas",
+    "name_int": "Maldives",
+    "code": "MV"
+  },
+  {
+    "gentilico": "malinesa",
+    "name": "Mali",
+    "name_int": "Mali",
+    "code": "ML"
+  },
+  {
+    "gentilico": "maltesa",
+    "name": "Malta",
+    "name_int": "Malta",
+    "code": "MT"
+  },
+  {
+    "gentilico": "marroquina",
+    "name": "Marrocos",
+    "name_int": "Morocco",
+    "code": "MA"
+  },
+  {
+    "gentilico": "martiniquense",
+    "name": "Martinica",
+    "name_int": "Martinique",
+    "code": "MQ"
+  },
+  {
+    "gentilico": "mauriciana",
+    "name": "Maurício",
+    "name_int": "Mauritius",
+    "code": "MU"
+  },
+  {
+    "gentilico": "mauritana",
+    "name": "Mauritânia",
+    "name_int": "Mauritania",
+    "code": "MR"
+  },
+  {
+    "gentilico": "maiotense",
+    "name": "Mayotte",
+    "name_int": "Mayotte",
+    "code": "YT"
+  },
+  {
+    "gentilico": "mexicana",
+    "name": "México",
+    "name_int": "Mexico",
+    "code": "MX"
+  },
+  {
+    "gentilico": "micronésia",
+    "name": "Micronésia",
+    "name_int": "Micronesia",
+    "code": "FM"
+  },
+  {
+    "gentilico": "moçambicana",
+    "name": "Moçambique",
+    "name_int": "Mozambique",
+    "code": "MZ"
+  },
+  {
+    "gentilico": "moldavo",
+    "name": "Moldova",
+    "name_int": "Moldova",
+    "code": "MD"
+  },
+  {
+    "gentilico": "monegasca",
+    "name": "Mônaco",
+    "name_int": "Monaco",
+    "code": "MC"
+  },
+  {
+    "gentilico": "mongol",
+    "name": "Mongólia",
+    "name_int": "Mongolia",
+    "code": "MN"
+  },
+  {
+    "gentilico": "montenegra",
+    "name": "Montenegro",
+    "name_int": "Montenegro",
+    "code": "ME"
+  },
+  {
+    "gentilico": "montserratiano",
+    "name": "Montserrat",
+    "name_int": "Montserrat",
+    "code": "MS"
+  },
+  {
+    "gentilico": "birmanês",
+    "name": "Myanma",
+    "name_int": "Myanmar (Burma)",
+    "code": "MM"
+  },
+  {
+    "gentilico": "namíbia",
+    "name": "Namíbia",
+    "name_int": "Namibia",
+    "code": "NA"
+  },
+  {
+    "gentilico": "nauruana",
+    "name": "Nauru",
+    "name_int": "Nauru",
+    "code": "NR"
+  },
+  {
+    "gentilico": "nepalesa",
+    "name": "Nepal",
+    "name_int": "Nepal",
+    "code": "NP"
+  },
+  {
+    "gentilico": "nicaraguense",
+    "name": "Nicarágua",
+    "name_int": "Nicaragua",
+    "code": "NI"
+  },
+  {
+    "gentilico": "nigerina",
+    "name": "Níger",
+    "name_int": "Niger",
+    "code": "NE"
+  },
+  {
+    "gentilico": "nigeriana",
+    "name": "Nigéria",
+    "name_int": "Nigeria",
+    "code": "NG"
+  },
+  {
+    "gentilico": "niueana",
+    "name": "Niue",
+    "name_int": "Niue",
+    "code": "NU"
+  },
+  {
+    "gentilico": "norueguesa",
+    "name": "Noruega",
+    "name_int": "Norway",
+    "code": "NO"
+  },
+  {
+    "gentilico": "caledônia",
+    "name": "Nova Caledônia",
+    "name_int": "New Caledonia",
+    "code": "NC"
+  },
+  {
+    "gentilico": "neozelandesa",
+    "name": "Nova Zelândia",
+    "name_int": "New Zealand",
+    "code": "NZ"
+  },
+  {
+    "gentilico": "omani",
+    "name": "Omã",
+    "name_int": "Oman",
+    "code": "OM"
+  },
+  {
+    "gentilico": "dos países baixos caribenhos",
+    "name": "Países Baixos Caribenhos",
+    "name_int": "Caribbean Netherlands",
+    "code": "BQ"
+  },
+  {
+    "gentilico": "palauense",
+    "name": "Palau",
+    "name_int": "Palau",
+    "code": "PW"
+  },
+  {
+    "gentilico": "palestino",
+    "name": "Palestina",
+    "name_int": "Palestine",
+    "code": "PS"
+  },
+  {
+    "gentilico": "zona do canal do panamá",
+    "name": "Panamá",
+    "name_int": "Panama",
+    "code": "PA"
+  },
+  {
+    "gentilico": "pauásia",
+    "name": "Papua-Nova Guiné",
+    "name_int": "Papua New Guinea",
+    "code": "PG"
+  },
+  {
+    "gentilico": "paquistanesa",
+    "name": "Paquistão",
+    "name_int": "Pakistan",
+    "code": "PK"
+  },
+  {
+    "gentilico": "paraguaia",
+    "name": "Paraguai",
+    "name_int": "Paraguay",
+    "code": "PY"
+  },
+  {
+    "gentilico": "peruana",
+    "name": "Peru",
+    "name_int": "Peru",
+    "code": "PE"
+  },
+  {
+    "gentilico": "franco-polinésia",
+    "name": "Polinésia Francesa",
+    "name_int": "French Polynesia",
+    "code": "PF"
+  },
+  {
+    "gentilico": "polonesa",
+    "name": "Polônia",
+    "name_int": "Poland",
+    "code": "PL"
+  },
+  {
+    "gentilico": "portorriquenha",
+    "name": "Porto Rico",
+    "name_int": "Puerto Rico",
+    "code": "PR"
+  },
+  {
+    "gentilico": "portuguesa",
+    "name": "Portugal",
+    "name_int": "Portugal",
+    "code": "PT"
+  },
+  {
+    "gentilico": "catarense",
+    "name": "Qatar",
+    "name_int": "Qatar",
+    "code": "QA"
+  },
+  {
+    "gentilico": "queniano",
+    "name": "Quênia",
+    "name_int": "Kenya",
+    "code": "KE"
+  },
+  {
+    "gentilico": "quirguiz",
+    "name": "Quirguistão",
+    "name_int": "Kyrgyzstan",
+    "code": "KG"
+  },
+  {
+    "gentilico": "centro-africana",
+    "name": "República Centro-Africana",
+    "name_int": "Central African Republic",
+    "code": "CF"
+  },
+  {
+    "gentilico": "congolesa",
+    "name": "República Democrática do Congo",
+    "name_int": "Congo (DRC)",
+    "code": "CD"
+  },
+  {
+    "gentilico": "dominicana",
+    "name": "República Dominicana",
+    "name_int": "Dominican Republic",
+    "code": "DO"
+  },
+  {
+    "gentilico": "tcheco",
+    "name": "República Tcheca",
+    "name_int": "Czech Republic",
+    "code": "CZ"
+  },
+  {
+    "gentilico": "romena",
+    "name": "Romênia",
+    "name_int": "Romania",
+    "code": "RO"
+  },
+  {
+    "gentilico": "ruandesa",
+    "name": "Ruanda",
+    "name_int": "Rwanda",
+    "code": "RW"
+  },
+  {
+    "gentilico": "russa",
+    "name": "Rússia (antiga URSS) - Federação Russa",
+    "name_int": "Russia",
+    "code": "RU"
+  },
+  {
+    "gentilico": "saariano",
+    "name": "Saara Ocidental",
+    "name_int": "Western Sahara",
+    "code": "EH"
+  },
+  {
+    "gentilico": "pedro-miquelonense",
+    "name": "Saint-Pierre e Miquelon",
+    "name_int": "St. Pierre & Miquelon",
+    "code": "PM"
+  },
+  {
+    "gentilico": "samoana",
+    "name": "Samoa Americana",
+    "name_int": "American Samoa",
+    "code": "AS"
+  },
+  {
+    "gentilico": "samoano",
+    "name": "Samoa Ocidental",
+    "name_int": "Samoa",
+    "code": "WS"
+  },
+  {
+    "gentilico": "samarinês",
+    "name": "San Marino",
+    "name_int": "San Marino",
+    "code": "SM"
+  },
+  {
+    "gentilico": "helenense",
+    "name": "Santa Helena",
+    "name_int": "St. Helena",
+    "code": "SH"
+  },
+  {
+    "gentilico": "santa-lucense",
+    "name": "Santa Lúcia",
+    "name_int": "St. Lucia",
+    "code": "LC"
+  },
+  {
+    "gentilico": "são-bartolomeense",
+    "name": "São Bartolomeu",
+    "name_int": "St. Barthélemy",
+    "code": "BL"
+  },
+  {
+    "gentilico": "são-cristovense",
+    "name": "São Cristóvão e Névis",
+    "name_int": "St. Kitts & Nevis",
+    "code": "KN"
+  },
+  {
+    "gentilico": "são-martinhense",
+    "name": "São Martim",
+    "name_int": "St. Martin",
+    "code": "MF"
+  },
+  {
+    "gentilico": "são-martinhense",
+    "name": "São Martinho",
+    "name_int": "Sint Maarten",
+    "code": "SX"
+  },
+  {
+    "gentilico": "são-tomense",
+    "name": "São Tomé e Príncipe",
+    "name_int": "São Tomé & Príncipe",
+    "code": "ST"
+  },
+  {
+    "gentilico": "sao-vicentino",
+    "name": "São Vicente e Granadinas",
+    "name_int": "St. Vincent & Grenadines",
+    "code": "VC"
+  },
+  {
+    "gentilico": "senegalesa",
+    "name": "Senegal",
+    "name_int": "Senegal",
+    "code": "SN"
+  },
+  {
+    "gentilico": "leonesa",
+    "name": "Serra Leoa",
+    "name_int": "Sierra Leone",
+    "code": "SL"
+  },
+  {
+    "gentilico": "sérvia",
+    "name": "Sérvia",
+    "name_int": "Serbia",
+    "code": "RS"
+  },
+  {
+    "gentilico": "síria",
+    "name": "Síria",
+    "name_int": "Syria",
+    "code": "SY"
+  },
+  {
+    "gentilico": "somali",
+    "name": "Somália",
+    "name_int": "Somalia",
+    "code": "SO"
+  },
+  {
+    "gentilico": "cingalesa",
+    "name": "Sri Lanka",
+    "name_int": "Sri Lanka",
+    "code": "LK"
+  },
+  {
+    "gentilico": "suazi",
+    "name": "Suazilândia",
+    "name_int": "Swaziland",
+    "code": "SZ"
+  },
+  {
+    "gentilico": "sudanesa",
+    "name": "Sudão",
+    "name_int": "Sudan",
+    "code": "SD"
+  },
+  {
+    "gentilico": "sul-sudanês",
+    "name": "Sudão do Sul",
+    "name_int": "South Sudan",
+    "code": "SS"
+  },
+  {
+    "gentilico": "sueca",
+    "name": "Suécia",
+    "name_int": "Sweden",
+    "code": "SE"
+  },
+  {
+    "gentilico": "suíça",
+    "name": "Suíça",
+    "name_int": "Switzerland",
+    "code": "CH"
+  },
+  {
+    "gentilico": "surinamesa",
+    "name": "Suriname",
+    "name_int": "Suriname",
+    "code": "SR"
+  },
+  {
+    "gentilico": "svalbardense",
+    "name": "Svalbard",
+    "name_int": "Svalbard & Jan Mayen",
+    "code": "SJ"
+  },
+  {
+    "gentilico": "tadjique",
+    "name": "Tadjiquistão",
+    "name_int": "Tajikistan",
+    "code": "TJ"
+  },
+  {
+    "gentilico": "tailandesa",
+    "name": "Tailândia",
+    "name_int": "Thailand",
+    "code": "TH"
+  },
+  {
+    "gentilico": "taiwanês",
+    "name": "Taiwan",
+    "name_int": "Taiwan",
+    "code": "TW"
+  },
+  {
+    "gentilico": "tanzaniana",
+    "name": "Tanzânia",
+    "name_int": "Tanzania",
+    "code": "TZ"
+  },
+  {
+    "gentilico": "do território britânico do oceano índico",
+    "name": "Território Britânico do Oceano índico",
+    "name_int": "British Indian Ocean Territory",
+    "code": "IO"
+  },
+  {
+    "gentilico": "do territórios do sul da frança",
+    "name": "Territórios do Sul da França",
+    "name_int": "French Southern Territories",
+    "code": "TF"
+  },
+  {
+    "gentilico": "timorense",
+    "name": "Timor-Leste",
+    "name_int": "Timor-Leste",
+    "code": "TL"
+  },
+  {
+    "gentilico": "togolesa",
+    "name": "Togo",
+    "name_int": "Togo",
+    "code": "TG"
+  },
+  {
+    "gentilico": "tonganesa",
+    "name": "Tonga",
+    "name_int": "Tonga",
+    "code": "TO"
+  },
+  {
+    "gentilico": "trinitário-tobagense",
+    "name": "Trinidad e Tobago",
+    "name_int": "Trinidad & Tobago",
+    "code": "TT"
+  },
+  {
+    "gentilico": "tristanita",
+    "name": "Tristão da Cunha",
+    "name_int": "Tristan da Cunha",
+    "code": "TA"
+  },
+  {
+    "gentilico": "tunisiana",
+    "name": "Tunísia",
+    "name_int": "Tunisia",
+    "code": "TN"
+  },
+  {
+    "gentilico": "turcomana",
+    "name": "Turcomenistão",
+    "name_int": "Turkmenistan",
+    "code": "TM"
+  },
+  {
+    "gentilico": "turca",
+    "name": "Turquia",
+    "name_int": "Turkey",
+    "code": "TR"
+  },
+  {
+    "gentilico": "tuvaluana",
+    "name": "Tuvalu",
+    "name_int": "Tuvalu",
+    "code": "TV"
+  },
+  {
+    "gentilico": "ucraniana",
+    "name": "Ucrânia",
+    "name_int": "Ukraine",
+    "code": "UA"
+  },
+  {
+    "gentilico": "ugandense",
+    "name": "Uganda",
+    "name_int": "Uganda",
+    "code": "UG"
+  },
+  {
+    "gentilico": "uruguaia",
+    "name": "Uruguai",
+    "name_int": "Uruguay",
+    "code": "UY"
+  },
+  {
+    "gentilico": "uzbeque",
+    "name": "Uzbequistão",
+    "name_int": "Uzbekistan",
+    "code": "UZ"
+  },
+  {
+    "gentilico": "vanuatuense",
+    "name": "Vanuatu",
+    "name_int": "Vanuatu",
+    "code": "VU"
+  },
+  {
+    "gentilico": "vaticano",
+    "name": "Vaticano",
+    "name_int": "Vatican City",
+    "code": "VA"
+  },
+  {
+    "gentilico": "venezuelana",
+    "name": "Venezuela",
+    "name_int": "Venezuela",
+    "code": "VE"
+  },
+  {
+    "gentilico": "vietnamita",
+    "name": "Vietnã",
+    "name_int": "Vietnam",
+    "code": "VN"
+  },
+  {
+    "gentilico": "wallis-futunense",
+    "name": "Wallis e Futuna",
+    "name_int": "Wallis & Futuna",
+    "code": "WF"
+  },
+  {
+    "gentilico": "zambiana",
+    "name": "Zâmbia",
+    "name_int": "Zambia",
+    "code": "ZM"
+  },
+  {
+    "gentilico": "zimbabuana",
+    "name": "Zimbábue",
+    "name_int": "Zimbabwe",
+    "code": "ZW"
+  }
+]
