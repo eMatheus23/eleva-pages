@@ -1,6 +1,6 @@
 .complete-profile-wrapper {
   width: 60rem;
-  
+
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -86,20 +86,20 @@
 }
 
 .complete-profile-wrapper form .select-appearance {
-  /* Remove estilo padrão do Chrome */  
-  -webkit-appearance: none;  
+  /* Remove estilo padrão do Chrome */
+  -webkit-appearance: none;
   /* Remove estilo padrão do FireFox */
-  -moz-appearance: none; 
-  /* Remove estilo padrão do FireFox*/      
-  appearance: none; 
+  -moz-appearance: none;
+  /* Remove estilo padrão do FireFox*/
+  appearance: none;
   /* Imagem de fundo (Seta) */
-  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;  
-  /*Posição da imagem do background*/   
-  background-position: 41rem center;  
+  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;
+  /*Posição da imagem do background*/
+  background-position: 41rem center;
 
-  width: 44.6rem; 
-  height: 5rem;   
-  
+  width: 44.6rem;
+  height: 5rem;
+
   border: 1px solid #BFBFBF;
   border-radius: 9px;
 
@@ -153,6 +153,12 @@
   font-size: 1.7rem;
 
   cursor: pointer;
+
+  transition: background-color 0.2s;
+}
+
+.input-container-research button:hover {
+  background: #dadada;
 }
 
 
