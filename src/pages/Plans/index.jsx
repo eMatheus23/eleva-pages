@@ -93,7 +93,7 @@ const Plans = () => {
     }
   }
 
-  function handleCentralImg() {
+  function updateCentralImg() {
     switch (selectedPlan) {
       case 'mensal':
         return centralImgMensal;
@@ -295,7 +295,7 @@ const Plans = () => {
           <img
             onClick={handleMockupClick}
             className="central-img active animate-apper"
-            src={handleCentralImg()}
+            src={updateCentralImg()}
             alt="Escolha seu plano Premium"
           />
         </div>
