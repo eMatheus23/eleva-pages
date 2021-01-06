@@ -41,10 +41,6 @@ const CompleteProfileCard = () => {
     select.value = 0;
   }
 
-  function handleNextPage() {
-    setPage(2);
-  }
-
   return (
     <div className="complete-profile-wrapper">
       {page === 1 && (
@@ -63,7 +59,7 @@ const CompleteProfileCard = () => {
               melhor você.
             </p>
 
-            <ButtonRounded buttonStyle="transparent" onClick={handleNextPage}>
+            <ButtonRounded buttonStyle="transparent" onClick={() => setPage(2)}>
               Complete seu perfil
             </ButtonRounded>
           </div>
