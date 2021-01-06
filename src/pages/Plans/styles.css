@@ -70,7 +70,7 @@
 }
 
 .plans-selector button:hover {
-  background: var(--color-background);
+  background: #e7f1c2;
 }
 
 .plans-selector button:first-of-type {
@@ -210,7 +210,11 @@
   align-items: center;
   justify-content: center;
 
-  transition: background-color 200ms;
+  transition: background-color 0.2s;
+}
+
+.plans-card button:hover {
+  background:#326f53;
 }
 
 .plans-card button.active {
