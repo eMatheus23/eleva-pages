@@ -4,11 +4,13 @@ import React, { useState } from 'react';
 import './styles.css';
 
 // Components
-import Footer from '../../components/Footer';
+import Footer from '../../components/footers/CheckoutFooter';
 import HeaderSignup from '../../components/HeaderSignup';
 import CreateAccountCard from '../../components/cards/CreateAccount';
 
 const SignupAddress = () => {
+  document.title = 'Criar Conta Premium | Elevagro';
+
   const [isLoggedIn] = useState(() => {
     return JSON.parse(
       localStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),

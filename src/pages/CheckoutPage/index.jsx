@@ -20,7 +20,7 @@ import addProductToCart from '../../services/AddProductToCart';
 import currencyFormat from '../../data/currency-format';
 
 const CheckoutPage = () => {
-  document.title = 'Elevagro | Checkout';
+  document.title = 'Checkout | Elevagro';
 
   const history = useHistory();
 

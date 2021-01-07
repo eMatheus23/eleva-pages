@@ -11,8 +11,6 @@ import ButtonRounded from '../../Buttons';
 import currencyFormat from '../../../data/currency-format';
 
 const ProductCheckout = ({ product, success, ...props }) => {
-  document.title = 'Elevagro | Obrigado pela compra!';
-
   const [checkoutSucess] = useState(() => {
     if (success) return true;
 

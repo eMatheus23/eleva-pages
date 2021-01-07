@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import './styles.css';
 
 // Components
-import Footer from '../../components/Footer';
+import Footer from '../../components/footers/CheckoutFooter';
 import ButtonRounded from '../../components/Buttons';
 import LoginCard from '../../components/cards/LoginCard';
 
@@ -33,7 +33,7 @@ import products from '../../data/products';
 import addProductToCart from '../../services/AddProductToCart';
 
 const Plans = () => {
-  document.title = 'Escolha seu plano premium';
+  document.title = 'Escolha seu plano premium | Elevagro';
 
   const history = useHistory();
 

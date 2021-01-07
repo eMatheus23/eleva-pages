@@ -1,5 +1,4 @@
-/* ------ Footer ------ */
-footer {
+#checkout-footer footer {
   position: absolute;
   bottom: 0;
 
@@ -17,35 +16,35 @@ footer {
   color: var(--color-text-base);
 }
 
-footer > div {
+#checkout-footer footer > div {
   display: flex;
   justify-items: center;
   align-items: center;
 }
 
-footer div p {
+#checkout-footer footer div p {
   width: 255px;
   font-size: 1.6rem;
   margin-right: 0.2rem;
 }
 
-footer div img {
+#checkout-footer footer div img {
   height: 2.8rem;
 }
 
-footer .footer-links {
+#checkout-footer footer .footer-links {
   text-decoration: none;
   position: absolute;
   right: 10rem;
 }
 
-footer a {
+#checkout-footer footer a {
   text-decoration: none;
   font-family: Montserrat, sans-serif;
   color: var(--color-text-base);
   font-size: 1.6rem;
 }
 
-footer a:last-of-type {
+#checkout-footer footer a:last-of-type {
   margin-left: 4rem;
 }

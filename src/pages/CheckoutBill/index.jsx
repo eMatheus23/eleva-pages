@@ -12,7 +12,7 @@ import ButtonRounded from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 
 const CheckoutPage = () => {
-  document.title = 'Elevagro | Checkout';
+  document.title = 'Boleto | Elevagro';
 
   return (
     <div id="page-checkout-bill">

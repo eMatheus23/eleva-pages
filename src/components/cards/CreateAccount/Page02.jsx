@@ -21,8 +21,6 @@ export default function Page02({ handleNextPage, isInCheckout }) {
     return false;
   });
 
-  document.title = 'Elevagro | Criar Conta Premium';
-
   useEffect(() => {
     axios
       .get('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
