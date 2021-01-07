@@ -3,11 +3,21 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
+// Header
 import logoElevagroImg from '../../assets/images/logos/marca-elevagro.svg';
 import searchImg from '../../assets/images/icons/search-icon.svg';
 import bitwiseImg from '../../assets/images/icons/bitwise.svg';
 
 import ButtonRounded from '../../components/Buttons';
+
+// Main
+import CourseTrackHeroImg from '../../assets/images/mockups/course-track-hero.jpg';
+
+// Footer
+import InstagramLogoImg from '../../assets/images/logos/instagram-gray-logo.png';
+import FacebookLogoImg from '../../assets/images/logos/facebook-gray-logo.png';
+import YoutubeLogoImg from '../../assets/images/logos/youtube-gray-logo.png';
+import MessengerLogoImg from '../../assets/images/logos/messenger-gray-logo.png';
 
 const CourseTrack = () => {
   document.title = 'Trilha de Ensino | Elevagro';
@@ -15,63 +25,86 @@ const CourseTrack = () => {
   return (
     <div id="course-track">
       <header className="course-track-header">
-        <Link to="/">
-          <img src={logoElevagroImg} alt="Elevagro" />
-        </Link>
+        <div className="header-content-wrapper">
+          <Link to="/">
+            <img src={logoElevagroImg} alt="Elevagro" />
+          </Link>
 
-        <form>
-          <input type="text" placeholder="Busque na Elevagro" />
+          <form>
+            <input
+              type="text"
+              placeholder="Busque na Elevagro"
+              title="Busque na Elevagro"
+            />
 
-          <button type="button">
-            <img src={searchImg} alt="Buscar na Elevagro" />
-          </button>
-        </form>
+            <button type="button">
+              <img
+                src={searchImg}
+                alt="Buscar na Elevagro"
+                title="Busque na Elevagro"
+              />
+            </button>
+          </form>
 
-        <nav className="course-track-menu">
-          <ul>
-            <li className="active">
-              <Link to="/course-track">CURSOS</Link>
-            </li>
-            <li>
-              <Link to="/course-track">CONTEÚDOS</Link>
-            </li>
-            <li>
-              <Link to="/course-track">PALESTRAS</Link>
-            </li>
-            <img src={bitwiseImg} alt="Separação de sessão" />
-            <li>
-              <Link to="/course-track">ENSINE NA ELEVAGRO</Link>
-            </li>
-            <li>
-              <Link to="/course-track">PLANOS</Link>
-            </li>
-            <li>
-              <Link to="/course-track" className="signup">
-                ENTRAR
-              </Link>
-            </li>
-          </ul>
+          <nav className="course-track-menu">
+            <ul>
+              <li className="active">
+                <Link to="/course-track">CURSOS</Link>
+              </li>
+              <li>
+                <Link to="/course-track">CONTEÚDOS</Link>
+              </li>
+              <li>
+                <Link to="/course-track">PALESTRAS</Link>
+              </li>
+              <img src={bitwiseImg} alt="Separação de sessão" />
+              <li>
+                <Link to="/course-track">ENSINE NA ELEVAGRO</Link>
+              </li>
+              <li>
+                <Link to="/course-track">PLANOS</Link>
+              </li>
+              <li>
+                <Link to="/course-track" className="signup">
+                  ENTRAR
+                </Link>
+              </li>
+            </ul>
 
-          <ButtonRounded>INSCREVA-SE GRATUITAMENTE</ButtonRounded>
-        </nav>
+            <ButtonRounded>INSCREVA-SE GRATUITAMENTE</ButtonRounded>
+          </nav>
+        </div>
       </header>
 
       <main>
+        <header className="hero">
+          <div className="img-filter" />
+          <img src={CourseTrackHeroImg} alt="Curso" />
+
+          <div className="content-wrapper">
+            <h2>TRILHA DE ENSINO</h2>
+            <h3>VENDAS E INSUMOS AGRÍCOLAS</h3>
+          </div>
+        </header>
         <h1>Content</h1>
       </main>
 
       <footer id="course-track-footer">
         <div className="footer-content-wrapper">
-          <div className="row">
-            <div className="col">
-              <img src={logoElevagroImg} alt="Elevagro" />
+          <div className="row first-row">
+            <div className="col-lg-3 col-sm-4 col-6">
+              <img
+                src={logoElevagroImg}
+                alt="Elevagro"
+                className="footer-logo"
+              />
               <p className="brand-description">
                 Somos a Elevagro, e viemos para preparar o profissional do
                 agronegócio para os desafios do futuro.
               </p>
             </div>
 
-            <div className="col">
+            <div className="col-lg-3 col-sm-4 col-6">
               <h3>INSTITUCIONAL</h3>
               <ul>
                 <li>
@@ -89,7 +122,7 @@ const CourseTrack = () => {
               </ul>
             </div>
 
-            <div className="col">
+            <div className="col-lg-3 col-sm-4 col-6">
               <h3>FALE CONOSCO</h3>
               <ul>
                 <li>
@@ -107,7 +140,7 @@ const CourseTrack = () => {
               </ul>
             </div>
 
-            <div className="col">
+            <div className="col-lg-3 col-sm-4 col-6">
               <h3>WHATSAPP</h3>
               <ul>
                 <li>
@@ -117,34 +150,44 @@ const CourseTrack = () => {
                 </li>
               </ul>
             </div>
-          </div>
 
-          <div className="row">
-            <div className="col">
+            <div className="col-lg-3 col-sm-4 col-6">
               <h3>PRODUTOS</h3>
               <ul>
                 <li>
-                  <Link to="/course-track">Cursos</Link>
+                  <Link to="/course-track" title="Cursos">
+                    Cursos
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/course-track">Trilhas de aprendizado</Link>
+                  <Link to="/course-track" title="Trilhas de aprendizado">
+                    Trilhas de aprendizado
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/course-track">Pós-graduação</Link>
+                  <Link to="/course-track" title="Pós-graduação">
+                    Pós-graduação
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/course-track">Assinaturas Premium</Link>
+                  <Link to="/course-track" title="Assinaturas Premium">
+                    Assinaturas Premium
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/course-track">Palestras</Link>
+                  <Link to="/course-track" title="Palestras">
+                    Palestras
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/course-track">Produção de conteúdo</Link>
+                  <Link to="/course-track" title="Produção de conteúdo">
+                    Produção de conteúdo
+                  </Link>
                 </li>
               </ul>
             </div>
 
-            <div className="col">
+            <div className="col-lg-3 col-sm-4 col-6">
               <h3>SOLUÇÕES</h3>
               <ul>
                 <li>
@@ -162,7 +205,7 @@ const CourseTrack = () => {
               </ul>
             </div>
 
-            <div className="col">
+            <div className="col-lg-3 col-sm-4 col-6">
               <h3>LEGAL</h3>
               <ul>
                 <li>
@@ -180,12 +223,29 @@ const CourseTrack = () => {
               </ul>
             </div>
 
-            <div className="col">
+            <div className="col-lg-3 col-sm-4 col-6">
               <h2>REDES SOCIAIS</h2>
+              <div className="social-networks-links">
+                <Link to="/course-track" title="Instagram">
+                  <img src={InstagramLogoImg} alt="Instagram" />
+                </Link>
+
+                <Link to="/course-track" title="Facebook">
+                  <img src={FacebookLogoImg} alt="Facebook" />
+                </Link>
+
+                <Link to="/course-track" title="Youtube">
+                  <img src={YoutubeLogoImg} alt="Youtube" />
+                </Link>
+
+                <Link to="/course-track" title="Messenger">
+                  <img src={MessengerLogoImg} alt="Messenger" />
+                </Link>
+              </div>
             </div>
           </div>
 
-          <div className="row">
+          <div className="row copyrights">
             <p>© Todos os direitos reservados a Elevagro</p>
           </div>
         </div>

@@ -1,123 +1,204 @@
+body {
+  overflow-x: hidden;
+}
+
 #course-track {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--color-background);
 }
+
 #course-track main {
   height: 60rem;
+  margin-top: 6.6rem;
 }
 
 header.course-track-header {
   position: fixed;
   z-index: 99999;
+  top: 0;
+  width: 100vw;
+  height: 6.6rem;
+  padding-left: 4vw;
+  padding-right: 2vw;
+  background: var(--color-background);
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.header-content-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
-  height: 6vh;
-  background: var(--color-background);
-  box-shadow: 0px 3px 6px #00000029;
+  max-width: 192rem;
+  height: 100%;
+  margin: 0 auto;
 }
-header.course-track-header a {
+.header-content-wrapper a {
   display: flex;
   align-items: center;
 }
-header.course-track-header a img {
-  margin-left: max(8rem, 4vw);
+.header-content-wrapper a img {
   height: 3.8rem;
 }
-header.course-track-header form {
+.header-content-wrapper form {
   position: relative;
 }
-header.course-track-header form button {
+.header-content-wrapper form button {
   position: absolute;
   top: 50%;
   right: 1.8rem;
   transform: translate(0, -50%);
   background: none;
 }
-header.course-track-header input {
-  width: 32.3rem;
+.header-content-wrapper input {
+  text-overflow: ellipsis;
+  width: 16vw;
+  max-width: 32.3rem;
   height: 4rem;
   padding-left: 1.8rem;
+  padding-right: 3.8rem;
   border: 1px solid #bfbfbf;
   border-radius: 20px;
   font-family: Montserrat, sans-serif;
 }
-header.course-track-header input::placeholder {
+.header-content-wrapper input::placeholder {
   font-family: Montserrat, sans-serif;
   font-size: 1.4rem;
   color: var(--color-line-in-white);
 }
-header.course-track-header button#button-rounded {
-  width: 25.2rem;
-  margin-right: 3.7rem;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
 
-nav.course-track-menu {
+.course-track-menu {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 108.2rem;
+  width: 65vw;
+  max-width: 107.5rem;
 }
-nav.course-track-menu ul {
+.course-track-menu ul {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 75rem;
+  width: 73%;
+  max-width: 75rem;
   margin-bottom: 0;
 }
-nav.course-track-menu li {
+.course-track-menu li {
   font-family: Montserrat, sans-serif;
   font-size: 1.4rem;
   line-height: 2rem;
   list-style: none;
 }
-nav.course-track-menu li a {
+.course-track-menu li a {
   color: var(--color-text-base);
   text-decoration: none;
+  transition-property: all;
+  transition-duration: 0.2s;
 }
-nav.course-track-menu li a.signup {
+.course-track-menu li a.signup {
   text-decoration: underline;
 }
-nav.course-track-menu li.active a, nav.course-track-menu li:hover a {
+.course-track-menu li.active a {
   border-bottom: 3px solid #b0d135;
   font-weight: 700;
+  color: #5d883e;
+}
+.course-track-menu li a:hover {
+  border-bottom: 3px solid #b0d135;
   color: #5d883e;
   text-decoration: none;
 }
 
-#course-track-footer {
+button#button-rounded {
+  width: max(25%, 17.2rem);
+  max-width: 25.2rem;
+  height: 4rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#course-track header.hero {
+  overflow: hidden;
+  position: relative;
   width: 100%;
-  height: 52.4rem;
+  height: 29.5rem;
+}
+#course-track header.hero .img-filter {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: #424242;
+  opacity: 0.5;
+}
+#course-track header.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2.5px) brightness(100%);
+}
+#course-track header.hero .content-wrapper {
+  position: absolute;
+  z-index: 3;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 145rem;
+}
+#course-track header.hero .content-wrapper h2 {
+  margin-bottom: 0.7rem;
+  font: normal 2rem/2.4rem Montserrat;
+  color: var(--color-primary);
+}
+#course-track header.hero .content-wrapper h3 {
+  font: normal 3rem/3.7rem Montserrat;
+  color: var(--color-text-white);
+}
+
+#course-track-footer {
+  width: 100vw;
+  padding: 0 min(4vw, 4rem);
   background: var(--color-background-secondary);
   font-family: Montserrat, sans-serif;
   color: var(--color-text-base);
 }
 #course-track-footer .footer-content-wrapper {
-  width: 130rem;
+  max-width: 145rem;
   height: 100%;
   margin: 0 auto;
   padding-top: 5.7rem;
 }
-#course-track-footer .footer-content-wrapper img {
-  width: 19.4rem;
+#course-track-footer .footer-content-wrapper .row {
+  min-height: 15.5rem;
+}
+#course-track-footer .footer-content-wrapper .row > div {
+  margin-bottom: 3rem;
+}
+#course-track-footer .footer-content-wrapper img.footer-logo {
+  max-width: 19.4rem;
+  margin-top: -1.5rem;
+  margin-left: -0.4rem;
 }
 #course-track-footer .footer-content-wrapper p {
   font-size: 1.8rem;
   line-height: 2.6rem;
 }
 #course-track-footer .footer-content-wrapper p.brand-description {
-  width: 27.6rem;
+  max-width: 27.6rem;
+  margin-top: -0.4rem;
 }
 #course-track-footer .footer-content-wrapper h3 {
+  margin-bottom: 0.5rem;
   font-size: 2rem;
+  line-height: 2.5rem;
   font-weight: 400;
+}
+#course-track-footer .footer-content-wrapper h2 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
 }
 #course-track-footer .footer-content-wrapper li {
   font-family: Montserrat, sans-serif;
@@ -125,8 +206,31 @@ nav.course-track-menu li.active a, nav.course-track-menu li:hover a {
   line-height: 2.5rem;
   list-style: none;
 }
+#course-track-footer .footer-content-wrapper li + li {
+  margin-top: 0.2rem;
+}
 #course-track-footer .footer-content-wrapper li a {
+  display: block;
+  max-width: 26.6rem;
+  text-decoration: none;
   color: var(--color-text-base);
+}
+#course-track-footer .footer-content-wrapper li a:hover {
+  text-decoration: underline;
+}
+#course-track-footer .footer-content-wrapper .copyrights {
+  justify-content: center;
+  align-items: center;
+  min-height: 9.3rem;
+}
+#course-track-footer .footer-content-wrapper .social-networks-links {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.8rem;
+}
+#course-track-footer .footer-content-wrapper .social-networks-links img {
+  width: 3.9rem;
+  margin-right: 0.6rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
