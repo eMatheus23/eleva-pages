@@ -13,6 +13,7 @@ import ButtonRounded from '../../components/Buttons';
 // Main
 import CourseTrackHeroImg from '../../assets/images/mockups/course-track-hero.jpg';
 import CourseTumbnail from '../../assets/images/mockups/course-thumbnail-02.png';
+import CourseVideoTumbnail from '../../assets/images/mockups/track-video-thumbnail.png';
 
 // Footer
 import InstagramLogoImg from '../../assets/images/logos/instagram-gray-logo.png';
@@ -92,6 +93,14 @@ const CourseTrack = () => {
 
           <h2>TRILHA DE ENSINO</h2>
           <h3>VENDAS E INSUMOS AGRÍCOLAS</h3>
+        </div>
+
+        <div className="track-video-card">
+          <div>
+            <div className="card">
+              <video controls poster={CourseVideoTumbnail} />
+            </div>
+          </div>
         </div>
       </section>
 
