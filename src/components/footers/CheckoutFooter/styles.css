@@ -1,4 +1,4 @@
-#checkout-footer footer {
+footer#checkout-footer {
   position: absolute;
   bottom: 0;
 
@@ -16,35 +16,35 @@
   color: var(--color-text-base);
 }
 
-#checkout-footer footer > div {
+footer#checkout-footer > div {
   display: flex;
   justify-items: center;
   align-items: center;
 }
 
-#checkout-footer footer div p {
+footer#checkout-footer div p {
   width: 255px;
   font-size: 1.6rem;
   margin-right: 0.2rem;
 }
 
-#checkout-footer footer div img {
+footer#checkout-footer div img {
   height: 2.8rem;
 }
 
-#checkout-footer footer .footer-links {
+footer#checkout-footer .footer-links {
   text-decoration: none;
   position: absolute;
   right: 10rem;
 }
 
-#checkout-footer footer a {
+footer#checkout-footer a {
   text-decoration: none;
   font-family: Montserrat, sans-serif;
   color: var(--color-text-base);
   font-size: 1.6rem;
 }
 
-#checkout-footer footer a:last-of-type {
+footer#checkout-footer a:last-of-type {
   margin-left: 4rem;
 }
