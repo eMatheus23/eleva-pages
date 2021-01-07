@@ -12,6 +12,7 @@ import ButtonRounded from '../../components/Buttons';
 
 // Main
 import CourseTrackHeroImg from '../../assets/images/mockups/course-track-hero.jpg';
+import CourseTumbnail from '../../assets/images/mockups/course-thumbnail-02.png';
 
 // Footer
 import InstagramLogoImg from '../../assets/images/logos/instagram-gray-logo.png';
@@ -76,17 +77,152 @@ const CourseTrack = () => {
         </div>
       </header>
 
-      <main>
-        <header className="hero">
-          <div className="img-filter" />
-          <img src={CourseTrackHeroImg} alt="Curso" />
+      <section className="hero">
+        <div className="img-filter" />
+        <img src={CourseTrackHeroImg} alt="Curso" />
 
-          <div className="content-wrapper">
-            <h2>TRILHA DE ENSINO</h2>
-            <h3>VENDAS E INSUMOS AGRÍCOLAS</h3>
+        <div className="content-wrapper">
+          <div className="nav-tree">
+            <Link to="/">Início</Link>
+            <span>/</span>
+            <Link to="/course-track">Curso</Link>
+            <span>/</span>
+            <Link to="/course-track">Manejo de plantas daninhas em soja</Link>
           </div>
-        </header>
-        <h1>Content</h1>
+
+          <h2>TRILHA DE ENSINO</h2>
+          <h3>VENDAS E INSUMOS AGRÍCOLAS</h3>
+        </div>
+      </section>
+
+      <main>
+        <div className="content-wrapper">
+          <section className="track-description">
+            <p>
+              A trilha é um pacote de 10 cursos com conteúdos sobre as etapas da
+              cadeia produtiva da soja. A trilha é um pacote de 10 cursos com
+              conteúdos sobre as etapas da cadeia produtiva da soja.A trilha é
+              um pacote de 10 cursos com conteúdos sobre as etapas da cadeia
+              produtiva da soja.
+            </p>
+            <h3>
+              O que você vai aprender no curso Manejo de plantas daninhas em
+              soja:
+            </h3>
+          </section>
+
+          <section className="track-tab-selector">
+            <div className="buttons">
+              <button type="button" className="active">
+                Conteúdo
+              </button>
+              <button type="button">Detalhes</button>
+              <button type="button">Vantagens</button>
+              <button type="button">Autores</button>
+            </div>
+
+            <div className="underline" />
+          </section>
+
+          <section className="courses">
+            <h2>Os 6 cursos que compões esta Trilha:</h2>
+
+            <div className="course">
+              <img src={CourseTumbnail} alt="Nome do Curso" />
+
+              <div className="course-description">
+                <div>
+                  <span>Nutrição</span>
+                  <p>
+                    Manejo da resistência de insetos a inseticidas e a plantas
+                    geneticamente modificadas
+                  </p>
+                </div>
+
+                <div>
+                  <span>R$: 450,00</span>
+                  <Link to="/course-track">Detalhes</Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="course">
+              <img src={CourseTumbnail} alt="Nome do Curso" />
+
+              <div className="course-description">
+                <div>
+                  <span>Nutrição</span>
+                  <p>
+                    Manejo da resistência de insetos a inseticidas e a plantas
+                    geneticamente modificadas
+                  </p>
+                </div>
+
+                <div>
+                  <span>R$: 450,00</span>
+                  <Link to="/course-track">Detalhes</Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="course">
+              <img src={CourseTumbnail} alt="Nome do Curso" />
+
+              <div className="course-description">
+                <div>
+                  <span>Nutrição</span>
+                  <p>
+                    Manejo da resistência de insetos a inseticidas e a plantas
+                    geneticamente modificadas
+                  </p>
+                </div>
+
+                <div>
+                  <span>R$: 450,00</span>
+                  <Link to="/course-track">Detalhes</Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="course">
+              <img src={CourseTumbnail} alt="Nome do Curso" />
+
+              <div className="course-description">
+                <div>
+                  <span>Nutrição</span>
+                  <p>
+                    Manejo da resistência de insetos a inseticidas e a plantas
+                    geneticamente modificadas
+                  </p>
+                </div>
+
+                <div>
+                  <span>R$: 450,00</span>
+                  <Link to="/course-track">Detalhes</Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="course">
+              <img src={CourseTumbnail} alt="Nome do Curso" />
+
+              <div className="course-description">
+                <div>
+                  <span>Nutrição</span>
+                  <p>
+                    Manejo da resistência de insetos a inseticidas e a plantas
+                    geneticamente modificadas
+                  </p>
+                </div>
+
+                <div>
+                  <span>R$: 450,00</span>
+                  <Link to="/course-track">Detalhes</Link>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
 
       <footer id="course-track-footer">
@@ -170,7 +306,7 @@ const CourseTrack = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/course-track" title="Assinaturas Premium">
+                  <Link to="/plans" title="Assinaturas Premium">
                     Assinaturas Premium
                   </Link>
                 </li>

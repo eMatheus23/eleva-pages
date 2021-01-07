@@ -10,12 +10,6 @@ body {
   background: var(--color-background);
 }
 
-#course-track main {
-  height: 60rem;
-
-  margin-top: 6.6rem;
-}
-
 header.course-track-header {
   position: fixed;
   z-index: 99999;
@@ -24,7 +18,7 @@ header.course-track-header {
   width: 100vw;
   height: 6.6rem;
 
-  padding-left: 4vw;
+  padding-left: 3vw;
   padding-right: 2vw;
 
   background: var(--color-background);
@@ -154,13 +148,14 @@ button#button-rounded {
   font-weight: 700;
 }
 
-#course-track header.hero {
+#course-track .hero {
   overflow: hidden;
-
   position: relative;
 
   width: 100%;
   height: 29.5rem;
+
+  margin-top: 6.6rem;
 
   .img-filter {
     position: absolute;
@@ -185,11 +180,54 @@ button#button-rounded {
   .content-wrapper {
     position: absolute;
     z-index: 3;
-    top: 65%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
 
-    width: 145rem;
+    width: 100%;
+    max-width: 153rem;
+    height: 100%;
+
+    padding: 2rem 4rem;
+
+    .nav-tree {
+      display: flex;
+      align-items: center;
+
+      width: fit-content;
+      height: 3.3rem;
+
+      margin-left: -10rem;
+      margin-bottom: 8.7rem;
+      padding: 0 1rem;
+      border-radius: 0.7rem;
+
+      background: rgb(0, 0, 0, 0.26);
+
+      // Desabilita o offset em telas menores
+      @media screen and (max-width: 1700px) {
+        margin-left: 0;
+      }
+
+      span {
+        margin: 0 1rem;
+
+        font: normal 1.3rem/1.6rem Montserrat;
+        color: var(--color-primary);
+      }
+
+      a {
+        font: normal 1.3rem/1.6rem Montserrat;
+        color: var(--color-primary);
+        text-decoration: none;
+
+        &:last-of-type {
+          color: #ffffff;
+
+          pointer-events: none;
+        }
+      }
+    }
 
     h2 {
       margin-bottom: 0.7rem;
@@ -201,6 +239,145 @@ button#button-rounded {
     h3 {
       font: normal 3rem/3.7rem Montserrat;
       color: var(--color-text-white);
+    }
+  }
+}
+
+#course-track main {
+  width: 100%;
+
+  padding: 3rem 4rem 8rem 4rem;
+
+  .content-wrapper {
+    max-width: 145rem;
+
+    margin: 0 auto;
+
+    section {
+      width: 100%;
+      max-width: 80.7rem;
+
+      color: var(--color-text-base);
+    }
+  }
+}
+
+.track-description {
+  p {
+    margin-bottom: 3rem;
+
+    font: normal 2rem/2.7rem Montserrat;
+  }
+
+  h3 {
+    margin-bottom: 3.5rem;
+
+    font: normal 2.5rem/3rem Montserrat;
+    color: var(--color-secondary);
+  }
+}
+
+.track-tab-selector {
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 98%;
+  }
+
+  button {
+    padding: 0 1rem;
+    padding-bottom: 0.7rem;
+
+    background: none;
+    font: normal 2.5rem/3rem Montserrat;
+
+    transition: color 0.2s;
+
+    &.active {
+      color: var(--color-secondary);
+
+      border-bottom: 6px solid var(--color-primary);
+      pointer-events: none;
+    }
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  .underline {
+    position: relative;
+    bottom: 0.4rem;
+
+    width: 100%;
+    max-width: 80.7rem;
+
+    border-bottom: 2px solid var(--color-line-in-white);
+  }
+}
+
+.courses {
+  .course {
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 2rem;
+
+    & + .course {
+      border-top: 2px solid var(--color-line-in-white);
+      padding-top: 2rem;
+    }
+  }
+
+  h2 {
+    margin: 1.8rem 0 2rem 0;
+
+    font: normal 3.5rem/4.3rem Montserrat;
+  }
+
+  img {
+    width: 19.2rem;
+
+    border-radius: 1rem;
+    margin-right: 1.8rem;
+  }
+
+  .course-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+      font: normal 2rem/2.2rem Montserrat;
+    }
+
+    > div:first-of-type {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font: normal 1.7rem/2.2rem Montserrat;
+        color: var(--color-secondary-alternative);
+      }
+    }
+
+    > div:last-of-type {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      span {
+        text-decoration: line-through;
+        font: normal 2.5rem/2.2rem Montserrat;
+        color: var(--color-secondary-alternative);
+      }
+
+      a {
+        font: normal 2rem/2.2rem Montserrat;
+        color: var(--color-secondary-alternative);
+      }
     }
   }
 }
