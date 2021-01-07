@@ -107,7 +107,7 @@ body {
   text-decoration: none;
 }
 
-button#button-rounded {
+#course-track button#button-rounded {
   width: max(25%, 17.2rem);
   max-width: 25.2rem;
   height: 4rem;
