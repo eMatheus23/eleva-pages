@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -11,9 +11,17 @@ import bitwiseImg from '../../assets/images/icons/bitwise.svg';
 import ButtonRounded from '../../components/Buttons';
 
 // Main
-import CourseTrackHeroImg from '../../assets/images/mockups/course-track-hero.jpg';
-import CourseTumbnail from '../../assets/images/mockups/course-thumbnail-02.png';
-import CourseVideoTumbnail from '../../assets/images/mockups/track-video-thumbnail.png';
+import courseTrackHeroImg from '../../assets/images/mockups/course-track-hero.jpg';
+import courseTumbnail from '../../assets/images/mockups/course-thumbnail-02.png';
+import courseVideoTumbnail from '../../assets/images/mockups/track-video-thumbnail.png';
+
+// Video card
+import cartIcon from '../../assets/images/icons/cart-icon.svg';
+import saveIcon from '../../assets/images/icons/bookmark-icon.svg';
+import facebookLogo from '../../assets/images/logos/facebook-logo-02.svg';
+import linkedinLogo from '../../assets/images/logos/linkedin-logo.svg';
+import messengerLogo from '../../assets/images/logos/messenger-logo.svg';
+import whatsappLogo from '../../assets/images/logos/whatsapp-logo.svg';
 
 // Footer
 import InstagramLogoImg from '../../assets/images/logos/instagram-gray-logo.png';
@@ -23,6 +31,14 @@ import MessengerLogoImg from '../../assets/images/logos/messenger-gray-logo.png'
 
 const CourseTrack = () => {
   document.title = 'Trilha de Ensino | Elevagro';
+
+  const [view, setView] = useState({
+    display: 'content',
+  });
+
+  const handleViewChange = viewName => {
+    setView({ display: viewName });
+  };
 
   return (
     <div id="course-track">
@@ -80,7 +96,7 @@ const CourseTrack = () => {
 
       <section className="hero">
         <div className="img-filter" />
-        <img src={CourseTrackHeroImg} alt="Curso" />
+        <img src={courseTrackHeroImg} alt="Curso" />
 
         <div className="content-wrapper">
           <div className="nav-tree">
@@ -93,12 +109,52 @@ const CourseTrack = () => {
 
           <h2>TRILHA DE ENSINO</h2>
           <h3>VENDAS E INSUMOS AGRÍCOLAS</h3>
-        </div>
 
-        <div className="track-video-card">
-          <div>
+          <div className="track-video-card">
             <div className="card">
-              <video controls poster={CourseVideoTumbnail} />
+              <main>
+                <video controls poster={courseVideoTumbnail} />
+                <div className="video-caption">
+                  <p>
+                    7 cursos você pagaria: R$:
+                    <del>2.500,00</del>
+                  </p>
+
+                  <span>25% OFF</span>
+                </div>
+
+                <h3>R$: 1.768,00</h3>
+
+                <div>
+                  <button type="button">
+                    Compre agora
+                    <img src={cartIcon} alt="Compre Agora" />
+                  </button>
+
+                  <span>Em até 12x de R$ 120,30 no cartão</span>
+                </div>
+              </main>
+
+              <section className="offer">
+                <p>Seja Premium e pague menos!</p>
+                <button type="button">R$ 1.512,00</button>
+              </section>
+            </div>
+
+            <div className="card-actions-container">
+              <div className="save">
+                <img src={saveIcon} alt="Salvar para depois" />
+                <p>Salvar</p>
+              </div>
+              <img src={bitwiseImg} alt="" />
+              <div className="share">
+                <p>Indique:</p>
+
+                <img src={facebookLogo} alt="Compartilhe no Facebook" />
+                <img src={linkedinLogo} alt="Compartilhe no Facebook" />
+                <img src={messengerLogo} alt="Compartilhe no Facebook" />
+                <img src={whatsappLogo} alt="Compartilhe no Facebook" />
+              </div>
             </div>
           </div>
         </div>
@@ -122,12 +178,38 @@ const CourseTrack = () => {
 
           <section className="track-tab-selector">
             <div className="buttons">
-              <button type="button" className="active">
+              <button
+                type="button"
+                className={view.display === 'content' ? 'active' : ''}
+                onClick={() => handleViewChange('content')}
+                viewName="content"
+              >
                 Conteúdo
               </button>
-              <button type="button">Detalhes</button>
-              <button type="button">Vantagens</button>
-              <button type="button">Autores</button>
+              <button
+                type="button"
+                className={view.display === 'details' ? 'active' : ''}
+                onClick={() => handleViewChange('details')}
+                viewName="details"
+              >
+                Detalhes
+              </button>
+              <button
+                type="button"
+                className={view.display === 'advantages' ? 'active' : ''}
+                onClick={() => handleViewChange('advantages')}
+                viewName="advantages"
+              >
+                Vantagens
+              </button>
+              <button
+                type="button"
+                className={view.display === 'authors' ? 'active' : ''}
+                onClick={() => handleViewChange('authors')}
+                viewName="authors"
+              >
+                Autores
+              </button>
             </div>
 
             <div className="underline" />
@@ -137,7 +219,7 @@ const CourseTrack = () => {
             <h2>Os 6 cursos que compões esta Trilha:</h2>
 
             <div className="course">
-              <img src={CourseTumbnail} alt="Nome do Curso" />
+              <img src={courseTumbnail} alt="Nome do Curso" />
 
               <div className="course-description">
                 <div>
@@ -156,7 +238,7 @@ const CourseTrack = () => {
             </div>
 
             <div className="course">
-              <img src={CourseTumbnail} alt="Nome do Curso" />
+              <img src={courseTumbnail} alt="Nome do Curso" />
 
               <div className="course-description">
                 <div>
@@ -175,7 +257,7 @@ const CourseTrack = () => {
             </div>
 
             <div className="course">
-              <img src={CourseTumbnail} alt="Nome do Curso" />
+              <img src={courseTumbnail} alt="Nome do Curso" />
 
               <div className="course-description">
                 <div>
@@ -194,7 +276,7 @@ const CourseTrack = () => {
             </div>
 
             <div className="course">
-              <img src={CourseTumbnail} alt="Nome do Curso" />
+              <img src={courseTumbnail} alt="Nome do Curso" />
 
               <div className="course-description">
                 <div>
@@ -213,7 +295,7 @@ const CourseTrack = () => {
             </div>
 
             <div className="course">
-              <img src={CourseTumbnail} alt="Nome do Curso" />
+              <img src={courseTumbnail} alt="Nome do Curso" />
 
               <div className="course-description">
                 <div>

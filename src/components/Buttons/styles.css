@@ -29,7 +29,7 @@
 }
 
 #button-rounded.primary:hover {
-  background:  #a0bd2f;
+  background: var(--color-primary-hover);
 }
 
 #button-rounded.secondary {
@@ -38,7 +38,7 @@
 }
 
 #button-rounded.secondary:hover {
-  background:#326f53;
+  background:var(--color-secondary-hover);
 }
 
 #button-rounded img {
@@ -53,7 +53,7 @@
 }
 
 #button-rounded.alternative:hover {
-  background:#547c33;
+  background:var(--color-secondary-alternative-hover);
 }
 
 #button-rounded.transparent {

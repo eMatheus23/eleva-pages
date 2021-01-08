@@ -15,7 +15,7 @@ body {
   width: 100vw;
   height: 6.6rem;
   padding-left: 3vw;
-  padding-right: 2vw;
+  padding-right: 3vw;
   background: var(--color-background);
   box-shadow: 0px 3px 6px #00000029;
 }
@@ -116,7 +116,6 @@ body {
 }
 
 #course-track .hero {
-  overflow: hidden;
   position: relative;
   width: 100%;
   height: 29.5rem;
@@ -130,7 +129,7 @@ body {
   background: #424242;
   opacity: 0.5;
 }
-#course-track .hero img {
+#course-track .hero > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -177,48 +176,163 @@ body {
   color: #ffffff;
   pointer-events: none;
 }
-#course-track .hero .content-wrapper h2 {
+#course-track .hero .content-wrapper > h2 {
   margin-bottom: 0.7rem;
   font: normal 2rem/2.4rem Montserrat;
   color: var(--color-primary);
 }
-#course-track .hero .content-wrapper h3 {
+#course-track .hero .content-wrapper > h3 {
   font: normal 3rem/3.7rem Montserrat;
   color: var(--color-text-white);
 }
 
-#course-track main {
+#course-track > main {
   width: 100%;
   padding: 3rem 4rem 8rem 4rem;
 }
-#course-track main .content-wrapper {
+#course-track > main .content-wrapper {
   max-width: 145rem;
   margin: 0 auto;
 }
-#course-track main .content-wrapper section {
+#course-track > main .content-wrapper section {
   width: 100%;
   max-width: 80.7rem;
   color: var(--color-text-base);
 }
 
 .track-video-card {
-  position: fixed;
-  z-index: 5;
-  top: 12rem;
-  right: 23rem;
-}
-.track-video-card > div {
   position: -webkit-sticky;
   /* Safari */
   position: sticky;
+  z-index: 5;
   top: 12rem;
+  right: 36rem;
+  margin-left: 100rem;
+  margin-top: -10rem;
 }
 .track-video-card .card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 54.4rem;
   height: 65.8rem;
   background: var(--color-background);
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 14px;
+}
+.track-video-card main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2.3rem;
+}
+.track-video-card video {
+  width: 51.7rem;
+  height: 29rem;
+  object-fit: cover;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.track-video-card .video-caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  margin-top: 1.5rem;
+}
+.track-video-card .video-caption p {
+  font: normal 1.8rem/2rem Montserrat;
+}
+.track-video-card .video-caption span {
+  font: normal 2rem/2.2rem Montserrat;
+}
+.track-video-card h3 {
+  width: 83%;
+  margin: 3rem 0 2rem 0;
+  font: normal 4.5rem/4.5rem Montserrat;
+  color: var(--color-secondary);
+  text-align: left;
+}
+.track-video-card h3 + div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 83%;
+}
+.track-video-card h3 + div button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5.4rem;
+  border-radius: 0.9rem;
+  background: var(--color-secondary);
+  color: var(--color-text-white);
+  font: normal 2.5rem/3rem Montserrat;
+}
+.track-video-card h3 + div button:hover {
+  background: var(--color-secondary-hover);
+}
+.track-video-card h3 + div button img {
+  width: 4rem;
+  margin-left: 1rem;
+}
+.track-video-card h3 + div span {
+  margin-top: 1.5rem;
+  font: normal 1.8rem/2.2rem Montserrat;
+}
+
+.card .offer {
+  width: 100%;
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-primary);
+}
+.card .offer p {
+  width: 23.4rem;
+  text-align: right;
+  font: normal 2rem/2.4rem Montserrat;
+}
+.card .offer button {
+  width: 18.3rem;
+  height: 4.3rem;
+  margin-left: 2rem;
+  margin-right: 5rem;
+  border: 1px solid var(--color-secondary);
+  border-radius: 9px;
+  background: none;
+  color: var(--color-secondary);
+  font: bold 2.5rem/2.2rem Montserrat;
+}
+.card .offer button:hover {
+  background: var(--color-primary-hover);
+}
+
+.card-actions-container {
+  width: 54.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+.card-actions-container p {
+  font: normal 1.8rem/4rem Montserrat;
+}
+.card-actions-container .save {
+  width: 9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-actions-container .share {
+  width: 33.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .track-description p {
