@@ -129,7 +129,12 @@ body {
   background: #424242;
   opacity: 0.5;
 }
-#course-track .hero > img {
+#course-track .hero .blur-container {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#course-track .hero .blur-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -184,20 +189,6 @@ body {
 #course-track .hero .content-wrapper > h3 {
   font: normal 3rem/3.7rem Montserrat;
   color: var(--color-text-white);
-}
-
-#course-track > main {
-  width: 100%;
-  padding: 3rem 4rem 8rem 4rem;
-}
-#course-track > main .content-wrapper {
-  max-width: 145rem;
-  margin: 0 auto;
-}
-#course-track > main .content-wrapper section {
-  width: 100%;
-  max-width: 80.7rem;
-  color: var(--color-text-base);
 }
 
 .track-video-card {
@@ -322,17 +313,47 @@ body {
 .card-actions-container p {
   font: normal 1.8rem/4rem Montserrat;
 }
+.card-actions-container button {
+  transition: transform 0.2s;
+}
+.card-actions-container button:hover {
+  filter: brightness(90%);
+  transform: translateY(-2px);
+}
 .card-actions-container .save {
   width: 9rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: none;
 }
 .card-actions-container .share {
   width: 33.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.card-actions-container .share img {
+  transition: transform 0.2s;
+}
+.card-actions-container .share img:hover {
+  filter: brightness(90%);
+  transform: translateY(-2px);
+}
+
+#course-track > main {
+  width: 100%;
+  padding: 3rem 4rem 8rem 4rem;
+  background: var(--color-background);
+}
+#course-track > main .content-wrapper {
+  max-width: 145rem;
+  margin: 0 auto;
+}
+#course-track > main .content-wrapper section {
+  width: 100%;
+  max-width: 80.7rem;
+  color: var(--color-text-base);
 }
 
 .track-description p {
@@ -349,9 +370,11 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 98%;
+  width: 100%;
 }
 .track-tab-selector button {
+  z-index: 30;
+  flex: 1;
   padding: 0 1rem;
   padding-bottom: 0.7rem;
   background: none;

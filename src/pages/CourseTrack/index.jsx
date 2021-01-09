@@ -96,7 +96,9 @@ const CourseTrack = () => {
 
       <section className="hero">
         <div className="img-filter" />
-        <img src={courseTrackHeroImg} alt="Curso" />
+        <div className="blur-container">
+          <img src={courseTrackHeroImg} alt="Curso" />
+        </div>
 
         <div className="content-wrapper">
           <div className="nav-tree">
@@ -142,18 +144,42 @@ const CourseTrack = () => {
             </div>
 
             <div className="card-actions-container">
-              <div className="save">
+              <button className="save" type="button">
                 <img src={saveIcon} alt="Salvar para depois" />
                 <p>Salvar</p>
-              </div>
+              </button>
               <img src={bitwiseImg} alt="" />
               <div className="share">
                 <p>Indique:</p>
 
-                <img src={facebookLogo} alt="Compartilhe no Facebook" />
-                <img src={linkedinLogo} alt="Compartilhe no Facebook" />
-                <img src={messengerLogo} alt="Compartilhe no Facebook" />
-                <img src={whatsappLogo} alt="Compartilhe no Facebook" />
+                <a
+                  href="https://www.facebook.com/elevagro/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={facebookLogo} alt="Compartilhe no Facebook" />
+                </a>
+                <a
+                  href="https://www.facebook.com/elevagro/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={linkedinLogo} alt="Compartilhe no Linkedin" />
+                </a>
+                <a
+                  href="https://www.facebook.com/elevagro/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={messengerLogo} alt="Compartilhe no Messenger" />
+                </a>
+                <a
+                  href="https://www.facebook.com/elevagro/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img src={whatsappLogo} alt="Compartilhe no Whatsapp" />
+                </a>
               </div>
             </div>
           </div>

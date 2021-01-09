@@ -169,14 +169,21 @@ body {
     opacity: 0.5;
   }
 
-  > img {
+  .blur-container {
+    overflow: hidden;
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    img {
+      width: 100%;
+      height: 100%;
 
-    filter: blur(2.5px) brightness(100%);
+      object-fit: cover;
+
+      filter: blur(2.5px) brightness(100%);
+    }
   }
+
   .content-wrapper {
     position: absolute;
     z-index: 3;
@@ -238,24 +245,6 @@ body {
     > h3 {
       font: normal 3rem/3.7rem Montserrat;
       color: var(--color-text-white);
-    }
-  }
-}
-
-#course-track > main {
-  width: 100%;
-  padding: 3rem 4rem 8rem 4rem;
-
-  .content-wrapper {
-    max-width: 145rem;
-
-    margin: 0 auto;
-
-    section {
-      width: 100%;
-      max-width: 80.7rem;
-
-      color: var(--color-text-base);
     }
   }
 }
@@ -423,7 +412,17 @@ body {
   margin-top: 3rem;
 
   p {
-    font: normal 1.8rem/4.0rem Montserrat;
+    font: normal 1.8rem/4rem Montserrat;
+  }
+
+  button {
+    transition: transform 0.2s;
+
+    &:hover {
+      filter: brightness(90%);
+
+      transform: translateY(-2px);
+    }
   }
 
   .save {
@@ -432,6 +431,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    background: none;
   }
 
   .share {
@@ -440,10 +441,38 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    img {
+      transition: transform 0.2s;
+
+      &:hover {
+        filter: brightness(90%);
+
+        transform: translateY(-2px);
+      }
+    }
   }
 }
-
 // END OF VIDEO CARD
+
+#course-track > main {
+  width: 100%;
+  padding: 3rem 4rem 8rem 4rem;
+  background: var(--color-background);
+
+  .content-wrapper {
+    max-width: 145rem;
+
+    margin: 0 auto;
+
+    section {
+      width: 100%;
+      max-width: 80.7rem;
+
+      color: var(--color-text-base);
+    }
+  }
+}
 
 .track-description {
   p {
@@ -464,10 +493,13 @@ body {
     flex-direction: row;
     justify-content: space-between;
 
-    width: 98%;
+    width: 100%;
   }
 
   button {
+    z-index: 30;
+    flex: 1;
+
     padding: 0 1rem;
     padding-bottom: 0.7rem;
 
