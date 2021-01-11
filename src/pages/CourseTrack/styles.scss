@@ -410,6 +410,7 @@ body {
   align-items: center;
 
   margin-top: 3rem;
+  padding: 0 0.5rem;
 
   p {
     font: normal 1.8rem/4rem Montserrat;
@@ -516,6 +517,7 @@ body {
 
     &:hover {
       color: var(--color-secondary);
+      border-bottom: 6px solid var(--color-primary);
     }
   }
 

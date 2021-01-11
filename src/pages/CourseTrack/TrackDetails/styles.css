@@ -1,0 +1,29 @@
+.track-details {
+  margin-top: 4.4rem;
+}
+.track-details ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+.track-details ul li {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 2.2rem;
+  list-style: none;
+  font: normal 2rem/4rem Montserrat;
+}
+.track-details ul li img {
+  margin-right: 1.5rem;
+}
+.track-details p {
+  width: 95%;
+  font: normal 2rem/2.7rem Montserrat;
+}
+.track-details p + p {
+  margin-top: 1rem;
+}
+
+/*# sourceMappingURL=styles.css.map */

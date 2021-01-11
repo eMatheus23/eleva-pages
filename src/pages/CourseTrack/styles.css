@@ -309,6 +309,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-top: 3rem;
+  padding: 0 0.5rem;
 }
 .card-actions-container p {
   font: normal 1.8rem/4rem Montserrat;
@@ -388,6 +389,7 @@ body {
 }
 .track-tab-selector button:hover {
   color: var(--color-secondary);
+  border-bottom: 6px solid var(--color-primary);
 }
 .track-tab-selector .underline {
   position: relative;

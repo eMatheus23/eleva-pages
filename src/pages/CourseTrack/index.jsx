@@ -12,7 +12,6 @@ import ButtonRounded from '../../components/Buttons';
 
 // Main
 import courseTrackHeroImg from '../../assets/images/mockups/course-track-hero.jpg';
-import courseTumbnail from '../../assets/images/mockups/course-thumbnail-02.png';
 import courseVideoTumbnail from '../../assets/images/mockups/track-video-thumbnail.png';
 
 // Video card
@@ -29,15 +28,19 @@ import FacebookLogoImg from '../../assets/images/logos/facebook-gray-logo.png';
 import YoutubeLogoImg from '../../assets/images/logos/youtube-gray-logo.png';
 import MessengerLogoImg from '../../assets/images/logos/messenger-gray-logo.png';
 
+// Components
+import CoursesList from './CoursesList';
+import TrackDetails from './TrackDetails';
+import TrackAdvantages from './TrackAdvantages';
+import TrackAuthors from './TrackAuthors';
+
 const CourseTrack = () => {
   document.title = 'Trilha de Ensino | Elevagro';
 
-  const [view, setView] = useState({
-    display: 'content',
-  });
+  const [view, setView] = useState('courses-list');
 
   const handleViewChange = viewName => {
-    setView({ display: viewName });
+    setView(viewName);
   };
 
   return (
@@ -206,15 +209,15 @@ const CourseTrack = () => {
             <div className="buttons">
               <button
                 type="button"
-                className={view.display === 'content' ? 'active' : ''}
-                onClick={() => handleViewChange('content')}
-                viewName="content"
+                className={view === 'courses-list' ? 'active' : ''}
+                onClick={() => handleViewChange('courses-list')}
+                viewName="courses-list"
               >
                 Conteúdo
               </button>
               <button
                 type="button"
-                className={view.display === 'details' ? 'active' : ''}
+                className={view === 'details' ? 'active' : ''}
                 onClick={() => handleViewChange('details')}
                 viewName="details"
               >
@@ -222,7 +225,7 @@ const CourseTrack = () => {
               </button>
               <button
                 type="button"
-                className={view.display === 'advantages' ? 'active' : ''}
+                className={view === 'advantages' ? 'active' : ''}
                 onClick={() => handleViewChange('advantages')}
                 viewName="advantages"
               >
@@ -230,7 +233,7 @@ const CourseTrack = () => {
               </button>
               <button
                 type="button"
-                className={view.display === 'authors' ? 'active' : ''}
+                className={view === 'authors' ? 'active' : ''}
                 onClick={() => handleViewChange('authors')}
                 viewName="authors"
               >
@@ -241,104 +244,10 @@ const CourseTrack = () => {
             <div className="underline" />
           </section>
 
-          <section className="courses">
-            <h2>Os 6 cursos que compões esta Trilha:</h2>
-
-            <div className="course">
-              <img src={courseTumbnail} alt="Nome do Curso" />
-
-              <div className="course-description">
-                <div>
-                  <span>Nutrição</span>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                    geneticamente modificadas
-                  </p>
-                </div>
-
-                <div>
-                  <span>R$: 450,00</span>
-                  <Link to="/course-track">Detalhes</Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="course">
-              <img src={courseTumbnail} alt="Nome do Curso" />
-
-              <div className="course-description">
-                <div>
-                  <span>Nutrição</span>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                    geneticamente modificadas
-                  </p>
-                </div>
-
-                <div>
-                  <span>R$: 450,00</span>
-                  <Link to="/course-track">Detalhes</Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="course">
-              <img src={courseTumbnail} alt="Nome do Curso" />
-
-              <div className="course-description">
-                <div>
-                  <span>Nutrição</span>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                    geneticamente modificadas
-                  </p>
-                </div>
-
-                <div>
-                  <span>R$: 450,00</span>
-                  <Link to="/course-track">Detalhes</Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="course">
-              <img src={courseTumbnail} alt="Nome do Curso" />
-
-              <div className="course-description">
-                <div>
-                  <span>Nutrição</span>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                    geneticamente modificadas
-                  </p>
-                </div>
-
-                <div>
-                  <span>R$: 450,00</span>
-                  <Link to="/course-track">Detalhes</Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="course">
-              <img src={courseTumbnail} alt="Nome do Curso" />
-
-              <div className="course-description">
-                <div>
-                  <span>Nutrição</span>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                    geneticamente modificadas
-                  </p>
-                </div>
-
-                <div>
-                  <span>R$: 450,00</span>
-                  <Link to="/course-track">Detalhes</Link>
-                </div>
-              </div>
-            </div>
-          </section>
+          {view === 'courses-list' && <CoursesList />}
+          {view === 'details' && <TrackDetails />}
+          {view === 'advantages' && <TrackAdvantages />}
+          {view === 'authors' && <TrackAuthors />}
         </div>
       </main>
 

@@ -1,0 +1,25 @@
+.track-advantages {
+  margin-top: 4.4rem;
+}
+.track-advantages ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+.track-advantages ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  list-style: none;
+  font: normal 2rem/4rem Montserrat;
+}
+.track-advantages ul li a {
+  display: inline;
+  color: var(--color-text-base);
+  text-decoration: none;
+  font-weight: 700;
+}
+.track-advantages ul li a:hover {
+  color: var(--color-secondary);
+}
