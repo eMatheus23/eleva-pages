@@ -12,15 +12,6 @@ import ButtonRounded from '../../components/Buttons';
 
 // Main
 import courseTrackHeroImg from '../../assets/images/mockups/course-track-hero.jpg';
-import courseVideoTumbnail from '../../assets/images/mockups/track-video-thumbnail.png';
-
-// Video card
-import cartIcon from '../../assets/images/icons/cart-icon.svg';
-import saveIcon from '../../assets/images/icons/bookmark-icon.svg';
-import facebookLogo from '../../assets/images/logos/facebook-logo-02.svg';
-import linkedinLogo from '../../assets/images/logos/linkedin-logo.svg';
-import messengerLogo from '../../assets/images/logos/messenger-logo.svg';
-import whatsappLogo from '../../assets/images/logos/whatsapp-logo.svg';
 
 // Footer
 import InstagramLogoImg from '../../assets/images/logos/instagram-gray-logo.png';
@@ -33,11 +24,18 @@ import CoursesList from './CoursesList';
 import TrackDetails from './TrackDetails';
 import TrackAdvantages from './TrackAdvantages';
 import TrackAuthors from './TrackAuthors';
+import CourseTrackVideos, {
+  CouseTrackModal,
+} from '../../components/cards/CourseTrackVideos';
 
 const CourseTrack = () => {
   document.title = 'Trilha de Ensino | Elevagro';
 
   const [view, setView] = useState('courses-list');
+  const [modalOpened, setModalOpened] = useState(false);
+
+  const openModal = () => setModalOpened(true);
+  const closeModal = () => setModalOpened(false);
 
   const handleViewChange = viewName => {
     setView(viewName);
@@ -45,6 +43,7 @@ const CourseTrack = () => {
 
   return (
     <div id="course-track">
+      {modalOpened && <CouseTrackModal closeModal={closeModal} />}
       <header className="course-track-header">
         <div className="header-content-wrapper">
           <Link to="/">
@@ -115,77 +114,7 @@ const CourseTrack = () => {
           <h2>TRILHA DE ENSINO</h2>
           <h3>VENDAS E INSUMOS AGRÍCOLAS</h3>
 
-          <div className="track-video-card">
-            <div className="card">
-              <main>
-                <video controls poster={courseVideoTumbnail} />
-                <div className="video-caption">
-                  <p>
-                    7 cursos você pagaria: R$:
-                    <del>2.500,00</del>
-                  </p>
-
-                  <span>25% OFF</span>
-                </div>
-
-                <h3>R$: 1.768,00</h3>
-
-                <div>
-                  <button type="button">
-                    Compre agora
-                    <img src={cartIcon} alt="Compre Agora" />
-                  </button>
-
-                  <span>Em até 12x de R$ 120,30 no cartão</span>
-                </div>
-              </main>
-
-              <section className="offer">
-                <p>Seja Premium e pague menos!</p>
-                <button type="button">R$ 1.512,00</button>
-              </section>
-            </div>
-
-            <div className="card-actions-container">
-              <button className="save" type="button">
-                <img src={saveIcon} alt="Salvar para depois" />
-                <p>Salvar</p>
-              </button>
-              <img src={bitwiseImg} alt="" />
-              <div className="share">
-                <p>Indique:</p>
-
-                <a
-                  href="https://www.facebook.com/elevagro/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src={facebookLogo} alt="Compartilhe no Facebook" />
-                </a>
-                <a
-                  href="https://www.facebook.com/elevagro/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src={linkedinLogo} alt="Compartilhe no Linkedin" />
-                </a>
-                <a
-                  href="https://www.facebook.com/elevagro/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src={messengerLogo} alt="Compartilhe no Messenger" />
-                </a>
-                <a
-                  href="https://www.facebook.com/elevagro/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src={whatsappLogo} alt="Compartilhe no Whatsapp" />
-                </a>
-              </div>
-            </div>
-          </div>
+          <CourseTrackVideos openModal={openModal} />
         </div>
       </section>
 

@@ -34,6 +34,7 @@
     "no-return-assign": "off", // Remover
     "no-bitwise": "off",
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-unused-vars": "warn",
     "jsx-a11y/click-events-have-key-events": "off", // Remover
     "jsx-a11y/label-has-associated-control": "off", // Remover
     "jsx-a11y/no-noninteractive-element-interactions": "off", // Remover
