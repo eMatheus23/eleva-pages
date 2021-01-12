@@ -20,22 +20,28 @@ import YoutubeLogoImg from '../../assets/images/logos/youtube-gray-logo.png';
 import MessengerLogoImg from '../../assets/images/logos/messenger-gray-logo.png';
 
 // Components
-import CoursesList from './CoursesList';
+import CoursesList, { CourseDetailsModal } from './CoursesList';
 import TrackDetails from './TrackDetails';
 import TrackAdvantages from './TrackAdvantages';
 import TrackAuthors from './TrackAuthors';
 import CourseTrackVideos, {
-  CouseTrackModal,
+  TrackPlaylistModal,
 } from '../../components/cards/CourseTrackVideos';
 
 const CourseTrack = () => {
   document.title = 'Trilha de Ensino | Elevagro';
 
   const [view, setView] = useState('courses-list');
-  const [modalOpened, setModalOpened] = useState(false);
+  const [modalOpened, setModalOpened] = useState({
+    playlist: false,
+    courseDetails: false,
+  });
 
-  const openModal = () => setModalOpened(true);
-  const closeModal = () => setModalOpened(false);
+  const handleModal = ({ modalName, opened }) => {
+    setModalOpened({ ...modalOpened, [modalName]: opened });
+  };
+
+  console.log(modalOpened);
 
   const handleViewChange = viewName => {
     setView(viewName);
@@ -43,7 +49,10 @@ const CourseTrack = () => {
 
   return (
     <div id="course-track">
-      {modalOpened && <CouseTrackModal closeModal={closeModal} />}
+      {modalOpened.playlist && <TrackPlaylistModal handleModal={handleModal} />}
+      {modalOpened.courseDetails && (
+        <CourseDetailsModal handleModal={handleModal} />
+      )}
       <header className="course-track-header">
         <div className="header-content-wrapper">
           <Link to="/">
@@ -114,7 +123,7 @@ const CourseTrack = () => {
           <h2>TRILHA DE ENSINO</h2>
           <h3>VENDAS E INSUMOS AGRÍCOLAS</h3>
 
-          <CourseTrackVideos openModal={openModal} />
+          <CourseTrackVideos handleModal={handleModal} />
         </div>
       </section>
 
@@ -173,7 +182,7 @@ const CourseTrack = () => {
             <div className="underline" />
           </section>
 
-          {view === 'courses-list' && <CoursesList />}
+          {view === 'courses-list' && <CoursesList handleModal={handleModal} />}
           {view === 'details' && <TrackDetails />}
           {view === 'advantages' && <TrackAdvantages />}
           {view === 'authors' && <TrackAuthors />}

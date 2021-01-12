@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import './styles.css';
 
@@ -20,7 +20,7 @@ import whatsappLogo from '../../../assets/images/logos/whatsapp-logo.svg';
 
 import bitwiseImg from '../../../assets/images/icons/bitwise.svg';
 
-export const CouseTrackModal = ({ closeModal }) => {
+export const TrackPlaylistModal = ({ handleModal }) => {
   const history = useHistory();
 
   const handleBecomePremium = () => {
@@ -28,10 +28,10 @@ export const CouseTrackModal = ({ closeModal }) => {
   };
 
   return (
-    <div className="track-modal">
+    <div className="track-playlist-modal">
       <div className="content">
         <span
-          onClick={closeModal}
+          onClick={() => handleModal({ modalName: 'playlist', opened: false })}
           role="button"
           tabIndex={0}
           className="close-modal"
@@ -143,18 +143,28 @@ export const CouseTrackModal = ({ closeModal }) => {
         </div>
       </div>
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      <div className="clickable-background" onClick={closeModal} />
+      <div
+        className="clickable-background"
+        onClick={() => handleModal({ modalName: 'playlist', opened: false })}
+      />
     </div>
   );
 };
 
-const CourseTrackVideo = ({ openModal }) => {
+const CourseTrackVideo = ({ handleModal }) => {
   return (
     <>
       <div className="track-video-card">
         <div className="card">
           <main>
-            <video controls poster={mainVideoTumbnail} onClick={openModal} />
+            <video
+              controls
+              onClick={
+                () => handleModal({ modalName: 'playlist', opened: true })
+                // eslint-disable-next-line react/jsx-curly-newline
+              }
+              poster={mainVideoTumbnail}
+            />
             <div className="video-caption">
               <p>
                 7 cursos você pagaria: R$:
