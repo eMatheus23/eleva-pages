@@ -108,8 +108,10 @@
   font: bold 1.5rem/1.5rem Montserrat;
 }
 .track-playlist-modal .close-modal {
+  width: 2rem;
   margin-bottom: 1rem;
-  font: normal 1.5rem/1.6rem Montserrat;
+  text-align: right;
+  font: normal 2rem/2.5rem Montserrat;
   cursor: pointer;
 }
 .track-playlist-modal .close-modal:hover {
@@ -192,6 +194,16 @@
   top: 0;
   right: 0;
   margin-top: -18rem;
+}
+@media screen and (max-width: 1200px) {
+  .track-video-card {
+    position: initial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 3rem;
+  }
 }
 .track-video-card .card {
   overflow: hidden;

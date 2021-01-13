@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   margin: 4.4rem auto 10rem;
-  padding: 3rem 3.6rem 1.5rem;
+  padding: 3rem 3.6rem 0;
   background: var(--color-background);
   box-shadow: 0px 3px 30px #00000029;
   border: 1px solid #707070;
@@ -101,7 +101,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-self: center;
-  padding: 3.5rem 3.6rem 0rem;
+  padding: 3.5rem 3.6rem 1.5rem;
   background: var(--color-background-secondary);
 }
 .course-datails-modal .purchase-container > h4 {

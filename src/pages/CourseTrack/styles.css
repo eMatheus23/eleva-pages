@@ -216,6 +216,12 @@ body {
     width: 51%;
   }
 }
+@media screen and (max-width: 1200px) {
+  #course-track > main .content-wrapper > section {
+    width: 95%;
+    max-width: 95%;
+  }
+}
 
 .track-description p {
   margin-bottom: 3rem;
