@@ -10,6 +10,36 @@
   box-shadow: 0px 3px 6px #00000029;
 }
 
+#main-header.premium {
+  background: var(--color-secondary);
+}
+#main-header.premium .header-content-wrapper > img {
+  align-self: flex-start;
+  height: 9.6rem;
+  margin-top: -0.7rem;
+  margin-left: -0.95rem;
+}
+#main-header.premium .header-content-wrapper input {
+  background: rgba(255, 255, 255, 0.09);
+  border: 0;
+  color: var(--color-text-white);
+}
+#main-header.premium .header-content-wrapper input::placeholder {
+  color: var(--color-text-white);
+}
+#main-header.premium .header-content-wrapper form button svg {
+  color: var(--color-text-white);
+}
+#main-header.premium .header-content-wrapper .header-menu {
+  width: 56vw;
+}
+#main-header.premium .header-menu ul {
+  width: 100%;
+}
+#main-header.premium .header-menu ul li a {
+  color: var(--color-text-white);
+}
+
 #main-header .header-content-wrapper {
   display: flex;
   flex-direction: row;
@@ -19,11 +49,11 @@
   height: 100%;
   margin: 0 auto;
 }
-#main-header .header-content-wrapper a {
+#main-header .header-content-wrapper > a {
   display: flex;
   align-items: center;
 }
-#main-header .header-content-wrapper a img {
+#main-header .header-content-wrapper > a img {
   height: 3.8rem;
 }
 #main-header .header-content-wrapper form {
@@ -33,8 +63,15 @@
   position: absolute;
   top: 50%;
   right: 1.8rem;
-  transform: translate(0, -50%);
+  width: 2.2rem;
+  height: 2.2rem;
   background: none;
+  transform: translate(0, -50%);
+}
+#main-header .header-content-wrapper form button svg {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  color: var(--color-text-base);
 }
 #main-header .header-content-wrapper input {
   text-overflow: ellipsis;
@@ -70,34 +107,52 @@
   align-items: center;
   justify-content: space-between;
   width: 73%;
-  max-width: 75rem;
   margin-bottom: 0;
 }
 .header-menu li {
-  font-family: Montserrat, sans-serif;
-  font-size: 1.4rem;
-  line-height: 2rem;
   list-style: none;
 }
-.header-menu li a {
+.header-menu li a,
+.header-menu li button {
+  background: none;
   color: var(--color-text-base);
   text-decoration: none;
+  font: normal 1.4rem/2rem Montserrat, sans-serif;
   transition-property: all;
   transition-duration: 0.2s;
 }
-.header-menu li a.signup {
+.header-menu li a .menu-icon,
+.header-menu li button .menu-icon {
+  width: 1.6rem;
+  margin-right: 0.3rem;
+  fill: currentColor;
+}
+.header-menu li a .menu-icon svg,
+.header-menu li button .menu-icon svg {
+  fill: currentColor;
+}
+.header-menu li button.signup {
   text-decoration: underline;
 }
 .header-menu li.active a {
-  border-bottom: 3px solid #b0d135;
   font-weight: 700;
   color: #5d883e;
   pointer-events: none;
 }
-.header-menu li a:hover {
-  border-bottom: 3px solid #b0d135;
+.header-menu li a:hover,
+.header-menu li button:hover {
+  font-weight: 700;
   color: #5d883e;
   text-decoration: none;
+}
+.header-menu li .profile-picture {
+  width: 3.7rem;
+  height: 3.7rem;
+}
+.header-menu li .profile-picture img {
+  width: 3.7rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 #main-header button#button-rounded {

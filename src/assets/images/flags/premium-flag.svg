@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33.297" height="96.4" viewBox="0 0 33.297 96.4">
+  <defs>
+    <filter id="Caminho_291" x="0" y="0.59" width="33.297" height="95.811" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Grupo_1907" data-name="Grupo 1907" transform="translate(-1876.26 1970.52) rotate(-90)">
+    <g id="Grupo_1061" data-name="Grupo 1061" transform="translate(1964.93 1883.26) rotate(90)">
+      <g transform="matrix(1, 0, 0, 1, -7, -5.59)" filter="url(#Caminho_291)">
+        <path id="Caminho_291-2" data-name="Caminho 291" d="M0,0H77.811L72.322,7.384,77.811,15.3H0Z" transform="translate(24.3 6.59) rotate(90)" fill="#b2d235"/>
+      </g>
+      <text id="PREMIUM" transform="translate(15.801 -5.59) rotate(90)" fill="#707070" font-size="10" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="17.886" y="10">PREMIUM</tspan></text>
+    </g>
+  </g>
+</svg>
