@@ -1,0 +1,143 @@
+$font-primary: Montserrat, sans-serif;
+
+#main-header {
+  position: fixed;
+  z-index: 99;
+  top: 0;
+
+  width: 100vw;
+  height: 6.6rem;
+
+  padding-left: 3vw;
+  padding-right: 3vw;
+
+  background: var(--color-background);
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+#main-header .header-content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 192rem;
+  height: 100%;
+
+  margin: 0 auto;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 3.8rem;
+    }
+  }
+
+  form {
+    position: relative;
+
+    button {
+      position: absolute;
+      top: 50%;
+      right: 1.8rem;
+
+      transform: translate(0, -50%);
+
+      background: none;
+    }
+  }
+
+  input {
+    text-overflow: ellipsis;
+
+    width: 16vw;
+    max-width: 32.3rem;
+    height: 4rem;
+
+    padding-left: 1.8rem;
+    padding-right: 3.8rem;
+    border: 1px solid #bfbfbf;
+    border-radius: 20px;
+
+    font-family: $font-primary;
+
+    &::placeholder {
+      font-family: $font-primary;
+      font-size: 1.4rem;
+      color: var(--color-line-in-white);
+    }
+
+    img {
+      width: 1.7rem;
+    }
+  }
+}
+
+.header-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 65vw;
+  max-width: 107.5rem;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 73%;
+    max-width: 75rem;
+
+    margin-bottom: 0;
+  }
+
+  li {
+    font-family: $font-primary;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    list-style: none;
+
+    a {
+      color: var(--color-text-base);
+      text-decoration: none;
+
+      transition-property: all;
+      transition-duration: 0.2s;
+    }
+
+    a.signup {
+      text-decoration: underline;
+    }
+
+    &.active {
+      a {
+        border-bottom: 3px solid #b0d135;
+
+        font-weight: 700;
+        color: #5d883e;
+        pointer-events: none;
+      }
+    }
+
+    a:hover {
+      border-bottom: 3px solid #b0d135;
+
+      color: #5d883e;
+      text-decoration: none;
+    }
+  }
+}
+
+#main-header  button#button-rounded {
+  width: max(25%, 17.2rem);
+  max-width: 25.2rem;
+  height: 4rem;
+
+  font-size: 1.3rem;
+  font-weight: 700;
+}
