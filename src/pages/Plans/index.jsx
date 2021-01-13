@@ -110,7 +110,9 @@ const Plans = () => {
     <div id="plans-page">
       <div className="content-wrapper">
         <main>
-          <img src={logoElevagro} alt="" />
+          <Link to="/">
+            <img src={logoElevagro} alt="Voltar para Home" />
+          </Link>
 
           <h2>ESCOLHA O SEU PLANO PREMIUM</h2>
           <div className="plans-selector">

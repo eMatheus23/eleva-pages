@@ -30,7 +30,7 @@
   overflow: auto;
 }
 
-#plans-page main > img {
+#plans-page main > a img {
   width: 18rem;
   height: min(6vh, 5.8rem);
   margin-top: 1rem;
