@@ -143,9 +143,6 @@ const TrackPurchaseCard = ({ trackData }) => {
           <TrackPlaylistModal closeModal={closeModal} trackData={trackData} />,
           modalRoot,
         )}
-      {/* {modalOpened && (
-        <TrackPlaylistModal closeModal={closeModal} trackData={trackData} />
-      )} */}
       <div className="track-video-card">
         <div className="card">
           <main>

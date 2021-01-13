@@ -81,6 +81,7 @@ $font-primary: Montserrat, sans-serif;
       }
 
       img {
+        width: 2.6rem;
         margin-left: 1rem;
       }
     }
@@ -185,8 +186,11 @@ $font-primary: Montserrat, sans-serif;
 
   button {
     background: none;
-
     border-radius: 50%;
+
+    > img {
+      width: 2.6rem;
+    }
   }
 
   p {
@@ -411,6 +415,10 @@ $font-primary: Montserrat, sans-serif;
     align-items: center;
 
     background: none;
+
+    img {
+      width: 2.4rem;
+    }
   }
 
   .share {
@@ -421,6 +429,7 @@ $font-primary: Montserrat, sans-serif;
     align-items: center;
 
     img {
+      width: 4.4rem;
       transition: transform 0.2s;
 
       &:hover {

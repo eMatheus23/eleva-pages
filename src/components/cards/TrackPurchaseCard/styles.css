@@ -61,6 +61,7 @@
   background: var(--color-primary-hover);
 }
 .track-playlist-modal .price-container button img {
+  width: 2.6rem;
   margin-left: 1rem;
 }
 .track-playlist-modal .be-premium-card {
@@ -143,6 +144,9 @@
 .video-container button {
   background: none;
   border-radius: 50%;
+}
+.video-container button > img {
+  width: 2.6rem;
 }
 .video-container p {
   width: 23.9rem;
@@ -316,6 +320,9 @@
   align-items: center;
   background: none;
 }
+.card-actions-container .save img {
+  width: 2.4rem;
+}
 .card-actions-container .share {
   width: 33.4rem;
   display: flex;
@@ -323,6 +330,7 @@
   align-items: center;
 }
 .card-actions-container .share img {
+  width: 4.4rem;
   transition: transform 0.2s;
 }
 .card-actions-container .share img:hover {
