@@ -133,7 +133,14 @@ const ListComponent = ({ courses }) => {
 
         {courses.map(course => (
           <div className="course" key={course.id}>
-            <img src={courseTumbnail} alt={course.title} />
+            <div className="img-container">
+              <div className="aspect-ratio">
+                <div className="aspect-ratio__inner-wrapper">
+                  {/* A imagem segue essa estrutura para manter o aspect ratio */}
+                  <img src={courseTumbnail} alt={course.title} />
+                </div>
+              </div>
+            </div>
 
             <div className="course-description">
               <div>

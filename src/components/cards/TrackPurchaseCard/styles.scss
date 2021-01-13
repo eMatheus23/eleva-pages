@@ -236,20 +236,12 @@ $font-primary: Montserrat, sans-serif;
 }
 
 .track-video-card {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
+  position: absolute;
   z-index: 5;
-  top: 12rem;
-  right: 36rem;
+  top: 0;
+  right: 0;
+  margin-top: -18rem;
 
-  margin-left: 100rem;
-  margin-top: -10rem;
-  // transform: translate(-50%, 0);
-
-  // @media screen and (min-width: 1700px) {
-  //   left: 68%;
-  //   transform: translate(-50%, 0);
-  // }
 
   .card {
     overflow: hidden;

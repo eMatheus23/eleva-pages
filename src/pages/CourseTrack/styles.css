@@ -199,13 +199,19 @@ body {
   background: var(--color-background);
 }
 #course-track > main .content-wrapper {
+  position: relative;
   max-width: 145rem;
   margin: 0 auto;
 }
-#course-track > main .content-wrapper section {
-  width: 100%;
+#course-track > main .content-wrapper > section {
+  width: 56%;
   max-width: 80.7rem;
   color: var(--color-text-base);
+}
+@media screen and (max-width: 1490px) {
+  #course-track > main .content-wrapper > section {
+    width: 51%;
+  }
 }
 
 .track-description p {

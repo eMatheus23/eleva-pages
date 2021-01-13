@@ -256,15 +256,19 @@ body {
   background: var(--color-background);
 
   .content-wrapper {
+    position: relative;
     max-width: 145rem;
-
     margin: 0 auto;
 
-    section {
-      width: 100%;
+    > section {
+      width: 56%;
       max-width: 80.7rem;
 
       color: var(--color-text-base);
+
+      @media screen and (max-width: 1490px) {
+        width: 51%;
+      }
     }
   }
 }

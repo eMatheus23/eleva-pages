@@ -116,13 +116,12 @@ const CourseTrack = () => {
 
             <h3>TRILHA DE ENSINO</h3>
             <h1>{track.title}</h1>
-
-            <TrackPurchaseCard trackData={track} />
           </div>
         </section>
 
         <main>
           <div className="content-wrapper">
+            <TrackPurchaseCard trackData={track} />
             <section className="track-description">
               <p>{track.description}</p>
               <h3>

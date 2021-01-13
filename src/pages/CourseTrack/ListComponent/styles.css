@@ -282,10 +282,28 @@
   margin: 1.8rem 0 2rem 0;
   font: normal 3.5rem/4.3rem "Montserrat", sans-serif;
 }
-.courses-list img {
-  width: 19.2rem;
-  border-radius: 1rem;
+.courses-list .img-container {
+  width: 45%;
+  max-width: 19.2rem;
   margin-right: 1.8rem;
+}
+.courses-list .img-container .aspect-ratio {
+  width: 100%;
+  height: 0;
+  padding-bottom: 61.45%;
+  position: relative;
+  border-radius: 1rem;
+}
+.courses-list .img-container .aspect-ratio .aspect-ratio__inner-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.courses-list .img-container .aspect-ratio img {
+  width: 100%;
+  height: 100%;
 }
 .courses-list .course-description {
   display: flex;
