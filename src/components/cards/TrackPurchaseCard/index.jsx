@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import { useHistory } from 'react-router-dom';
 
 import './styles.css';
 
-// Mockups
-import mainVideoTumbnail from '../../../assets/images/mockups/track-video-thumbnail.png';
-import videoMockupTumbnail from '../../../assets/images/mockups/video-mockup-01.png';
-import videoMockup02Tumbnail from '../../../assets/images/mockups/video-mockup-02.png';
-import videoMockup03Tumbnail from '../../../assets/images/mockups/video-mockup-03.png';
+// Utils
+import formatValue from '../../../utils/formatValue';
 
 import cartIcon from '../../../assets/images/icons/cart-icon.svg';
 import saveIcon from '../../../assets/images/icons/bookmark-icon.svg';
@@ -17,11 +15,20 @@ import facebookLogo from '../../../assets/images/logos/facebook-logo-02.svg';
 import linkedinLogo from '../../../assets/images/logos/linkedin-logo.svg';
 import messengerLogo from '../../../assets/images/logos/messenger-logo.svg';
 import whatsappLogo from '../../../assets/images/logos/whatsapp-logo.svg';
-
 import bitwiseImg from '../../../assets/images/icons/bitwise.svg';
 
-export const TrackPlaylistModal = ({ handleModal }) => {
+const TrackPlaylistModal = ({ closeModal, trackData }) => {
   const history = useHistory();
+
+  const {
+    main_video,
+    title,
+    demo_videos,
+    total_price,
+    price,
+    discount_for_premium,
+    price_for_premium,
+  } = trackData;
 
   const handleBecomePremium = () => {
     history.push('/checkout');
@@ -31,7 +38,7 @@ export const TrackPlaylistModal = ({ handleModal }) => {
     <div className="track-playlist-modal">
       <div className="content">
         <span
-          onClick={() => handleModal({ modalName: 'playlist', opened: false })}
+          onClick={closeModal}
           role="button"
           tabIndex={0}
           className="close-modal"
@@ -39,25 +46,30 @@ export const TrackPlaylistModal = ({ handleModal }) => {
           X
         </span>
 
-        <video controls poster={mainVideoTumbnail} />
+        <video controls poster={main_video.tumbnail_url} />
 
         <p>
-          <del>R$: 2.500,00</del>
+          <del>{formatValue(total_price)}</del>
         </p>
 
         <div className="price-container">
           <div className="track-title">
-            <h2>TRILHA DE ENSINO</h2>
-            <h3>VENDAS E INSUMOS AGRÍCOLAS</h3>
+            <h3>TRILHA DE ENSINO</h3>
+            <h2>{title}</h2>
           </div>
 
           <button type="button">
-            R$: 1.768,00
+            {formatValue(price)}
             <img src={cart02Icon} alt="" />
           </button>
         </div>
 
-        <p>12x de R$ 74,30</p>
+        <p>
+          12x de
+          <> </>
+          {formatValue(price / 12)}
+          <> </>
+        </p>
 
         <div className="be-premium-card">
           <p>
@@ -65,9 +77,12 @@ export const TrackPlaylistModal = ({ handleModal }) => {
             <strong> apenas:</strong>
           </p>
           <div>
-            <button type="button">R$ 1.694,00</button>
+            <button type="button">{formatValue(price_for_premium)}</button>
             <span>
-              <strong>20% </strong>
+              <strong>
+                {Math.floor((discount_for_premium / 1) * 100)}
+                <>% </>
+              </strong>
               de
               <strong> desconto.</strong>
             </span>
@@ -75,106 +90,85 @@ export const TrackPlaylistModal = ({ handleModal }) => {
         </div>
 
         <div className="playlist-container">
-          <div className="video-container">
-            <img src={videoMockupTumbnail} alt="Título" />
-            <button type="button">
-              <img src={videoPlayIcon} alt="Dar play" />
-            </button>
-            <p>Controle das lagartas da soja</p>
-            <span>10:05</span>
-          </div>
-
-          <div className="video-container">
-            <img src={videoMockup02Tumbnail} alt="Título" />
-            <button type="button">
-              <img src={videoPlayIcon} alt="Dar play" />
-            </button>
-            <p>Controle das lagartas da soja</p>
-            <span>8:30</span>
-          </div>
-
-          <div className="video-container">
-            <img src={videoMockup03Tumbnail} alt="Título" />
-            <button type="button">
-              <img src={videoPlayIcon} alt="Dar play" />
-            </button>
-            <p>Doenças que atacam a soja no verão</p>
-            <span>9:05</span>
-          </div>
-
-          <div className="video-container">
-            <img src={videoMockupTumbnail} alt="Título" />
-            <button type="button">
-              <img src={videoPlayIcon} alt="Dar play" />
-            </button>
-            <p>Controle das lagartas da soja</p>
-            <span>10:05</span>
-          </div>
-
-          <div className="video-container">
-            <img src={videoMockup02Tumbnail} alt="Título" />
-            <button type="button">
-              <img src={videoPlayIcon} alt="Dar play" />
-            </button>
-            <p>Controle das lagartas da soja</p>
-            <span>8:30</span>
-          </div>
-
-          <div className="video-container">
-            <img src={videoMockup03Tumbnail} alt="Título" />
-            <button type="button">
-              <img src={videoPlayIcon} alt="Dar play" />
-            </button>
-            <p>Doenças que atacam a soja no verão</p>
-            <span>9:05</span>
-          </div>
+          {demo_videos.map(video => (
+            <div className="video-container" key={video.id}>
+              <img src={video.tumbnail_url} alt={video.title} />
+              <button type="button">
+                <img src={videoPlayIcon} alt="Dar play" />
+              </button>
+              <p>{video.title}</p>
+              <span>{video.length}</span>
+            </div>
+          ))}
         </div>
 
         <div className="premium-offer-container">
           <p>
-            Associado Premium ganha 15% de desconto. Clique aqui e seja Premium
+            <>Associado Premium ganha </>
+            {Math.floor((discount_for_premium / 1) * 100)}
+            <>% de desconto. Clique aqui e seja Premium</>
           </p>
 
           <button type="button" onClick={handleBecomePremium}>
             <strong>Seja Premium </strong>
             <> e pague </>
-            <strong>R$ 1.768,00</strong>
+            <strong>{formatValue(price_for_premium)}</strong>
           </button>
         </div>
       </div>
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
-      <div
-        className="clickable-background"
-        onClick={() => handleModal({ modalName: 'playlist', opened: false })}
-      />
+      <div className="clickable-background" onClick={closeModal} />
     </div>
   );
 };
 
-const CourseTrackVideo = ({ handleModal }) => {
+const TrackPurchaseCard = ({ trackData }) => {
+  const modalRoot = document.getElementById('portal');
+  const [modalOpened, setModalOpened] = useState(false);
+  const {
+    main_video,
+    courses,
+    total_price,
+    price,
+    discount,
+    price_for_premium,
+  } = trackData;
+
+  const closeModal = () => setModalOpened(false);
+
   return (
     <>
+      {modalOpened &&
+        ReactDOM.createPortal(
+          <TrackPlaylistModal closeModal={closeModal} trackData={trackData} />,
+          modalRoot,
+        )}
+      {/* {modalOpened && (
+        <TrackPlaylistModal closeModal={closeModal} trackData={trackData} />
+      )} */}
       <div className="track-video-card">
         <div className="card">
           <main>
             <video
               controls
-              onClick={
-                () => handleModal({ modalName: 'playlist', opened: true })
-                // eslint-disable-next-line react/jsx-curly-newline
-              }
-              poster={mainVideoTumbnail}
+              onClick={() => setModalOpened(true)}
+              poster={main_video.tumbnail_url}
             />
             <div className="video-caption">
               <p>
-                7 cursos você pagaria: R$:
-                <del>2.500,00</del>
+                {courses.length}
+                <> </>
+                cursos você pagaria: R$:
+                <del>{total_price}</del>
               </p>
 
-              <span>25% OFF</span>
+              <span>
+                {Math.floor((discount / 1) * 100)}
+                <>% OFF</>
+              </span>
             </div>
 
-            <h3>R$: 1.768,00</h3>
+            <h3>{formatValue(price)}</h3>
 
             <div>
               <button type="button">
@@ -182,13 +176,19 @@ const CourseTrackVideo = ({ handleModal }) => {
                 <img src={cartIcon} alt="Compre Agora" />
               </button>
 
-              <span>Em até 12x de R$ 120,30 no cartão</span>
+              <span>
+                Em até 12x de
+                <> </>
+                {formatValue(price / 12)}
+                <> </>
+                no cartão
+              </span>
             </div>
           </main>
 
           <section className="offer">
             <p>Seja Premium e pague menos!</p>
-            <button type="button">R$ 1.512,00</button>
+            <button type="button">{formatValue(price_for_premium)}</button>
           </section>
         </div>
 
@@ -236,4 +236,4 @@ const CourseTrackVideo = ({ handleModal }) => {
   );
 };
 
-export default CourseTrackVideo;
+export default TrackPurchaseCard;

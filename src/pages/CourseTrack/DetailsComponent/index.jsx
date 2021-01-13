@@ -10,13 +10,19 @@ import articlesIcon from '../../../assets/images/icons/articles-icon.svg';
 import infoIcon from '../../../assets/images/icons/info-icon.svg';
 import clockIcon from '../../../assets/images/icons/clock-icon.svg';
 
-const TrackDetails = () => {
+const DetailsComponent = ({ track }) => {
+  const { videos_count, hours } = track;
+
   return (
     <section className="track-details">
       <ul>
         <li>
           <img src={videoIcon} alt="Vídeos" />
-          <span>+ 94 vídeos</span>
+          <span>
+            <>+ </>
+            {videos_count}
+            <> vídeos</>
+          </span>
         </li>
 
         <li>
@@ -41,7 +47,10 @@ const TrackDetails = () => {
 
         <li>
           <img src={clockIcon} alt="Atividades" />
-          <span>170h de atividade</span>
+          <span>
+            {hours}
+            <>h de atividade</>
+          </span>
         </li>
       </ul>
 
@@ -60,4 +69,4 @@ const TrackDetails = () => {
   );
 };
 
-export default TrackDetails;
+export default DetailsComponent;

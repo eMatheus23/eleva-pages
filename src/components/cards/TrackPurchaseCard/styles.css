@@ -39,10 +39,11 @@
   justify-content: space-between;
 }
 .track-playlist-modal .price-container h2 {
-  font: normal 1.8rem/3rem Montserrat;
+  font: normal 2rem/3rem Montserrat;
+  text-transform: uppercase;
 }
 .track-playlist-modal .price-container h3 {
-  font: normal 2rem/3rem Montserrat;
+  font: normal 1.8rem/3rem Montserrat;
 }
 .track-playlist-modal .price-container button {
   width: 21.2rem;

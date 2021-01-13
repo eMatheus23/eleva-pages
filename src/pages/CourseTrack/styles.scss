@@ -235,16 +235,17 @@ body {
       }
     }
 
-    > h2 {
-      margin-bottom: 0.7rem;
-
-      font: normal 2rem/2.4rem Montserrat;
-      color: var(--color-primary);
+    > h1 {
+      font: normal 3rem/3.7rem Montserrat;
+      color: var(--color-text-white);
+      text-transform: uppercase;
     }
 
     > h3 {
-      font: normal 3rem/3.7rem Montserrat;
-      color: var(--color-text-white);
+      margin-bottom: 0.7rem;
+      font: normal 2rem/2.4rem Montserrat;
+      color: var(--color-primary);
+      text-transform: uppercase;
     }
   }
 }

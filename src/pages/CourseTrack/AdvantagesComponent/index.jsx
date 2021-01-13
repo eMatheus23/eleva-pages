@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-const TrackAdvantages = () => {
+const AdvantagesComponent = ({ track }) => {
+  const { courses, discount, discount_for_premium } = track;
+
   return (
     <section className="track-advantages">
       <ul>
@@ -11,15 +13,22 @@ const TrackAdvantages = () => {
           • Com a trilha VENDAS E INSUMOS AGRÍCOLAS você tem uma visão completa
           sobre o tema.
         </li>
-        <li>• São 7 cursos pensados que permeiam o tema. </li>
         <li>
-          • Adquirindo a trilha completa poupa 40% do valor total das trilhas.
-          Em torno de R$450,00.
+          <>• São </>
+          {courses.length}
+          <> cursos pensados que permeiam o tema.</>
+        </li>
+        <li>
+          <>• Adquirindo a trilha completa poupa </>
+          {Math.floor((discount / 1) * 100)}
+          <>% do valor total das trilhas. Em torno de R$450,00.</>
         </li>
         <li>• Materiais disponíveis para download </li>
         <li>
           <p>
-            • Associados Premium têm + 20% de desconto nesta Trilha de Ensino.
+            <>• Associados Premium têm + </>
+            {Math.floor((discount_for_premium / 1) * 100)}
+            <>% de desconto nesta Trilha de Ensino.</>
             <br />
             Clique
             <Link to="/plans"> aqui</Link>
@@ -31,4 +40,4 @@ const TrackAdvantages = () => {
   );
 };
 
-export default TrackAdvantages;
+export default AdvantagesComponent;
