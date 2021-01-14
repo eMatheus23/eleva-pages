@@ -10,7 +10,10 @@ import addCart from '../../../assets/images/icons/add-cart.svg';
 
 // Data
 import products from '../../../data/products';
-import currencyFormat from '../../../data/currency-format';
+
+// Utils
+import getDecimals from '../../../utils/getDecimals';
+import formatValue from '../../../utils/formatValue';
 
 // Components
 import ButtonRounded from '../../Buttons';
@@ -64,21 +67,18 @@ const PremiumOfferCard = ({ addAnnualPlan }) => {
             <p>
               De
               <> </>
-              <span>
-                {price_original.toLocaleString('pt-BR', currencyFormat)}
-              </span>
+              <span>{formatValue(price_original)}</span>
             </p>
             <h2 className="price-style helvetica">
               <span className="for">Por</span>
+
               <span>R$:</span>
+
               <strong>{Math.floor(price)}</strong>
+
               <>,</>
-              {priceDecimals
-                .toLocaleString('pt-BR', {
-                  maximumFractionDigits: 2,
-                  minimumFractionDigits: 2,
-                })
-                .slice(-2)}
+
+              {getDecimals(price)}
             </h2>
             <ButtonRounded
               onClick={() => {

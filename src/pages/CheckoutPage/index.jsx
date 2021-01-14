@@ -17,7 +17,6 @@ import CreateAccountCard from '../../components/cards/CreateAccount';
 // Data
 import products from '../../data/products';
 import coupons from '../../data/coupons.json';
-import currencyFormat from '../../data/currency-format';
 
 // Services
 import addProductToCart from '../../services/AddProductToCart';
@@ -219,16 +218,16 @@ const CheckoutPage = () => {
                 {viewerStatus === 'premium' && (
                   <h3>
                     <>PREMIUM: -</>
+
                     <span>{formatValue(cartPremiumDiscountSum)}</span>
                   </h3>
                 )}
 
                 {cartDiscountSum && (
                   <h3>
-                    Promocional: -
-                    <span>
-                      {cartDiscountSum.toLocaleString('pt-BR', currencyFormat)}
-                    </span>
+                    <>Promocional: -</>
+
+                    <span>{formatValue(cartDiscountSum)}</span>
                   </h3>
                 )}
 
@@ -238,12 +237,8 @@ const CheckoutPage = () => {
                       <h3 key={`discount_${product.id}`}>
                         {product.name}
                         <>: -</>
-                        <span>
-                          {Math.abs(product.price).toLocaleString(
-                            'pt-BR',
-                            currencyFormat,
-                          )}
-                        </span>
+
+                        <span>{formatValue(Math.abs(product.price))}</span>
                       </h3>
                     );
                   }

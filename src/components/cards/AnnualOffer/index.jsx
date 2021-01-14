@@ -9,7 +9,9 @@ import ilustrationImg from '../../../assets/images/ilustrations/annual-premium-o
 
 // Data
 import products from '../../../data/products';
-import currencyFormat from '../../../data/currency-format';
+
+// Utils
+import formatValue from '../../../utils/formatValue';
 
 const AnnualOfferCard = ({ switchPlan }) => {
   const [closed, setClosed] = useState(false);
@@ -73,9 +75,7 @@ const AnnualOfferCard = ({ switchPlan }) => {
             </h3>
             <p>
               De
-              <span>
-                {price_original.toLocaleString('pt-BR', currencyFormat)}
-              </span>
+              <span>{formatValue(price_original)}</span>
             </p>
             <h2 className="price-style helvetica">
               <span className="for">Por</span>

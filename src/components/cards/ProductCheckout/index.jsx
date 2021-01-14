@@ -9,7 +9,8 @@ import deleteIcon from '../../../assets/images/icons/delete-product-checkout.svg
 // Components
 import ButtonRounded from '../../Buttons';
 
-import currencyFormat from '../../../data/currency-format';
+// Utils
+import formatValue from '../../../utils/formatValue';
 
 import getDecimals from '../../../utils/getDecimals';
 
@@ -42,7 +43,7 @@ const ProductCheckout = ({ product, success, deleteProduct }) => {
       {!checkoutSucess && (
         <>
           <div className="product-price">
-            <p>{original_price.toLocaleString('pt-BR', currencyFormat)}</p>
+            <p>{formatValue(original_price)}</p>
             <h2 className="price-style">
               <span>R$</span>
               <strong>{Math.floor(price)}</strong>
