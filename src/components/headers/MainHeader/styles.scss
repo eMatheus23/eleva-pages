@@ -15,6 +15,49 @@ $font-primary: Montserrat, sans-serif;
   box-shadow: 0px 3px 6px #00000029;
 }
 
+#main-header.premium {
+  background: var(--color-secondary);
+
+  .header-content-wrapper {
+    $color-premium: var(--color-text-white);
+
+    > img {
+      align-self: flex-start;
+      height: 9.6rem;
+      margin-top: -0.7rem;
+      margin-left: -0.95rem;
+    }
+
+    input {
+      background: rgba(255, 255, 255, 0.09);
+      border: 0;
+      color: $color-premium;
+
+      &::placeholder {
+        color: $color-premium;
+      }
+    }
+
+    form {
+      button svg {
+        color: $color-premium;
+      }
+    }
+
+    .header-menu {
+      width: 56vw;
+    }
+  }
+
+  .header-menu ul {
+    width: 100%;
+
+    li a {
+      color: var(--color-text-white);
+    }
+  }
+}
+
 #main-header .header-content-wrapper {
   display: flex;
   flex-direction: row;
@@ -26,7 +69,7 @@ $font-primary: Montserrat, sans-serif;
 
   margin: 0 auto;
 
-  a {
+  > a {
     display: flex;
     align-items: center;
 
@@ -42,10 +85,16 @@ $font-primary: Montserrat, sans-serif;
       position: absolute;
       top: 50%;
       right: 1.8rem;
-
+      width: 2.2rem;
+      height: 2.2rem;
+      background: none;
       transform: translate(0, -50%);
 
-      background: none;
+      svg {
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        color: var(--color-text-base);
+      }
     }
   }
 
@@ -91,32 +140,41 @@ $font-primary: Montserrat, sans-serif;
     justify-content: space-between;
 
     width: 73%;
-    max-width: 75rem;
 
     margin-bottom: 0;
   }
 
   li {
-    font-family: $font-primary;
-    font-size: 1.4rem;
-    line-height: 2rem;
     list-style: none;
 
-    a {
+    a,
+    button {
+      background: none;
       color: var(--color-text-base);
       text-decoration: none;
+      font: normal 1.4rem/2rem $font-primary;
 
       transition-property: all;
       transition-duration: 0.2s;
+
+      .menu-icon {
+        width: 1.6rem;
+        margin-right: 0.3rem;
+        fill: currentColor;
+
+        svg {
+          fill: currentColor;
+        }
+      }
     }
 
-    a.signup {
+    button.signup {
       text-decoration: underline;
     }
 
     &.active {
       a {
-        border-bottom: 3px solid #b0d135;
+        // border-bottom: 3px solid #b0d135;
 
         font-weight: 700;
         color: #5d883e;
@@ -124,16 +182,29 @@ $font-primary: Montserrat, sans-serif;
       }
     }
 
-    a:hover {
-      border-bottom: 3px solid #b0d135;
+    a:hover,
+    button:hover {
+      // border-bottom: 3px solid #b0d135;
+      font-weight: 700;
 
       color: #5d883e;
       text-decoration: none;
     }
+
+    .profile-picture {
+      width: 3.7rem;
+      height: 3.7rem;
+
+      img {
+        width: 3.7rem;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
   }
 }
 
-#main-header  button#button-rounded {
+#main-header button#button-rounded {
   width: max(25%, 17.2rem);
   max-width: 25.2rem;
   height: 4rem;

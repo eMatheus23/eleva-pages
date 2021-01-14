@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
-const ButtonRounded = ({ linkTo, onClick, children, buttonStyle, type }) => {
+const ButtonRounded = ({ children, buttonStyle, type, ...rest }) => {
   return (
     <>
       {type === 'link' && (
         <Link
-          to={linkTo}
           id="button-rounded"
           className={buttonStyle || 'primary'}
-          onClick={onClick}
+          {...rest}
         >
           {children}
         </Link>
@@ -22,13 +22,25 @@ const ButtonRounded = ({ linkTo, onClick, children, buttonStyle, type }) => {
           type="button"
           id="button-rounded"
           className={buttonStyle || 'primary'}
-          onClick={onClick}
+          {...rest}
         >
           {children}
         </button>
       )}
     </>
   );
+};
+
+ButtonRounded.propTypes = {
+  children: PropTypes.node,
+  buttonStyle: PropTypes.string,
+  type: PropTypes.string,
+};
+
+ButtonRounded.defaultProps = {
+  children: <></>,
+  buttonStyle: 'primary',
+  type: 'button',
 };
 
 export default ButtonRounded;

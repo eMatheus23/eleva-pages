@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+// Track array mockup
+import trackArray from '../../data/couse-tracks.json';
+
 import './styles.css';
 
 // Components
@@ -12,13 +15,12 @@ import AdvantagesComponent from './AdvantagesComponent';
 import AuthorsComponent from './AuthorsComponent';
 import TrackPurchaseCard from '../../components/cards/TrackPurchaseCard';
 
-// Track array mockup
-import trackArray from '../../data/couse-tracks.json';
-
 const CourseTrack = () => {
   document.title = 'Trilha de Ensino | Elevagro';
 
   const [track, setTrack] = useState(null);
+
+  const [viewerStatus, setViewerStatus] = useState('visit');
 
   useEffect(() => {
     // Simula a chamada da API
@@ -27,99 +29,135 @@ const CourseTrack = () => {
     setTrack(trackObject);
   }, []);
 
+  useEffect(() => {
+    const checkIsLoggedIn = localStorage.getItem('@elevagro-app/viewer-status');
+
+    if (checkIsLoggedIn) {
+      setViewerStatus(checkIsLoggedIn);
+    } else {
+      localStorage.setItem('@elevagro-app/viewer-status', 'visit');
+    }
+  }, []);
+
   const [activeView, setActiveView] = useState('courses-list');
 
   const handleViewChange = view => {
     setActiveView(view);
   };
 
+  // Funções para teste
+  const handleLogin = () => {
+    localStorage.setItem('@elevagro-app/viewer-status', 'free');
+
+    setViewerStatus('free');
+  };
+
+  const backToVisit = () => {
+    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
+
+    setActiveView('visit');
+  };
+
+  const becomePremium = () => {
+    localStorage.setItem('@elevagro-app/viewer-status', 'premium');
+
+    setViewerStatus('premium');
+  };
+
   return (
-    track && (
-      <div id="course-track">
-        <MainHeader />
+    <div id="course-track">
+      <MainHeader
+        viewerStatusProp={viewerStatus}
+        handleLogin={handleLogin}
+        backToVisit={backToVisit}
+        becomePremium={becomePremium}
+      />
 
-        <section className="hero">
-          <div className="img-filter" />
-          <div className="blur-container">
-            <img src={track.background_img_url} alt={track.title} />
-          </div>
-
-          <div className="content-wrapper">
-            <div className="nav-tree">
-              <Link to="/">Início</Link>
-              <span>/</span>
-              <Link to="/course-track">Trilhas</Link>
-              <span>/</span>
-              <Link to="/course-track">{track.title}</Link>
+      {track && (
+        <>
+          <section className="hero">
+            <div className="img-filter" />
+            <div className="blur-container">
+              <img src={track.background_img_url} alt={track.title} />
             </div>
 
-            <h3>TRILHA DE ENSINO</h3>
-            <h1>{track.title}</h1>
-          </div>
-        </section>
-
-        <main>
-          <div className="content-wrapper">
-            <TrackPurchaseCard trackData={track} />
-            <section className="track-description">
-              <p>{track.description}</p>
-              <h3>
-                O que você vai aprender na trilha
-                <> </>
-                {track.title}
-                <>:</>
-              </h3>
-            </section>
-
-            <section className="track-tab-selector">
-              <div className="buttons">
-                <button
-                  type="button"
-                  className={activeView === 'courses-list' ? 'active' : ''}
-                  onClick={() => handleViewChange('courses-list')}
-                >
-                  Conteúdo
-                </button>
-                <button
-                  type="button"
-                  className={activeView === 'details' ? 'active' : ''}
-                  onClick={() => handleViewChange('details')}
-                >
-                  Detalhes
-                </button>
-                <button
-                  type="button"
-                  className={activeView === 'advantages' ? 'active' : ''}
-                  onClick={() => handleViewChange('advantages')}
-                >
-                  Vantagens
-                </button>
-                <button
-                  type="button"
-                  className={activeView === 'authors' ? 'active' : ''}
-                  onClick={() => handleViewChange('authors')}
-                >
-                  Autores
-                </button>
+            <div className="content-wrapper">
+              <div className="nav-tree">
+                <Link to="/">Início</Link>
+                <span>/</span>
+                <Link to="/course-track">Trilhas</Link>
+                <span>/</span>
+                <Link to="/course-track">{track.title}</Link>
               </div>
 
-              <div className="underline" />
-            </section>
+              <h3>TRILHA DE ENSINO</h3>
+              <h1>{track.title}</h1>
+            </div>
+          </section>
 
-            {activeView === 'courses-list' && (
-              <ListComponent courses={track.courses} />
-            )}
-            {activeView === 'details' && <DetailsComponent track={track} />}
-            {activeView === 'advantages' && (
-              <AdvantagesComponent track={track} />
-            )}
-            {activeView === 'authors' && <AuthorsComponent track={track} />}
-          </div>
-        </main>
+          <main>
+            <div className="content-wrapper">
+              <TrackPurchaseCard trackData={track} />
+              <section className="track-description">
+                <p>{track.description}</p>
+                <h3>
+                  O que você vai aprender na trilha
+                  <> </>
+                  {track.title}
+                  <>:</>
+                </h3>
+              </section>
 
-        <MainFooter />
-      </div>
-    )
+              <section className="track-tab-selector">
+                <div className="buttons">
+                  <button
+                    type="button"
+                    className={activeView === 'courses-list' ? 'active' : ''}
+                    onClick={() => handleViewChange('courses-list')}
+                  >
+                    Conteúdo
+                  </button>
+                  <button
+                    type="button"
+                    className={activeView === 'details' ? 'active' : ''}
+                    onClick={() => handleViewChange('details')}
+                  >
+                    Detalhes
+                  </button>
+                  <button
+                    type="button"
+                    className={activeView === 'advantages' ? 'active' : ''}
+                    onClick={() => handleViewChange('advantages')}
+                  >
+                    Vantagens
+                  </button>
+                  <button
+                    type="button"
+                    className={activeView === 'authors' ? 'active' : ''}
+                    onClick={() => handleViewChange('authors')}
+                  >
+                    Autores
+                  </button>
+                </div>
+
+                <div className="underline" />
+              </section>
+
+              {activeView === 'courses-list' && (
+                <ListComponent courses={track.courses} />
+              )}
+              {activeView === 'details' && <DetailsComponent track={track} />}
+              {activeView === 'advantages' && (
+                <AdvantagesComponent track={track} />
+              )}
+              {activeView === 'authors' && <AuthorsComponent track={track} />}
+            </div>
+          </main>
+        </>
+      )}
+
+      <MainFooter />
+    </div>
   );
 };
 
