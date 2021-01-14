@@ -28,7 +28,6 @@ const PremiumOfferCard = ({ addAnnualPlan }) => {
   });
 
   const { price_original, price, promo_discount } = anualSubscription[0];
-  const priceDecimals = Math.round((price % Math.floor(price)) * 100);
 
   return (
     <div
