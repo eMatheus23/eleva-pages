@@ -1,5 +1,4 @@
 // Data
-import products from '../data/products';
 import plans from '../data/plans.json';
 
 export function deleteOtherPlans(array) {
