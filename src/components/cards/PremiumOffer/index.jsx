@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // CSS
 import './styles.css';
@@ -96,6 +97,10 @@ const PremiumOfferCard = ({ addAnnualPlan }) => {
       </div>
     </div>
   );
+};
+
+PremiumOfferCard.propTypes = {
+  addAnnualPlan: PropTypes.func.isRequired,
 };
 
 export default PremiumOfferCard;

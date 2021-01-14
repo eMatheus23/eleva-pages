@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -255,6 +256,11 @@ const PaymentOptionsCard = ({ billPage, cartSum }) => {
       <ProgressBar progress={2} />
     </div>
   );
+};
+
+PaymentOptionsCard.propTypes = {
+  billPage: PropTypes.string.isRequired,
+  cartSum: PropTypes.number.isRequired,
 };
 
 export default PaymentOptionsCard;

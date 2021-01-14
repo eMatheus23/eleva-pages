@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -122,6 +123,21 @@ const TrackPlaylistModal = ({ closeModal, trackData }) => {
   );
 };
 
+TrackPlaylistModal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  trackData: PropTypes.shape({
+    main_video: PropTypes.shape({
+      tumbnail_url: PropTypes.string,
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    demo_videos: PropTypes.string.isRequired,
+    total_price: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    discount_for_premium: PropTypes.number.isRequired,
+    price_for_premium: PropTypes.number.isRequired,
+  }),
+};
+
 const TrackPurchaseCard = ({ trackData }) => {
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
@@ -231,6 +247,22 @@ const TrackPurchaseCard = ({ trackData }) => {
       </div>
     </>
   );
+};
+
+TrackPurchaseCard.propTypes = {
+  trackData: PropTypes.shape({
+    main_video: PropTypes.shape({
+      tumbnail_url: PropTypes.string,
+    }).isRequired,
+    title: PropTypes.string.isRequired,
+    courses: PropTypes.arrayOf(PropTypes.number).isRequired,
+    demo_videos: PropTypes.string.isRequired,
+    total_price: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    discount: PropTypes.number.isRequired,
+    discount_for_premium: PropTypes.number.isRequired,
+    price_for_premium: PropTypes.number.isRequired,
+  }),
 };
 
 export default TrackPurchaseCard;

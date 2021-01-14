@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // CSS
 import './styles.css';
@@ -10,7 +11,7 @@ import ilustrationImg from '../../../assets/images/ilustrations/annual-premium-o
 import products from '../../../data/products';
 import currencyFormat from '../../../data/currency-format';
 
-const AnnualOfferCard = props => {
+const AnnualOfferCard = ({ switchPlan }) => {
   const [closed, setClosed] = useState(false);
   const [semestralView, setSemestralView] = useState(true);
 
@@ -32,7 +33,7 @@ const AnnualOfferCard = props => {
 
   function handleClick() {
     // Envia para o componente pai, a chamada da função que muda para o plano anual
-    props.switchPlan();
+    switchPlan();
 
     if (semestralView) {
       return setSemestralView(false);
@@ -103,6 +104,10 @@ const AnnualOfferCard = props => {
       </div>
     </div>
   );
+};
+
+AnnualOfferCard.propTypes = {
+  switchPlan: PropTypes.func.isRequired,
 };
 
 export default AnnualOfferCard;

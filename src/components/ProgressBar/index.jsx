@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ProgrogressImg0 from '../../assets/images/progress-bar/progress-your-accout.svg';
 import ProgrogressImg1 from '../../assets/images/progress-bar/progress-data.svg';
@@ -36,6 +37,14 @@ const ProgressBar = ({ progress }) => {
       </div>
     </div>
   );
+};
+
+ProgressBar.propTypes = {
+  progress: PropTypes.number,
+};
+
+ProgressBar.defaultProps = {
+  progress: 0,
 };
 
 export default ProgressBar;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // CSS
 import './styles.css';
@@ -8,7 +9,7 @@ import './styles.css';
 import Page01 from './Page01';
 import Page02 from './Page02';
 
-const CreateAccountCard = ({ renderPage, isInCheckout, ...props }) => {
+const CreateAccountCard = ({ renderPage, isInCheckout, sigupFinished }) => {
   const [page, setPage] = useState(() => {
     if (renderPage !== 2) {
       return 1;
@@ -40,7 +41,7 @@ const CreateAccountCard = ({ renderPage, isInCheckout, ...props }) => {
 
     /* eslint-disable no-unused-expressions */
     // Se o card estiver no checkout, envia a função para atualizar a tela
-    inCheckout && props.sigupFinished();
+    inCheckout && sigupFinished();
     /* eslint-enable no-unused-expressions */
 
     return history.push('/checkout');
@@ -56,6 +57,17 @@ const CreateAccountCard = ({ renderPage, isInCheckout, ...props }) => {
       )}
     </>
   );
+};
+
+CreateAccountCard.propTypes = {
+  renderPage: PropTypes.number,
+  isInCheckout: PropTypes.bool,
+  sigupFinished: PropTypes.func.isRequired,
+};
+
+CreateAccountCard.defaultProps = {
+  renderPage: 1,
+  isInCheckout: false,
 };
 
 export default CreateAccountCard;

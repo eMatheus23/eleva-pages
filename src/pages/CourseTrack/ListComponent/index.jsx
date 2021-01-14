@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -12,7 +13,7 @@ import formatValue from '../../../utils/formatValue';
 
 import cartIcon from '../../../assets/images/icons/cart-icon.svg';
 
-export const CourseDetailsModal = ({ closeModal, course }) => {
+const CourseDetailsModal = ({ closeModal, course }) => {
   const {
     authors,
     category,
@@ -97,6 +98,20 @@ export const CourseDetailsModal = ({ closeModal, course }) => {
   );
 };
 
+CourseDetailsModal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  course: PropTypes.shape({
+    authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    category: PropTypes.string.isRequired,
+    cover_url: PropTypes.string.isRequired,
+    modules: PropTypes.arrayOf(PropTypes.string).isRequired,
+    original_price: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    price_for_premium: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+};
+
 const ListComponent = ({ courses }) => {
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
@@ -163,6 +178,21 @@ const ListComponent = ({ courses }) => {
       </section>
     </>
   );
+};
+
+ListComponent.propTypes = {
+  courses: PropTypes.arrayOf(
+    PropTypes.shape({
+      authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+      category: PropTypes.string.isRequired,
+      cover_url: PropTypes.string.isRequired,
+      modules: PropTypes.arrayOf(PropTypes.string).isRequired,
+      original_price: PropTypes.number.isRequired,
+      price: PropTypes.number.isRequired,
+      price_for_premium: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+  ),
 };
 
 export default ListComponent;

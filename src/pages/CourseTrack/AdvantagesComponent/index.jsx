@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -38,6 +39,14 @@ const AdvantagesComponent = ({ track }) => {
       </ul>
     </section>
   );
+};
+
+AdvantagesComponent.propTypes = {
+  track: PropTypes.shape({
+    courses: PropTypes.arrayOf(PropTypes.number).isRequired,
+    discount: PropTypes.number.isRequired,
+    discount_for_premium: PropTypes.number.isRequired,
+  }),
 };
 
 export default AdvantagesComponent;

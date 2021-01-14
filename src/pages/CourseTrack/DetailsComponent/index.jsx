@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -67,6 +68,13 @@ const DetailsComponent = ({ track }) => {
       </p>
     </section>
   );
+};
+
+DetailsComponent.propTypes = {
+  track: PropTypes.shape({
+    videos_count: PropTypes.number.isRequired,
+    hours: PropTypes.number.isRequired,
+  }),
 };
 
 export default DetailsComponent;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -10,7 +11,7 @@ import ButtonRounded from '../../Buttons';
 
 import currencyFormat from '../../../data/currency-format';
 
-const ProductCheckout = ({ product, success, ...props }) => {
+const ProductCheckout = ({ product, success, deleteProduct }) => {
   const [checkoutSucess] = useState(() => {
     if (success) return true;
 
@@ -63,7 +64,7 @@ const ProductCheckout = ({ product, success, ...props }) => {
             className="delete-button"
             src={deleteIcon}
             onClick={() => {
-              props.deleteProduct(id);
+              deleteProduct(id);
             }}
             alt="Excluir produto"
           />
@@ -77,6 +78,24 @@ const ProductCheckout = ({ product, success, ...props }) => {
       )}
     </div>
   );
+};
+
+ProductCheckout.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    discription: PropTypes.string.isRequired,
+    price_original: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    promo_discount: PropTypes.number.isRequired,
+    img: PropTypes.string.isRequired,
+  }),
+  success: PropTypes.bool,
+  deleteProduct: PropTypes.func.isRequired,
+};
+
+ProductCheckout.defaultProps = {
+  success: false,
 };
 
 export default ProductCheckout;

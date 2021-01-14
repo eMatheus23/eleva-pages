@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { Card, Dialog, Flag, Input, Placeholder, Row } from './styles';
 import json from '../../data/countries.json';
@@ -24,6 +25,13 @@ const CountryDialog = ({ open, setOpen, setCountry, setFlag }) => (
     ))}
   </Dialog>
 );
+
+CountryDialog.propTypes = {
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.bool.isRequired,
+  setCountry: PropTypes.func.isRequired,
+  setFlag: PropTypes.func.isRequired,
+};
 
 const CountryPicker = () => {
   const [open, setOpen] = useState(false);
