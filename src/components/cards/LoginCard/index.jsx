@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // CSS
 import './styles.css';
@@ -76,6 +77,10 @@ const LoginCard = ({ handleLogin }) => {
       </form>
     </div>
   );
+};
+
+LoginCard.propTypes = {
+  handleLogin: PropTypes.func.isRequired,
 };
 
 export default LoginCard;
