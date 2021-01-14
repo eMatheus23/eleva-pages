@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 // CSS
@@ -29,40 +29,38 @@ import barcodeIcon from '../../assets/images/icons/barcode-icon.svg';
 import cornerImg from '../../assets/images/corner.svg';
 
 // Data and Functions
-import products from '../../data/products';
 import addProductToCart from '../../services/AddProductToCart';
+import addPlanToCart from '../../services/AddPlanToCart';
+
+// Plans array mockup
+import plansArray from '../../data/plans.json';
 
 const Plans = () => {
   document.title = 'Escolha seu plano premium | Elevagro';
 
   const history = useHistory();
 
+  const [plans, setPlans] = useState(null);
+  useEffect(() => {
+    // Simula a chamada da API
+    const response = plansArray;
+
+    setPlans(response);
+  }, []);
+
   const [selectedPlan, setSelectedPlan] = useState('semestral');
   const [loginScreenActive, setLoginScreenActive] = useState(false);
 
-  const [isLoggedIn] = useState(() => {
-    const checkIsLoggedIn = localStorage.getItem(
-      '@elevagro-app/viewer-status|is-logged-in',
-    );
+  const [viewerStatus, setViewerStatus] = useState('visit');
+  useEffect(() => {
+    const checkIsLoggedIn = localStorage.getItem('@elevagro-app/viewer-status');
 
     if (checkIsLoggedIn) {
-      return JSON.parse(checkIsLoggedIn);
+      setViewerStatus(checkIsLoggedIn);
+    } else {
+      localStorage.setItem('@elevagro-app/viewer-status', 'visit');
     }
-
-    return false;
-  });
-
-  const [isPremium] = useState(() => {
-    const checkIsPremium = localStorage.getItem(
-      '@elevagro-app/viewer-status|is-premium',
-    );
-
-    if (checkIsPremium) {
-      return true;
-    }
-
-    return false;
-  });
+  }, []);
 
   function handleSelectPlan(plan) {
     setSelectedPlan(plan);
@@ -77,21 +75,29 @@ const Plans = () => {
   }
 
   function HandleAddToCart() {
-    const [chosenProduct] = products.filter(product => {
-      if (product.subscription === selectedPlan) {
+    // Desetruturação do primeiro item do array
+    const [chosenPlan] = plans.filter(plan => {
+      if (plan.subscription === selectedPlan) {
         return true;
       }
       return false;
     });
 
-    addProductToCart({ productId: chosenProduct.id });
+    addPlanToCart({ productId: chosenPlan.id });
 
-    if (isLoggedIn && isPremium) {
+    if (viewerStatus === 'premium') {
       history.push('/checkout');
     } else {
       setLoginScreenActive(true);
     }
   }
+
+  // Funções para teste
+  const handleLogin = () => {
+    localStorage.setItem('@elevagro-app/viewer-status', 'free');
+
+    setViewerStatus('free');
+  };
 
   function updateCentralImg() {
     switch (selectedPlan) {
@@ -345,12 +351,12 @@ const Plans = () => {
             <div className="create-account animate-apper">
               <h3>AINDA NÃO TENHO CONTA</h3>
 
-              <ButtonRounded type="link" linkTo="/signup" buttonStyle="primary">
+              <ButtonRounded type="link" to="/signup" buttonStyle="primary">
                 Criar conta
               </ButtonRounded>
             </div>
 
-            <LoginCard />
+            <LoginCard handleLogin={handleLogin} />
           </div>
         </aside>
 

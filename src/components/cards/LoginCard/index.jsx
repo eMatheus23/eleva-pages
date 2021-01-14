@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 
 // CSS
 import './styles.css';
@@ -12,9 +11,7 @@ import ButtonRounded from '../../Buttons';
 import googleLogo from '../../../assets/images/logos/google-logo.svg';
 import faceLogo from '../../../assets/images/logos/facebook-logo.svg';
 
-const LoginCard = () => {
-  const history = useHistory();
-
+const LoginCard = ({ handleLogin }) => {
   const [state, setState] = useState({
     checkedA: false,
   });
@@ -22,15 +19,6 @@ const LoginCard = () => {
   const handleSwitchChange = event => {
     setState({ ...state, [event.target.name]: event.target.checked });
   };
-
-  function handleLogin() {
-    // Caso o login seja bem sucedido
-    localStorage.setItem(
-      '@elevagro-app/viewer-status|is-logged-in',
-      JSON.stringify(true),
-    );
-    history.push('/signup');
-  }
 
   return (
     <div className="login-card animate-apper">
@@ -62,7 +50,12 @@ const LoginCard = () => {
             <p>Salvar login</p>
           </div>
 
-          <ButtonRounded onClick={handleLogin} buttonStyle="secondary">
+          <ButtonRounded
+            onClick={handleLogin()}
+            buttonStyle="secondary"
+            type="link"
+            to="/signup"
+          >
             Acessar
           </ButtonRounded>
         </div>

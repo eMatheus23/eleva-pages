@@ -30,14 +30,12 @@ const CreateAccountCard = ({ renderPage, isInCheckout, sigupFinished }) => {
   function handleNextPage() {
     if (page === 1) {
       // Se estiver na página 1, ao clicar, renderiza a pág 2
+      localStorage.setItem('@elevagro-app/viewer-status', 'free');
       return setPage(2);
     }
 
     // Se não estiver na página 1 habilita o login
-    localStorage.setItem(
-      '@elevagro-app/viewer-status|is-logged-in',
-      JSON.stringify(true),
-    );
+    localStorage.setItem('@elevagro-app/viewer-status', 'free');
 
     /* eslint-disable no-unused-expressions */
     // Se o card estiver no checkout, envia a função para atualizar a tela

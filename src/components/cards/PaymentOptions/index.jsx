@@ -14,33 +14,24 @@ import barcodeIcon from '../../../assets/images/icons/barcode-icon-gray.svg';
 import ButtonRounded from '../../Buttons';
 import ProgressBar from '../../ProgressBar';
 
-import currencyFormat from '../../../data/currency-format';
+// Services
+import getInstallmentsValues from '../../../services/getInstallmentsValues';
+import getMaxInstallments from '../../../services/getMaxInstallments';
 
 const PaymentOptionsCard = ({ billPage, cartSum }) => {
   const [creditSelected, setCreditSelected] = useState('true');
+
   const [state, setState] = useState({
     checkedA: false,
   });
+
   const history = useHistory();
 
-  const installments = [];
-  let cardInstallments = 0;
+  // Armazena o número máximo de parcelas
+  const maxInstallments = getMaxInstallments(cartSum);
 
-  if (cartSum > 150) {
-    cardInstallments = 10;
-  } else {
-    cardInstallments = 1;
-  }
-
-  const handleInstallments = () => {
-    for (let i = 0; i < cardInstallments; i++) {
-      const installment = cartSum / (i + 1);
-
-      installments.push(installment.toLocaleString('pt-BR', currencyFormat));
-    }
-  };
-
-  handleInstallments();
+  // Calcula os valores das parcelas
+  const installmentsValues = getInstallmentsValues(cartSum, maxInstallments);
 
   const handleChange = event => {
     setCreditSelected(event.target.value);
@@ -103,8 +94,8 @@ const PaymentOptionsCard = ({ billPage, cartSum }) => {
             [Em até
             <> </>
             <>
-              {cardInstallments}
-              {cardInstallments === 1 ? ' vez' : ' vezes'}
+              {maxInstallments}
+              {maxInstallments === 1 ? ' vez' : ' vezes'}
             </>
             ]
           </span>
@@ -120,7 +111,7 @@ const PaymentOptionsCard = ({ billPage, cartSum }) => {
                 className="select-appearance"
                 required
               >
-                {installments.map((installment, index) => (
+                {installmentsValues.map((installment, index) => (
                   <option value={installment} key={`parcela_${index}`}>
                     {`${index + 1} x de ${installment}`}
                   </option>
@@ -247,7 +238,7 @@ const PaymentOptionsCard = ({ billPage, cartSum }) => {
             </label>
           </div>
 
-          <ButtonRounded type="link" linkTo={billPage} buttonStyle="primary">
+          <ButtonRounded type="link" to={billPage} buttonStyle="primary">
             Gerar Boleto
           </ButtonRounded>
         </main>

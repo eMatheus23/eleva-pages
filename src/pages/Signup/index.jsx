@@ -11,10 +11,15 @@ import CreateAccountCard from '../../components/cards/CreateAccount';
 const SignupAddress = () => {
   document.title = 'Criar Conta Premium | Elevagro';
 
-  const [isLoggedIn] = useState(() => {
-    return JSON.parse(
-      localStorage.getItem('@elevagro-app/viewer-status|is-logged-in'),
-    );
+  const [viewerStatus] = useState(() => {
+    const checkIsLoggedIn = localStorage.getItem('@elevagro-app/viewer-status');
+
+    if (checkIsLoggedIn) {
+      return checkIsLoggedIn;
+    }
+    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
+
+    return 'visit';
   });
 
   return (
@@ -22,7 +27,7 @@ const SignupAddress = () => {
       <HeaderSignup />
 
       <main>
-        <CreateAccountCard renderPage={isLoggedIn ? 2 : 1} />
+        <CreateAccountCard renderPage={viewerStatus === 'visit' ? 1 : 2} />
       </main>
 
       <Footer />

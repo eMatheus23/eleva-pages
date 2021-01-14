@@ -13,30 +13,23 @@ import ListComponent from './ListComponent';
 import DetailsComponent from './DetailsComponent';
 import AdvantagesComponent from './AdvantagesComponent';
 import AuthorsComponent from './AuthorsComponent';
-import TrackPurchaseCard from '../../components/cards/TrackPurchaseCard';
+import TrackVideoCard from '../../components/cards/TrackVideoCard';
+
+// Services
+import getViewerStatus from '../../services/getViewerStatus';
 
 const CourseTrack = () => {
   document.title = 'Trilha de Ensino | Elevagro';
 
   const [track, setTrack] = useState(null);
 
-  const [viewerStatus, setViewerStatus] = useState('visit');
+  const [viewerStatus, setViewerStatus] = useState(() => getViewerStatus);
 
   useEffect(() => {
     // Simula a chamada da API
     const [trackObject] = trackArray;
 
     setTrack(trackObject);
-  }, []);
-
-  useEffect(() => {
-    const checkIsLoggedIn = localStorage.getItem('@elevagro-app/viewer-status');
-
-    if (checkIsLoggedIn) {
-      setViewerStatus(checkIsLoggedIn);
-    } else {
-      localStorage.setItem('@elevagro-app/viewer-status', 'visit');
-    }
   }, []);
 
   const [activeView, setActiveView] = useState('courses-list');
@@ -97,7 +90,7 @@ const CourseTrack = () => {
 
           <main>
             <div className="content-wrapper">
-              <TrackPurchaseCard trackData={track} />
+              <TrackVideoCard trackData={track} />
               <section className="track-description">
                 <p>{track.description}</p>
                 <h3>

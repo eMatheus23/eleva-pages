@@ -138,7 +138,7 @@ TrackPlaylistModal.propTypes = {
   }),
 };
 
-const TrackPurchaseCard = ({ trackData }) => {
+const TrackVideoCard = ({ trackData }) => {
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
   const {
@@ -249,7 +249,7 @@ const TrackPurchaseCard = ({ trackData }) => {
   );
 };
 
-TrackPurchaseCard.propTypes = {
+TrackVideoCard.propTypes = {
   trackData: PropTypes.shape({
     main_video: PropTypes.shape({
       tumbnail_url: PropTypes.string,
@@ -265,4 +265,4 @@ TrackPurchaseCard.propTypes = {
   }),
 };
 
-export default TrackPurchaseCard;
+export default TrackVideoCard;

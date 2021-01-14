@@ -11,6 +11,8 @@ import ButtonRounded from '../../Buttons';
 
 import currencyFormat from '../../../data/currency-format';
 
+import getDecimals from '../../../utils/getDecimals';
+
 const ProductCheckout = ({ product, success, deleteProduct }) => {
   const [checkoutSucess] = useState(() => {
     if (success) return true;
@@ -20,43 +22,36 @@ const ProductCheckout = ({ product, success, deleteProduct }) => {
 
   const {
     id,
-    name,
-    discription,
-    price_original,
+    category,
+    title,
+    original_price,
     price,
-    promo_discount,
-    img,
+    discount,
+    cover_url,
   } = product;
-
-  const priceDecimals = Math.round((price % Math.floor(price)) * 100);
 
   return (
     <div className="product-checkout-card">
-      <img src={img.default} alt="Plataforma Elevagro" />
+      <img src={cover_url} alt={category} />
 
       <div className={`product-title ${checkoutSucess && 'bold'} `}>
-        <h2>{name}</h2>
-        <p>{discription}</p>
+        <h2>{category}</h2>
+        <p>{title}</p>
       </div>
 
       {!checkoutSucess && (
         <>
           <div className="product-price">
-            <p>{price_original.toLocaleString('pt-BR', currencyFormat)}</p>
+            <p>{original_price.toLocaleString('pt-BR', currencyFormat)}</p>
             <h2 className="price-style">
               <span>R$</span>
               <strong>{Math.floor(price)}</strong>
               <>,</>
-              {priceDecimals
-                .toLocaleString('pt-BR', {
-                  maximumFractionDigits: 2,
-                  minimumFractionDigits: 2,
-                })
-                .slice(-2)}
+              {getDecimals(price)}
             </h2>
             <span>
-              {promo_discount}
-              <> % de desconto </>
+              {Math.floor((discount / 1) * 100)}
+              <>% de desconto </>
             </span>
           </div>
 
@@ -83,12 +78,12 @@ const ProductCheckout = ({ product, success, deleteProduct }) => {
 ProductCheckout.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    discription: PropTypes.string.isRequired,
-    price_original: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    original_price: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
-    promo_discount: PropTypes.number.isRequired,
-    img: PropTypes.string.isRequired,
+    discount: PropTypes.number.isRequired,
+    cover_url: PropTypes.string.isRequired,
   }),
   success: PropTypes.bool,
   deleteProduct: PropTypes.func.isRequired,
