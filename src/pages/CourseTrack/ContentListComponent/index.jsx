@@ -126,7 +126,7 @@ CourseDetailsModal.propTypes = {
   }),
 };
 
-const ListComponent = ({ courses }) => {
+const ContentListComponent = ({ courses }) => {
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({});
@@ -194,7 +194,7 @@ const ListComponent = ({ courses }) => {
   );
 };
 
-ListComponent.propTypes = {
+ContentListComponent.propTypes = {
   courses: PropTypes.arrayOf(
     PropTypes.shape({
       authors: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -209,4 +209,4 @@ ListComponent.propTypes = {
   ),
 };
 
-export default ListComponent;
+export default ContentListComponent;
