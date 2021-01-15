@@ -1,0 +1,29 @@
+#course-page-details {
+  margin-top: 4.4rem;
+}
+#course-page-details ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+#course-page-details ul li {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 2.2rem;
+  list-style: none;
+  font: normal 2rem/4rem Montserrat;
+}
+#course-page-details ul li img {
+  margin-right: 1.5rem;
+}
+#course-page-details p {
+  width: 95%;
+  font: normal 2rem/2.7rem Montserrat;
+}
+#course-page-details p + p {
+  margin-top: 1rem;
+}
+
+/*# sourceMappingURL=styles.css.map */

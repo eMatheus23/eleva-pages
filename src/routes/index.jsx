@@ -6,15 +6,16 @@ import Signup from '../pages/Signup';
 import CheckoutPage from '../pages/CheckoutPage';
 import CheckoutBill from '../pages/CheckoutBill';
 import CheckoutAccessPage from '../pages/CheckoutAccessPage';
-import CourseTrack from '../pages/CourseTrack';
+import TrackPage from '../pages/TrackPage';
+import CoursePage from '../pages/CoursePage';
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={CourseTrack} />
-        <Route exact path="/course-track" component={CourseTrack} />
-        <Route exact path="/courses/:name+" component={CourseTrack} />
+        <Route exact path="/" component={TrackPage} />
+        <Route exact path="/course-track" component={TrackPage} />
+        <Route exact path="/courses" component={CoursePage} />
         <Route path="/plans" component={Plans} />
         <Route path="/signup" component={Signup} />
         <Route exact path="/checkout" component={CheckoutPage} />

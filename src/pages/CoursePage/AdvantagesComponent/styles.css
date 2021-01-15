@@ -1,0 +1,67 @@
+#course-page-advantages {
+  margin-top: 4rem;
+}
+#course-page-advantages ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+#course-page-advantages ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  list-style: none;
+  font: normal 2rem/4rem Montserrat;
+}
+#course-page-advantages ul li a {
+  display: inline;
+  color: var(--color-text-base);
+  text-decoration: none;
+  font-weight: 700;
+}
+#course-page-advantages ul li a:hover {
+  color: var(--color-secondary);
+}
+#course-page-advantages > h4 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font: normal 2.5rem/3rem "Montserrat", sans-serif, sans-serif;
+  color: var(--color-secondary);
+}
+#course-page-advantages .authors {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  margin-bottom: 3rem;
+}
+#course-page-advantages .authors .author {
+  width: 22%;
+  height: 12.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5rem 0.7rem 0;
+  padding: 0 1.5rem;
+  border-radius: 0.8rem;
+  background: var(--color-background-secondary);
+}
+#course-page-advantages .authors .author img {
+  width: 6.9rem;
+  height: 6.9rem;
+  margin-top: -4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+#course-page-advantages .authors .author p {
+  text-align: center;
+  font: normal 1.5rem/1.8rem "Montserrat", sans-serif, sans-serif;
+}
+#course-page-advantages .authors .author a {
+  font: normal 1.4rem/3rem "Montserrat", sans-serif, sans-serif;
+  color: var(--color-text-link);
+}
+
+/*# sourceMappingURL=styles.css.map */

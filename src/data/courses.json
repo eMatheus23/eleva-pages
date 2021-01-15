@@ -11,6 +11,14 @@
     "discount": 0.30,
     "price_for_premium": 212,
     "discount_for_premium": 0.20,
+    "tumbnail_url": "https://i.ibb.co/jLx5gFq/video-mockup-02.png",
+    "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
+    "videos_count": 12,
+    "hours": 16,
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de entomologia.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
     "modules": [
       "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
       "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
@@ -25,6 +33,50 @@
         "name": "Dr.ª Margarete Manuele Siqueira Silva",
         "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
         "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       }
     ]
   },
@@ -40,6 +92,14 @@
     "discount": 0.30,
     "price_for_premium": 180,
     "discount_for_premium": 0.20,
+    "tumbnail_url": "https://i.ibb.co/jLx5gFq/video-mockup-02.png",
+    "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
+    "videos_count": 12,
+    "hours": 16,
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de entomologia.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
     "modules": [
       "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
       "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
@@ -54,6 +114,50 @@
         "name": "Dr.ª Margarete Manuele Siqueira Silva",
         "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
         "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       }
     ]
   },
@@ -69,6 +173,7 @@
     "discount": 0.30,
     "price_for_premium": 212,
     "discount_for_premium": 0.20,
+    "tumbnail_url": "https://i.ibb.co/jLx5gFq/video-mockup-02.png",
     "modules": [
       "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
       "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
@@ -84,6 +189,50 @@
         "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
         "profile_url": "/"
       }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      }
     ]
   },
   {
@@ -98,6 +247,14 @@
     "discount": 0.30,
     "price_for_premium": 212,
     "discount_for_premium": 0.20,
+    "tumbnail_url": "https://i.ibb.co/jLx5gFq/video-mockup-02.png",
+    "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
+    "videos_count": 12,
+    "hours": 16,
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de entomologia.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
     "modules": [
       "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
       "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
@@ -112,6 +269,50 @@
         "name": "Dr.ª Margarete Manuele Siqueira Silva",
         "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
         "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       }
     ]
   }

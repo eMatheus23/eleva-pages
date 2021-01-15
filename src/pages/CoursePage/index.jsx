@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Track array mockup
 import trackArray from '../../data/tracks.json';
+import courseArray from '../../data/courses.json';
 
 import './styles.css';
 
@@ -12,27 +13,31 @@ import MainFooter from '../../components/footers/MainFooter';
 import ContentListComponent from './ContentListComponent';
 import DetailsComponent from './DetailsComponent';
 import AdvantagesComponent from './AdvantagesComponent';
-import AuthorsComponent from './AuthorsComponent';
-import TrackVideoCard from '../../components/cards/TrackVideoCard';
+import Category from './Category';
+import VideoCard from './VideoCard';
 
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
 
-const CourseTrack = () => {
-  document.title = 'Trilha de Ensino | Elevagro';
+const CoursePage = () => {
+  document.title = 'Curso | Elevagro';
 
-  const [track, setTrack] = useState(null);
+  const [course, setCourse] = useState(null);
 
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
 
   useEffect(() => {
     // Simula a chamada da API
-    const [trackObject] = trackArray;
+    const courses = courseArray;
 
-    setTrack(trackObject);
+    const id = '93545040-e9c1-4e32-84db-9f2ad2e4c1a6';
+
+    const [chosenCourse] = courses.filter(c => c.id === id);
+
+    setCourse(chosenCourse);
   }, []);
 
-  const [activeView, setActiveView] = useState('courses-list');
+  const [activeView, setActiveView] = useState('modules');
 
   const handleViewChange = view => {
     setActiveView(view);
@@ -58,7 +63,7 @@ const CourseTrack = () => {
   };
 
   return (
-    <div id="course-track">
+    <div id="course-page">
       <MainHeader
         viewerStatus={viewerStatus}
         handleLogin={handleLogin}
@@ -66,47 +71,47 @@ const CourseTrack = () => {
         becomePremium={becomePremium}
       />
 
-      {track && (
+      {course && (
         <>
           <section className="hero">
             <div className="img-filter" />
             <div className="blur-container">
-              <img src={track.background_img_url} alt={track.title} />
+              <img src={course.background_img_url} alt={course.title} />
             </div>
 
             <div className="content-wrapper">
               <div className="nav-tree">
                 <Link to="/">Início</Link>
                 <span>/</span>
-                <Link to="/course-track">Trilhas</Link>
+                <Link to="/course-track">Cursos</Link>
                 <span>/</span>
-                <Link to="/course-track">{track.title}</Link>
+                <Link to="/course-track">{course.title}</Link>
               </div>
 
-              <h3>TRILHA DE ENSINO</h3>
-              <h1>{track.title}</h1>
+              <h3>CURSO</h3>
+              <h1>{course.title}</h1>
             </div>
           </section>
 
           <main>
             <div className="content-wrapper">
-              <TrackVideoCard trackData={track} viewerStatus={viewerStatus} />
-              <section className="track-description">
-                <p>{track.description}</p>
+              <VideoCard courseData={course} viewerStatus={viewerStatus} />
+              <section className="course-description">
+                <p>{course.description}</p>
                 <h3>
                   O que você vai aprender na trilha
                   <> </>
-                  {track.title}
+                  {course.title}
                   <>:</>
                 </h3>
               </section>
 
-              <section className="track-tab-selector">
+              <section className="course-tab-selector">
                 <div className="buttons">
                   <button
                     type="button"
-                    className={activeView === 'courses-list' ? 'active' : ''}
-                    onClick={() => handleViewChange('courses-list')}
+                    className={activeView === 'modules' ? 'active' : ''}
+                    onClick={() => handleViewChange('modules')}
                   >
                     Conteúdo
                   </button>
@@ -126,24 +131,27 @@ const CourseTrack = () => {
                   </button>
                   <button
                     type="button"
-                    className={activeView === 'authors' ? 'active' : ''}
-                    onClick={() => handleViewChange('authors')}
+                    className={activeView === 'category' ? 'active' : ''}
+                    onClick={() => handleViewChange('category')}
                   >
-                    Autores
+                    Categoria
                   </button>
                 </div>
 
                 <div className="underline" />
               </section>
 
-              {activeView === 'courses-list' && (
-                <ContentListComponent courses={track.courses} />
+              {activeView === 'modules' && (
+                <ContentListComponent
+                  modules={course.modules}
+                  viewerStatus={viewerStatus}
+                />
               )}
-              {activeView === 'details' && <DetailsComponent track={track} />}
+              {activeView === 'details' && <DetailsComponent course={course} />}
               {activeView === 'advantages' && (
-                <AdvantagesComponent track={track} />
+                <AdvantagesComponent course={course} />
               )}
-              {activeView === 'authors' && <AuthorsComponent track={track} />}
+              {activeView === 'category' && <Category course={course} />}
             </div>
           </main>
         </>
@@ -154,4 +162,4 @@ const CourseTrack = () => {
   );
 };
 
-export default CourseTrack;
+export default CoursePage;

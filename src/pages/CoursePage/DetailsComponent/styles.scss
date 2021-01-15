@@ -1,0 +1,38 @@
+$font-primary: Montserrat, sans-serif;
+
+#course-page-details {
+  margin-top: 4.4rem;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    width: 100%;
+
+    li {
+      display: flex;
+      align-items: center;
+
+      width: 50%;
+
+      margin-bottom: 2.2rem;
+
+      list-style: none;
+      font: normal 2rem/4rem Montserrat;
+
+      img {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  p {
+    width: 95%;
+    font: normal 2rem/2.7rem Montserrat;
+
+    & + p {
+      margin-top: 1rem;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+$font-primary: Montserrat, sans-serif;
+
+#category {
+  margin-top: 4rem;
+
+  p {
+    margin-bottom: 0.3rem;
+    font: normal 2rem/2.7rem $font-primary;
+  }
+
+  .recomended {
+    margin-top: 3rem;
+  }
+
+  > h4 {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font: normal 2.5rem/3rem $font-primary;
+    color: var(--color-secondary);
+  }
+
+  .authors {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    margin-bottom: 3rem;
+
+    .author {
+      width: 22%;
+      height: 12.6rem;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      margin: 5rem 0.7rem 0;
+      padding: 0 1.5rem;
+      border-radius: 0.8rem;
+      background: var(--color-background-secondary);
+
+      img {
+        width: 6.9rem;
+        height: 6.9rem;
+        margin-top: -4rem;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      p {
+        text-align: center;
+        font: normal 1.5rem/1.8rem $font-primary;
+      }
+
+      a {
+        font: normal 1.4rem/3rem $font-primary;
+        color: var(--color-text-link);
+      }
+    }
+  }
+}

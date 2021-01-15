@@ -9,7 +9,7 @@ import './styles.css';
 import formatValue from '../../../utils/formatValue';
 
 // Services
-import AddTrackToCart from '../../../services/AddTrackToCart';
+import AddCourseToCart from '../../../services/AddCourseToCart';
 
 import cartIcon from '../../../assets/images/icons/cart-icon.svg';
 import saveIcon from '../../../assets/images/icons/bookmark-icon.svg';
@@ -31,7 +31,7 @@ import clockIcon from '../../../assets/images/icons/clock-icon.svg';
 
 const TrackPlaylistModal = ({
   closeModal,
-  trackData,
+  courseData,
   viewerStatus,
   priceToViewer,
   handlePurchase,
@@ -39,7 +39,7 @@ const TrackPlaylistModal = ({
   const history = useHistory();
 
   const {
-    main_video,
+    tumbnail_url,
     title,
     demo_videos,
     videos_count,
@@ -48,14 +48,14 @@ const TrackPlaylistModal = ({
     price,
     discount_for_premium,
     price_for_premium,
-  } = trackData;
+  } = courseData;
 
   const handleBecomePremium = () => {
     history.push('/checkout');
   };
 
   return (
-    <div className="track-playlist-modal">
+    <div id="course-playlist-modal">
       <div className="content">
         <span
           onClick={closeModal}
@@ -66,7 +66,7 @@ const TrackPlaylistModal = ({
           X
         </span>
 
-        <video controls poster={main_video.tumbnail_url} />
+        <video controls poster={tumbnail_url} />
 
         <p>
           <del>{formatValue(original_price)}</del>
@@ -74,7 +74,6 @@ const TrackPlaylistModal = ({
 
         <div className="price-container">
           <div className="track-title">
-            <h3>TRILHA DE ENSINO</h3>
             <h2>{title}</h2>
           </div>
 
@@ -205,10 +204,8 @@ TrackPlaylistModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   viewerStatus: PropTypes.string.isRequired,
   priceToViewer: PropTypes.number.isRequired,
-  trackData: PropTypes.shape({
-    main_video: PropTypes.shape({
-      tumbnail_url: PropTypes.string,
-    }).isRequired,
+  courseData: PropTypes.shape({
+    tumbnail_url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     demo_videos: PropTypes.string.isRequired,
     original_price: PropTypes.number.isRequired,
@@ -220,28 +217,30 @@ TrackPlaylistModal.propTypes = {
   }),
 };
 
-const TrackVideoCard = ({ trackData, viewerStatus }) => {
+const TrackVideoCard = ({ courseData, viewerStatus }) => {
   const history = useHistory();
+
+  console.log(courseData);
 
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
   const {
     id,
-    main_video,
+    tumbnail_url,
     courses,
     original_price,
     price,
     discount,
     price_for_premium,
     discount_for_premium,
-  } = trackData;
+  } = courseData;
 
   const closeModal = () => setModalOpened(false);
 
   const handlePurchase = () => {
     // Adicionar produto no cart
     try {
-      AddTrackToCart({ trackId: id });
+      AddCourseToCart({ productId: id });
     } catch (err) {
       console.log(err);
     }
@@ -267,7 +266,7 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
         ReactDOM.createPortal(
           <TrackPlaylistModal
             closeModal={closeModal}
-            trackData={trackData}
+            courseData={courseData}
             viewerStatus={viewerStatus}
             priceToViewer={priceToViewer}
             handlePurchase={handlePurchase}
@@ -275,7 +274,7 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
           modalRoot,
         )}
       <div
-        id="track-video-card"
+        id="course-video-card"
         className={viewerStatus === 'premium' ? viewerStatus : ''}
       >
         <div className="card">
@@ -283,14 +282,11 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
             <video
               controls
               onClick={() => setModalOpened(true)}
-              poster={main_video.tumbnail_url}
+              poster={tumbnail_url}
             />
             <div className="video-caption">
               <p>
-                {courses.length}
-                <> </>
-                cursos você pagaria: R$:
-                <del>{original_price}</del>
+                <del>{formatValue(original_price)}</del>
               </p>
 
               <span>
@@ -301,19 +297,19 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
 
             <h3>{formatValue(priceToViewer)}</h3>
 
+            <span>
+              Em até 12x de
+              <> </>
+              <strong>{formatValue(price / 12)}</strong>
+              <> </>
+              no cartão
+            </span>
+
             <div>
               <button type="button" onClick={handlePurchase}>
                 Compre agora
                 <img src={cartIcon} alt="Compre Agora" />
               </button>
-
-              <span>
-                Em até 12x de
-                <> </>
-                {formatValue(price / 12)}
-                <> </>
-                no cartão
-              </span>
 
               {viewerStatus === 'premium' && (
                 <span>
@@ -325,10 +321,12 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
             </div>
           </main>
 
-          <section className="offer">
-            <p>Seja Premium e pague menos!</p>
-            <button type="button">{formatValue(price_for_premium)}</button>
-          </section>
+          {viewerStatus !== 'premium' && (
+            <section className="offer">
+              <p>Seja Premium e pague menos!</p>
+              <button type="button">{formatValue(price_for_premium)}</button>
+            </section>
+          )}
         </div>
 
         <div className="card-actions-container">
@@ -376,11 +374,9 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
 };
 
 TrackVideoCard.propTypes = {
-  trackData: PropTypes.shape({
+  courseData: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    main_video: PropTypes.shape({
-      tumbnail_url: PropTypes.string,
-    }).isRequired,
+    tumbnail_url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     courses: PropTypes.arrayOf(PropTypes.number).isRequired,
     demo_videos: PropTypes.string.isRequired,
