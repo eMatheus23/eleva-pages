@@ -4,13 +4,13 @@ body {
   overflow-x: hidden;
 }
 
-#course-track {
+#course-page {
   width: 100vw;
   min-height: 100vh;
   background: var(--color-background);
 }
 
-#course-track .hero {
+#course-page .hero {
   // overflow: hidden;
   position: relative;
 
@@ -101,6 +101,7 @@ body {
       font: normal 3rem/3.7rem Montserrat;
       color: var(--color-text-white);
       text-transform: uppercase;
+      max-width: 83rem;
     }
 
     > h3 {
@@ -112,7 +113,7 @@ body {
   }
 }
 
-#course-track > main {
+#course-page > main {
   width: 100%;
   padding: 3rem 4rem 8rem 4rem;
   background: var(--color-background);
@@ -140,7 +141,7 @@ body {
   }
 }
 
-.track-description {
+.course-description {
   p {
     margin-bottom: 3rem;
     font: normal 2rem/2.7rem Montserrat;
@@ -153,7 +154,7 @@ body {
   }
 }
 
-.track-tab-selector {
+.course-tab-selector {
   .buttons {
     display: flex;
     flex-direction: row;
@@ -257,4 +258,3 @@ body {
     }
   }
 }
-

@@ -1,0 +1,401 @@
+/* ---------------- MODAL ------------------*/
+#course-playlist-modal {
+  overflow: auto;
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 2, 2, 0.85);
+}
+#course-playlist-modal .clickable-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#course-playlist-modal .content {
+  position: relative;
+  z-index: 9001;
+  width: 65.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 4.4rem auto 20rem;
+  padding: 3rem 4.2rem 0;
+  background: #383332;
+  box-shadow: 0px 3px 30px #00000029;
+  border-radius: 1.7rem;
+  color: var(--color-text-white);
+}
+#course-playlist-modal .content > p {
+  font: normal 1.5rem/2.2rem Montserrat, sans-serif;
+}
+#course-playlist-modal .price-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#course-playlist-modal .price-container h2 {
+  font: normal 2rem/2.4rem Montserrat, sans-serif;
+  max-width: 35rem;
+}
+#course-playlist-modal .price-container button {
+  width: 21.2rem;
+  height: 5.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.9rem;
+  margin: 1rem 0;
+  background: var(--color-primary);
+  color: var(--color-secondary);
+  font: bold 2.5rem/2.2rem Montserrat, sans-serif;
+}
+#course-playlist-modal .price-container button:hover {
+  background: var(--color-primary-hover);
+}
+#course-playlist-modal .price-container button img {
+  width: 2.6rem;
+  margin-left: 1rem;
+}
+#course-playlist-modal .be-premium-card {
+  width: 100%;
+  height: 10.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-secondary);
+  border-radius: 1.2rem;
+  margin: 2rem 0 3rem;
+}
+#course-playlist-modal .be-premium-card p {
+  width: 53%;
+  margin-right: 3rem;
+  font: normal 2rem/2.4rem Montserrat, sans-serif;
+}
+#course-playlist-modal .be-premium-card > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#course-playlist-modal .be-premium-card button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.7rem;
+  border: 1px solid #ffffff;
+  border-radius: 0.9rem;
+  font: bold 2.5rem/2.2rem Montserrat;
+  background: var(--color-secondary);
+  color: var(--color-primary-hover);
+}
+#course-playlist-modal .be-premium-card button:hover {
+  background: var(--color-secondary-hover);
+}
+#course-playlist-modal .be-premium-card span {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--color-primary-hover);
+  font: normal 1.5rem/1.5rem Montserrat, sans-serif;
+}
+#course-playlist-modal .be-premium-card span strong {
+  font: bold 1.5rem/1.5rem Montserrat, sans-serif;
+}
+#course-playlist-modal .premium-discount {
+  width: 65.2rem;
+  align-self: center;
+  height: 10.2rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid #707070;
+  color: var(--color-primary);
+}
+#course-playlist-modal .premium-discount p {
+  width: 100%;
+  text-align: center;
+  font: normal 2rem/3.6rem Montserrat, sans-serif;
+}
+#course-playlist-modal .premium-discount > strong {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font: bold 2.5rem/3.6rem Montserrat, sans-serif;
+}
+#course-playlist-modal .close-modal {
+  width: 2rem;
+  margin-bottom: 1rem;
+  text-align: right;
+  font: normal 2rem/2.5rem Montserrat, sans-serif;
+  cursor: pointer;
+}
+#course-playlist-modal .close-modal:hover {
+  color: #e5e5e5;
+}
+#course-playlist-modal video {
+  width: 56.7rem;
+  height: 31.8rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+.playlist-container {
+  width: 65.2rem;
+  align-self: center;
+}
+
+.video-container {
+  width: 100%;
+  height: 12.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #707070;
+}
+.video-container > img {
+  width: 19.2rem;
+  height: 10.8rem;
+  margin-left: 4.2rem;
+  object-fit: cover;
+}
+.video-container button {
+  background: none;
+  border-radius: 50%;
+}
+.video-container button > img {
+  width: 2.6rem;
+}
+.video-container p {
+  width: 23.9rem;
+  font: normal 2rem/2.2rem Montserrat, sans-serif;
+}
+.video-container span {
+  margin-right: 4rem;
+  margin-left: 3rem;
+  font: normal 2rem/2.2rem Montserrat, sans-serif;
+}
+
+.premium-offer-container {
+  width: 100%;
+  height: 26.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.premium-offer-container p {
+  width: 80%;
+  font: normal 2rem/3rem Montserrat, sans-serif;
+  text-align: center;
+}
+.premium-offer-container button {
+  width: 90%;
+  height: 5.2rem;
+  background: var(--color-primary);
+  color: #535353;
+  font: normal 2rem/2.2rem Montserrat, sans-serif;
+  border-radius: 2.8rem;
+}
+.premium-offer-container button:hover {
+  background: var(--color-primary-hover);
+}
+.premium-offer-container button strong {
+  font: bold 2rem/2.2rem Montserrat, sans-serif;
+}
+
+.details {
+  margin-top: 4.4rem;
+}
+.details ul {
+  width: 100%;
+  padding-left: 4rem;
+}
+.details ul li {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 2.2rem;
+  list-style: none;
+  font: normal 2rem/2.2rem Montserrat;
+}
+.details ul li img {
+  margin-right: 1.5rem;
+}
+
+#course-video-card.premium .card {
+  padding-bottom: 3rem;
+}
+
+/* ---------------- CARD ------------------*/
+#course-video-card {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  margin-top: -25rem;
+}
+@media screen and (max-width: 1195px) {
+  #course-video-card {
+    position: initial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 3rem;
+  }
+}
+#course-video-card .card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 54.4rem;
+  background: var(--color-background);
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 14px;
+}
+#course-video-card main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2.3rem;
+}
+#course-video-card video {
+  width: 51.7rem;
+  height: 29rem;
+  object-fit: cover;
+  box-shadow: 0px 3px 6px #00000029;
+}
+#course-video-card .video-caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 83%;
+  margin-top: 1.5rem;
+}
+#course-video-card .video-caption p {
+  font: normal 1.8rem/2rem Montserrat, sans-serif;
+}
+#course-video-card .video-caption span {
+  font: normal 2rem/2.2rem Montserrat, sans-serif;
+  color: var(--color-secondary);
+}
+#course-video-card h3 {
+  width: 83%;
+  margin: 1rem 0 1rem -0.1rem;
+  font: normal 4.5rem/4.5rem Montserrat, sans-serif;
+  color: var(--color-secondary);
+  text-align: left;
+}
+#course-video-card h3 + span {
+  width: 83%;
+  margin-bottom: 2rem;
+  font: normal 2rem/2.2rem Montserrat, sans-serif;
+}
+#course-video-card span + div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 83%;
+}
+#course-video-card span + div button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5.4rem;
+  border-radius: 0.9rem;
+  background: var(--color-secondary);
+  color: var(--color-text-white);
+  font: normal 2.5rem/3rem Montserrat, sans-serif;
+}
+#course-video-card span + div button:hover {
+  background: var(--color-secondary-hover);
+}
+#course-video-card span + div button img {
+  width: 4rem;
+  margin-left: 1rem;
+}
+#course-video-card span + div span {
+  margin-top: 1.5rem;
+  font: normal 1.8rem/2.2rem Montserrat, sans-serif;
+  text-align: center;
+}
+
+.card .offer {
+  width: 100%;
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  background: var(--color-primary);
+}
+.card .offer p {
+  width: 23.4rem;
+  text-align: right;
+  font: normal 2rem/2.4rem Montserrat;
+}
+.card .offer button {
+  width: 18.3rem;
+  height: 4.3rem;
+  margin-left: 2rem;
+  margin-right: 5rem;
+  border: 1px solid var(--color-secondary);
+  border-radius: 9px;
+  background: none;
+  color: var(--color-secondary);
+  font: bold 2.5rem/2.2rem Montserrat;
+}
+.card .offer button:hover {
+  background: var(--color-primary-hover);
+}
+
+.card-actions-container {
+  width: 54.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 0 0.5rem;
+}
+.card-actions-container p {
+  font: normal 1.8rem/4rem Montserrat;
+}
+.card-actions-container button {
+  transition: transform 0.2s;
+}
+.card-actions-container button:hover {
+  filter: brightness(90%);
+  transform: translateY(-2px);
+}
+.card-actions-container .save {
+  width: 9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+}
+.card-actions-container .save img {
+  width: 2.4rem;
+}
+.card-actions-container .share {
+  width: 33.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-actions-container .share img {
+  width: 4.4rem;
+  transition: transform 0.2s;
+}
+.card-actions-container .share img:hover {
+  filter: brightness(90%);
+  transform: translateY(-2px);
+}
+
+/*# sourceMappingURL=styles.css.map */
