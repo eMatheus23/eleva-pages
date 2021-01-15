@@ -1,0 +1,243 @@
+$font-primary: Montserrat, sans-serif;
+
+/* ---------------- MODAL ------------------*/
+.track-playlist-modal {
+  overflow: auto;
+
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: rgb(0, 2, 2, 0.85);
+
+  .clickable-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    position: relative;
+    z-index: 9001;
+
+    width: 65.2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    margin: 4.4rem auto 20rem;
+    padding: 3rem 4.2rem 0;
+
+    background: #383332;
+    box-shadow: 0px 3px 30px #00000029;
+    border-radius: 1.7rem;
+    color: var(--color-text-white);
+
+    > p {
+      font: normal 1.5rem/2.2rem Montserrat;
+    }
+  }
+
+  .price-container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font: normal 2rem/3rem Montserrat;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font: normal 1.8rem/3rem Montserrat;
+    }
+
+    button {
+      width: 21.2rem;
+      height: 5.6rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 0.9rem;
+      margin: 1rem 0;
+
+      background: var(--color-primary);
+      color: var(--color-secondary);
+      font: bold 2.5rem/2.2rem Montserrat;
+
+      &:hover {
+        background: var(--color-primary-hover);
+      }
+
+      img {
+        width: 2.6rem;
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .be-premium-card {
+    width: 100%;
+    height: 10.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--color-secondary);
+    border-radius: 1.2rem;
+    margin: 2rem 0 3rem;
+
+    p {
+      width: 53%;
+      margin-right: 3rem;
+      font: normal 2rem/2.4rem Montserrat;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 1.25rem 1.7rem;
+      border: 1px solid #ffffff;
+      border-radius: 0.9rem;
+
+      font: bold 2.5rem/2.2rem Montserrat;
+      background: var(--color-secondary);
+      color: var(--color-primary-hover);
+
+      &:hover {
+        background: var(--color-secondary-hover);
+      }
+    }
+
+    span {
+      display: block;
+      margin-top: 0.7rem;
+      color: var(--color-primary-hover);
+      font: normal 1.5rem/1.5rem Montserrat;
+
+      strong {
+        font: bold 1.5rem/1.5rem Montserrat;
+      }
+    }
+  }
+
+  .close-modal {
+    width: 2rem;
+    margin-bottom: 1rem;
+    text-align: right;
+    font: normal 2rem/2.5rem Montserrat;
+    cursor: pointer;
+
+    &:hover {
+      color: #e5e5e5;
+    }
+  }
+
+  video {
+    width: 56.7rem;
+    height: 31.8rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+}
+
+.playlist-container {
+  width: 65.2rem;
+  align-self: center;
+}
+
+.video-container {
+  width: 100%;
+  height: 12.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  // margin: 0 -4rem;
+  border-bottom: 1px solid #707070;
+
+  > img {
+    width: 19.2rem;
+    height: 10.8rem;
+
+    margin-left: 4.2rem;
+
+    object-fit: cover;
+  }
+
+  button {
+    background: none;
+    border-radius: 50%;
+
+    > img {
+      width: 2.6rem;
+    }
+  }
+
+  p {
+    width: 23.9rem;
+    font: normal 2rem/2.2rem Montserrat;
+  }
+
+  span {
+    margin-right: 4rem;
+    margin-left: 3rem;
+    font: normal 2rem/2.2rem Montserrat;
+  }
+}
+
+.premium-offer-container {
+  width: 100%;
+  height: 26.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  p {
+    width: 80%;
+    font: normal 2rem/3rem Montserrat;
+    text-align: center;
+  }
+
+  button {
+    width: 90%;
+    height: 5.2rem;
+
+    background: var(--color-primary);
+    color: #535353;
+    font: normal 2rem/2.2rem Montserrat;
+    border-radius: 2.8rem;
+
+    &:hover {
+      background: var(--color-primary-hover);
+    }
+
+    strong {
+      font: bold 2rem/2.2rem Montserrat;
+    }
+  }
+}
