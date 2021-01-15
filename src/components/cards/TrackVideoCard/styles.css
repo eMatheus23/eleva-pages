@@ -1,3 +1,4 @@
+/* ---------------- MODAL ------------------*/
 .track-playlist-modal {
   overflow: auto;
   position: fixed;
@@ -89,7 +90,7 @@
   align-items: center;
   justify-content: center;
   padding: 1.25rem 1.7rem;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   border-radius: 0.9rem;
   font: bold 2.5rem/2.2rem Montserrat;
   background: var(--color-secondary);
@@ -188,7 +189,15 @@
   font: bold 2rem/2.2rem Montserrat;
 }
 
-.track-video-card {
+#track-video-card.premium .card {
+  padding-bottom: 3rem;
+}
+#track-video-card.premium .card .offer {
+  display: none;
+}
+
+/* ---------------- CARD ------------------*/
+#track-video-card {
   position: absolute;
   z-index: 5;
   top: 0;
@@ -196,7 +205,7 @@
   margin-top: -25rem;
 }
 @media screen and (max-width: 1195px) {
-  .track-video-card {
+  #track-video-card {
     position: initial;
     display: flex;
     flex-direction: column;
@@ -205,31 +214,30 @@
     margin-bottom: 3rem;
   }
 }
-.track-video-card .card {
+#track-video-card .card {
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 54.4rem;
-  height: 65.8rem;
   background: var(--color-background);
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 14px;
 }
-.track-video-card main {
+#track-video-card main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding-top: 2.3rem;
 }
-.track-video-card video {
+#track-video-card video {
   width: 51.7rem;
   height: 29rem;
   object-fit: cover;
   box-shadow: 0px 3px 6px #00000029;
 }
-.track-video-card .video-caption {
+#track-video-card .video-caption {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -237,26 +245,26 @@
   width: 85%;
   margin-top: 1.5rem;
 }
-.track-video-card .video-caption p {
+#track-video-card .video-caption p {
   font: normal 1.8rem/2rem Montserrat;
 }
-.track-video-card .video-caption span {
+#track-video-card .video-caption span {
   font: normal 2rem/2.2rem Montserrat;
 }
-.track-video-card h3 {
+#track-video-card h3 {
   width: 83%;
   margin: 3rem 0 2rem 0;
   font: normal 4.5rem/4.5rem Montserrat;
   color: var(--color-secondary);
   text-align: left;
 }
-.track-video-card h3 + div {
+#track-video-card h3 + div {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 83%;
 }
-.track-video-card h3 + div button {
+#track-video-card h3 + div button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -267,16 +275,17 @@
   color: var(--color-text-white);
   font: normal 2.5rem/3rem Montserrat;
 }
-.track-video-card h3 + div button:hover {
+#track-video-card h3 + div button:hover {
   background: var(--color-secondary-hover);
 }
-.track-video-card h3 + div button img {
+#track-video-card h3 + div button img {
   width: 4rem;
   margin-left: 1rem;
 }
-.track-video-card h3 + div span {
+#track-video-card h3 + div span {
   margin-top: 1.5rem;
   font: normal 1.8rem/2.2rem Montserrat;
+  text-align: center;
 }
 
 .card .offer {
@@ -285,6 +294,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
   background: var(--color-primary);
 }
 .card .offer p {
