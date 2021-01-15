@@ -21,13 +21,28 @@ import messengerLogo from '../../../assets/images/logos/messenger-logo.svg';
 import whatsappLogo from '../../../assets/images/logos/whatsapp-logo.svg';
 import bitwiseImg from '../../../assets/images/icons/bitwise.svg';
 
-const TrackPlaylistModal = ({ closeModal, trackData }) => {
+// Icons
+import videoIcon from '../../../assets/images/icons/videos-icon.svg';
+import materialsIcon from '../../../assets/images/icons/materials-icon.svg';
+import certificateIcon from '../../../assets/images/icons/certificate-icon.svg';
+import articlesIcon from '../../../assets/images/icons/articles-icon.svg';
+import infoIcon from '../../../assets/images/icons/info-icon.svg';
+import clockIcon from '../../../assets/images/icons/clock-icon.svg';
+
+const TrackPlaylistModal = ({
+  closeModal,
+  trackData,
+  viewerStatus,
+  priceToViewer,
+}) => {
   const history = useHistory();
 
   const {
     main_video,
     title,
     demo_videos,
+    videos_count,
+    hours,
     original_price,
     price,
     discount_for_premium,
@@ -63,7 +78,7 @@ const TrackPlaylistModal = ({ closeModal, trackData }) => {
           </div>
 
           <button type="button">
-            {formatValue(price)}
+            {formatValue(priceToViewer)}
             <img src={cart02Icon} alt="" />
           </button>
         </div>
@@ -71,27 +86,41 @@ const TrackPlaylistModal = ({ closeModal, trackData }) => {
         <p>
           12x de
           <> </>
-          {formatValue(price / 12)}
+          {formatValue(priceToViewer / 12)}
           <> </>
         </p>
 
-        <div className="be-premium-card">
-          <p>
-            Seja um associado Premium na Elevagro e pague
-            <strong> apenas:</strong>
-          </p>
-          <div>
-            <button type="button">{formatValue(price_for_premium)}</button>
-            <span>
-              <strong>
-                {Math.floor((discount_for_premium / 1) * 100)}
-                <>% </>
-              </strong>
-              de
-              <strong> desconto.</strong>
-            </span>
+        {viewerStatus !== 'premium' && (
+          <div className="be-premium-card">
+            <p>
+              Seja um associado Premium na Elevagro e pague
+              <strong> apenas:</strong>
+            </p>
+            <div>
+              <button type="button">{formatValue(price_for_premium)}</button>
+              <span>
+                <strong>
+                  {Math.floor((discount_for_premium / 1) * 100)}
+                  <>% </>
+                </strong>
+                de
+                <strong> desconto.</strong>
+              </span>
+            </div>
           </div>
-        </div>
+        )}
+
+        {viewerStatus === 'premium' && (
+          <div className="premium-discount">
+            <p>
+              Seu desconto premium:
+              <> </>
+              <strong>{formatValue(price - price_for_premium)}</strong>
+            </p>
+
+            <strong>Isso é muito bom!</strong>
+          </div>
+        )}
 
         <div className="playlist-container">
           {demo_videos.map(video => (
@@ -106,19 +135,64 @@ const TrackPlaylistModal = ({ closeModal, trackData }) => {
           ))}
         </div>
 
-        <div className="premium-offer-container">
-          <p>
-            <>Associado Premium ganha </>
-            {Math.floor((discount_for_premium / 1) * 100)}
-            <>% de desconto. Clique aqui e seja Premium</>
-          </p>
+        {viewerStatus !== 'premium' && (
+          <div className="premium-offer-container">
+            <p>
+              <>Associado Premium ganha </>
+              {Math.floor((discount_for_premium / 1) * 100)}
+              <>% de desconto. Clique aqui e seja Premium</>
+            </p>
 
-          <button type="button" onClick={handleBecomePremium}>
-            <strong>Seja Premium </strong>
-            <> e pague </>
-            <strong>{formatValue(price_for_premium)}</strong>
-          </button>
-        </div>
+            <button type="button" onClick={handleBecomePremium}>
+              <strong>Seja Premium </strong>
+              <> e pague </>
+              <strong>{formatValue(price_for_premium)}</strong>
+            </button>
+          </div>
+        )}
+
+        {viewerStatus === 'premium' && (
+          <section className="details">
+            <ul className="row">
+              <li className="col-7">
+                <img src={videoIcon} alt="Vídeos" />
+                <span>
+                  <>+ </>
+                  {videos_count}
+                  <> vídeos</>
+                </span>
+              </li>
+
+              <li className="col-5">
+                <img src={articlesIcon} alt="Artigos" />
+                <span>+ Artigos</span>
+              </li>
+
+              <li className="col-7">
+                <img src={materialsIcon} alt="Materiais" />
+                <span>+ materiais de apoio</span>
+              </li>
+
+              <li className="col-5">
+                <img src={infoIcon} alt="Infográficos" />
+                <span>+ Infográficos</span>
+              </li>
+
+              <li className="col-7">
+                <img src={certificateIcon} alt="Certificados" />
+                <span>Certificação Elevagro</span>
+              </li>
+
+              <li className="col-5">
+                <img src={clockIcon} alt="Atividades" />
+                <span>
+                  {hours}
+                  <>h de atividade</>
+                </span>
+              </li>
+            </ul>
+          </section>
+        )}
       </div>
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div className="clickable-background" onClick={closeModal} />
@@ -128,6 +202,8 @@ const TrackPlaylistModal = ({ closeModal, trackData }) => {
 
 TrackPlaylistModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  viewerStatus: PropTypes.bool.isRequired,
+  priceToViewer: PropTypes.number.isRequired,
   trackData: PropTypes.shape({
     main_video: PropTypes.shape({
       tumbnail_url: PropTypes.string,
@@ -138,6 +214,8 @@ TrackPlaylistModal.propTypes = {
     price: PropTypes.number.isRequired,
     discount_for_premium: PropTypes.number.isRequired,
     price_for_premium: PropTypes.number.isRequired,
+    videos_count: PropTypes.number.isRequired,
+    hours: PropTypes.number.isRequired,
   }),
 };
 
@@ -171,11 +249,27 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
     history.push('/checkout');
   };
 
+  // Define o preço do produto de acordo com o status do usuário
+  const getPriceToViewer = () => {
+    if (viewerStatus === 'premium') {
+      return price_for_premium;
+    }
+
+    return price;
+  };
+
+  const priceToViewer = getPriceToViewer();
+
   return (
     <>
       {modalOpened &&
         ReactDOM.createPortal(
-          <TrackPlaylistModal closeModal={closeModal} trackData={trackData} />,
+          <TrackPlaylistModal
+            closeModal={closeModal}
+            trackData={trackData}
+            viewerStatus={viewerStatus}
+            priceToViewer={priceToViewer}
+          />,
           modalRoot,
         )}
       <div
@@ -203,10 +297,7 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
               </span>
             </div>
 
-            {viewerStatus !== 'premium' && <h3>{formatValue(price)}</h3>}
-            {viewerStatus === 'premium' && (
-              <h3>{formatValue(price_for_premium)}</h3>
-            )}
+            <h3>{formatValue(priceToViewer)}</h3>
 
             <div>
               <button type="button" onClick={() => handlePurchase(id)}>

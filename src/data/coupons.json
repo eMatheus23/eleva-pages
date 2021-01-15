@@ -4,6 +4,7 @@
     "type": "coupon",
     "code": "COUPON34",
     "name": "Voucher",
-    "price": -34.0
+    "price": -34.0,
+    "price_for_premium": -34.0
   }
 ]

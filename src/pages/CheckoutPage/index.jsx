@@ -22,6 +22,7 @@ import coupons from '../../data/coupons.json';
 import addProductToCart from '../../services/AddProductToCart';
 import addCouponToCart from '../../services/AddCouponToCart';
 import getCartSum from '../../services/getCartSum';
+import getCartPremiumSum from '../../services/getPremiumCartSum';
 import getCartDiscountSum from '../../services/getCartDiscountSum';
 import getCartPremiumDiscountSum from '../../services/getCartPremiumDiscountSum';
 import getViewerStatus from '../../services/getViewerStatus';
@@ -35,7 +36,7 @@ const CheckoutPage = () => {
 
   const history = useHistory();
 
-  const [viewerStatus, setViewerStatus] = useState(() => getViewerStatus);
+  const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
 
   const [productsInCart, setProductsInCart] = useState(
     JSON.parse(localStorage.getItem('@elevagro-app/cart')),
@@ -65,9 +66,22 @@ const CheckoutPage = () => {
   });
 
   const [inputError, setInputError] = useState('');
-  const cartSum = getCartSum(productsInCart);
+
   const cartDiscountSum = getCartDiscountSum(productsInCart);
   const cartPremiumDiscountSum = getCartPremiumDiscountSum(productsInCart);
+
+  const getCartSumToViewer = () => {
+    const cartSum = getCartSum(productsInCart);
+    const cartSumForPremium = getCartPremiumSum(productsInCart);
+
+    if (viewerStatus === 'premium') {
+      return cartSumForPremium;
+    }
+
+    return cartSum;
+  };
+
+  const cartSumToViewer = getCartSumToViewer();
 
   useEffect(() => {
     if (!productsInCart || productsInCart.length === 0) {
@@ -186,7 +200,10 @@ const CheckoutPage = () => {
       <div className="content-wrapper">
         <main>
           {viewerStatus !== 'visit' && (
-            <PaymentOptionsCard billPage="/checkout/bill" cartSum={cartSum} />
+            <PaymentOptionsCard
+              billPage="/checkout/bill"
+              cartSum={cartSumToViewer}
+            />
           )}
 
           {viewerStatus === 'visit' && (
@@ -205,6 +222,7 @@ const CheckoutPage = () => {
                     key={`produto_${product.id}`}
                     deleteProduct={deleteProduct}
                     product={product}
+                    viewerStatus={viewerStatus}
                   />
                 );
               }
@@ -251,9 +269,9 @@ const CheckoutPage = () => {
               <p>Total:</p>
               <h2 className="price-style helvetica">
                 <span>R$</span>
-                <strong>{Math.floor(cartSum)}</strong>
+                <strong>{Math.floor(cartSumToViewer)}</strong>
                 <>,</>
-                {getDecimals(cartSum)}
+                {getDecimals(cartSumToViewer)}
               </h2>
             </div>
 

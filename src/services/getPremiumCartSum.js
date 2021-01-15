@@ -1,6 +1,6 @@
-const getCartSum = productsInCart => {
+const getPremiumCartSum = productsInCart => {
   const sum = productsInCart
-    .map(product => product.price)
+    .map(product => product.price_for_premium)
     .reduce((prev, curr) => prev + curr, 0);
 
   if (sum < 0) {
@@ -10,4 +10,4 @@ const getCartSum = productsInCart => {
   return sum;
 };
 
-export default getCartSum;
+export default getPremiumCartSum;

@@ -14,7 +14,7 @@ import formatValue from '../../../utils/formatValue';
 
 import getDecimals from '../../../utils/getDecimals';
 
-const ProductCheckout = ({ product, success, deleteProduct }) => {
+const ProductCheckout = ({ product, success, deleteProduct, viewerStatus }) => {
   const [checkoutSucess] = useState(() => {
     if (success) return true;
 
@@ -27,9 +27,22 @@ const ProductCheckout = ({ product, success, deleteProduct }) => {
     title,
     original_price,
     price,
-    discount,
+    price_for_premium,
     cover_url,
   } = product;
+
+  // Define o preço do produto de acordo com o status do usuário
+  const getPriceToViewer = () => {
+    if (viewerStatus === 'premium') {
+      return price_for_premium;
+    }
+
+    return price;
+  };
+
+  const priceToViewer = getPriceToViewer();
+
+  const discount = Math.floor((1 - priceToViewer / original_price) * 100);
 
   return (
     <div className="product-checkout-card">
@@ -46,12 +59,12 @@ const ProductCheckout = ({ product, success, deleteProduct }) => {
             <p>{formatValue(original_price)}</p>
             <h2 className="price-style">
               <span>R$</span>
-              <strong>{Math.floor(price)}</strong>
+              <strong>{Math.floor(priceToViewer)}</strong>
               <>,</>
-              {getDecimals(price)}
+              {getDecimals(priceToViewer)}
             </h2>
             <span>
-              {Math.floor((discount / 1) * 100)}
+              {discount}
               <>% de desconto </>
             </span>
           </div>
@@ -83,11 +96,14 @@ ProductCheckout.propTypes = {
     title: PropTypes.string.isRequired,
     original_price: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
+    price_for_premium: PropTypes.number.isRequired,
     discount: PropTypes.number.isRequired,
+    discount_for_premium: PropTypes.number.isRequired,
     cover_url: PropTypes.string.isRequired,
   }),
   success: PropTypes.bool,
   deleteProduct: PropTypes.func.isRequired,
+  viewerStatus: PropTypes.bool.isRequired,
 };
 
 ProductCheckout.defaultProps = {
