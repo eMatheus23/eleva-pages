@@ -15,7 +15,7 @@ import AddCourseToCart from '../../../services/AddCourseToCart';
 
 import cartIcon from '../../../assets/images/icons/cart-icon.svg';
 
-const CourseDetailsModal = ({ closeModal, course }) => {
+const CourseDetailsModal = ({ closeModal, course, viewerStatus }) => {
   const history = useHistory();
 
   const {
@@ -27,8 +27,20 @@ const CourseDetailsModal = ({ closeModal, course }) => {
     original_price,
     price,
     price_for_premium,
+    discount_for_premium,
     title,
   } = course;
+
+  // Define o preço do produto de acordo com o status do usuário
+  const getPriceToViewer = () => {
+    if (viewerStatus === 'premium') {
+      return price_for_premium;
+    }
+
+    return price;
+  };
+
+  const priceToViewer = getPriceToViewer();
 
   const handlePurchase = courseId => {
     // Adicionar produto no cart
@@ -81,12 +93,12 @@ const CourseDetailsModal = ({ closeModal, course }) => {
         <div className="purchase-container">
           <h4>Adquirir apenas este curso:</h4>
           <del>{formatValue(original_price)}</del>
-          <h2>{formatValue(price)}</h2>
+          <h2>{formatValue(priceToViewer)}</h2>
           <p>
             12x de
             <strong>
               <> </>
-              {formatValue(price / 12)}
+              {formatValue(priceToViewer / 12)}
               <> </>
             </strong>
             no cartão
@@ -95,13 +107,26 @@ const CourseDetailsModal = ({ closeModal, course }) => {
             Compre agora
             <img src={cartIcon} alt="Compre Agora" />
           </button>
-          <span>___ Ou ___</span>
-          <section className="be-premium-offer">
-            <p>Seja Premium e pague apenas:</p>
-            <button type="button">{formatValue(price_for_premium)}</button>
-          </section>
 
-          <Link to="/">Acessar página do curso.</Link>
+          {viewerStatus !== 'premium' && (
+            <>
+              <span>___ Ou ___</span>
+              <section className="be-premium-offer">
+                <p>Seja Premium e pague apenas:</p>
+                <button type="button">{formatValue(price_for_premium)}</button>
+              </section>
+            </>
+          )}
+
+          {viewerStatus === 'premium' && (
+            <span className="premium-discount">
+              <>Você tem </>
+              {Math.floor((discount_for_premium / 1) * 100)}
+              <>% de desconto Premium neste produto</>
+            </span>
+          )}
+
+          <Link to="/courses">Acessar página do curso.</Link>
         </div>
       </div>
 
@@ -113,6 +138,7 @@ const CourseDetailsModal = ({ closeModal, course }) => {
 
 CourseDetailsModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
+  viewerStatus: PropTypes.string.isRequired,
   course: PropTypes.shape({
     id: PropTypes.string.isRequired,
     authors: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -122,11 +148,12 @@ CourseDetailsModal.propTypes = {
     original_price: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     price_for_premium: PropTypes.number.isRequired,
+    discount_for_premium: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
   }),
 };
 
-const ContentListComponent = ({ courses }) => {
+const ContentListComponent = ({ courses, viewerStatus }) => {
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({});
@@ -148,6 +175,7 @@ const ContentListComponent = ({ courses }) => {
           <CourseDetailsModal
             closeModal={closeModal}
             course={selectedCourse}
+            viewerStatus={viewerStatus}
           />,
           modalRoot,
         )}
@@ -195,15 +223,12 @@ const ContentListComponent = ({ courses }) => {
 };
 
 ContentListComponent.propTypes = {
+  viewerStatus: PropTypes.string.isRequired,
   courses: PropTypes.arrayOf(
     PropTypes.shape({
-      authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+      id: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired,
-      cover_url: PropTypes.string.isRequired,
-      modules: PropTypes.arrayOf(PropTypes.string).isRequired,
       original_price: PropTypes.number.isRequired,
-      price: PropTypes.number.isRequired,
-      price_for_premium: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
     }),
   ),

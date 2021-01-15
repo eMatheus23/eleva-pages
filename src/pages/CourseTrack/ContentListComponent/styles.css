@@ -39,15 +39,15 @@
   object-fit: cover;
 }
 .course-datails-modal .content > h5 {
-  font: normal 1.7rem/5.5rem "Montserrat", sans-serif;
+  font: normal 1.7rem/5.5rem "Montserrat", sans-serif, sans-serif;
   color: var(--color-secondary-alternative);
 }
 .course-datails-modal .content > h3 {
-  font: normal 3rem/3rem "Montserrat", sans-serif;
+  font: normal 3rem/3rem "Montserrat", sans-serif, sans-serif;
   margin-bottom: 3rem;
 }
 .course-datails-modal .content > p {
-  font: normal 2rem/2.4rem "Source Sans Pro", sans-serif;
+  font: normal 2rem/2.4rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .content > p + p {
   margin-top: 2rem;
@@ -57,7 +57,7 @@
 }
 .course-datails-modal .content > h4 {
   margin-bottom: 2rem;
-  font: normal 2.5rem/3rem "Montserrat", sans-serif;
+  font: normal 2.5rem/3rem "Montserrat", sans-serif, sans-serif;
   color: var(--color-secondary);
 }
 .course-datails-modal .authors {
@@ -88,10 +88,10 @@
 }
 .course-datails-modal .authors .author p {
   text-align: center;
-  font: normal 1.5rem/1.8rem "Montserrat", sans-serif;
+  font: normal 1.5rem/1.8rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .authors .author a {
-  font: normal 1.4rem/3rem "Montserrat", sans-serif;
+  font: normal 1.4rem/3rem "Montserrat", sans-serif, sans-serif;
   color: var(--color-text-link);
 }
 .course-datails-modal .purchase-container {
@@ -105,17 +105,17 @@
   background: var(--color-background-secondary);
 }
 .course-datails-modal .purchase-container > h4 {
-  font: normal 2.5rem/3rem "Montserrat", sans-serif;
+  font: normal 2.5rem/3rem "Montserrat", sans-serif, sans-serif;
   color: var(--color-secondary);
 }
 .course-datails-modal .purchase-container > del,
 .course-datails-modal .purchase-container > p,
 .course-datails-modal .purchase-container > span {
-  font: normal 2rem/2.2rem "Montserrat", sans-serif;
+  font: normal 2rem/2.2rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .purchase-container > h2 {
   margin: -1rem 0;
-  font: 500 4.5rem/4.5rem "Montserrat", sans-serif;
+  font: 500 4.5rem/4.5rem "Montserrat", sans-serif, sans-serif;
   color: var(--color-secondary);
 }
 .course-datails-modal .purchase-container > button {
@@ -152,7 +152,7 @@
 .course-datails-modal .purchase-container .be-premium-offer p {
   width: 37%;
   margin-right: 2rem;
-  font: bold 2rem/2.4rem "Montserrat", sans-serif;
+  font: bold 2rem/2.4rem "Montserrat", sans-serif, sans-serif;
   text-align: right;
 }
 .course-datails-modal .purchase-container .be-premium-offer > div {
@@ -167,7 +167,7 @@
   padding: 1.25rem 3rem;
   border: 1px solid var(--color-secondary);
   border-radius: 0.9rem;
-  font: bold 2.5rem/2.2rem "Montserrat", sans-serif;
+  font: bold 2.5rem/2.2rem "Montserrat", sans-serif, sans-serif;
   background: var(--color-primary);
   color: var(--color-secondary);
 }
@@ -178,7 +178,7 @@
   align-self: center;
   margin-top: 2rem;
   text-align: center;
-  font: normal 2rem/2.4rem "Montserrat", sans-serif;
+  font: normal 2rem/2.4rem "Montserrat", sans-serif, sans-serif;
   color: var(--color-secondary);
 }
 .course-datails-modal .price-container {
@@ -188,10 +188,10 @@
   justify-content: space-between;
 }
 .course-datails-modal .price-container h2 {
-  font: normal 1.8rem/3rem "Montserrat", sans-serif;
+  font: normal 1.8rem/3rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .price-container h3 {
-  font: normal 2rem/3rem "Montserrat", sans-serif;
+  font: normal 2rem/3rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .price-container button {
   width: 21.2rem;
@@ -203,7 +203,7 @@
   margin: 1rem 0;
   background: var(--color-primary);
   color: var(--color-secondary);
-  font: bold 2.5rem/2.2rem "Montserrat", sans-serif;
+  font: bold 2.5rem/2.2rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .price-container button:hover {
   background: var(--color-primary-hover);
@@ -224,7 +224,7 @@
 .course-datails-modal .be-premium-card p {
   width: 53%;
   margin-right: 3rem;
-  font: normal 2rem/2.4rem "Montserrat", sans-serif;
+  font: normal 2rem/2.4rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .be-premium-card > div {
   display: flex;
@@ -238,7 +238,7 @@
   padding: 1.25rem 1.7rem;
   border: 1px solid #ffffff;
   border-radius: 0.9rem;
-  font: bold 2.5rem/2.2rem "Montserrat", sans-serif;
+  font: bold 2.5rem/2.2rem "Montserrat", sans-serif, sans-serif;
   background: var(--color-secondary);
   color: var(--color-primary-hover);
 }
@@ -249,14 +249,14 @@
   display: block;
   margin-top: 0.7rem;
   color: var(--color-primary-hover);
-  font: normal 1.5rem/1.5rem "Montserrat", sans-serif;
+  font: normal 1.5rem/1.5rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .be-premium-card span strong {
-  font: bold 1.5rem/1.5rem "Montserrat", sans-serif;
+  font: bold 1.5rem/1.5rem "Montserrat", sans-serif, sans-serif;
 }
 .course-datails-modal .close-modal {
   margin-bottom: 1rem;
-  font: normal 1.5rem/1.6rem "Montserrat", sans-serif;
+  font: normal 1.5rem/1.6rem "Montserrat", sans-serif, sans-serif;
   cursor: pointer;
 }
 .course-datails-modal .close-modal:hover {
@@ -267,6 +267,9 @@
   height: 31.8rem;
   margin-bottom: 1rem;
   box-shadow: 0px 3px 6px #00000029;
+}
+.course-datails-modal .premium-discount {
+  text-align: center;
 }
 
 .courses-list .course {
@@ -280,7 +283,7 @@
 }
 .courses-list h2 {
   margin: 1.8rem 0 2rem 0;
-  font: normal 3.5rem/4.3rem "Montserrat", sans-serif;
+  font: normal 3.5rem/4.3rem "Montserrat", sans-serif, sans-serif;
 }
 .courses-list .img-container {
   width: 45%;
@@ -312,14 +315,14 @@
   width: 100%;
 }
 .courses-list .course-description p {
-  font: normal 2rem/2.2rem "Montserrat", sans-serif;
+  font: normal 2rem/2.2rem "Montserrat", sans-serif, sans-serif;
 }
 .courses-list .course-description > div:first-of-type {
   display: flex;
   flex-direction: column;
 }
 .courses-list .course-description > div:first-of-type span {
-  font: normal 1.7rem/2.2rem "Montserrat", sans-serif;
+  font: normal 1.7rem/2.2rem "Montserrat", sans-serif, sans-serif;
   color: var(--color-secondary-alternative);
 }
 .courses-list .course-description > div:last-of-type {
@@ -329,11 +332,11 @@
 }
 .courses-list .course-description > div:last-of-type span {
   text-decoration: line-through;
-  font: normal 2.5rem/2.2rem "Montserrat", sans-serif;
+  font: normal 2.5rem/2.2rem "Montserrat", sans-serif, sans-serif;
   color: var(--color-secondary-alternative);
 }
 .courses-list .course-description > div:last-of-type button {
-  font: normal 2rem/2.2rem "Montserrat", sans-serif;
+  font: normal 2rem/2.2rem "Montserrat", sans-serif, sans-serif;
   text-decoration: underline;
   background: none;
   color: var(--color-secondary-alternative);

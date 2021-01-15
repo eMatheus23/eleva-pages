@@ -103,7 +103,7 @@ ProductCheckout.propTypes = {
   }),
   success: PropTypes.bool,
   deleteProduct: PropTypes.func.isRequired,
-  viewerStatus: PropTypes.bool.isRequired,
+  viewerStatus: PropTypes.string.isRequired,
 };
 
 ProductCheckout.defaultProps = {

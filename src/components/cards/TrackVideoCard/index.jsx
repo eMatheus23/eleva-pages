@@ -202,7 +202,7 @@ const TrackPlaylistModal = ({
 
 TrackPlaylistModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  viewerStatus: PropTypes.bool.isRequired,
+  viewerStatus: PropTypes.string.isRequired,
   priceToViewer: PropTypes.number.isRequired,
   trackData: PropTypes.shape({
     main_video: PropTypes.shape({

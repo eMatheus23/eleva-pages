@@ -137,7 +137,10 @@ const CourseTrack = () => {
               </section>
 
               {activeView === 'courses-list' && (
-                <ContentListComponent courses={track.courses} />
+                <ContentListComponent
+                  courses={track.courses}
+                  viewerStatus={viewerStatus}
+                />
               )}
               {activeView === 'details' && <DetailsComponent track={track} />}
               {activeView === 'advantages' && (

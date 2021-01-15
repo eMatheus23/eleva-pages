@@ -1,0 +1,350 @@
+$font-primary: "Montserrat", sans-serif, sans-serif;
+
+.course-datails-modal {
+  overflow: auto;
+
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background: rgba(0, 2, 2, 0.73);
+
+  .clickable-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    overflow: hidden;
+    position: relative;
+    z-index: 9001;
+
+    width: 54.5rem;
+
+    display: flex;
+    flex-direction: column;
+    // align-items: flex-end;
+
+    margin: 4.4rem auto 10rem;
+    padding: 3rem 3.6rem 0;
+
+    background: var(--color-background);
+    box-shadow: 0px 3px 30px #00000029;
+    border: 1px solid #707070;
+    border-radius: 1.7rem;
+    color: var(--color-text-base);
+
+    > span {
+      align-self: flex-end;
+    }
+
+    > img {
+      width: 100%;
+      border-radius: 1rem;
+      object-fit: cover;
+    }
+
+    > h5 {
+      font: normal 1.7rem/5.5rem $font-primary;
+      color: var(--color-secondary-alternative);
+    }
+
+    > h3 {
+      font: normal 3rem/3rem $font-primary;
+      margin-bottom: 3rem;
+    }
+
+    > p {
+      font: normal 2rem/2.4rem $font-primary;
+
+      & + p {
+        margin-top: 2rem;
+      }
+
+      &:last-of-type {
+        margin-bottom: 4rem;
+      }
+    }
+
+    > h4 {
+      margin-bottom: 2rem;
+      font: normal 2.5rem/3rem $font-primary;
+      color: var(--color-secondary);
+    }
+  }
+
+  .authors {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    margin-bottom: 3rem;
+
+    .author {
+      width: 30%;
+      height: 12.6rem;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+
+      margin: 5rem 0.7rem 0;
+      padding: 0 1.5rem;
+      border-radius: 0.8rem;
+      background: var(--color-background-secondary);
+
+      img {
+        width: 6.9rem;
+        height: 6.9rem;
+        margin-top: -4rem;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      p {
+        text-align: center;
+        font: normal 1.5rem/1.8rem $font-primary;
+      }
+
+      a {
+        font: normal 1.4rem/3rem $font-primary;
+        color: var(--color-text-link);
+      }
+    }
+  }
+
+  .purchase-container {
+    width: 54.3rem;
+    height: 47.9rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+
+    padding: 3.5rem 3.6rem 1.5rem;
+
+    background: var(--color-background-secondary);
+
+    > h4 {
+      font: normal 2.5rem/3rem $font-primary;
+      color: var(--color-secondary);
+    }
+
+    > del,
+    > p,
+    > span {
+      font: normal 2rem/2.2rem $font-primary;
+    }
+
+    > h2 {
+      margin: -1rem 0;
+      font: 500 4.5rem/4.5rem $font-primary;
+      color: var(--color-secondary);
+    }
+
+    > button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 5.4rem;
+
+      border-radius: 0.9rem;
+
+      background: var(--color-secondary);
+      color: var(--color-text-white);
+      font: normal 2.5rem/3rem Montserrat;
+
+      &:hover {
+        background: var(--color-secondary-hover);
+      }
+
+      img {
+        width: 4rem;
+        margin-left: 1rem;
+      }
+    }
+
+    > span {
+      margin: -1rem 0;
+      align-self: center;
+    }
+
+    .be-premium-offer {
+      width: 100%;
+      height: 10.2rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--color-primary);
+      border-radius: 1.2rem;
+
+      p {
+        width: 37%;
+        margin-right: 2rem;
+        font: bold 2rem/2.4rem $font-primary;
+        text-align: right;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 1.25rem 3rem;
+        border: 1px solid var(--color-secondary);
+        border-radius: 0.9rem;
+
+        font: bold 2.5rem/2.2rem $font-primary;
+        background: var(--color-primary);
+        color: var(--color-secondary);
+
+        &:hover {
+          background: var(--color-primary-hover);
+        }
+      }
+    }
+
+    a {
+      align-self: center;
+      margin-top: 2rem;
+      text-align: center;
+      font: normal 2rem/2.4rem $font-primary;
+      color: var(--color-secondary);
+    }
+  }
+
+  .price-container {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font: normal 1.8rem/3rem $font-primary;
+    }
+
+    h3 {
+      font: normal 2rem/3rem $font-primary;
+    }
+
+    button {
+      width: 21.2rem;
+      height: 5.6rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 0.9rem;
+      margin: 1rem 0;
+
+      background: var(--color-primary);
+      color: var(--color-secondary);
+      font: bold 2.5rem/2.2rem $font-primary;
+
+      &:hover {
+        background: var(--color-primary-hover);
+      }
+
+      img {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  .be-premium-card {
+    width: 100%;
+    height: 10.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--color-secondary);
+    border-radius: 1.2rem;
+    margin: 2rem 0 3rem;
+
+    p {
+      width: 53%;
+      margin-right: 3rem;
+      font: normal 2rem/2.4rem $font-primary;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 1.25rem 1.7rem;
+      border: 1px solid #ffffff;
+      border-radius: 0.9rem;
+
+      font: bold 2.5rem/2.2rem $font-primary;
+      background: var(--color-secondary);
+      color: var(--color-primary-hover);
+
+      &:hover {
+        background: var(--color-secondary-hover);
+      }
+    }
+
+    span {
+      display: block;
+      margin-top: 0.7rem;
+      color: var(--color-primary-hover);
+      font: normal 1.5rem/1.5rem $font-primary;
+
+      strong {
+        font: bold 1.5rem/1.5rem $font-primary;
+      }
+    }
+  }
+
+  .close-modal {
+    margin-bottom: 1rem;
+    font: normal 1.5rem/1.6rem $font-primary;
+    cursor: pointer;
+
+    &:hover {
+      color: #e5e5e5;
+    }
+  }
+
+  video {
+    width: 56.7rem;
+    height: 31.8rem;
+    margin-bottom: 1rem;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+
+  .premium-discount {
+    text-align: center;
+  }
+}
