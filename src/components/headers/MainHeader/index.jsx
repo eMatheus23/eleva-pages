@@ -20,13 +20,11 @@ import { ReactComponent as LecturesIcon } from '../../../assets/images/icons/lec
 import profileImg from '../../../assets/images/mockups/profile.png';
 
 const MainHeader = ({
-  viewerStatusProp,
+  viewerStatus,
   handleLogin,
   backToVisit,
   becomePremium,
 }) => {
-  const [viewerStatus, setViewerStatus] = useState(viewerStatusProp);
-
   return (
     <header
       id="main-header"
@@ -37,13 +35,7 @@ const MainHeader = ({
           <img src={premiumFlagImg} alt="Plano Premium" fill="currentColor" />
         )}
 
-        <Link
-          to="/"
-          onClick={() => {
-            setViewerStatus('visit');
-            backToVisit();
-          }}
-        >
+        <button type="button" onClick={backToVisit}>
           <img
             src={
               viewerStatus === 'premium'
@@ -52,7 +44,7 @@ const MainHeader = ({
             }
             alt="Elevagro"
           />
-        </Link>
+        </button>
 
         <form>
           <input
@@ -158,14 +150,7 @@ const MainHeader = ({
 
             <li>
               {viewerStatus === 'visit' && (
-                <button
-                  type="button"
-                  className="signup"
-                  onClick={() => {
-                    setViewerStatus('free');
-                    handleLogin();
-                  }}
-                >
+                <button type="button" className="signup" onClick={handleLogin}>
                   ENTRAR
                 </button>
               )}
@@ -183,14 +168,7 @@ const MainHeader = ({
             <ButtonRounded>INSCREVA-SE GRATUITAMENTE</ButtonRounded>
           )}
           {viewerStatus === 'free' && (
-            <ButtonRounded
-              onClick={() => {
-                setViewerStatus('premium');
-                becomePremium();
-              }}
-            >
-              SEJA PREMIUM
-            </ButtonRounded>
+            <ButtonRounded onClick={becomePremium}>SEJA PREMIUM</ButtonRounded>
           )}
         </nav>
       </div>
@@ -199,14 +177,14 @@ const MainHeader = ({
 };
 
 MainHeader.propTypes = {
-  viewerStatusProp: PropTypes.string,
+  viewerStatus: PropTypes.string,
   handleLogin: PropTypes.func,
   backToVisit: PropTypes.func,
   becomePremium: PropTypes.func,
 };
 
 MainHeader.defaultProps = {
-  viewerStatusProp: 'visit',
+  viewerStatus: 'visit',
 };
 
 export default MainHeader;

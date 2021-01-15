@@ -1,16 +1,19 @@
 [
   {
     "id": "0e148047-ae14-478f-91a0-9c6834e38207",
+    "type": "track",
+    "category": "Trilha de Ensino",
     "title": "Vendas e insumos agrícolas",
     "description": "A trilha é um pacote de 10 cursos com conteúdos sobre as etapas da cadeia produtiva da soja. A trilha é um pacote de 10 cursos com conteúdos sobre as etapas da cadeia produtiva da soja. A trilha é um pacote de 10 cursos com conteúdos sobre as etapas da cadeia produtiva da soja.",
     "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
     "videos_count": 94,
     "hours": 170,
-    "total_price": 2500,
+    "original_price": 2500,
     "discount": 0.25,
     "price": 1768,
     "discount_for_premium": 0.2,
     "price_for_premium": 1512,
+    "cover_url": "https://i.ibb.co/dGTCgMf/track-video-thumbnail.png",
     "authors": [
       {
         "id": "09465641-e18b-4d7e-877e-e3abb59a32f0",

@@ -8,6 +8,9 @@ import './styles.css';
 // Utils
 import formatValue from '../../../utils/formatValue';
 
+// Services
+import AddTrackToCart from '../../../services/AddTrackToCart';
+
 import cartIcon from '../../../assets/images/icons/cart-icon.svg';
 import saveIcon from '../../../assets/images/icons/bookmark-icon.svg';
 import cart02Icon from '../../../assets/images/icons/cart-icon-02.svg';
@@ -25,7 +28,7 @@ const TrackPlaylistModal = ({ closeModal, trackData }) => {
     main_video,
     title,
     demo_videos,
-    total_price,
+    original_price,
     price,
     discount_for_premium,
     price_for_premium,
@@ -50,7 +53,7 @@ const TrackPlaylistModal = ({ closeModal, trackData }) => {
         <video controls poster={main_video.tumbnail_url} />
 
         <p>
-          <del>{formatValue(total_price)}</del>
+          <del>{formatValue(original_price)}</del>
         </p>
 
         <div className="price-container">
@@ -131,26 +134,42 @@ TrackPlaylistModal.propTypes = {
     }).isRequired,
     title: PropTypes.string.isRequired,
     demo_videos: PropTypes.string.isRequired,
-    total_price: PropTypes.number.isRequired,
+    original_price: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     discount_for_premium: PropTypes.number.isRequired,
     price_for_premium: PropTypes.number.isRequired,
   }),
 };
 
-const TrackVideoCard = ({ trackData }) => {
+const TrackVideoCard = ({ trackData, viewerStatus }) => {
+  const history = useHistory();
+
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
   const {
+    id,
     main_video,
     courses,
-    total_price,
+    original_price,
     price,
     discount,
     price_for_premium,
+    discount_for_premium,
   } = trackData;
 
   const closeModal = () => setModalOpened(false);
+
+  const handlePurchase = trackId => {
+    // Adicionar produto no cart
+    try {
+      AddTrackToCart({ trackId });
+    } catch (err) {
+      console.log(err);
+    }
+
+    // Redirecionar para o checkout
+    history.push('/checkout');
+  };
 
   return (
     <>
@@ -159,7 +178,10 @@ const TrackVideoCard = ({ trackData }) => {
           <TrackPlaylistModal closeModal={closeModal} trackData={trackData} />,
           modalRoot,
         )}
-      <div className="track-video-card">
+      <div
+        id="track-video-card"
+        className={viewerStatus === 'premium' ? viewerStatus : ''}
+      >
         <div className="card">
           <main>
             <video
@@ -172,7 +194,7 @@ const TrackVideoCard = ({ trackData }) => {
                 {courses.length}
                 <> </>
                 cursos você pagaria: R$:
-                <del>{total_price}</del>
+                <del>{original_price}</del>
               </p>
 
               <span>
@@ -181,10 +203,13 @@ const TrackVideoCard = ({ trackData }) => {
               </span>
             </div>
 
-            <h3>{formatValue(price)}</h3>
+            {viewerStatus !== 'premium' && <h3>{formatValue(price)}</h3>}
+            {viewerStatus === 'premium' && (
+              <h3>{formatValue(price_for_premium)}</h3>
+            )}
 
             <div>
-              <button type="button">
+              <button type="button" onClick={() => handlePurchase(id)}>
                 Compre agora
                 <img src={cartIcon} alt="Compre Agora" />
               </button>
@@ -196,6 +221,14 @@ const TrackVideoCard = ({ trackData }) => {
                 <> </>
                 no cartão
               </span>
+
+              {viewerStatus === 'premium' && (
+                <span>
+                  <>Você tem </>
+                  {Math.floor((discount_for_premium / 1) * 100)}
+                  <>% de desconto Premium neste produto</>
+                </span>
+              )}
             </div>
           </main>
 
@@ -251,18 +284,20 @@ const TrackVideoCard = ({ trackData }) => {
 
 TrackVideoCard.propTypes = {
   trackData: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     main_video: PropTypes.shape({
       tumbnail_url: PropTypes.string,
     }).isRequired,
     title: PropTypes.string.isRequired,
     courses: PropTypes.arrayOf(PropTypes.number).isRequired,
     demo_videos: PropTypes.string.isRequired,
-    total_price: PropTypes.number.isRequired,
+    original_price: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     discount: PropTypes.number.isRequired,
     discount_for_premium: PropTypes.number.isRequired,
     price_for_premium: PropTypes.number.isRequired,
   }),
+  viewerStatus: PropTypes.string.isRequired,
 };
 
 export default TrackVideoCard;
