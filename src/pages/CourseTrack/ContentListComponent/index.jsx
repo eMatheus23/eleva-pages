@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -10,10 +11,15 @@ import courseTumbnail from '../../../assets/images/mockups/course-thumbnail-02.p
 // Utils
 import formatValue from '../../../utils/formatValue';
 
+import AddCourseToCart from '../../../services/AddCourseToCart';
+
 import cartIcon from '../../../assets/images/icons/cart-icon.svg';
 
-export const CourseDetailsModal = ({ closeModal, course }) => {
+const CourseDetailsModal = ({ closeModal, course }) => {
+  const history = useHistory();
+
   const {
+    id,
     authors,
     category,
     cover_url,
@@ -23,6 +29,14 @@ export const CourseDetailsModal = ({ closeModal, course }) => {
     price_for_premium,
     title,
   } = course;
+
+  const handlePurchase = courseId => {
+    // Adicionar produto no cart
+    AddCourseToCart({ productId: courseId });
+
+    // Redirecionar para o checkout
+    history.push('/checkout');
+  };
 
   return (
     <div className="course-datails-modal">
@@ -77,7 +91,7 @@ export const CourseDetailsModal = ({ closeModal, course }) => {
             </strong>
             no cartão
           </p>
-          <button type="button">
+          <button type="button" onClick={() => handlePurchase(id)}>
             Compre agora
             <img src={cartIcon} alt="Compre Agora" />
           </button>
@@ -97,7 +111,22 @@ export const CourseDetailsModal = ({ closeModal, course }) => {
   );
 };
 
-const ListComponent = ({ courses }) => {
+CourseDetailsModal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  course: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    category: PropTypes.string.isRequired,
+    cover_url: PropTypes.string.isRequired,
+    modules: PropTypes.arrayOf(PropTypes.string).isRequired,
+    original_price: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    price_for_premium: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+};
+
+const ContentListComponent = ({ courses }) => {
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({});
@@ -165,4 +194,19 @@ const ListComponent = ({ courses }) => {
   );
 };
 
-export default ListComponent;
+ContentListComponent.propTypes = {
+  courses: PropTypes.arrayOf(
+    PropTypes.shape({
+      authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+      category: PropTypes.string.isRequired,
+      cover_url: PropTypes.string.isRequired,
+      modules: PropTypes.arrayOf(PropTypes.string).isRequired,
+      original_price: PropTypes.number.isRequired,
+      price: PropTypes.number.isRequired,
+      price_for_premium: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+export default ContentListComponent;

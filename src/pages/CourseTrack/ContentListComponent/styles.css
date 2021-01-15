@@ -8,7 +8,6 @@
   height: 100vh;
   background: rgba(0, 2, 2, 0.73);
 }
-
 .course-datails-modal .clickable-background {
   position: absolute;
   top: 0;
@@ -16,168 +15,113 @@
   width: 100%;
   height: 100%;
 }
-
 .course-datails-modal .content {
   overflow: hidden;
   position: relative;
   z-index: 9001;
   width: 54.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin: 4.4rem auto 10rem;
   padding: 3rem 3.6rem 0;
   background: var(--color-background);
-  -webkit-box-shadow: 0px 3px 30px #00000029;
-          box-shadow: 0px 3px 30px #00000029;
+  box-shadow: 0px 3px 30px #00000029;
   border: 1px solid #707070;
   border-radius: 1.7rem;
   color: var(--color-text-base);
 }
-
 .course-datails-modal .content > span {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  align-self: flex-end;
 }
-
 .course-datails-modal .content > img {
   width: 100%;
   border-radius: 1rem;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-
 .course-datails-modal .content > h5 {
   font: normal 1.7rem/5.5rem "Montserrat", sans-serif;
   color: var(--color-secondary-alternative);
 }
-
 .course-datails-modal .content > h3 {
   font: normal 3rem/3rem "Montserrat", sans-serif;
   margin-bottom: 3rem;
 }
-
 .course-datails-modal .content > p {
   font: normal 2rem/2.4rem "Source Sans Pro", sans-serif;
 }
-
 .course-datails-modal .content > p + p {
   margin-top: 2rem;
 }
-
 .course-datails-modal .content > p:last-of-type {
   margin-bottom: 4rem;
 }
-
 .course-datails-modal .content > h4 {
   margin-bottom: 2rem;
   font: normal 2.5rem/3rem "Montserrat", sans-serif;
   color: var(--color-secondary);
 }
-
 .course-datails-modal .authors {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-item-align: center;
-      align-self: center;
+  flex-wrap: wrap;
+  align-self: center;
   margin-bottom: 3rem;
 }
-
 .course-datails-modal .authors .author {
   width: 30%;
   height: 12.6rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
   margin: 5rem 0.7rem 0;
   padding: 0 1.5rem;
   border-radius: 0.8rem;
   background: var(--color-background-secondary);
 }
-
 .course-datails-modal .authors .author img {
   width: 6.9rem;
   height: 6.9rem;
   margin-top: -4rem;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
-
 .course-datails-modal .authors .author p {
   text-align: center;
   font: normal 1.5rem/1.8rem "Montserrat", sans-serif;
 }
-
 .course-datails-modal .authors .author a {
   font: normal 1.4rem/3rem "Montserrat", sans-serif;
   color: var(--color-text-link);
 }
-
 .course-datails-modal .purchase-container {
   width: 54.3rem;
   height: 47.9rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-item-align: center;
-      align-self: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
   padding: 3.5rem 3.6rem 1.5rem;
   background: var(--color-background-secondary);
 }
-
 .course-datails-modal .purchase-container > h4 {
   font: normal 2.5rem/3rem "Montserrat", sans-serif;
   color: var(--color-secondary);
 }
-
 .course-datails-modal .purchase-container > del,
 .course-datails-modal .purchase-container > p,
 .course-datails-modal .purchase-container > span {
   font: normal 2rem/2.2rem "Montserrat", sans-serif;
 }
-
 .course-datails-modal .purchase-container > h2 {
   margin: -1rem 0;
   font: 500 4.5rem/4.5rem "Montserrat", sans-serif;
   color: var(--color-secondary);
 }
-
 .course-datails-modal .purchase-container > button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 5.4rem;
   border-radius: 0.9rem;
@@ -185,69 +129,41 @@
   color: var(--color-text-white);
   font: normal 2.5rem/3rem Montserrat;
 }
-
 .course-datails-modal .purchase-container > button:hover {
   background: var(--color-secondary-hover);
 }
-
 .course-datails-modal .purchase-container > button img {
   width: 4rem;
   margin-left: 1rem;
 }
-
 .course-datails-modal .purchase-container > span {
   margin: -1rem 0;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
 }
-
 .course-datails-modal .purchase-container .be-premium-offer {
   width: 100%;
   height: 10.2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   background: var(--color-primary);
   border-radius: 1.2rem;
 }
-
 .course-datails-modal .purchase-container .be-premium-offer p {
   width: 37%;
   margin-right: 2rem;
   font: bold 2rem/2.4rem "Montserrat", sans-serif;
   text-align: right;
 }
-
 .course-datails-modal .purchase-container .be-premium-offer > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
-
 .course-datails-modal .purchase-container .be-premium-offer button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   padding: 1.25rem 3rem;
   border: 1px solid var(--color-secondary);
   border-radius: 0.9rem;
@@ -255,115 +171,70 @@
   background: var(--color-primary);
   color: var(--color-secondary);
 }
-
 .course-datails-modal .purchase-container .be-premium-offer button:hover {
   background: var(--color-primary-hover);
 }
-
 .course-datails-modal .purchase-container a {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   margin-top: 2rem;
   text-align: center;
   font: normal 2rem/2.4rem "Montserrat", sans-serif;
   color: var(--color-secondary);
 }
-
 .course-datails-modal .price-container {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .course-datails-modal .price-container h2 {
   font: normal 1.8rem/3rem "Montserrat", sans-serif;
 }
-
 .course-datails-modal .price-container h3 {
   font: normal 2rem/3rem "Montserrat", sans-serif;
 }
-
 .course-datails-modal .price-container button {
   width: 21.2rem;
   height: 5.6rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   border-radius: 0.9rem;
   margin: 1rem 0;
   background: var(--color-primary);
   color: var(--color-secondary);
   font: bold 2.5rem/2.2rem "Montserrat", sans-serif;
 }
-
 .course-datails-modal .price-container button:hover {
   background: var(--color-primary-hover);
 }
-
 .course-datails-modal .price-container button img {
   margin-left: 1rem;
 }
-
 .course-datails-modal .be-premium-card {
   width: 100%;
   height: 10.2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   background: var(--color-secondary);
   border-radius: 1.2rem;
   margin: 2rem 0 3rem;
 }
-
 .course-datails-modal .be-premium-card p {
   width: 53%;
   margin-right: 3rem;
   font: normal 2rem/2.4rem "Montserrat", sans-serif;
 }
-
 .course-datails-modal .be-premium-card > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
-
 .course-datails-modal .be-premium-card button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   padding: 1.25rem 1.7rem;
   border: 1px solid #ffffff;
   border-radius: 0.9rem;
@@ -371,67 +242,51 @@
   background: var(--color-secondary);
   color: var(--color-primary-hover);
 }
-
 .course-datails-modal .be-premium-card button:hover {
   background: var(--color-secondary-hover);
 }
-
 .course-datails-modal .be-premium-card span {
   display: block;
   margin-top: 0.7rem;
   color: var(--color-primary-hover);
   font: normal 1.5rem/1.5rem "Montserrat", sans-serif;
 }
-
 .course-datails-modal .be-premium-card span strong {
   font: bold 1.5rem/1.5rem "Montserrat", sans-serif;
 }
-
 .course-datails-modal .close-modal {
   margin-bottom: 1rem;
   font: normal 1.5rem/1.6rem "Montserrat", sans-serif;
   cursor: pointer;
 }
-
 .course-datails-modal .close-modal:hover {
   color: #e5e5e5;
 }
-
 .course-datails-modal video {
   width: 56.7rem;
   height: 31.8rem;
   margin-bottom: 1rem;
-  -webkit-box-shadow: 0px 3px 6px #00000029;
-          box-shadow: 0px 3px 6px #00000029;
+  box-shadow: 0px 3px 6px #00000029;
 }
 
 .courses-list .course {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   margin-bottom: 2rem;
 }
-
 .courses-list .course + .course {
   border-top: 2px solid var(--color-line-in-white);
   padding-top: 2rem;
 }
-
 .courses-list h2 {
   margin: 1.8rem 0 2rem 0;
   font: normal 3.5rem/4.3rem "Montserrat", sans-serif;
 }
-
 .courses-list .img-container {
   width: 45%;
   max-width: 19.2rem;
   margin-right: 1.8rem;
 }
-
 .courses-list .img-container .aspect-ratio {
   width: 100%;
   height: 0;
@@ -439,7 +294,6 @@
   position: relative;
   border-radius: 1rem;
 }
-
 .courses-list .img-container .aspect-ratio .aspect-ratio__inner-wrapper {
   position: absolute;
   top: 0;
@@ -447,67 +301,42 @@
   bottom: 0;
   left: 0;
 }
-
 .courses-list .img-container .aspect-ratio img {
   width: 100%;
   height: 100%;
 }
-
 .courses-list .course-description {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
 }
-
 .courses-list .course-description p {
   font: normal 2rem/2.2rem "Montserrat", sans-serif;
 }
-
 .courses-list .course-description > div:first-of-type {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 .courses-list .course-description > div:first-of-type span {
   font: normal 1.7rem/2.2rem "Montserrat", sans-serif;
   color: var(--color-secondary-alternative);
 }
-
 .courses-list .course-description > div:last-of-type {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
 .courses-list .course-description > div:last-of-type span {
   text-decoration: line-through;
   font: normal 2.5rem/2.2rem "Montserrat", sans-serif;
   color: var(--color-secondary-alternative);
 }
-
 .courses-list .course-description > div:last-of-type button {
   font: normal 2rem/2.2rem "Montserrat", sans-serif;
   text-decoration: underline;
   background: none;
   color: var(--color-secondary-alternative);
 }
+
 /*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,118 @@
+[
+  {
+    "id": "93545040-e9c1-4e32-84db-9f2ad2e4c1a6",
+    "type": "course",
+    "category": "Nutrição",
+    "url_name": "manejo-da-resistencia-a-incetos",
+    "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
+    "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
+    "original_price": 450,
+    "price": 438.70,
+    "discount": 0.30,
+    "price_for_premium": 212,
+    "discount_for_premium": 0.20,
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
+        "profile_url": "/"
+      }
+    ]
+  },
+  {
+    "id": "14fd65ea-9d09-4fa7-9bff-3c9d3273dfa2",
+    "type": "course",
+    "category": "Nematologia",
+    "url_name": "manejo-da-resistencia-a-incetos-e-plantas-geneticamente",
+    "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
+    "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
+    "original_price": 265,
+    "price": 254.40,
+    "discount": 0.30,
+    "price_for_premium": 180,
+    "discount_for_premium": 0.20,
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
+        "profile_url": "/"
+      }
+    ]
+  },
+  {
+    "id": "040b4d05-737d-4952-8b59-2624d1851170",
+    "type": "course",
+    "category": "Entomologia",
+    "url_name": "resistencia-de-incetos-a-inseticidas",
+    "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
+    "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
+    "original_price": 450,
+    "price": 438.70,
+    "discount": 0.30,
+    "price_for_premium": 212,
+    "discount_for_premium": 0.20,
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
+        "profile_url": "/"
+      }
+    ]
+  },
+  {
+    "id": "df6eb577-291b-4e9a-9704-7bc7899a3315",
+    "type": "course",
+    "category": "Nutrição",
+    "url_name": "manejo-de-plantas-daninhas-em-soja",
+    "title": "Manejo de plantas daninhas em soja",
+    "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
+    "original_price": 450,
+    "price": 438.70,
+    "discount": 0.30,
+    "price_for_premium": 212,
+    "discount_for_premium": 0.20,
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
+        "profile_url": "/"
+      }
+    ]
+  }
+]

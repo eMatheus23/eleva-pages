@@ -2,41 +2,34 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Track array mockup
-import trackArray from '../../data/couse-tracks.json';
+import trackArray from '../../data/tracks.json';
 
 import './styles.css';
 
 // Components
 import MainHeader from '../../components/headers/MainHeader';
 import MainFooter from '../../components/footers/MainFooter';
-import ListComponent from './ListComponent';
+import ContentListComponent from './ContentListComponent';
 import DetailsComponent from './DetailsComponent';
 import AdvantagesComponent from './AdvantagesComponent';
 import AuthorsComponent from './AuthorsComponent';
-import TrackPurchaseCard from '../../components/cards/TrackPurchaseCard';
+import TrackVideoCard from '../../components/cards/TrackVideoCard';
+
+// Services
+import getViewerStatus from '../../services/getViewerStatus';
 
 const CourseTrack = () => {
   document.title = 'Trilha de Ensino | Elevagro';
 
   const [track, setTrack] = useState(null);
 
-  const [viewerStatus, setViewerStatus] = useState('visit');
+  const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
 
   useEffect(() => {
     // Simula a chamada da API
     const [trackObject] = trackArray;
 
     setTrack(trackObject);
-  }, []);
-
-  useEffect(() => {
-    const checkIsLoggedIn = localStorage.getItem('@elevagro-app/viewer-status');
-
-    if (checkIsLoggedIn) {
-      setViewerStatus(checkIsLoggedIn);
-    } else {
-      localStorage.setItem('@elevagro-app/viewer-status', 'visit');
-    }
   }, []);
 
   const [activeView, setActiveView] = useState('courses-list');
@@ -55,7 +48,7 @@ const CourseTrack = () => {
   const backToVisit = () => {
     localStorage.setItem('@elevagro-app/viewer-status', 'visit');
 
-    setActiveView('visit');
+    setViewerStatus('visit');
   };
 
   const becomePremium = () => {
@@ -67,7 +60,7 @@ const CourseTrack = () => {
   return (
     <div id="course-track">
       <MainHeader
-        viewerStatusProp={viewerStatus}
+        viewerStatus={viewerStatus}
         handleLogin={handleLogin}
         backToVisit={backToVisit}
         becomePremium={becomePremium}
@@ -97,7 +90,7 @@ const CourseTrack = () => {
 
           <main>
             <div className="content-wrapper">
-              <TrackPurchaseCard trackData={track} />
+              <TrackVideoCard trackData={track} viewerStatus={viewerStatus} />
               <section className="track-description">
                 <p>{track.description}</p>
                 <h3>
@@ -144,7 +137,7 @@ const CourseTrack = () => {
               </section>
 
               {activeView === 'courses-list' && (
-                <ListComponent courses={track.courses} />
+                <ContentListComponent courses={track.courses} />
               )}
               {activeView === 'details' && <DetailsComponent track={track} />}
               {activeView === 'advantages' && (

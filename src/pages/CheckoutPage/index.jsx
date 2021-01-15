@@ -14,19 +14,34 @@ import ProductCheckout from '../../components/cards/ProductCheckout';
 import PaymentOptionsCard from '../../components/cards/PaymentOptions';
 import CreateAccountCard from '../../components/cards/CreateAccount';
 
-// Data and functions
+// Data
 import products from '../../data/products';
+import coupons from '../../data/coupons.json';
+
+// Services
 import addProductToCart from '../../services/AddProductToCart';
-import currencyFormat from '../../data/currency-format';
+import addCouponToCart from '../../services/AddCouponToCart';
+import getCartSum from '../../services/getCartSum';
+import getCartPremiumSum from '../../services/getPremiumCartSum';
+import getCartDiscountSum from '../../services/getCartDiscountSum';
+import getCartPremiumDiscountSum from '../../services/getCartPremiumDiscountSum';
+import getViewerStatus from '../../services/getViewerStatus';
+
+// Utils
+import getDecimals from '../../utils/getDecimals';
+import formatValue from '../../utils/formatValue';
 
 const CheckoutPage = () => {
   document.title = 'Checkout | Elevagro';
 
   const history = useHistory();
 
+  const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
+
   const [productsInCart, setProductsInCart] = useState(
     JSON.parse(localStorage.getItem('@elevagro-app/cart')),
   );
+
   const [couponAplied, setCouponAplied] = useState(() => {
     // Procura cupons no carrinho
     productsInCart.filter(product => {
@@ -36,28 +51,7 @@ const CheckoutPage = () => {
       return false;
     });
   });
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    const checkIsLoggedIn = localStorage.getItem(
-      '@elevagro-app/viewer-status|is-logged-in',
-    );
 
-    if (checkIsLoggedIn) {
-      return JSON.parse(checkIsLoggedIn);
-    }
-
-    return false;
-  });
-  const [isPremium] = useState(() => {
-    const checkIsPremium = localStorage.getItem(
-      '@elevagro-app/viewer-status|is-premium',
-    );
-
-    if (checkIsPremium) {
-      return JSON.parse(checkIsPremium);
-    }
-
-    return false;
-  });
   const [semestralPlanInCart] = useState(() => {
     // Procura o plano premium semestral no carrinho
     productsInCart.filter(product => {
@@ -70,7 +64,24 @@ const CheckoutPage = () => {
       return false;
     });
   });
+
   const [inputError, setInputError] = useState('');
+
+  const cartDiscountSum = getCartDiscountSum(productsInCart);
+  const cartPremiumDiscountSum = getCartPremiumDiscountSum(productsInCart);
+
+  const getCartSumToViewer = () => {
+    const cartSum = getCartSum(productsInCart);
+    const cartSumForPremium = getCartPremiumSum(productsInCart);
+
+    if (viewerStatus === 'premium') {
+      return cartSumForPremium;
+    }
+
+    return cartSum;
+  };
+
+  const cartSumToViewer = getCartSumToViewer();
 
   useEffect(() => {
     if (!productsInCart || productsInCart.length === 0) {
@@ -80,38 +91,7 @@ const CheckoutPage = () => {
     return true;
   }, [productsInCart, history]);
 
-  function cartSumFunction() {
-    const sum = productsInCart
-      .map(product => product.price)
-      .reduce((prev, curr) => prev + curr, 0);
-
-    if (sum < 0) {
-      return 0;
-    }
-
-    return sum;
-  }
-
-  const promoDiscountSumFunction = () => {
-    const sum = productsInCart
-      .map(product => {
-        if (product.promo_discount) {
-          return product.price_original - product.price;
-        }
-        return false;
-      })
-      .reduce((prev, curr) => prev + curr, 0);
-
-    return sum;
-  };
-
-  const promoDiscountSum = promoDiscountSumFunction();
-
-  const cartSum = cartSumFunction();
-
-  const cartSumDecimals = Math.round((cartSum % Math.floor(cartSum)) * 100);
-
-  function deleteProduct(id) {
+  const deleteProduct = id => {
     const temporaryCart = productsInCart;
 
     // Procura o index de outros planos no cart
@@ -128,9 +108,9 @@ const CheckoutPage = () => {
     }
 
     return setProductsInCart([...temporaryCart]);
-  }
+  };
 
-  function switchPlan() {
+  const switchPlan = () => {
     const [inCart] = productsInCart.filter(product => product.subscription);
 
     const [semestral] = products.filter(
@@ -154,9 +134,9 @@ const CheckoutPage = () => {
       // Adiciona o plano semestral aos produtos do cart do component
       setProductsInCart(temporaryCart);
     }
-  }
+  };
 
-  function addAnnualPlan() {
+  const addAnnualPlan = () => {
     const [anual] = products.filter(
       product => product.subscription === 'anual',
     );
@@ -164,11 +144,11 @@ const CheckoutPage = () => {
     addProductToCart({ productId: anual.id });
 
     setProductsInCart([...productsInCart, anual]);
-  }
+  };
 
-  function handleCoupon() {
+  const handleCoupon = () => {
     const code = document.getElementById('coupon-input').value.toUpperCase();
-    const [coupon] = products.filter(product => product.code === code);
+    const [coupon] = coupons.filter(c => c.code === code);
 
     if (!code) {
       setInputError('Insira um cupom!');
@@ -198,14 +178,16 @@ const CheckoutPage = () => {
       return;
     }
 
-    addProductToCart({ productId: coupon.id });
+    addCouponToCart({ couponId: coupon.id });
     setProductsInCart([...productsInCart, coupon]);
     setCouponAplied(true);
-  }
+  };
 
-  function sigupFinished() {
-    setIsLoggedIn(true);
-  }
+  const sigupFinished = () => {
+    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
+
+    setViewerStatus('free');
+  };
 
   return (
     <div id="page-checkout">
@@ -217,11 +199,14 @@ const CheckoutPage = () => {
 
       <div className="content-wrapper">
         <main>
-          {isLoggedIn && (
-            <PaymentOptionsCard billPage="/checkout/bill" cartSum={cartSum} />
+          {viewerStatus !== 'visit' && (
+            <PaymentOptionsCard
+              billPage="/checkout/bill"
+              cartSum={cartSumToViewer}
+            />
           )}
 
-          {!isLoggedIn && (
+          {viewerStatus === 'visit' && (
             <CreateAccountCard sigupFinished={sigupFinished} isInCheckout />
           )}
         </main>
@@ -230,53 +215,48 @@ const CheckoutPage = () => {
           <section className="checkout-cart">
             <h3>O seu pedido</h3>
 
-            {productsInCart.map((product, key) => {
+            {productsInCart.map(product => {
               if (product.type !== 'coupon') {
                 return (
                   <ProductCheckout
-                    key={`produto_${key}`}
+                    key={`produto_${product.id}`}
                     deleteProduct={deleteProduct}
                     product={product}
+                    viewerStatus={viewerStatus}
                   />
                 );
               }
               return false;
             })}
 
-            {promoDiscountSum | couponAplied && (
+            {cartDiscountSum | couponAplied && (
               <div className="checkout-discounts">
                 <h2>SEUS DESCONTOS</h2>
 
-                {isPremium && (
+                {viewerStatus === 'premium' && (
                   <h3>
-                    PREMIUM: -
-                    <span>
-                      {promoDiscountSum.toLocaleString('pt-BR', currencyFormat)}
-                    </span>
+                    <>PREMIUM: -</>
+
+                    <span>{formatValue(cartPremiumDiscountSum)}</span>
                   </h3>
                 )}
 
-                {promoDiscountSum && (
+                {cartDiscountSum && (
                   <h3>
-                    Promocional: -
-                    <span>
-                      {promoDiscountSum.toLocaleString('pt-BR', currencyFormat)}
-                    </span>
+                    <>Promocional: -</>
+
+                    <span>{formatValue(cartDiscountSum)}</span>
                   </h3>
                 )}
 
-                {productsInCart.map((product, key) => {
+                {productsInCart.map(product => {
                   if (product.type === 'coupon') {
                     return (
-                      <h3 key={`discount_${key}`}>
+                      <h3 key={`discount_${product.id}`}>
                         {product.name}
                         <>: -</>
-                        <span>
-                          {Math.abs(product.price).toLocaleString(
-                            'pt-BR',
-                            currencyFormat,
-                          )}
-                        </span>
+
+                        <span>{formatValue(Math.abs(product.price))}</span>
                       </h3>
                     );
                   }
@@ -289,14 +269,9 @@ const CheckoutPage = () => {
               <p>Total:</p>
               <h2 className="price-style helvetica">
                 <span>R$</span>
-                <strong>{Math.floor(cartSum)}</strong>
+                <strong>{Math.floor(cartSumToViewer)}</strong>
                 <>,</>
-                {cartSumDecimals
-                  .toLocaleString('pt-BR', {
-                    maximumFractionDigits: 2,
-                    minimumFractionDigits: 2,
-                  })
-                  .slice(-2)}
+                {getDecimals(cartSumToViewer)}
               </h2>
             </div>
 
@@ -317,13 +292,13 @@ const CheckoutPage = () => {
               </div>
             )}
 
-            <AcceptedCards saveCardOptionActive={isLoggedIn} />
+            <AcceptedCards saveCardOptionActive={viewerStatus !== 'visit'} />
           </section>
 
-          {semestralPlanInCart && !isPremium && (
+          {semestralPlanInCart && !viewerStatus === 'premium' && (
             <AnnualOfferCard switchPlan={switchPlan} />
           )}
-          {!semestralPlanInCart && !isPremium && (
+          {!semestralPlanInCart && !viewerStatus === 'premium' && (
             <PremiumOfferCard addAnnualPlan={addAnnualPlan} />
           )}
         </aside>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Components
 import Switch from '@material-ui/core/Switch';
@@ -155,6 +156,15 @@ const Page01 = ({ handleNextPage, isInCheckout }) => {
       <ProgressBar progress={0} />
     </>
   );
+};
+
+Page01.propTypes = {
+  handleNextPage: PropTypes.func,
+  isInCheckout: PropTypes.bool,
+};
+
+Page01.defaultProps = {
+  isInCheckout: false,
 };
 
 export default Page01;

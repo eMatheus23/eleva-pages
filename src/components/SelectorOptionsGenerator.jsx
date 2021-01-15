@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const OptionsGenerator = ({ array }) => {
   return (
@@ -10,6 +11,10 @@ const OptionsGenerator = ({ array }) => {
       ))}
     </>
   );
+};
+
+OptionsGenerator.propTypes = {
+  array: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default OptionsGenerator;

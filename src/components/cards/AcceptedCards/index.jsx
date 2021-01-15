@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -45,6 +46,14 @@ const AcceptedCards = ({ saveCardOptionActive }) => {
       </div>
     </div>
   );
+};
+
+AcceptedCards.propTypes = {
+  saveCardOptionActive: PropTypes.bool,
+};
+
+AcceptedCards.defaultProps = {
+  saveCardOptionActive: false,
 };
 
 export default AcceptedCards;

@@ -1,67 +1,74 @@
 [
   {
     "id": "0e148047-ae14-478f-91a0-9c6834e38207",
+    "type": "track",
+    "category": "Trilha de Ensino",
     "title": "Vendas e insumos agrícolas",
     "description": "A trilha é um pacote de 10 cursos com conteúdos sobre as etapas da cadeia produtiva da soja. A trilha é um pacote de 10 cursos com conteúdos sobre as etapas da cadeia produtiva da soja. A trilha é um pacote de 10 cursos com conteúdos sobre as etapas da cadeia produtiva da soja.",
-    "background_img_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-track-hero.jpg?raw=true",
+    "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
     "videos_count": 94,
     "hours": 170,
-    "total_price": 2500,
+    "original_price": 2500,
     "discount": 0.25,
     "price": 1768,
     "discount_for_premium": 0.2,
     "price_for_premium": 1512,
+    "cover_url": "https://i.ibb.co/dGTCgMf/track-video-thumbnail.png",
     "authors": [
       {
         "id": "09465641-e18b-4d7e-877e-e3abb59a32f0",
         "name": "Rafael Ribeiro Garcia",
-        "avatar_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-authors/scientist.png?raw=true"
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist.png"
       },
       {
         "id": "b79b44fc-9d0a-40a7-b051-41b4d3478e08",
         "name": "Tina Barbosa",
-        "avatar_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-authors/scientist.png?raw=true"
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist.png"
       },
       {
         "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
         "name": "Dr.ª Margarete Manuele Siqueira Silva",
-        "avatar_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-authors/scientist2.png?raw=true"
+        "avatar_url": "https://i.ibb.co/JxNCCCM/scientist2.png"
       },
       {
         "id": "48476e17-01c2-4cbe-b8f4-515a85aa89ab",
         "name": "Tina Barbosa",
-        "avatar_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-authors/scientist.png?raw=true"
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist.png"
       },
       {
         "id": "932a3de2-3324-4573-ab08-408ef6aaf6af",
         "name": "Tina Barbosa",
-        "avatar_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-authors/scientist.png?raw=true"
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist.png"
       },
       {
         "id": "2e331a34-9164-4d56-85db-9e931d848dc8",
         "name": "Tina Barbosa",
-        "avatar_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-authors/scientist.png?raw=true"
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist.png"
       },
       {
         "id": "b257cbbe-0164-4070-ba41-01473bffec86",
         "name": "Tina Barbosa",
-        "avatar_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-authors/scientist.png?raw=true"
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist.png"
       },
       {
         "id": "9dbda496-7157-48e3-b318-42c770b485a5",
         "name": "Tina Barbosa",
-        "avatar_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-authors/scientist.png?raw=true"
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist.png"
       }
     ],
     "courses": [
       {
         "id": "93545040-e9c1-4e32-84db-9f2ad2e4c1a6",
+        "type": "course",
         "category": "Nutrição",
+        "url_name": "manejo-da-resistencia-a-incetos",
         "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
         "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
         "original_price": 450,
         "price": 438.70,
+        "discount": 0.30,
         "price_for_premium": 212,
+        "discount_for_premium": 0.20,
         "modules": [
           "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
           "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
@@ -81,12 +88,16 @@
       },
       {
         "id": "14fd65ea-9d09-4fa7-9bff-3c9d3273dfa2",
+        "type": "course",
         "category": "Nematologia",
+        "url_name": "manejo-da-resistencia-a-incetos-e-plantas-geneticamente",
         "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
         "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
         "original_price": 265,
         "price": 254.40,
+        "discount": 0.30,
         "price_for_premium": 180,
+        "discount_for_premium": 0.20,
         "modules": [
           "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
           "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
@@ -106,12 +117,16 @@
       },
       {
         "id": "040b4d05-737d-4952-8b59-2624d1851170",
+        "type": "course",
         "category": "Entomologia",
+        "url_name": "resistencia-de-incetos-a-inseticidas",
         "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
         "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
         "original_price": 450,
         "price": 438.70,
+        "discount": 0.30,
         "price_for_premium": 212,
+        "discount_for_premium": 0.20,
         "modules": [
           "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
           "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
@@ -131,12 +146,16 @@
       },
       {
         "id": "df6eb577-291b-4e9a-9704-7bc7899a3315",
+        "type": "course",
         "category": "Nutrição",
-        "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
+        "url_name": "manejo-de-plantas-daninhas-em-soja",
+        "title": "Manejo de plantas daninhas em soja",
         "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
         "original_price": 450,
         "price": 438.70,
+        "discount": 0.30,
         "price_for_premium": 212,
+        "discount_for_premium": 0.20,
         "modules": [
           "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
           "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
@@ -159,7 +178,7 @@
       "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
       "title": "Apresentação do curso Vendas e Insumos Agrícolas",
       "length": "10:05",
-      "tumbnail_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/track-video-thumbnail.png?raw=true",
+      "tumbnail_url": "https://i.ibb.co/dGTCgMf/track-video-thumbnail.png",
       "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
     },
     "demo_videos": [
@@ -167,42 +186,42 @@
         "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
         "title": "Controle das lagartas da soja",
         "length": "10:05",
-        "tumbnail_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/video-mockup-01.png?raw=true",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "8636382d-c53d-4128-a8c7-57183f54440f",
         "title": "Controle das lagartas da soja",
         "length": "8:30",
-        "tumbnail_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/video-mockup-02.png?raw=true",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
         "title": "Doenças que atacam a soja no verão",
         "length": "9:05",
-        "tumbnail_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/video-mockup-03.png?raw=true",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
         "title": "Controle das lagartas da soja",
         "length": "6:05",
-        "tumbnail_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/video-mockup-01.png?raw=true",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
         "title": "Controle das lagartas da soja",
         "length": "4:05",
-        "tumbnail_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/video-mockup-02.png?raw=true",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
         "title": "Doenças que atacam a soja no verão",
         "length": "12:05",
-        "tumbnail_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/video-mockup-03.png?raw=true",
+        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       }
     ]

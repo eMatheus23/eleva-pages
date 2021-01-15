@@ -49,11 +49,12 @@
   height: 100%;
   margin: 0 auto;
 }
-#main-header .header-content-wrapper > a {
+#main-header .header-content-wrapper > button {
   display: flex;
   align-items: center;
+  background: none;
 }
-#main-header .header-content-wrapper > a img {
+#main-header .header-content-wrapper > button img {
   height: 3.8rem;
 }
 #main-header .header-content-wrapper form {

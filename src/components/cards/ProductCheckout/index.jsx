@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -8,9 +9,12 @@ import deleteIcon from '../../../assets/images/icons/delete-product-checkout.svg
 // Components
 import ButtonRounded from '../../Buttons';
 
-import currencyFormat from '../../../data/currency-format';
+// Utils
+import formatValue from '../../../utils/formatValue';
 
-const ProductCheckout = ({ product, success, ...props }) => {
+import getDecimals from '../../../utils/getDecimals';
+
+const ProductCheckout = ({ product, success, deleteProduct, viewerStatus }) => {
   const [checkoutSucess] = useState(() => {
     if (success) return true;
 
@@ -19,43 +23,49 @@ const ProductCheckout = ({ product, success, ...props }) => {
 
   const {
     id,
-    name,
-    discription,
-    price_original,
+    category,
+    title,
+    original_price,
     price,
-    promo_discount,
-    img,
+    price_for_premium,
+    cover_url,
   } = product;
 
-  const priceDecimals = Math.round((price % Math.floor(price)) * 100);
+  // Define o preço do produto de acordo com o status do usuário
+  const getPriceToViewer = () => {
+    if (viewerStatus === 'premium') {
+      return price_for_premium;
+    }
+
+    return price;
+  };
+
+  const priceToViewer = getPriceToViewer();
+
+  const discount = Math.floor((1 - priceToViewer / original_price) * 100);
 
   return (
     <div className="product-checkout-card">
-      <img src={img.default} alt="Plataforma Elevagro" />
+      <img src={cover_url} alt={category} />
 
       <div className={`product-title ${checkoutSucess && 'bold'} `}>
-        <h2>{name}</h2>
-        <p>{discription}</p>
+        <h2>{category}</h2>
+        <p>{title}</p>
       </div>
 
       {!checkoutSucess && (
         <>
           <div className="product-price">
-            <p>{price_original.toLocaleString('pt-BR', currencyFormat)}</p>
+            <p>{formatValue(original_price)}</p>
             <h2 className="price-style">
               <span>R$</span>
-              <strong>{Math.floor(price)}</strong>
+              <strong>{Math.floor(priceToViewer)}</strong>
               <>,</>
-              {priceDecimals
-                .toLocaleString('pt-BR', {
-                  maximumFractionDigits: 2,
-                  minimumFractionDigits: 2,
-                })
-                .slice(-2)}
+              {getDecimals(priceToViewer)}
             </h2>
             <span>
-              {promo_discount}
-              <> % de desconto </>
+              {discount}
+              <>% de desconto </>
             </span>
           </div>
 
@@ -63,7 +73,7 @@ const ProductCheckout = ({ product, success, ...props }) => {
             className="delete-button"
             src={deleteIcon}
             onClick={() => {
-              props.deleteProduct(id);
+              deleteProduct(id);
             }}
             alt="Excluir produto"
           />
@@ -77,6 +87,27 @@ const ProductCheckout = ({ product, success, ...props }) => {
       )}
     </div>
   );
+};
+
+ProductCheckout.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    original_price: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    price_for_premium: PropTypes.number.isRequired,
+    discount: PropTypes.number.isRequired,
+    discount_for_premium: PropTypes.number.isRequired,
+    cover_url: PropTypes.string.isRequired,
+  }),
+  success: PropTypes.bool,
+  deleteProduct: PropTypes.func.isRequired,
+  viewerStatus: PropTypes.bool.isRequired,
+};
+
+ProductCheckout.defaultProps = {
+  success: false,
 };
 
 export default ProductCheckout;

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "94ec85f0-0b77-4fc2-9e5a-913c30d1a3ef",
+    "type": "premium-subscription",
+    "category": "Plataforma Elevagro",
+    "subscription": "mensal",
+    "expiration": "Todo",
+    "title": "Assinatura Mensal Elevagro",
+    "price_original": 39.9,
+    "price": 29.9,
+    "discount": 25,
+    "cover_url": "http://localhost:3000/static/media/course-thumbnail-02.97b165c0.png"
+  },
+  {
+    "id": "f534f8fb-3541-4f8e-9450-51da86ed89d0",
+    "type": "premium-subscription",
+    "category": "Plataforma Elevagro",
+    "subscription": "semestral",
+    "expiration": "Todo",
+    "title": "Assinatura Semestral Elevagro com valor promocional",
+    "original_price": 160.0,
+    "price": 120.0,
+    "discount": 25,
+    "cover_url": "http://localhost:3000/static/media/course-thumbnail-02.97b165c0.png"
+  },
+  {
+    "id": "24b33ad8-0e7f-47d1-92d9-97f165dd72f5",
+    "type": "premium-subscription",
+    "category": "Plataforma Elevagro",
+    "subscription": "anual",
+    "expiration": "Todo",
+    "title": "Assinatura Anual Elevagro com valor promocional",
+    "original_price": 265.0,
+    "price": 189.0,
+    "discount": 30,
+    "cover_url": "http://localhost:3000/static/media/course-thumbnail-02.97b165c0.png"
+  }
+]

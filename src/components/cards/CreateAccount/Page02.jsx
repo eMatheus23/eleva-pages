@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 // Components
@@ -10,7 +11,7 @@ import CountryPicker from '../../CountryPicker';
 import ArrowRight from '../../../assets/images/icons/arrow-right-white.svg';
 import ArrowRightGray from '../../../assets/images/icons/arrow-right-gray.svg';
 
-export default function Page02({ handleNextPage, isInCheckout }) {
+const Page02 = ({ handleNextPage, isInCheckout }) => {
   const [stateOptions, setStateOptions] = useState([]);
   const [cityOptions, setCityOptions] = useState([]);
   const [inCheckout] = useState(() => {
@@ -191,4 +192,15 @@ export default function Page02({ handleNextPage, isInCheckout }) {
       </div>
     </>
   );
-}
+};
+
+Page02.propTypes = {
+  handleNextPage: PropTypes.func,
+  isInCheckout: PropTypes.bool,
+};
+
+Page02.defaultProps = {
+  isInCheckout: false,
+};
+
+export default Page02;
