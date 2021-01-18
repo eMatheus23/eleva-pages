@@ -10,6 +10,7 @@ import courseTumbnail from '../../../assets/images/mockups/course-thumbnail-02.p
 
 // Utils
 import formatValue from '../../../utils/formatValue';
+import useDisableBodyScroll from '../../../utils/Hooks/useDisableBodyScroll';
 
 import AddCourseToCart from '../../../services/AddCourseToCart';
 
@@ -159,6 +160,8 @@ const ContentListComponent = ({ courses, viewerStatus }) => {
   const [selectedCourse, setSelectedCourse] = useState({});
 
   const closeModal = () => setModalOpened(false);
+
+  useDisableBodyScroll(modalOpened);
 
   const handleCourseSelection = id => {
     const [courseData] = courses.filter(course => course.id === id);

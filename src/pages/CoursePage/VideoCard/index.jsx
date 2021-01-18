@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -7,6 +7,7 @@ import './styles.css';
 
 // Utils
 import formatValue from '../../../utils/formatValue';
+import useDisableBodyScroll from '../../../utils/Hooks/useDisableBodyScroll';
 
 // Services
 import AddCourseToCart from '../../../services/AddCourseToCart';
@@ -233,7 +234,15 @@ const TrackVideoCard = ({ courseData, viewerStatus }) => {
     discount_for_premium,
   } = courseData;
 
-  const closeModal = () => setModalOpened(false);
+  const openModal = useCallback(() => {
+    setModalOpened(true);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setModalOpened(false);
+  }, []);
+
+  useDisableBodyScroll(modalOpened);
 
   const handlePurchase = () => {
     // Adicionar produto no cart
@@ -273,11 +282,7 @@ const TrackVideoCard = ({ courseData, viewerStatus }) => {
       >
         <div className="card">
           <main>
-            <video
-              controls
-              onClick={() => setModalOpened(true)}
-              poster={tumbnail_url}
-            />
+            <video controls onClick={openModal} poster={tumbnail_url} />
             <div className="video-caption">
               <p>
                 <del>{formatValue(original_price)}</del>

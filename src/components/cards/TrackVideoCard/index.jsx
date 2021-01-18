@@ -7,6 +7,7 @@ import './styles.css';
 
 // Utils
 import formatValue from '../../../utils/formatValue';
+import useDisableBodyScroll from '../../../utils/Hooks/useDisableBodyScroll';
 
 // Services
 import AddTrackToCart from '../../../services/AddTrackToCart';
@@ -238,6 +239,9 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
   } = trackData;
 
   const closeModal = () => setModalOpened(false);
+
+  // Hook que desabilita o scroll
+  useDisableBodyScroll(modalOpened);
 
   const handlePurchase = () => {
     // Adicionar produto no cart
