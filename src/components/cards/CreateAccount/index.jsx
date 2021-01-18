@@ -86,7 +86,7 @@ const CreateAccountCard = ({ renderPage, isInCheckout, sigupFinished }) => {
     if (inCheckout) sigupFinished();
 
     return history.push('/checkout');
-  }, [page, inCheckout]);
+  }, [page, inCheckout, sigupFinished]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleFirstSubmit = useCallback(
     async data => {
@@ -124,7 +124,6 @@ const CreateAccountCard = ({ renderPage, isInCheckout, sigupFinished }) => {
 
   const handleSecondSubmit = useCallback(
     async data => {
-      console.log(data);
       try {
         formRef.current?.setErrors({});
 
@@ -148,7 +147,6 @@ const CreateAccountCard = ({ renderPage, isInCheckout, sigupFinished }) => {
 
         handleNextPage();
       } catch (err) {
-        console.log(err.inner);
         const errors = getValidationErrors(err);
 
         formRef.current?.setErrors(errors);

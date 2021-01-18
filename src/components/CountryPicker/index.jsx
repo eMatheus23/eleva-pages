@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useField } from '@unform/core';
 
@@ -40,8 +40,6 @@ const CountryPicker = ({ name }) => {
   const [open, setOpen] = useState(false);
   const [country, setCountry] = useState('Brasil');
   const [flag, setFlag] = useState(getFlag('BR'));
-  const [isFocused, setIsFocused] = useState(false);
-  const [isFilled, setIsFilled] = useState(false);
 
   const { fieldName, defaultValue, error, registerField } = useField(name);
 
@@ -53,20 +51,11 @@ const CountryPicker = ({ name }) => {
     });
   }, [fieldName, registerField]);
 
-  const handleInputFocus = useCallback(() => {
-    setIsFocused(true);
-  }, []);
-
-  const handleInputBlur = useCallback(() => {
-    setIsFocused(false);
-
-    setIsFilled(!!inputRef.current?.firstChild.alt);
-  }, []);
-
   return (
     <Card>
       <CountryDialog
         open={open}
+        defaultValue={defaultValue}
         setOpen={setOpen}
         setCountry={setCountry}
         setFlag={setFlag}
@@ -76,8 +65,13 @@ const CountryPicker = ({ name }) => {
           {country === '' ? 'País' : <img src={flag} alt={country} />}
         </Placeholder>
       </Input>
+      {error}
     </Card>
   );
+};
+
+CountryPicker.propTypes = {
+  name: PropTypes.string.isRequired,
 };
 
 export default CountryPicker;

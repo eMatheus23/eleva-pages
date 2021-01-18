@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Track array mockup
-import trackArray from '../../data/tracks.json';
 import courseArray from '../../data/courses.json';
 
 import './styles.css';

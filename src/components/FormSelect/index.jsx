@@ -48,6 +48,7 @@ const FormInput = ({ name, children, ...rest }) => {
 
 FormInput.propTypes = {
   name: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default FormInput;

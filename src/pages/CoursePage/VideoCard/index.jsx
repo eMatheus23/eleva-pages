@@ -204,6 +204,7 @@ TrackPlaylistModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   viewerStatus: PropTypes.string.isRequired,
   priceToViewer: PropTypes.number.isRequired,
+  handlePurchase: PropTypes.func.isRequired,
   courseData: PropTypes.shape({
     tumbnail_url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -220,14 +221,11 @@ TrackPlaylistModal.propTypes = {
 const TrackVideoCard = ({ courseData, viewerStatus }) => {
   const history = useHistory();
 
-  console.log(courseData);
-
   const modalRoot = document.getElementById('portal');
   const [modalOpened, setModalOpened] = useState(false);
   const {
     id,
     tumbnail_url,
-    courses,
     original_price,
     price,
     discount,
@@ -239,11 +237,7 @@ const TrackVideoCard = ({ courseData, viewerStatus }) => {
 
   const handlePurchase = () => {
     // Adicionar produto no cart
-    try {
-      AddCourseToCart({ productId: id });
-    } catch (err) {
-      console.log(err);
-    }
+    AddCourseToCart({ productId: id });
 
     // Redirecionar para o checkout
     history.push('/checkout');
