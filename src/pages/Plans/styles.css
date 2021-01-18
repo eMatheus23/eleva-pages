@@ -18,7 +18,7 @@
 /* ------ Main ------ */
 #plans-page main {
   width: 50.5vw;
-  height: 94vh;
+  height: calc(100vh - 6rem);
   background: var(--color-secondary);
 
   float: left;
@@ -296,7 +296,7 @@
 /* ------ Aside ------ */
 #plans-page aside {
   width: 49.5vw;
-  height: 94vh;
+  height: calc(100vh - 6rem);
 
   float: right;
 

@@ -1,29 +1,24 @@
 import React, { useState } from 'react';
 
-// CSS
-import './styles.css';
+import { Container } from './styles';
+
+// // CSS
+// import './styles.css';
 
 // Components
 import Footer from '../../components/footers/CheckoutFooter';
 import HeaderSignup from '../../components/HeaderSignup';
 import CreateAccountCard from '../../components/cards/CreateAccount';
 
+import getViewerStatus from '../../services/getViewerStatus';
+
 const SignupAddress = () => {
-  document.title = 'Criar Conta Premium | Elevagro';
+  document.title = 'Criar Conta | Elevagro';
 
-  const [viewerStatus] = useState(() => {
-    const checkIsLoggedIn = localStorage.getItem('@elevagro-app/viewer-status');
-
-    if (checkIsLoggedIn) {
-      return checkIsLoggedIn;
-    }
-    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
-
-    return 'visit';
-  });
+  const [viewerStatus] = useState(getViewerStatus);
 
   return (
-    <div id="page-signup">
+    <Container>
       <HeaderSignup />
 
       <main>
@@ -31,7 +26,7 @@ const SignupAddress = () => {
       </main>
 
       <Footer />
-    </div>
+    </Container>
   );
 };
 

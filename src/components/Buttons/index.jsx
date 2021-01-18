@@ -17,9 +17,20 @@ const ButtonRounded = ({ children, buttonStyle, type, ...rest }) => {
         </Link>
       )}
 
-      {type !== 'link' && (
+      {type === 'button' && (
         <button
           type="button"
+          id="button-rounded"
+          className={buttonStyle || 'primary'}
+          {...rest}
+        >
+          {children}
+        </button>
+      )}
+
+      {type === 'submit' && (
+        <button
+          type="submit"
           id="button-rounded"
           className={buttonStyle || 'primary'}
           {...rest}

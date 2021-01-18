@@ -106,7 +106,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-/* Estilização do switch do MaterialUI */
+/* Estilização do switch do MaterialUI
 span.MuiSwitch-colorSecondary.Mui-checked {
   color: #009688;
 }
@@ -121,4 +121,4 @@ span.MuiSwitch-switchBase {
 
 span.MuiSwitch-track {
   opacity: 0.25;
-}
+} */
