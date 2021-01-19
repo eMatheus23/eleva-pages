@@ -245,7 +245,8 @@ const CoursePage = () => {
                   <p>
                     Este é um curso da categoria rápido.
                     <br />
-                    Possui 18h de vídeo.
+                    {course.hours}
+                    <>h de vídeo.</>
                   </p>
 
                   <p className="recomended">Indicado para:</p>

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap");
 
 * {
   margin: 0;
@@ -19,7 +19,7 @@
   --color-secondary: #3f8b68;
   --color-secondary-hover: #326f53;
 
-  --color-secondary-alternative: #6A9C40;
+  --color-secondary-alternative: #6a9c40;
   --color-secondary-alternative-hover: #547c33;
 
   --color-line-in-white: #bfbfbf;
@@ -27,9 +27,13 @@
   --color-text-white: #ffffff;
   --color-text-light: #919092;
   --color-text-in-white: #626262;
-  --color-text-in-secondary: #E4E4E4;
+  --color-text-in-secondary: #e4e4e4;
   --color-text-link: #01aa9d;
   --color-alert: #ff5741;
+
+  /* ----- FONTES ----- */
+  --font-primary: Montserrat, sans-serif;
+  --font-secondary: "Source Sans Pro", sans-serif;
   /* Tamanho da fonte padrão: 16px - 100% - 1rem */
   /* Tamanho da fonte no projeto: 10px - 62.5% - 1rem */
   font-size: 62.5%; /* controle das medidas rem */
@@ -43,13 +47,13 @@ body {
 
 body,
 input {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1.4rem;
   color: var(--color-text-in-white);
 }
 
 button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   font-weight: bold;
   color: var(--color-text-in-white);
@@ -63,7 +67,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Montserrat', Regular;
+  font-family: "Montserrat", Regular;
 }
 
 h1 {
@@ -88,9 +92,18 @@ h4 {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 
 /* Remove as arrows dos input de número */
@@ -102,7 +115,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
