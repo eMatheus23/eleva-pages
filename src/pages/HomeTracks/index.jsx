@@ -12,7 +12,9 @@ import {
   CarouselButton,
   Hero,
   SearchSection,
-  TrackCard,
+  LaunchCard,
+  HighlightsContainer,
+  HighlightsCard,
 } from './styles';
 
 // Services
@@ -34,6 +36,10 @@ import PremiumCardImg from '../../assets/images/mockups/home-trilhas/person-in-b
 import TrackImg from '../../assets/images/mockups/home-trilhas/Grupo 843.png';
 import TrackImg02 from '../../assets/images/mockups/home-trilhas/soybeans-4019684_960_720.png';
 import TrackImg03 from '../../assets/images/mockups/home-trilhas/thumbnail-10.png';
+import HighlightsBackground from '../../assets/images/mockups/home-trilhas/Grupo 835.png';
+import HighlightCardImg from '../../assets/images/mockups/home-trilhas/7b26a7c5caa547331e37366628b46d43.png';
+
+import FindOut from './FindOut';
 
 const HomeTracks = () => {
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
@@ -60,6 +66,12 @@ const HomeTracks = () => {
   const responsive = {
     0: { items: 3 },
     1100: { items: 4 },
+    1530: { items: 4 },
+  };
+
+  const responsiveSmall = {
+    0: { items: 3 },
+    1250: { items: 3 },
     1530: { items: 4 },
   };
 
@@ -174,7 +186,7 @@ const HomeTracks = () => {
           renderPrevButton={renderPrevButton}
           renderNextButton={renderNextButton}
         >
-          <TrackCard>
+          <LaunchCard>
             <div>
               <div>
                 <span>TRILHA</span>
@@ -182,13 +194,13 @@ const HomeTracks = () => {
                 <p>Visão completa para o domínio da soja.</p>
               </div>
 
-              <Link to="/">Saiba mais</Link>
+              <FindOut to="/">Saiba mais</FindOut>
             </div>
             <span className="filter" />
             <img src={TrackImg} alt="" />
-          </TrackCard>
+          </LaunchCard>
 
-          <TrackCard>
+          <LaunchCard>
             <div>
               <div>
                 <span>TRILHA</span>
@@ -198,13 +210,13 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <Link to="/">Saiba mais</Link>
+              <FindOut to="/">Saiba mais</FindOut>
             </div>
             <span className="filter" />
             <img src={TrackImg02} alt="" />
-          </TrackCard>
+          </LaunchCard>
 
-          <TrackCard>
+          <LaunchCard>
             <div>
               <div>
                 <span>TRILHA</span>
@@ -212,13 +224,13 @@ const HomeTracks = () => {
                 <p>Conhecimento garantido para o combate.</p>
               </div>
 
-              <Link to="/">Saiba mais</Link>
+              <FindOut to="/">Saiba mais</FindOut>
             </div>
             <span className="filter" />
             <img src={TrackImg03} alt="" />
-          </TrackCard>
+          </LaunchCard>
 
-          <TrackCard>
+          <LaunchCard>
             <div>
               <div>
                 <span>TRILHA</span>
@@ -226,13 +238,13 @@ const HomeTracks = () => {
                 <p>Visão completa para o domínio da soja.</p>
               </div>
 
-              <Link to="/">Saiba mais</Link>
+              <FindOut to="/">Saiba mais</FindOut>
             </div>
             <span className="filter" />
             <img src={TrackImg} alt="" />
-          </TrackCard>
+          </LaunchCard>
 
-          <TrackCard>
+          <LaunchCard>
             <div>
               <div>
                 <span>TRILHA</span>
@@ -240,13 +252,13 @@ const HomeTracks = () => {
                 <p>Visão completa para o domínio da soja.</p>
               </div>
 
-              <Link to="/">Saiba mais</Link>
+              <FindOut to="/">Saiba mais</FindOut>
             </div>
             <span className="filter" />
             <img src={TrackImg} alt="" />
-          </TrackCard>
+          </LaunchCard>
 
-          <TrackCard>
+          <LaunchCard>
             <div>
               <div>
                 <span>TRILHA</span>
@@ -256,13 +268,13 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <Link to="/">Saiba mais</Link>
+              <FindOut to="/">Saiba mais</FindOut>
             </div>
             <span className="filter" />
             <img src={TrackImg02} alt="" />
-          </TrackCard>
+          </LaunchCard>
 
-          <TrackCard>
+          <LaunchCard>
             <div>
               <div>
                 <span>TRILHA</span>
@@ -270,13 +282,133 @@ const HomeTracks = () => {
                 <p>Conhecimento garantido para o combate.</p>
               </div>
 
-              <Link to="/">Saiba mais</Link>
+              <FindOut to="/">Saiba mais</FindOut>
             </div>
             <span className="filter" />
             <img src={TrackImg03} alt="" />
-          </TrackCard>
+          </LaunchCard>
         </AliceCarousel>
       </CarouselContainer>
+
+      <HighlightsContainer>
+        <div className="content-wrapper">
+          <section>
+            <h5>TRILHA DESTAQUE</h5>
+            <h3>SOJA 360º</h3>
+            <h4>Visão completa para o domínio da soja.</h4>
+            <span>
+              <>De </>
+              <del>R$ 2.400</del>
+            </span>
+            <span>
+              Por R$:
+              <> </>
+              <strong>1.623</strong>
+              ,00
+            </span>
+            <p>Em até 10x de R$122,30</p>
+            <FindOut to="/">Saiba mais</FindOut>
+            <span>Associado Premium tem 30% de desconto.</span>
+          </section>
+
+          <aside>
+            <h5>Você vai aprender sobre:</h5>
+            <AliceCarousel
+              responsive={responsiveSmall}
+              mouseTracking
+              disableDotsControls
+              renderPrevButton={renderPrevButton}
+              renderNextButton={renderNextButton}
+            >
+              <HighlightsCard>
+                <Link to="/">
+                  <img src={HighlightCardImg} alt="" />
+                  <div>
+                    <h4>Nutrição de Plantas</h4>
+                    <p>
+                      Manejo da resistência de insetos a inseticidas e a plantas
+                      geneticamente modificadas
+                    </p>
+                  </div>
+                </Link>
+              </HighlightsCard>
+
+              <HighlightsCard>
+                <Link to="/">
+                  <img src={HighlightCardImg} alt="" />
+                  <div>
+                    <h4>Nutrição de Plantas</h4>
+                    <p>
+                      Manejo da resistência de insetos a inseticidas e a plantas
+                      geneticamente modificadas
+                    </p>
+                  </div>
+                </Link>
+              </HighlightsCard>
+
+              <HighlightsCard>
+                <Link to="/">
+                  <img src={HighlightCardImg} alt="" />
+                  <div>
+                    <h4>Nutrição de Plantas</h4>
+                    <p>
+                      Manejo da resistência de insetos a inseticidas e a plantas
+                      geneticamente modificadas
+                    </p>
+                  </div>
+                </Link>
+              </HighlightsCard>
+
+              <HighlightsCard>
+                <Link to="/">
+                  <img src={HighlightCardImg} alt="" />
+                  <div>
+                    <h4>Nutrição de Plantas</h4>
+                    <p>
+                      Manejo da resistência de insetos a inseticidas e a plantas
+                      geneticamente modificadas
+                    </p>
+                  </div>
+                </Link>
+              </HighlightsCard>
+
+              <HighlightsCard>
+                <Link to="/">
+                  <img src={HighlightCardImg} alt="" />
+                  <div>
+                    <h4>Nutrição de Plantas</h4>
+                    <p>
+                      Manejo da resistência de insetos a inseticidas e a plantas
+                      geneticamente modificadas
+                    </p>
+                  </div>
+                </Link>
+              </HighlightsCard>
+
+              <HighlightsCard>
+                <Link to="/">
+                  <img src={HighlightCardImg} alt="" />
+                  <div>
+                    <h4>Nutrição de Plantas</h4>
+                    <p>
+                      Manejo da resistência de insetos a inseticidas e a plantas
+                      geneticamente modificadas
+                    </p>
+                  </div>
+                </Link>
+              </HighlightsCard>
+            </AliceCarousel>
+          </aside>
+
+          <div className="filters-container">
+            <div className="triangle" />
+            <div className="filter" />
+          </div>
+        </div>
+
+        <div className="filter-white" />
+        <img src={HighlightsBackground} alt="" />
+      </HighlightsContainer>
 
       <Footer />
     </Container>

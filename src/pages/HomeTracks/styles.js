@@ -6,6 +6,28 @@ export const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: var(--color-background);
+
+  .alice-carousel__prev-btn,
+  .alice-carousel__next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: 4.8rem;
+    width: 4.8rem;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #ffffff;
+    background: var(--color-background);
+    cursor: pointer;
+  }
+
+  .alice-carousel__prev-btn {
+    left: -2.5rem;
+  }
+
+  .alice-carousel__next-btn {
+    right: -1.2rem;
+  }
 `;
 
 export const Section = styled.section`
@@ -310,12 +332,21 @@ export const SearchSection = styled.article`
   }
 `;
 
+export const CarouselButton = styled.span`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+`;
+
 export const CarouselContainer = styled.article`
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: ${wrapperMaxWidth};
-  margin: 5rem auto 4rem;
+  margin: 5rem auto 9rem;
   padding: 0 4rem;
 
   header {
@@ -337,46 +368,13 @@ export const CarouselContainer = styled.article`
 
     a {
       margin-left: 3rem;
-      /* border-bottom: 1px solid #5d883e; */
       font: normal 2rem/2.5rem var(--font-primary);
-      /* text-decoration: none; */
       color: #5d883e;
     }
   }
-
-  .alice-carousel__prev-btn,
-  .alice-carousel__next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    height: 4.8rem;
-    width: 4.8rem;
-    border-radius: 50%;
-    box-shadow: 0px 3px 6px #00000029;
-    border: 1px solid #ffffff;
-    background: var(--color-background);
-    cursor: pointer;
-  }
-
-  .alice-carousel__prev-btn {
-    left: -2rem;
-  }
-
-  .alice-carousel__next-btn {
-    right: -2rem;
-  }
 `;
 
-export const CarouselButton = styled.span`
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-`;
-
-export const TrackCard = styled.div`
+export const LaunchCard = styled.div`
   overflow: hidden;
   position: relative;
   max-width: 34.8rem;
@@ -413,20 +411,6 @@ export const TrackCard = styled.div`
     p {
       font: normal 2rem/2.5rem var(--font-primary);
     }
-
-    a {
-      border-radius: 2.3rem;
-      padding: 0.8rem 2.5rem;
-      background: var(--color-primary);
-      text-decoration: none;
-      font: normal 1.8rem/2.2rem var(--font-primary);
-      color: #494949;
-      transition: background-color 0.2s;
-
-      &:hover {
-        background: var(--color-primary-hover);
-      }
-    }
   }
 
   .filter {
@@ -447,5 +431,183 @@ export const TrackCard = styled.div`
     position: absolute;
     top: 0;
     left: 0;
+  }
+`;
+
+export const HighlightsContainer = styled.article`
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 52.5rem;
+  margin: 3rem 0;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .content-wrapper {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: ${wrapperMaxWidth};
+    height: 100%;
+
+    margin: 0 auto;
+    padding: 2rem 4rem;
+
+    > section {
+      max-width: 27.5rem;
+      color: var(--color-text-white);
+
+      h5 {
+        font: normal 2rem/2.4rem var(--font-primary);
+        margin-bottom: 2rem;
+      }
+
+      h3 {
+        font: normal 3rem/2.5rem var(--font-primary);
+        margin-bottom: 0.8rem;
+      }
+
+      h4 {
+        font: normal 2rem/2.5rem var(--font-primary);
+        margin-bottom: 0.8rem;
+      }
+
+      > span {
+        display: block;
+        max-width: 18rem;
+        font: normal 1.5rem/2rem var(--font-primary);
+        color: var(--color-primary);
+
+        strong {
+          font: normal 3.5rem/2rem var(--font-primary);
+        }
+
+        & + span {
+          margin-top: 1rem;
+        }
+      }
+
+      p {
+        font: normal 1.5rem/2rem var(--font-primary);
+      }
+
+      a {
+        display: block;
+        width: fit-content;
+        margin: 1.8rem 0;
+      }
+    }
+
+    > aside {
+      flex: 1;
+      width: 71rem;
+      max-width: 108.2rem;
+
+      h5 {
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #bfbfbf;
+        font: normal 2rem/2.4rem var(--font-primary);
+        color: var(--color-text-white);
+      }
+    }
+  }
+
+  .filters-container {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 60rem;
+    height: 100%;
+  }
+
+  .triangle {
+    position: absolute;
+    right: -21rem;
+    top: 0;
+    z-index: -1;
+    height: 0;
+    width: 0;
+    border-left: 210px solid #141414;
+    border-right: 0px solid transparent;
+    border-bottom: 263px solid transparent;
+    border-top: 263px solid transparent;
+    opacity: 0.85;
+  }
+
+  .filter {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    height: 100%;
+    width: 200rem;
+    background: #141414;
+    border-right: 1px solid #141414;
+    opacity: 0.85;
+  }
+
+  .filter-white {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: +1;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    opacity: 0.69;
+  }
+`;
+
+export const HighlightsCard = styled.div`
+  overflow: hidden;
+  position: relative;
+  width: 95%;
+  max-width: 25.8rem;
+  height: 26.7rem;
+  border-radius: 0.7rem;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+    height: 15.9rem;
+    object-fit: cover;
+  }
+
+  div {
+    width: 100%;
+    height: 10.8rem;
+    padding: 1rem 0.5rem 0 1.4rem;
+    background: var(--color-background);
+
+    h4 {
+      font: normal 1.3rem/1.6rem var(--font-primary);
+      color: var(--color-secondary);
+    }
+
+    p {
+      font: normal 1.5rem/2rem var(--font-primary);
+      color: var(--color-text-base);
+    }
   }
 `;
