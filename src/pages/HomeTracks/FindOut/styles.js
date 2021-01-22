@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   a {
+    display: block;
     border-radius: 2.3rem;
     padding: 0.8rem 2.5rem;
     background: var(--color-primary);

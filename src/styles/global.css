@@ -119,19 +119,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* Estilização do switch do MaterialUI
-span.MuiSwitch-colorSecondary.Mui-checked {
-  color: #009688;
+html {
+  scroll-behavior: smooth;
 }
-
-span.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-  background-color: #009688;
-}
-
-span.MuiSwitch-switchBase {
-  color: #F1F1F1;
-}
-
-span.MuiSwitch-track {
-  opacity: 0.25;
-} */

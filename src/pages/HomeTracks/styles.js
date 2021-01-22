@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { shade } from 'polished';
 
 const wrapperMaxWidth = '153rem';
 
@@ -6,6 +7,14 @@ export const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: var(--color-background);
+
+  .content-wrapper {
+    width: 100%;
+    max-width: ${wrapperMaxWidth};
+
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
 
   .alice-carousel__prev-btn,
   .alice-carousel__next-btn {
@@ -148,7 +157,7 @@ export const SearchSection = styled.article`
   width: 100%;
   max-width: ${wrapperMaxWidth};
   height: 10.9rem;
-  margin: 5rem auto 4rem;
+  margin: 5rem auto 7rem;
   padding: 0 4rem;
 
   .col-7 {
@@ -346,14 +355,13 @@ export const CarouselContainer = styled.article`
   flex-direction: column;
   width: 100%;
   max-width: ${wrapperMaxWidth};
-  margin: 5rem auto 9rem;
+  margin: 0 auto 8rem;
   padding: 0 4rem;
 
   header {
     display: flex;
     align-items: center;
     width: 100%;
-    margin-bottom: 3rem;
 
     h3 {
       margin-right: 1rem;
@@ -372,13 +380,22 @@ export const CarouselContainer = styled.article`
       color: #5d883e;
     }
   }
+
+  > h4 {
+    margin-top: 1rem;
+    font: normal 1.8rem/2.2rem var(--font-primary);
+  }
+
+  > div {
+    margin-top: 3rem;
+  }
 `;
 
 export const LaunchCard = styled.div`
   overflow: hidden;
   position: relative;
   max-width: 34.8rem;
-  width: 90%;
+  width: 95%;
   height: 31.9rem;
   border-radius: 1rem;
 
@@ -441,6 +458,12 @@ export const HighlightsContainer = styled.article`
   height: 52.5rem;
   margin: 3rem 0;
 
+  ${props =>
+    props.extraMargin &&
+    css`
+      margin-top: 13rem;
+    `}
+
   > img {
     width: 100%;
     height: 100%;
@@ -456,6 +479,7 @@ export const HighlightsContainer = styled.article`
 
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
     width: 100%;
     max-width: ${wrapperMaxWidth};
@@ -570,6 +594,17 @@ export const HighlightsContainer = styled.article`
     background: #ffffff;
     opacity: 0.69;
   }
+
+  .filter-black {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: +1;
+    height: 100%;
+    width: 100%;
+    background: #000000;
+    opacity: 0.36;
+  }
 `;
 
 export const HighlightsCard = styled.div`
@@ -579,6 +614,7 @@ export const HighlightsCard = styled.div`
   max-width: 25.8rem;
   height: 26.7rem;
   border-radius: 0.7rem;
+  box-shadow: 0px 3px 6px #00000029;
 
   a {
     display: flex;
@@ -608,6 +644,328 @@ export const HighlightsCard = styled.div`
     p {
       font: normal 1.5rem/2rem var(--font-primary);
       color: var(--color-text-base);
+    }
+  }
+`;
+
+export const ThemesContainer = styled.article`
+  width: 100%;
+  margin: 8rem 0;
+
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: ${wrapperMaxWidth};
+
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 85.4rem;
+    height: 100%;
+    margin-right: 1rem;
+    padding: 4rem 7rem 7rem 7rem;
+    border-radius: 1.5rem;
+    background: var(--color-background-secondary);
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 100%;
+    }
+
+    h2 {
+      font: normal 2.5rem/3rem var(--font-primary);
+      color: var(--color-secondary);
+      text-transform: uppercase;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 13.5rem;
+      height: 3.6rem;
+      margin: 4rem 0 1rem;
+      padding: 0 1rem;
+      border: 1px solid #bfbfbf;
+      border-radius: 2.2rem;
+      font: normal 1.2rem/1.5rem var(--font-primary);
+      color: #535353;
+      background: var(--color-background);
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.2s;
+
+      :hover {
+        background: ${shade(0.2, '#ffffff')};
+      }
+
+      &.themes {
+        background: var(--color-primary);
+
+        &:hover {
+          background: var(--color-primary-hover);
+        }
+      }
+    }
+  }
+
+  aside {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 55.6rem;
+    height: 31rem;
+    border-radius: 2rem;
+
+    h3 {
+      z-index: +2;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 75%;
+      font: normal 2.2rem/2.4rem var(--font-primary);
+      color: var(--color-text-white);
+      text-align: center;
+    }
+
+    a {
+      z-index: +2;
+      position: absolute;
+      bottom: 3rem;
+      right: 4rem;
+    }
+
+    .filter {
+      z-index: +1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #4b8a67;
+      opacity: 0.74;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+`;
+
+export const CareerCard = styled.div`
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  max-width: 34.8rem;
+  height: 43.9rem;
+  border-radius: 0.9rem;
+  box-shadow: 0px 3px 6px #00000029;
+
+  img {
+    width: 100%;
+    height: 17.7rem;
+    object-fit: cover;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 26.2rem;
+    padding: 1.8rem 3rem 1.8rem;
+    background: #408b68;
+
+    h4 {
+      margin-bottom: 0.8rem;
+      font: normal 2.5rem/2.5rem var(--font-primary);
+      color: var(--color-text-white);
+    }
+
+    p {
+      font: normal 2rem/2.5rem var(--font-primary);
+      color: var(--color-text-white);
+    }
+
+    div {
+      align-self: center;
+      justify-self: flex-end;
+    }
+
+    a {
+      display: block;
+    }
+  }
+`;
+
+export const SignupCard = styled.article`
+  width: 100%;
+  margin-bottom: 7rem;
+
+  .card {
+    display: flex;
+    width: 100%;
+    min-height: 14.2rem;
+    padding: 3.2rem 5.2rem 2rem 8rem;
+    background: #408b68;
+    color: var(--color-text-white);
+    border-radius: 2rem;
+
+    p {
+      max-width: 37rem;
+      margin-top: -0.6rem;
+      font: normal 2rem/2.7rem var(--font-primary);
+    }
+
+    form {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+
+      > div {
+        label {
+          display: block;
+          font: normal 1.3rem/1.3rem var(--font-primary);
+          margin-bottom: 0.6rem;
+        }
+
+        input {
+          width: 17.6rem;
+          height: 4.3rem;
+          margin-bottom: 0.5rem;
+          padding: 0 1rem;
+          border-radius: 1.7rem;
+          border: 0;
+
+          &::placeholder {
+            font: italic normal normal 1.3rem/1.3rem var(--font-primary);
+          }
+        }
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 20rem;
+        height: 100%;
+
+        button {
+          width: 19.8rem;
+          height: 3.7rem;
+          background: var(--color-primary);
+          border-radius: 2.3rem;
+        }
+
+        label {
+          display: block;
+          font: normal 1rem/1.3rem var(--font-primary);
+        }
+
+        div {
+          display: flex;
+          align-items: center;
+          margin-top: 1rem;
+
+          a {
+            color: var(--color-text-white);
+          }
+
+          .MuiFormControlLabel-root {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const ExtrasSection = styled.article`
+  width: 100%;
+  margin: 9.6rem 0 9rem;
+
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  section {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 45.9rem;
+    height: 45.6rem;
+    border-radius: 2rem;
+    box-shadow: 0px 3px 6px #00000029;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      height: 50%;
+      object-fit: cover;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 50%;
+      padding: 1.8rem 2rem 1.4rem 3rem;
+      background: var(--color-background);
+
+      h4 {
+        font: normal 2.7rem/3.5rem var(--font-primary);
+        color: var(--color-secondary);
+      }
+
+      p {
+        margin-top: 1rem;
+        font: normal 1.8rem/2rem var(--font-primary);
+        color: #535353;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        width: 16.4rem;
+        height: 4.5rem;
+        margin-top: auto;
+        border: 1px solid #707070;
+        border-radius: 2.3rem;
+        font: normal 1.8rem/2.2rem var(--font-primary);
+        color: #535353;
+      }
     }
   }
 `;
