@@ -127,7 +127,7 @@ const CourseDetailsModal = ({ closeModal, course, viewerStatus }) => {
             </span>
           )}
 
-          <Link to="/courses">Acessar página do curso.</Link>
+          <Link to="/course">Acessar página do curso.</Link>
         </div>
       </div>
 

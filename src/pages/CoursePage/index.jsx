@@ -86,9 +86,9 @@ const CoursePage = () => {
               <div className="nav-tree">
                 <Link to="/">Início</Link>
                 <span>/</span>
-                <Link to="/course-track">Cursos</Link>
+                <Link to="/track">Cursos</Link>
                 <span>/</span>
-                <Link to="/course-track">{course.title}</Link>
+                <Link to="/track">{course.title}</Link>
               </div>
 
               <h3>CURSO</h3>

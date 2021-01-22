@@ -27,16 +27,16 @@ const MainFooter = () => (
           <h3>INSTITUCIONAL</h3>
           <ul>
             <li>
-              <Link to="/course-track">Sobre</Link>
+              <Link to="/track">Sobre</Link>
             </li>
             <li>
-              <Link to="/course-track">Trabalhe Conosto</Link>
+              <Link to="/track">Trabalhe Conosto</Link>
             </li>
             <li>
-              <Link to="/course-track">Marca</Link>
+              <Link to="/track">Marca</Link>
             </li>
             <li>
-              <Link to="/course-track">Blog</Link>
+              <Link to="/track">Blog</Link>
             </li>
           </ul>
         </div>
@@ -45,16 +45,16 @@ const MainFooter = () => (
           <h3>FALE CONOSCO</h3>
           <ul>
             <li>
-              <Link to="/course-track">Suporte Técnico</Link>
+              <Link to="/track">Suporte Técnico</Link>
             </li>
             <li>
-              <Link to="/course-track">Assessoria de Imprensa</Link>
+              <Link to="/track">Assessoria de Imprensa</Link>
             </li>
             <li>
-              <Link to="/course-track">Financeiro</Link>
+              <Link to="/track">Financeiro</Link>
             </li>
             <li>
-              <Link to="/course-track">Vendas</Link>
+              <Link to="/track">Vendas</Link>
             </li>
           </ul>
         </div>
@@ -63,9 +63,7 @@ const MainFooter = () => (
           <h3>WHATSAPP</h3>
           <ul>
             <li>
-              <Link to="/course-track">
-                Receba conteúdo exclusivo no seu WhatsApp
-              </Link>
+              <Link to="/track">Receba conteúdo exclusivo no seu WhatsApp</Link>
             </li>
           </ul>
         </div>
@@ -74,17 +72,17 @@ const MainFooter = () => (
           <h3>PRODUTOS</h3>
           <ul>
             <li>
-              <Link to="/course-track" title="Cursos">
+              <Link to="/track" title="Cursos">
                 Cursos
               </Link>
             </li>
             <li>
-              <Link to="/course-track" title="Trilhas de aprendizado">
+              <Link to="/track" title="Trilhas de aprendizado">
                 Trilhas de aprendizado
               </Link>
             </li>
             <li>
-              <Link to="/course-track" title="Pós-graduação">
+              <Link to="/track" title="Pós-graduação">
                 Pós-graduação
               </Link>
             </li>
@@ -94,12 +92,12 @@ const MainFooter = () => (
               </Link>
             </li>
             <li>
-              <Link to="/course-track" title="Palestras">
+              <Link to="/track" title="Palestras">
                 Palestras
               </Link>
             </li>
             <li>
-              <Link to="/course-track" title="Produção de conteúdo">
+              <Link to="/track" title="Produção de conteúdo">
                 Produção de conteúdo
               </Link>
             </li>
@@ -110,16 +108,16 @@ const MainFooter = () => (
           <h3>SOLUÇÕES</h3>
           <ul>
             <li>
-              <Link to="/course-track">Profissionais</Link>
+              <Link to="/track">Profissionais</Link>
             </li>
             <li>
-              <Link to="/course-track">Estudantes</Link>
+              <Link to="/track">Estudantes</Link>
             </li>
             <li>
-              <Link to="/course-track">Empresas</Link>
+              <Link to="/track">Empresas</Link>
             </li>
             <li>
-              <Link to="/course-track">Universidades</Link>
+              <Link to="/track">Universidades</Link>
             </li>
           </ul>
         </div>
@@ -128,16 +126,16 @@ const MainFooter = () => (
           <h3>LEGAL</h3>
           <ul>
             <li>
-              <Link to="/course-track">Termos de uso</Link>
+              <Link to="/track">Termos de uso</Link>
             </li>
             <li>
-              <Link to="/course-track">Copyright</Link>
+              <Link to="/track">Copyright</Link>
             </li>
             <li>
-              <Link to="/course-track">Política de cookies</Link>
+              <Link to="/track">Política de cookies</Link>
             </li>
             <li>
-              <Link to="/course-track">Política de uso de dados</Link>
+              <Link to="/track">Política de uso de dados</Link>
             </li>
           </ul>
         </div>
@@ -145,19 +143,19 @@ const MainFooter = () => (
         <div className="col-lg-3 col-sm-4 col-6">
           <h2>REDES SOCIAIS</h2>
           <div className="social-networks-links">
-            <Link to="/course-track" title="Instagram">
+            <Link to="/track" title="Instagram">
               <img src={InstagramLogoImg} alt="Instagram" />
             </Link>
 
-            <Link to="/course-track" title="Facebook">
+            <Link to="/track" title="Facebook">
               <img src={FacebookLogoImg} alt="Facebook" />
             </Link>
 
-            <Link to="/course-track" title="Youtube">
+            <Link to="/track" title="Youtube">
               <img src={YoutubeLogoImg} alt="Youtube" />
             </Link>
 
-            <Link to="/course-track" title="Messenger">
+            <Link to="/track" title="Messenger">
               <img src={MessengerLogoImg} alt="Messenger" />
             </Link>
           </div>
