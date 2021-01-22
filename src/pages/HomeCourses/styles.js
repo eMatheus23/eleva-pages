@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { shade, lighten } from 'polished';
+import { shade } from 'polished';
 
 import BecomePremiumImg from '../../assets/images/mockups/home-trilhas/ballpen-blur-close-up-computer-461077.png';
 import HeroImg from '../../assets/images/mockups/home-courses/as.png';
