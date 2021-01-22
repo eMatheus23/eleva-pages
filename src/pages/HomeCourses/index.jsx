@@ -17,6 +17,8 @@ import {
   CarouselButton,
   Hero,
   SearchSection,
+  CourseCard,
+  MiniCourseSection,
   LaunchCard,
   HighlightsContainer,
   HighlightsCard,
@@ -35,13 +37,14 @@ import CoursesIcon from '../../assets/images/icons/courses-icon-02.svg';
 import HeroDetail from '../../assets/images/other/hero-detail.svg';
 import FilterIcon from '../../assets/images/icons/filter-icon.svg';
 import BitwiseImg from '../../assets/images/icons/bitwise.svg';
-import CardDetail from '../../assets/images/other/card-detail.svg';
+import CardDetail02 from '../../assets/images/other/card-detail-02.svg';
+import CardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
+import CartIcon from '../../assets/images/icons/cart-icon-03.svg';
 
 import Header from '../../components/headers/MainHeader';
 import Footer from '../../components/footers/MainFooter';
 
 // Mockups
-import HeroImg from '../../assets/images/mockups/home-trilhas/person-touching-open-macbook-on-table-839465.png';
 import PremiumCardImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
 import TrackImg from '../../assets/images/mockups/home-trilhas/Grupo 843.png';
 import TrackImg02 from '../../assets/images/mockups/home-trilhas/soybeans-4019684_960_720.png';
@@ -66,6 +69,10 @@ import CareerMockupImg04 from '../../assets/images/mockups/home-trilhas/man-taki
 import Extras01 from '../../assets/images/mockups/home-trilhas/pexels-photo-1181304.png';
 import Extras02 from '../../assets/images/mockups/home-trilhas/Captura de Tela 2019-04-23 às 9.08.22 PM.png';
 import Extras03 from '../../assets/images/mockups/home-trilhas/stil--837JygbCJo-unsplash.png';
+import MiniCourseImg from '../../assets/images/mockups/home-courses/man-taking-notes-in-front-of-his-computer-4238481.png';
+import MiniCourseImg02 from '../../assets/images/mockups/home-courses/man-in-black-suit-jacket-standing-and-smiling-3777557.png';
+import MiniCourseImg03 from '../../assets/images/mockups/home-courses/person-playing-chess-1040157.png';
+import MiniCourseImg04 from '../../assets/images/mockups/home-courses/woman-in-black-coat-holding-black-smartphone-3755824.png';
 
 import FindOut from './FindOut';
 
@@ -116,6 +123,12 @@ const HomeTracks = () => {
     1530: { items: 4 },
   };
 
+  const responsiveCourse = {
+    0: { items: 4 },
+    1250: { items: 5 },
+    1530: { items: 5 },
+  };
+
   const renderPrevButton = ({ isDisabled }) => {
     return (
       <CarouselButton style={{ opacity: isDisabled ? '0.5' : 1 }}>
@@ -150,20 +163,16 @@ const HomeTracks = () => {
       />
 
       <Hero>
-        <div className="hero-img">
-          <img src={HeroImg} className="image" alt="Hero" />
-        </div>
-
         <div className="content-wrapper">
           <div className="page-title">
             <h1>
               <img src={CoursesIcon} alt="TRILHAS DE ENSINO" />
-              TRILHAS DE ENSINO
+              CURSOS
             </h1>
-            <h2>EDUCAÇÃO NO AGRO ELEVADA A OUTRO NÍVEL.</h2>
+            <h2>Capacitação para o NOVO agronegócio</h2>
             <p>
-              Montamos grades de ensino com nossos cursos para o seu melhor
-              aprendizado.
+              Aqui você aprende uma nova habilidade ou área com profissionais
+              referência de mercado.
             </p>
           </div>
 
@@ -202,21 +211,35 @@ const HomeTracks = () => {
           </div>
         </section>
 
-        <aside className="col-5">
+        <aside className="track-card">
           <div>
             <div className="text">
-              <h4>Descontos Premium</h4>
-              <p>
-                Associado Premium tem grandes descontos e promoções exclusivas
-                em todos as trilhas.
-              </p>
-              <Link to="/">Saiba mais</Link>
-              <img src={CardDetail} alt="" />
+              <h4>
+                Trilhas
+                <br />
+                de Ensino
+              </h4>
+              <Link to="/tracks">Acesse</Link>
+              <img src={CardDetail02} alt="" />
               <div className="triangle" />
               <div className="filter" />
             </div>
+          </div>
+        </aside>
 
-            <img src={PremiumCardImg} alt="" />
+        <aside className="mini-course">
+          <div>
+            <div className="text">
+              <h4>
+                Mini
+                <br />
+                Cursos
+              </h4>
+              <Link to="/tracks">Acesse</Link>
+              <img src={CardDetail02} alt="" />
+              <div className="triangle" />
+              <div className="filter" />
+            </div>
           </div>
         </aside>
       </SearchSection>
@@ -225,117 +248,413 @@ const HomeTracks = () => {
         <header>
           <h3>LANÇAMENTOS</h3>
           <div className="border-bottom" />
-          <Link to="/">VER TODAS</Link>
+          <Link to="/">VER TODOS</Link>
         </header>
 
         <AliceCarousel
-          responsive={responsive}
+          responsive={responsiveCourse}
           mouseTracking
           disableDotsControls
           renderPrevButton={renderPrevButton}
           renderNextButton={renderNextButton}
+          paddingLeft={20}
         >
-          <LaunchCard>
-            <div>
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
               <div>
-                <span>TRILHA</span>
-                <h4>FERRUGEM 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
               </div>
-
-              <FindOut to="/">Saiba mais</FindOut>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
+            </section>
             <div>
-              <div>
-                <span>TRILHA</span>
-                <h4>VENDAS DE INSUMOS AGRÍCOLAS </h4>
-                <p>
-                  Aumente suas skills de vendas fortaleça o seu argumentario.
-                </p>
-              </div>
-
-              <FindOut to="/">Saiba mais</FindOut>
+              <Link to="/">Saiba mais</Link>
             </div>
-            <span className="filter" />
-            <img src={TrackImg02} alt="" />
-          </LaunchCard>
+          </CourseCard>
 
-          <LaunchCard>
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
             <div>
-              <div>
-                <span>TRILHA</span>
-                <h4>PERCEVEJOS</h4>
-                <p>Conhecimento garantido para o combate.</p>
-              </div>
-
-              <FindOut to="/">Saiba mais</FindOut>
+              <Link to="/">Saiba mais</Link>
             </div>
-            <span className="filter" />
-            <img src={TrackImg03} alt="" />
-          </LaunchCard>
+          </CourseCard>
 
-          <LaunchCard>
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
             <div>
-              <div>
-                <span>TRILHA</span>
-                <h4>FERRUGEM 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
-              </div>
-
-              <FindOut to="/">Saiba mais</FindOut>
+              <Link to="/">Saiba mais</Link>
             </div>
-            <span className="filter" />
-            <img src={TrackImg} alt="" />
-          </LaunchCard>
+          </CourseCard>
 
-          <LaunchCard>
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
             <div>
-              <div>
-                <span>TRILHA</span>
-                <h4>FERRUGEM 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
-              </div>
-
-              <FindOut to="/">Saiba mais</FindOut>
+              <Link to="/">Saiba mais</Link>
             </div>
-            <span className="filter" />
-            <img src={TrackImg} alt="" />
-          </LaunchCard>
+          </CourseCard>
 
-          <LaunchCard>
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
             <div>
-              <div>
-                <span>TRILHA</span>
-                <h4>VENDAS DE INSUMOS AGRÍCOLAS </h4>
-                <p>
-                  Aumente suas skills de vendas fortaleça o seu argumentario.
-                </p>
-              </div>
-
-              <FindOut to="/">Saiba mais</FindOut>
+              <Link to="/">Saiba mais</Link>
             </div>
-            <span className="filter" />
-            <img src={TrackImg02} alt="" />
-          </LaunchCard>
+          </CourseCard>
+        </AliceCarousel>
+      </CarouselContainer>
 
-          <LaunchCard>
+      <MiniCourseSection>
+        <div className="content-wrapper">
+          <section>
+            <header>
+              <div>
+                <h4>MINI CURSOS</h4>
+                <p>Exclusivos para Premium</p>
+              </div>
+              <Link to="/">VER TODOS</Link>
+              <img src={CardDetailMini} alt="" />
+            </header>
+
             <div>
-              <div>
-                <span>TRILHA</span>
-                <h4>PERCEVEJOS</h4>
-                <p>Conhecimento garantido para o combate.</p>
-              </div>
+              <Link to="/" className="mini-course">
+                <img src={MiniCourseImg} alt="" />
+                Métodos ágeis aplicado no agronegócio
+                <FiChevronRight size={30} />
+              </Link>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <Link to="/" className="mini-course">
+                <img src={MiniCourseImg02} alt="" />
+                Academia do RTV
+                <FiChevronRight size={30} />
+              </Link>
+
+              <Link to="/" className="mini-course">
+                <img src={MiniCourseImg03} alt="" />
+                Caminhos do novo agro
+                <FiChevronRight size={30} />
+              </Link>
+
+              <Link to="/" className="mini-course">
+                <img src={MiniCourseImg04} alt="" />
+                Consultoria agrícola: criando mercados
+                <FiChevronRight size={30} />
+              </Link>
             </div>
-            <span className="filter" />
-            <img src={TrackImg03} alt="" />
-          </LaunchCard>
+          </section>
+
+          <aside>
+            <div>
+              <h2>PROMOÇÃO</h2>
+              <p>Aprenda novas habilidades com cursos a partir de R$56,00</p>
+              <p>Área para banner</p>
+            </div>
+            <div className="filter" />
+          </aside>
+        </div>
+      </MiniCourseSection>
+
+      <CarouselContainer background>
+        <header>
+          <h3>Cursos em alta</h3>
+          <div className="border-bottom" />
+          <Link to="/">VER TODOS</Link>
+        </header>
+
+        <AliceCarousel
+          responsive={responsiveCourse}
+          mouseTracking
+          disableDotsControls
+          renderPrevButton={renderPrevButton}
+          renderNextButton={renderNextButton}
+          paddingLeft={20}
+        >
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
+            <div>
+              <Link to="/">Saiba mais</Link>
+            </div>
+          </CourseCard>
+
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
+            <div>
+              <Link to="/">Saiba mais</Link>
+            </div>
+          </CourseCard>
+
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
+            <div>
+              <Link to="/">Saiba mais</Link>
+            </div>
+          </CourseCard>
+
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
+            <div>
+              <Link to="/">Saiba mais</Link>
+            </div>
+          </CourseCard>
+
+          <CourseCard>
+            <img src={HighlightCardImg} alt="" />
+            <section>
+              <h4>Nutrição de Plantas</h4>
+              <p>
+                Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                eficiente e segura
+              </p>
+              <div>
+                <div>
+                  <span>
+                    De
+                    <del> R$: 265,00</del>
+                  </span>
+                  <h5>
+                    R$:
+                    <> </>
+                    <strong>238</strong>
+                    ,00
+                  </h5>
+                  <p>10x R$ 23,00</p>
+                </div>
+
+                <button type="button">
+                  <img src={CartIcon} alt="" />
+                </button>
+              </div>
+            </section>
+            <div>
+              <Link to="/">Saiba mais</Link>
+            </div>
+          </CourseCard>
         </AliceCarousel>
       </CarouselContainer>
 

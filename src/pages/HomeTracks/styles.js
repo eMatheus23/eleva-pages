@@ -145,7 +145,7 @@ export const Hero = styled.section`
       right: 0;
       top: 0;
       z-index: 4;
-      height: 29.5rem;
+      height: 100%;
       width: 200rem;
       background: #141414;
       opacity: 0.65;
