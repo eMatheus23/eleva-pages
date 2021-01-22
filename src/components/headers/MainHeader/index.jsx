@@ -63,7 +63,7 @@ const MainHeader = ({
             {viewerStatus !== 'premium' && (
               <>
                 <li className="active">
-                  <Link to="/course-track">
+                  <Link to="/track">
                     <CoursesIcon
                       fill="currentColor"
                       alt="CURSOS"
@@ -73,7 +73,7 @@ const MainHeader = ({
                   </Link>
                 </li>
                 <li>
-                  <Link to="/course-track">
+                  <Link to="/track">
                     <ContentIcon
                       fill="currentColor"
                       alt="CONTEÚDOS"
@@ -83,7 +83,7 @@ const MainHeader = ({
                   </Link>
                 </li>
                 <li>
-                  <Link to="/course-track">
+                  <Link to="/track">
                     <LecturesIcon
                       fill="currentColor"
                       alt="PALESTRAS"
@@ -94,10 +94,10 @@ const MainHeader = ({
                 </li>
                 <img src={bitwiseImg} alt="Separação de sessão" />
                 <li>
-                  <Link to="/course-track">ENSINE NA ELEVAGRO</Link>
+                  <Link to="/track">ENSINE NA ELEVAGRO</Link>
                 </li>
                 <li>
-                  <Link to="/course-track">PLANOS</Link>
+                  <Link to="/track">PLANOS</Link>
                 </li>
               </>
             )}
@@ -105,16 +105,16 @@ const MainHeader = ({
             {viewerStatus === 'premium' && (
               <>
                 <li>
-                  <Link to="/course-track">ENSINE NA ELEVAGRO</Link>
+                  <Link to="/track">ENSINE NA ELEVAGRO</Link>
                 </li>
                 <li>
-                  <Link to="/course-track">EMPRESARIAL</Link>
+                  <Link to="/track">EMPRESARIAL</Link>
                 </li>
 
                 <img src={bitwiseImg} alt="Separação de sessão" />
 
                 <li>
-                  <Link to="/course-track">
+                  <Link to="/track">
                     <LecturesIcon
                       fill="currentColor"
                       alt="PALESTRAS"
@@ -125,7 +125,7 @@ const MainHeader = ({
                 </li>
 
                 <li>
-                  <Link to="/course-track">
+                  <Link to="/track">
                     <ContentIcon
                       fill="currentColor"
                       alt="CONTEÚDOS"
@@ -136,7 +136,7 @@ const MainHeader = ({
                 </li>
 
                 <li className="active">
-                  <Link to="/course-track">
+                  <Link to="/track">
                     <CoursesIcon
                       fill="currentColor"
                       alt="CURSOS"

@@ -2,6 +2,11 @@ import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
 import BecomePremiumImg from '../../assets/images/mockups/home-trilhas/ballpen-blur-close-up-computer-461077.png';
+import HeroImg from '../../assets/images/mockups/home-courses/as.png';
+import TrackCardImg from '../../assets/images/mockups/home-courses/a.png';
+import MiniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-startup-stock-photos-7096.png';
+import MiniCourseHeaderImg from '../../assets/images/mockups/home-courses/photo-of-person-holding-black-pen-959816.png';
+import BannerImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
 
 const wrapperMaxWidth = '153rem';
 
@@ -51,10 +56,13 @@ export const Hero = styled.section`
   position: relative;
 
   width: 100%;
-  height: 29.5rem;
+  height: 36.1rem;
 
   margin: 0 auto;
   margin-top: 6.5rem;
+
+  background: url(${HeroImg}) no-repeat center top;
+  background-size: cover;
 
   .hero-img {
     position: relative;
@@ -84,6 +92,14 @@ export const Hero = styled.section`
     margin: 0 auto;
     padding: 2rem 4rem;
 
+    .page-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 100%;
+      padding: 3rem 0;
+    }
+
     h1 {
       display: flex;
       align-items: center;
@@ -100,6 +116,7 @@ export const Hero = styled.section`
       max-width: 45.7rem;
       font: normal 3.2rem/4.3rem var(--font-primary);
       color: var(--color-primary);
+      text-transform: uppercase;
     }
 
     p {
@@ -127,8 +144,8 @@ export const Hero = styled.section`
       width: 0;
       border-left: 80px solid #141414;
       border-right: 106px solid transparent;
-      border-bottom: 148px solid transparent;
-      border-top: 148px solid transparent;
+      border-bottom: 180px solid transparent;
+      border-top: 180px solid transparent;
       opacity: 0.65;
     }
 
@@ -146,7 +163,7 @@ export const Hero = styled.section`
       top: 0;
       z-index: 4;
       height: 100%;
-      width: 200rem;
+      width: 120rem;
       background: #141414;
       opacity: 0.65;
     }
@@ -257,10 +274,12 @@ export const SearchSection = styled.article`
   aside {
     overflow: hidden;
     width: 100%;
-    height: 10.9rem;
+    max-width: 26.9rem;
+    height: 10.7rem;
     padding-left: 5rem;
     padding-right: 0;
     border-radius: 0.9rem;
+    background-size: cover;
 
     > div {
       position: relative;
@@ -281,34 +300,28 @@ export const SearchSection = styled.article`
       flex-direction: column;
       justify-content: space-between;
       height: 100%;
-      padding: 1.2rem min(2vw, 5rem) 1.1rem 0;
+      padding: 1.2rem 2rem 1.1rem 0;
 
       h4 {
-        font: bold 2.4rem/2.4rem var(--font-primary);
-        color: var(--color-primary);
-      }
-
-      p {
-        max-width: 31.7rem;
-        font: normal 1.4rem/1.6rem var(--font-primary);
+        font: bold 2.5rem/2.6rem var(--font-primary);
         color: var(--color-text-white);
       }
 
       a {
-        font: bold 1.4rem/1.4rem var(--font-primary);
+        font: normal 1.4rem/1.4rem var(--font-primary);
         color: var(--color-primary);
       }
 
       img {
         position: absolute;
-        right: 36.7rem;
+        right: 16.5rem;
         top: 0;
         height: 10.9rem;
       }
 
       .triangle {
         position: absolute;
-        right: 37rem;
+        right: 17rem;
         top: 0;
         z-index: -1;
         height: 0;
@@ -326,20 +339,19 @@ export const SearchSection = styled.article`
         top: 0;
         z-index: -1;
         height: 10.9rem;
-        width: 37rem;
+        width: 17rem;
         background: #141414;
         opacity: 0.65;
       }
     }
+  }
 
-    > img {
-      width: 100%;
-      height: 100%;
+  .track-card {
+    background: url(${TrackCardImg}) no-repeat center top;
+  }
 
-      border-radius: 0.9rem;
-
-      object-fit: cover;
-    }
+  .mini-course {
+    background: url(${MiniCourseCardImg}) no-repeat center top;
   }
 `;
 
@@ -352,22 +364,285 @@ export const CarouselButton = styled.span`
   border-radius: 50%;
 `;
 
+export const CourseCard = styled.div`
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  max-width: 25.8rem;
+  height: 35.8rem;
+  margin-bottom: 4rem;
+  border-radius: 0.7rem;
+  box-shadow: 0px 3px 6px #00000029;
+
+  > a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  > img {
+    width: 100%;
+    height: 15.9rem;
+    object-fit: cover;
+  }
+
+  section {
+    width: 100%;
+    height: 15.9rem;
+    padding: 1rem 0.5rem 0 1.4rem;
+    background: var(--color-background);
+
+    h4 {
+      font: normal 1.3rem/1.6rem var(--font-primary);
+      color: var(--color-secondary);
+    }
+
+    p {
+      font: normal 1.5rem/2rem var(--font-primary);
+      color: var(--color-text-base);
+    }
+
+    > div {
+      display: flex;
+      align-items: flex-end;
+      width: 100%;
+      margin-top: 1rem;
+
+      div {
+        width: 50%;
+      }
+
+      span {
+        font: normal 1.4rem/1.6rem var(--font-primary);
+        color: var(--color-line-in-white);
+      }
+
+      h5 {
+        margin: 0.1rem 0 0.3rem;
+        font: normal 1.8rem/2.2rem var(--font-primary);
+        color: var(--color-secondary);
+      }
+
+      strong {
+        font: normal 2.6rem/2.2rem var(--font-primary);
+      }
+
+      p {
+        font: normal 1.3rem/1.4rem var(--font-primary);
+      }
+
+      button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 9.9rem;
+        height: 5rem;
+        border-radius: 2.5rem;
+        background: var(--color-secondary);
+
+        &:hover {
+          background: var(--color-secondary-hover);
+        }
+      }
+    }
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+    height: 3.4rem;
+    background: var(--color-background-secondary);
+
+    a {
+      display: block;
+      width: 100%;
+      font: normal 1.5rem/2rem var(--font-primary);
+      text-align: center;
+      text-decoration: underline;
+      color: var(--color-text-base);
+    }
+  }
+`;
+
+export const MiniCourseSection = styled.article`
+  width: 100%;
+  margin-bottom: 6.5rem;
+
+  .content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  section {
+    overflow: hidden;
+    width: 100%;
+    max-width: 56.1rem;
+    height: 30.9rem;
+    border-radius: 1.5rem;
+    background: var(--color-background-secondary);
+
+    header {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      width: 100%;
+      height: 8.4rem;
+      padding: 1rem 3.3rem 1rem 4rem;
+      background: url(${MiniCourseHeaderImg}) no-repeat;
+      background-size: cover;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+      }
+
+      h4 {
+        font: normal 2rem/2rem var(--font-primary);
+        color: var(--color-text-white);
+      }
+
+      p {
+        font: normal 1.7rem/2rem var(--font-primary);
+        color: var(--color-text-white);
+      }
+
+      a {
+        font: normal 15px/15px var(--font-primary);
+        color: var(--color-text-white);
+      }
+
+      > img {
+        position: absolute;
+        top: 0;
+        left: 48%;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    > div {
+      width: 100%;
+      height: 22.5rem;
+      padding: 1rem 3.3rem 2rem 3.9rem;
+    }
+
+    .mini-course {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.6rem;
+      color: var(--color-text-base);
+      font: normal 1.5rem/2rem var(--font-primary);
+      text-decoration: none;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-0.1rem);
+      }
+
+      img {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1rem;
+        border-radius: 0.9rem;
+        object-fit: cover;
+      }
+
+      svg {
+        margin-left: auto;
+      }
+
+      & + .mini-course {
+        padding-top: 0.6rem;
+        border-top: 1px solid #bfbfbf;
+      }
+    }
+  }
+
+  aside {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 86.1rem;
+    height: 31rem;
+    border-radius: 2rem;
+    background: url(${BannerImg}) no-repeat;
+    background-size: cover;
+
+    div {
+      z-index: +2;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      transform: translate(-50%, 0);
+      color: var(--color-secondary);
+
+      h2 {
+        font: normal 3.5rem/4.5rem var(--font-primary);
+      }
+
+      p {
+        font: normal 2.2rem/2.4rem var(--font-primary);
+        text-align: center;
+      }
+    }
+
+    .filter {
+      z-index: +1;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      opacity: 0.81;
+    }
+  }
+`;
+
 export const CarouselContainer = styled.article`
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: ${wrapperMaxWidth};
-  margin: 0 auto 8rem;
+  margin: 1rem auto 4rem;
   padding: 0 4rem;
+
+  ${props =>
+    props.background &&
+    css`
+      background: var(--color-background-secondary);
+    `}
 
   header {
     display: flex;
     align-items: center;
     width: 100%;
 
+    ${props =>
+      props.background &&
+      css`
+        margin-top: 4.5rem;
+      `}
+
     h3 {
       margin-right: 1rem;
       font: bold 2.5rem/2.5rem var(--font-primary);
+      text-transform: uppercase;
     }
 
     > div {

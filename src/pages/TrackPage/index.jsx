@@ -78,9 +78,9 @@ const TrackPage = () => {
               <div className="nav-tree">
                 <Link to="/">Início</Link>
                 <span>/</span>
-                <Link to="/course-track">Trilhas</Link>
+                <Link to="/track">Trilhas</Link>
                 <span>/</span>
-                <Link to="/course-track">{track.title}</Link>
+                <Link to="/track">{track.title}</Link>
               </div>
 
               <h3>TRILHA DE ENSINO</h3>
