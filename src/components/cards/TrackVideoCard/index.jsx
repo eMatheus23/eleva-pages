@@ -7,6 +7,7 @@ import './styles.css';
 
 // Utils
 import formatValue from '../../../utils/formatValue';
+import useDisableBodyScroll from '../../../utils/Hooks/useDisableBodyScroll';
 
 // Services
 import AddTrackToCart from '../../../services/AddTrackToCart';
@@ -205,6 +206,7 @@ TrackPlaylistModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   viewerStatus: PropTypes.string.isRequired,
   priceToViewer: PropTypes.number.isRequired,
+  handlePurchase: PropTypes.func.isRequired,
   trackData: PropTypes.shape({
     main_video: PropTypes.shape({
       tumbnail_url: PropTypes.string,
@@ -238,13 +240,12 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
 
   const closeModal = () => setModalOpened(false);
 
+  // Hook que desabilita o scroll
+  useDisableBodyScroll(modalOpened);
+
   const handlePurchase = () => {
     // Adicionar produto no cart
-    try {
-      AddTrackToCart({ trackId: id });
-    } catch (err) {
-      console.log(err);
-    }
+    AddTrackToCart({ trackId: id });
 
     // Redirecionar para o checkout
     history.push('/checkout');

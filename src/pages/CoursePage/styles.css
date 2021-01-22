@@ -7,6 +7,11 @@ body {
   min-height: 100vh;
   background: var(--color-background);
 }
+#course-page h4 {
+  margin-top: 8rem;
+  font: normal 2.5rem/3rem Montserrat, sans-serif;
+  color: var(--color-secondary);
+}
 
 #course-page .hero {
   position: relative;
@@ -62,11 +67,11 @@ body {
 }
 #course-page .hero .content-wrapper .nav-tree span {
   margin: 0 1rem;
-  font: normal 1.3rem/1.6rem Montserrat;
+  font: normal 1.3rem/1.6rem Montserrat, sans-serif;
   color: var(--color-primary);
 }
 #course-page .hero .content-wrapper .nav-tree a {
-  font: normal 1.3rem/1.6rem Montserrat;
+  font: normal 1.3rem/1.6rem Montserrat, sans-serif;
   color: var(--color-primary);
   text-decoration: none;
 }
@@ -75,14 +80,26 @@ body {
   pointer-events: none;
 }
 #course-page .hero .content-wrapper > h1 {
-  font: normal 3rem/3.7rem Montserrat;
+  font: normal 3rem/3.7rem Montserrat, sans-serif;
   color: var(--color-text-white);
   text-transform: uppercase;
+  width: 56%;
   max-width: 83rem;
+}
+@media screen and (max-width: 1490px) {
+  #course-page .hero .content-wrapper > h1 {
+    width: 51%;
+  }
+}
+@media screen and (max-width: 1195px) {
+  #course-page .hero .content-wrapper > h1 {
+    width: 95%;
+    max-width: 95%;
+  }
 }
 #course-page .hero .content-wrapper > h3 {
   margin-bottom: 0.7rem;
-  font: normal 2rem/2.4rem Montserrat;
+  font: normal 2rem/2.4rem Montserrat, sans-serif;
   color: var(--color-primary);
   text-transform: uppercase;
 }
@@ -116,11 +133,11 @@ body {
 
 .course-description p {
   margin-bottom: 3rem;
-  font: normal 2rem/2.7rem Montserrat;
+  font: normal 2rem/2.7rem Montserrat, sans-serif;
 }
 .course-description h3 {
   margin-bottom: 3.5rem;
-  font: normal 2.5rem/3rem Montserrat;
+  font: normal 2.5rem/3rem Montserrat, sans-serif;
   color: var(--color-secondary);
 }
 
@@ -136,7 +153,7 @@ body {
   padding: 0 1rem;
   padding-bottom: 0.7rem;
   background: none;
-  font: normal 2.5rem/3rem Montserrat;
+  font: normal 2.5rem/3rem Montserrat, sans-serif;
   transition: color 0.2s;
 }
 .course-tab-selector button.active {
@@ -156,53 +173,241 @@ body {
   border-bottom: 2px solid var(--color-line-in-white);
 }
 
-.courses .course {
+#modules {
+  margin-top: 4rem;
+}
+#modules > p {
+  font: normal 2rem/2.4rem Montserrat, sans-serif;
+}
+#modules > p + p {
+  margin-top: 2rem;
+}
+#modules > p:last-of-type {
+  margin-bottom: 4rem;
+}
+#modules .course {
   display: flex;
   flex-direction: row;
   margin-bottom: 2rem;
 }
-.courses .course + .course {
+#modules .course + .course {
   border-top: 2px solid var(--color-line-in-white);
   padding-top: 2rem;
 }
-.courses h2 {
+#modules h2 {
   margin: 1.8rem 0 2rem 0;
-  font: normal 3.5rem/4.3rem Montserrat;
+  font: normal 3.5rem/4.3rem Montserrat, sans-serif;
 }
-.courses img {
-  width: 19.2rem;
-  border-radius: 1rem;
+#modules .img-container {
+  width: 45%;
+  max-width: 19.2rem;
   margin-right: 1.8rem;
 }
-.courses .course-description {
+#modules .img-container .aspect-ratio {
+  width: 100%;
+  height: 0;
+  padding-bottom: 61.45%;
+  position: relative;
+  border-radius: 1rem;
+}
+#modules .img-container .aspect-ratio .aspect-ratio__inner-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+#modules .img-container .aspect-ratio img {
+  width: 100%;
+  height: 100%;
+}
+#modules .course-description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
-.courses .course-description p {
-  font: normal 2rem/2.2rem Montserrat;
+#modules .course-description p {
+  font: normal 2rem/2.2rem Montserrat, sans-serif;
 }
-.courses .course-description > div:first-of-type {
+#modules .course-description > div:first-of-type {
   display: flex;
   flex-direction: column;
 }
-.courses .course-description > div:first-of-type span {
-  font: normal 1.7rem/2.2rem Montserrat;
+#modules .course-description > div:first-of-type span {
+  font: normal 1.7rem/2.2rem Montserrat, sans-serif;
   color: var(--color-secondary-alternative);
 }
-.courses .course-description > div:last-of-type {
+#modules .course-description > div:last-of-type {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.courses .course-description > div:last-of-type span {
+#modules .course-description > div:last-of-type span {
   text-decoration: line-through;
-  font: normal 2.5rem/2.2rem Montserrat;
+  font: normal 2.5rem/2.2rem Montserrat, sans-serif;
   color: var(--color-secondary-alternative);
 }
-.courses .course-description > div:last-of-type a {
-  font: normal 2rem/2.2rem Montserrat;
+#modules .course-description > div:last-of-type button {
+  font: normal 2rem/2.2rem Montserrat, sans-serif;
+  text-decoration: underline;
+  background: none;
   color: var(--color-secondary-alternative);
+}
+
+#course-page-details {
+  margin-top: 4.4rem;
+}
+#course-page-details ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+#course-page-details ul li {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 2.2rem;
+  list-style: none;
+  font: normal 2rem/4rem Montserrat;
+}
+#course-page-details ul li img {
+  margin-right: 1.5rem;
+}
+#course-page-details p {
+  width: 95%;
+  font: normal 2rem/2.7rem Montserrat;
+}
+#course-page-details p + p {
+  margin-top: 1rem;
+}
+
+#course-page-advantages {
+  margin-top: 4rem;
+}
+#course-page-advantages ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+}
+#course-page-advantages ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.2rem;
+  list-style: none;
+  font: normal 2rem/4rem Montserrat;
+}
+#course-page-advantages ul li a {
+  display: inline;
+  color: var(--color-text-base);
+  text-decoration: none;
+  font-weight: 700;
+}
+#course-page-advantages ul li a:hover {
+  color: var(--color-secondary);
+}
+#course-page-advantages > h4 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font: normal 2.5rem/3rem Montserrat, sans-serif;
+  color: var(--color-secondary);
+}
+
+#category {
+  margin-top: 4rem;
+}
+#category p {
+  margin-bottom: 0.3rem;
+  font: normal 2rem/2.7rem Montserrat, sans-serif;
+}
+#category .recomended {
+  margin-top: 3rem;
+}
+#category > h4 {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  font: normal 2.5rem/3rem Montserrat, sans-serif;
+  color: var(--color-secondary);
+}
+
+#authors {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  margin-bottom: 6rem;
+}
+#authors .author {
+  width: 14%;
+  height: 12.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5rem 0.7rem 0;
+  padding: 0 1.5rem;
+  border-radius: 0.8rem;
+  background: var(--color-background-secondary);
+}
+#authors .author img {
+  width: 6.9rem;
+  height: 6.9rem;
+  margin-top: -4rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+#authors .author p {
+  text-align: center;
+  font: normal 1.5rem/1.8rem Montserrat, sans-serif;
+}
+#authors .author a {
+  font: normal 1.4rem/3rem Montserrat, sans-serif;
+  color: var(--color-text-link);
+}
+
+#comments-section {
+  width: 100%;
+}
+#comments-section h4 {
+  margin-top: 3rem;
+}
+#comments-section .comment {
+  display: flex;
+  margin-top: 3rem;
+}
+#comments-section .comment > img {
+  width: 6.6rem;
+  height: 6.6rem;
+  margin-right: 1.8rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+#comments-section .comment > div {
+  flex: 1;
+}
+#comments-section .comment .name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+#comments-section .comment .name h6 {
+  font: bold 1.7rem/2rem "Source Sans Pro", sans-serif;
+  color: var(--color-secondary);
+  margin-right: 1rem;
+}
+#comments-section .comment .name span {
+  display: block;
+  font: normal 1.6rem/2rem "Source Sans Pro", sans-serif;
+  color: var(--color-primary);
+}
+#comments-section .comment p {
+  font: normal 1.6rem/2rem "Source Sans Pro", sans-serif;
+}
+#comments-section .comment + .comment {
+  padding-top: 3rem;
+  border-top: 1px solid #bfbfbf;
 }
 
 /*# sourceMappingURL=styles.css.map */
