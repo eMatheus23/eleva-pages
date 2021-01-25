@@ -13,6 +13,7 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import { BiSearchAlt } from 'react-icons/bi';
 import {
   Container,
+  ContentWrapper,
   CarouselContainer,
   CarouselButton,
   Hero,
@@ -154,7 +155,7 @@ const HomeTracks = () => {
           <img src={HeroImg} className="image" alt="Hero" />
         </div>
 
-        <div className="content-wrapper">
+        <ContentWrapper>
           <div className="page-title">
             <h1>
               <img src={CoursesIcon} alt="TRILHAS DE ENSINO" />
@@ -172,7 +173,7 @@ const HomeTracks = () => {
             <div className="triangle" />
             <div className="filter" />
           </div>
-        </div>
+        </ContentWrapper>
       </Hero>
 
       <SearchSection className="row">
@@ -340,7 +341,7 @@ const HomeTracks = () => {
       </CarouselContainer>
 
       <HighlightsContainer>
-        <div className="content-wrapper">
+        <ContentWrapper>
           <section>
             <h5>TRILHA DESTAQUE</h5>
             <h3>SOJA 360º</h3>
@@ -453,14 +454,14 @@ const HomeTracks = () => {
             <div className="triangle" />
             <div className="filter" />
           </div>
-        </div>
+        </ContentWrapper>
 
         <div className="filter-white" />
         <img src={HighlightsBackground} alt="" />
       </HighlightsContainer>
 
       <ThemesContainer>
-        <div className="content-wrapper">
+        <ContentWrapper>
           <section>
             <h2>Veja mais trilhas sobre:</h2>
             <div>
@@ -486,7 +487,7 @@ const HomeTracks = () => {
             <div className="filter" />
             <img src={PremiumCardImg} alt="" />
           </aside>
-        </div>
+        </ContentWrapper>
       </ThemesContainer>
 
       <CarouselContainer>
@@ -629,7 +630,7 @@ const HomeTracks = () => {
 
       {viewerStatus === 'visit' && (
         <SignupCard>
-          <div className="content-wrapper">
+          <ContentWrapper>
             <div className="card">
               <p>
                 Inscreva-se gratuitamente na Elevagro e seja avisado(a) sobre
@@ -680,13 +681,13 @@ const HomeTracks = () => {
                 </section>
               </form>
             </div>
-          </div>
+          </ContentWrapper>
         </SignupCard>
       )}
 
       {viewerStatus === 'free' && (
         <BecomePremiumCard>
-          <div className="content-wrapper">
+          <ContentWrapper>
             <div className="card">
               <section>
                 <h2>SEJA PREMIUM</h2>
@@ -701,7 +702,7 @@ const HomeTracks = () => {
 
               <div className="filter-black" />
             </div>
-          </div>
+          </ContentWrapper>
         </BecomePremiumCard>
       )}
 
@@ -824,7 +825,7 @@ const HomeTracks = () => {
       </CarouselContainer>
 
       <HighlightsContainer extraMargin>
-        <div className="content-wrapper">
+        <ContentWrapper>
           <section>
             <h5>TRILHA DO MÊS</h5>
             <h3>AGROBUSINESS</h3>
@@ -937,14 +938,14 @@ const HomeTracks = () => {
             <div className="triangle" />
             <div className="filter" />
           </div>
-        </div>
+        </ContentWrapper>
 
         <div className="filter-black" />
         <img src={HighlightsBackground02} alt="" />
       </HighlightsContainer>
 
       <ExtrasSection>
-        <div className="content-wrapper">
+        <ContentWrapper>
           <section>
             <img src={Extras01} alt="" />
             <div>
@@ -977,7 +978,7 @@ const HomeTracks = () => {
               <Link to="/">Saiba mais</Link>
             </div>
           </section>
-        </div>
+        </ContentWrapper>
       </ExtrasSection>
 
       <Footer />

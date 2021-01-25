@@ -10,14 +10,6 @@ export const Container = styled.div`
   min-height: 100vh;
   background: var(--color-background);
 
-  .content-wrapper {
-    width: 100%;
-    max-width: ${wrapperMaxWidth};
-
-    margin: 0 auto;
-    padding: 0 4rem;
-  }
-
   .alice-carousel__prev-btn,
   .alice-carousel__next-btn {
     position: absolute;
@@ -41,10 +33,13 @@ export const Container = styled.div`
   }
 `;
 
-export const Section = styled.section`
+export const ContentWrapper = styled.div`
   width: 100%;
-  max-width: ${wrapperMaxWidth};
-  padding: 3rem 4rem 8rem 4rem;
+  max-width: 153rem;
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 0 4rem;
 `;
 
 export const Hero = styled.section`
@@ -70,19 +65,12 @@ export const Hero = styled.section`
     }
   }
 
-  .content-wrapper {
+  ${ContentWrapper} {
     position: absolute;
     z-index: 10;
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
-
-    width: 100%;
-    max-width: ${wrapperMaxWidth};
-    height: 100%;
-
-    margin: 0 auto;
-    padding: 2rem 4rem;
 
     h1 {
       display: flex;
@@ -399,6 +387,7 @@ export const LaunchCard = styled.div`
   max-width: 34.8rem;
   width: 95%;
   height: 31.9rem;
+  margin: 0 auto;
   border-radius: 1rem;
 
   > div {
@@ -472,7 +461,7 @@ export const HighlightsContainer = styled.article`
     object-fit: cover;
   }
 
-  .content-wrapper {
+  ${ContentWrapper} {
     position: absolute;
     z-index: 10;
     top: 0;
@@ -482,13 +471,6 @@ export const HighlightsContainer = styled.article`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-    width: 100%;
-    max-width: ${wrapperMaxWidth};
-    height: 100%;
-
-    margin: 0 auto;
-    padding: 2rem 4rem;
 
     > section {
       max-width: 27.5rem;
@@ -615,6 +597,7 @@ export const HighlightsCard = styled.div`
   width: 95%;
   max-width: 25.8rem;
   height: 26.7rem;
+  margin: 0 auto;
   border-radius: 0.7rem;
   box-shadow: 0px 3px 6px #00000029;
 
@@ -654,15 +637,10 @@ export const ThemesContainer = styled.article`
   width: 100%;
   margin: 8rem 0;
 
-  .content-wrapper {
+  ${ContentWrapper} {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    max-width: ${wrapperMaxWidth};
-
-    margin: 0 auto;
-    padding: 0 4rem;
   }
 
   section {
@@ -784,6 +762,7 @@ export const CareerCard = styled.div`
   width: 95%;
   max-width: 34.8rem;
   height: 43.9rem;
+  margin: 0 auto;
   border-radius: 0.9rem;
   box-shadow: 0px 3px 6px #00000029;
 
@@ -991,7 +970,7 @@ export const ExtrasSection = styled.article`
   width: 100%;
   margin: 9.6rem 0 9rem;
 
-  .content-wrapper {
+  ${ContentWrapper} {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
