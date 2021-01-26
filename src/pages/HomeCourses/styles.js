@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
-import HeroImg from '../../assets/images/mockups/home-courses/as.png';
-import TrackCardImg from '../../assets/images/mockups/home-courses/a.png';
-import MiniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-startup-stock-photos-7096.png';
-import MiniCourseHeaderImg from '../../assets/images/mockups/home-courses/photo-of-person-holding-black-pen-959816.png';
-import BannerImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
-import CentralBannerBackground from '../../assets/images/mockups/home-courses/notebook-1280538.png';
+import heroImg from '../../assets/images/mockups/home-courses/as.png';
+import trackCardImg from '../../assets/images/mockups/home-courses/a.png';
+import miniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-startup-stock-photos-7096.png';
+import miniCourseHeaderImg from '../../assets/images/mockups/home-courses/photo-of-person-holding-black-pen-959816.png';
+import bannerImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
+import centralBannerBackground from '../../assets/images/mockups/home-courses/notebook-1280538.png';
 
 const wrapperMaxWidth = '153rem';
 
@@ -59,7 +59,7 @@ export const Hero = styled.section`
   margin: 0 auto;
   margin-top: 6.5rem;
 
-  background: url(${HeroImg}) no-repeat center top;
+  background: url(${heroImg}) no-repeat center top;
   background-size: cover;
 
   .hero-img {
@@ -338,11 +338,11 @@ export const SearchSection = styled.article`
   }
 
   .track-card {
-    background: url(${TrackCardImg}) no-repeat center top;
+    background: url(${trackCardImg}) no-repeat center top;
   }
 
   .mini-course {
-    background: url(${MiniCourseCardImg}) no-repeat center top;
+    background: url(${miniCourseCardImg}) no-repeat center top;
   }
 `;
 
@@ -390,7 +390,6 @@ export const CarouselButton = styled.span`
 `;
 
 export const CourseCard = styled.div`
-  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -401,6 +400,10 @@ export const CourseCard = styled.div`
   border-radius: 0.7rem;
   box-shadow: 0px 3px 6px #00000029;
 
+  &:hover .course-cover .hover-container {
+    display: initial;
+  }
+
   > a {
     display: flex;
     flex-direction: column;
@@ -409,20 +412,104 @@ export const CourseCard = styled.div`
     text-decoration: none;
   }
 
-  > img {
+  .course-cover {
+    position: relative;
     width: 100%;
     height: 15.9rem;
-    object-fit: cover;
+
+    > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0.7rem 0.7rem 0 0;
+      object-fit: cover;
+    }
   }
 
-  section {
+  .hover-container {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    .hover-container__text {
+      z-index: +2;
+      position: absolute;
+      top: 6.2rem;
+      right: 0;
+      width: 100%;
+      padding: 0 2rem;
+      text-align: right;
+
+      h3 {
+        color: var(--color-primary);
+        font: normal 1.5rem/2rem var(--font-primary);
+        letter-spacing: 0.17px;
+
+        big {
+          font: bold 3.5rem/2rem var(--font-primary);
+        }
+      }
+
+      p {
+        font: normal 1.5rem/2rem var(--font-primary);
+        color: var(--color-text-white);
+      }
+    }
+
+    .discount-long-flag {
+      position: absolute;
+      z-index: +1;
+      top: 6px;
+      right: -13px;
+
+      p {
+        position: absolute;
+        top: 7px;
+        right: 29px;
+        font: bold 1.3rem/2.2rem var(--font-primary);
+      }
+    }
+
+    .filter {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      border-radius: 0.7rem 0.7rem 0 0;
+      background: #000000;
+      opacity: 0.78;
+    }
+  }
+
+  .discount-flag {
+    position: absolute;
+    top: 8px;
+    right: -13px;
+
+    p {
+      position: absolute;
+      top: 6px;
+      right: 29px;
+      font: normal 1.4rem/2.2rem var(--font-primary);
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
     height: 15.9rem;
-    padding: 1rem 0.5rem 0 1.4rem;
+    padding: 1rem 0.5rem 1rem 1.4rem;
     background: var(--color-background);
 
     h4 {
-      font: normal 1.3rem/1.6rem var(--font-primary);
+      font: bold 1.3rem/1.6rem var(--font-primary);
       color: var(--color-secondary);
     }
 
@@ -430,48 +517,47 @@ export const CourseCard = styled.div`
       font: normal 1.5rem/2rem var(--font-primary);
       color: var(--color-text-base);
     }
+  }
 
-    > div {
+  .price-section {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+
+    div {
+      width: 50%;
+    }
+
+    span {
+      font: normal 1.4rem/1.6rem var(--font-primary);
+      color: var(--color-line-in-white);
+    }
+
+    h5 {
+      margin: 0.1rem 0 0.3rem;
+      font: normal 1.8rem/2.2rem var(--font-primary);
+      color: var(--color-secondary);
+    }
+
+    strong {
+      font: normal 2.6rem/2.2rem var(--font-primary);
+    }
+
+    p {
+      font: normal 1.3rem/1.4rem var(--font-primary);
+    }
+
+    button {
       display: flex;
-      align-items: flex-end;
-      width: 100%;
-      margin-top: 1rem;
+      align-items: center;
+      justify-content: center;
+      width: 9.9rem;
+      height: 5rem;
+      border-radius: 2.5rem;
+      background: var(--color-secondary);
 
-      div {
-        width: 50%;
-      }
-
-      span {
-        font: normal 1.4rem/1.6rem var(--font-primary);
-        color: var(--color-line-in-white);
-      }
-
-      h5 {
-        margin: 0.1rem 0 0.3rem;
-        font: normal 1.8rem/2.2rem var(--font-primary);
-        color: var(--color-secondary);
-      }
-
-      strong {
-        font: normal 2.6rem/2.2rem var(--font-primary);
-      }
-
-      p {
-        font: normal 1.3rem/1.4rem var(--font-primary);
-      }
-
-      button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 9.9rem;
-        height: 5rem;
-        border-radius: 2.5rem;
-        background: var(--color-secondary);
-
-        &:hover {
-          background: var(--color-secondary-hover);
-        }
+      &:hover {
+        background: var(--color-secondary-hover);
       }
     }
   }
@@ -482,6 +568,7 @@ export const CourseCard = styled.div`
     justify-content: center;
     width: 100%;
     margin-top: auto;
+    border-radius: 0 0 0.7rem 0.7rem;
     height: 3.4rem;
     background: var(--color-background-secondary);
 
@@ -522,7 +609,7 @@ export const MiniCourseSection = styled.article`
       width: 100%;
       height: 8.4rem;
       padding: 1rem 3.3rem 1rem 4rem;
-      background: url(${MiniCourseHeaderImg}) no-repeat;
+      background: url(${miniCourseHeaderImg}) no-repeat;
       background-size: cover;
 
       div {
@@ -601,7 +688,7 @@ export const MiniCourseSection = styled.article`
     max-width: 86.1rem;
     height: 31rem;
     border-radius: 2rem;
-    background: url(${BannerImg}) no-repeat;
+    background: url(${bannerImg}) no-repeat;
     background-size: cover;
 
     div {
@@ -639,7 +726,7 @@ export const MiniCourseSection = styled.article`
   }
 `;
 
-export const CarouselContainer = styled.article`
+export const CoursesCarouselContainer = styled.article`
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -833,7 +920,7 @@ export const CentralBannerContainer = styled.article`
   width: 100%;
   height: 43.9rem;
   margin: 3rem 0;
-  background: url(${CentralBannerBackground}) no-repeat center top;
+  background: url(${centralBannerBackground}) no-repeat center top;
   background-size: cover;
 
   ${props =>

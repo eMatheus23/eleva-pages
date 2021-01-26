@@ -10,7 +10,7 @@ import {
   ArticleHeader,
   ContentWrapper,
   Container,
-  CarouselContainer,
+  CoursesCarouselContainer,
   CarouselButton,
   Hero,
   SearchSection,
@@ -26,21 +26,23 @@ import {
 import getViewerStatus from '../../services/getViewerStatus';
 
 // Icons
-import CoursesIcon from '../../assets/images/icons/courses-icon-02.svg';
-import HeroDetail from '../../assets/images/other/hero-detail.svg';
-import FilterIcon from '../../assets/images/icons/filter-icon.svg';
-import BitwiseImg from '../../assets/images/icons/bitwise.svg';
-import CardDetail02 from '../../assets/images/other/card-detail-02.svg';
-import CardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
-import CartIcon from '../../assets/images/icons/cart-icon-03.svg';
+import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
+import heroDetail from '../../assets/images/other/hero-detail.svg';
+import filterIcon from '../../assets/images/icons/filter-icon.svg';
+import bitwiseImg from '../../assets/images/icons/bitwise.svg';
+import cardDetail02 from '../../assets/images/other/card-detail-02.svg';
+import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
+import cartIcon from '../../assets/images/icons/cart-icon-03.svg';
+import discountFlag from '../../assets/images/flags/discount-flag.svg';
+import discountLongFlag from '../../assets/images/flags/discount-long-flag.svg';
 
 import Header from '../../components/headers/MainHeader';
 import Footer from '../../components/footers/MainFooter';
 
 // Mockups
-import TrackImg from '../../assets/images/mockups/home-trilhas/Grupo 843.png';
-import TrackImg02 from '../../assets/images/mockups/home-trilhas/soybeans-4019684_960_720.png';
-import TrackImg03 from '../../assets/images/mockups/home-trilhas/thumbnail-10.png';
+import trackImg from '../../assets/images/mockups/home-trilhas/Grupo 843.png';
+import trackImg02 from '../../assets/images/mockups/home-trilhas/soybeans-4019684_960_720.png';
+import trackImg03 from '../../assets/images/mockups/home-trilhas/thumbnail-10.png';
 import HighlightCardImg from '../../assets/images/mockups/home-trilhas/7b26a7c5caa547331e37366628b46d43.png';
 import Extras01 from '../../assets/images/mockups/home-trilhas/pexels-photo-1181304.png';
 import Extras02 from '../../assets/images/mockups/home-trilhas/Captura de Tela 2019-04-23 às 9.08.22 PM.png';
@@ -121,7 +123,7 @@ const HomeTracks = () => {
         <ContentWrapper>
           <div className="page-title">
             <h1>
-              <img src={CoursesIcon} alt="TRILHAS DE ENSINO" />
+              <img src={coursesIcon} alt="TRILHAS DE ENSINO" />
               CURSOS
             </h1>
             <h2>Capacitação para o NOVO agronegócio</h2>
@@ -132,7 +134,7 @@ const HomeTracks = () => {
           </div>
 
           <div className="details-container">
-            <img src={HeroDetail} className="detail" alt="Hero" />
+            <img src={heroDetail} className="detail" alt="Hero" />
             <div className="triangle" />
             <div className="filter" />
           </div>
@@ -143,9 +145,9 @@ const HomeTracks = () => {
         <section className="col-7">
           <form className="search-container">
             <button type="button">
-              <img src={FilterIcon} alt="Filtrar" />
+              <img src={filterIcon} alt="Filtrar" />
               CATEGORIA
-              <img src={BitwiseImg} alt="" />
+              <img src={bitwiseImg} alt="" />
             </button>
             <input type="text" placeholder="Localizar uma trilha" />
             <button type="submit">
@@ -175,7 +177,7 @@ const HomeTracks = () => {
                 de Ensino
               </h4>
               <Link to="/tracks">Acesse</Link>
-              <img src={CardDetail02} alt="" />
+              <img src={cardDetail02} alt="" />
               <div className="triangle" />
               <div className="filter" />
             </div>
@@ -191,7 +193,7 @@ const HomeTracks = () => {
                 Cursos
               </h4>
               <Link to="/tracks">Acesse</Link>
-              <img src={CardDetail02} alt="" />
+              <img src={cardDetail02} alt="" />
               <div className="triangle" />
               <div className="filter" />
             </div>
@@ -199,7 +201,7 @@ const HomeTracks = () => {
         </aside>
       </SearchSection>
 
-      <CarouselContainer>
+      <CoursesCarouselContainer>
         <ContentWrapper>
           <ArticleHeader>
             <header>
@@ -217,14 +219,47 @@ const HomeTracks = () => {
             renderNextButton={renderNextButton}
           >
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>30% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Nutrição de Plantas</h4>
+                  <p>
+                    Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                    eficiente e segura
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -240,21 +275,54 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nematologia</h4>
-                <p>Mofo-branco na folha da soja: causas e tratamentos</p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>30% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Nematologia</h4>
+                  <p>Mofo-branco na folha da soja: causas e tratamentos</p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -270,23 +338,57 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Doenças</h4>
-                <p>
-                  Fenología y eco-fisiología de la soja para altos rendimientos
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>40% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -302,24 +404,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Solos</h4>
-                <p>
-                  Manejo da resistência de insetos a inseticidas e a plantas
-                  geneticamente modificadas
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Solos</h4>
+                  <p>
+                    Manejo da resistência de insetos a inseticidas e a plantas
+                    geneticamente modificadas
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -335,24 +466,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Doenças</h4>
-                <p>
-                  Oídio: métodos de controle para acabar de vez com este
-                  problema
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Oídio: métodos de controle para acabar de vez com este
+                    problema
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -368,24 +528,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Oídio: métodos de controle para acabar de vez com este
+                    problema
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -394,123 +583,24 @@ const HomeTracks = () => {
                     <h5>
                       R$:
                       <> </>
-                      <strong>238</strong>
+                      <strong>175</strong>
                       ,00
                     </h5>
                     <p>10x R$ 23,00</p>
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
-                <div>
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={CartIcon} alt="" />
-                  </button>
-                </div>
-              </section>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
-                <div>
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={CartIcon} alt="" />
-                  </button>
-                </div>
-              </section>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
-                <div>
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={CartIcon} alt="" />
-                  </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
           </AliceCarousel>
         </ContentWrapper>
-      </CarouselContainer>
+      </CoursesCarouselContainer>
 
       <MiniCourseSection>
         <ContentWrapper>
@@ -521,7 +611,7 @@ const HomeTracks = () => {
                 <p>Exclusivos para Premium</p>
               </div>
               <Link to="/">VER TODOS</Link>
-              <img src={CardDetailMini} alt="" />
+              <img src={cardDetailMini} alt="" />
             </header>
 
             <div>
@@ -562,7 +652,7 @@ const HomeTracks = () => {
         </ContentWrapper>
       </MiniCourseSection>
 
-      <CarouselContainer background>
+      <CoursesCarouselContainer background>
         <ContentWrapper>
           <ArticleHeader>
             <header>
@@ -580,14 +670,47 @@ const HomeTracks = () => {
             renderNextButton={renderNextButton}
           >
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>30% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Nutrição de Plantas</h4>
+                  <p>
+                    Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                    eficiente e segura
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -603,21 +726,54 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nematologia</h4>
-                <p>Mofo-branco na folha da soja: causas e tratamentos</p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>30% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Nematologia</h4>
+                  <p>Mofo-branco na folha da soja: causas e tratamentos</p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -633,23 +789,57 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Doenças</h4>
-                <p>
-                  Fenología y eco-fisiología de la soja para altos rendimientos
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>40% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -665,24 +855,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Solos</h4>
-                <p>
-                  Manejo da resistência de insetos a inseticidas e a plantas
-                  geneticamente modificadas
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Solos</h4>
+                  <p>
+                    Manejo da resistência de insetos a inseticidas e a plantas
+                    geneticamente modificadas
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -698,24 +917,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Doenças</h4>
-                <p>
-                  Oídio: métodos de controle para acabar de vez com este
-                  problema
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Oídio: métodos de controle para acabar de vez com este
+                    problema
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -731,24 +979,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Oídio: métodos de controle para acabar de vez com este
+                    problema
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -757,57 +1034,24 @@ const HomeTracks = () => {
                     <h5>
                       R$:
                       <> </>
-                      <strong>238</strong>
+                      <strong>175</strong>
                       ,00
                     </h5>
                     <p>10x R$ 23,00</p>
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
-                <div>
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={CartIcon} alt="" />
-                  </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
           </AliceCarousel>
         </ContentWrapper>
-      </CarouselContainer>
+      </CoursesCarouselContainer>
 
       <CourseModeContainer>
         <ContentWrapper>
@@ -953,7 +1197,7 @@ const HomeTracks = () => {
               <Link to="/">Saiba mais</Link>
             </section>
             <div className="filter" />
-            <img src={TrackImg} alt="" />
+            <img src={trackImg} alt="" />
           </div>
 
           <div className="track">
@@ -967,7 +1211,7 @@ const HomeTracks = () => {
               <Link to="/">Saiba mais</Link>
             </section>
             <div className="filter" />
-            <img src={TrackImg02} alt="" />
+            <img src={trackImg02} alt="" />
           </div>
 
           <div className="track">
@@ -981,12 +1225,12 @@ const HomeTracks = () => {
               <Link to="/">Saiba mais</Link>
             </section>
             <div className="filter" />
-            <img src={TrackImg03} alt="" />
+            <img src={trackImg03} alt="" />
           </div>
         </ContentWrapper>
       </LastTracksContainer>
 
-      <CarouselContainer>
+      <CoursesCarouselContainer>
         <ContentWrapper>
           <ArticleHeader>
             <header>
@@ -1004,14 +1248,47 @@ const HomeTracks = () => {
             renderNextButton={renderNextButton}
           >
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>30% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Nutrição de Plantas</h4>
+                  <p>
+                    Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
+                    eficiente e segura
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -1027,21 +1304,54 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nematologia</h4>
-                <p>Mofo-branco na folha da soja: causas e tratamentos</p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>30% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Nematologia</h4>
+                  <p>Mofo-branco na folha da soja: causas e tratamentos</p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -1057,23 +1367,57 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Doenças</h4>
-                <p>
-                  Fenología y eco-fisiología de la soja para altos rendimientos
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <span className="discount-flag">
+                <img src={discountFlag} alt="" />
+                <p>40% OFF</p>
+              </span>
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -1089,24 +1433,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Solos</h4>
-                <p>
-                  Manejo da resistência de insetos a inseticidas e a plantas
-                  geneticamente modificadas
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Solos</h4>
+                  <p>
+                    Manejo da resistência de insetos a inseticidas e a plantas
+                    geneticamente modificadas
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -1122,24 +1495,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Doenças</h4>
-                <p>
-                  Oídio: métodos de controle para acabar de vez com este
-                  problema
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Oídio: métodos de controle para acabar de vez com este
+                    problema
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -1155,24 +1557,53 @@ const HomeTracks = () => {
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
 
             <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
+              <div className="course-cover">
+                <img src={HighlightCardImg} alt="" />
+
+                <div className="hover-container">
+                  <div className="hover-container__text">
+                    <h3>
+                      R$:
+                      <> </>
+                      <big>123</big>
+                      ,00
+                    </h3>
+                    <p>
+                      Em até 10x de R$
+                      <strong>12</strong>
+                      ,30
+                    </p>
+                  </div>
+
+                  <div className="filter" />
+
+                  <span className="discount-long-flag">
+                    <img src={discountLongFlag} alt="" />
+                    <p>Seja PREMIUM e pague:</p>
+                  </span>
+                </div>
+              </div>
+
+              <main>
                 <div>
+                  <h4>Doenças</h4>
+                  <p>
+                    Oídio: métodos de controle para acabar de vez com este
+                    problema
+                  </p>
+                </div>
+
+                <section className="price-section">
                   <div>
                     <span>
                       De
@@ -1181,123 +1612,24 @@ const HomeTracks = () => {
                     <h5>
                       R$:
                       <> </>
-                      <strong>238</strong>
+                      <strong>175</strong>
                       ,00
                     </h5>
                     <p>10x R$ 23,00</p>
                   </div>
 
                   <button type="button">
-                    <img src={CartIcon} alt="" />
+                    <img src={cartIcon} alt="" />
                   </button>
-                </div>
-              </section>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
-                <div>
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={CartIcon} alt="" />
-                  </button>
-                </div>
-              </section>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
-                <div>
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={CartIcon} alt="" />
-                  </button>
-                </div>
-              </section>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard>
-              <img src={HighlightCardImg} alt="" />
-              <section>
-                <h4>Nutrição de Plantas</h4>
-                <p>
-                  Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                  eficiente e segura
-                </p>
-                <div>
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={CartIcon} alt="" />
-                  </button>
-                </div>
-              </section>
+                </section>
+              </main>
               <div>
                 <Link to="/">Saiba mais</Link>
               </div>
             </CourseCard>
           </AliceCarousel>
         </ContentWrapper>
-      </CarouselContainer>
+      </CoursesCarouselContainer>
 
       <ExtrasSection>
         <ContentWrapper>
