@@ -10,6 +10,8 @@ import {
   ArticleHeader,
   ContentWrapper,
   Container,
+  MyCourses,
+  MyCourseCard,
   CoursesCarouselContainer,
   CarouselButton,
   Hero,
@@ -24,6 +26,8 @@ import {
 
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
+
+import CourseStatus from './components/CourseStatus';
 
 // Icons
 import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
@@ -45,8 +49,8 @@ import trackImg02 from '../../assets/images/mockups/home-trilhas/soybeans-401968
 import trackImg03 from '../../assets/images/mockups/home-trilhas/thumbnail-10.png';
 import HighlightCardImg from '../../assets/images/mockups/home-trilhas/7b26a7c5caa547331e37366628b46d43.png';
 import Extras01 from '../../assets/images/mockups/home-trilhas/pexels-photo-1181304.png';
-import Extras02 from '../../assets/images/mockups/home-trilhas/Captura de Tela 2019-04-23 às 9.08.22 PM.png';
-import Extras03 from '../../assets/images/mockups/home-trilhas/stil--837JygbCJo-unsplash.png';
+import Extras02 from '../../assets/images/mockups/home-courses/b.png';
+import Extras03 from '../../assets/images/mockups/home-courses/$y3k61h0util.png';
 import MiniCourseImg from '../../assets/images/mockups/home-courses/man-taking-notes-in-front-of-his-computer-4238481.png';
 import MiniCourseImg02 from '../../assets/images/mockups/home-courses/man-in-black-suit-jacket-standing-and-smiling-3777557.png';
 import MiniCourseImg03 from '../../assets/images/mockups/home-courses/person-playing-chess-1040157.png';
@@ -60,6 +64,7 @@ import AdvancedLogo from '../../assets/images/mockups/home-courses/Captura de Te
 import DegreeImg from '../../assets/images/mockups/home-courses/julia-kutsaeva-iEPgp2bPbZM-unsplash.png';
 import DegreeLogo from '../../assets/images/icons/graduation-cap.svg';
 import CertificationIcon from '../../assets/images/icons/certification.svg';
+import MyCourseImg from '../../assets/images/mockups/home-courses/Hero3-SmartSolutions-1366x768.png';
 
 import FindOut from './FindOut';
 
@@ -201,6 +206,272 @@ const HomeTracks = () => {
         </aside>
       </SearchSection>
 
+      <MyCourses>
+        <ContentWrapper>
+          <ArticleHeader>
+            <header>
+              <h3>MEUS CURSOS</h3>
+              <div className="border-bottom" />
+              <Link to="/">VER TODOS</Link>
+            </header>
+          </ArticleHeader>
+
+          <AliceCarousel
+            responsive={responsiveCourse}
+            mouseTracking
+            disableDotsControls
+            renderPrevButton={renderPrevButton}
+            renderNextButton={renderNextButton}
+          >
+            {/* Card de curso do "Meus cursos" */}
+            <MyCourseCard
+              courseType="track"
+              courseProgress={`${35}%`}
+              courseStatus="started"
+              // started, expiring, expired, completed
+            >
+              {/* Envia o progresso do curso para o styled-component como porcentagem */}
+              <div className="course-cover">
+                <img src={MyCourseImg} alt="" />
+              </div>
+
+              <CourseStatus expireDate="12/28/2021" courseProgress={35} />
+
+              <main>
+                <div>
+                  <h4>TRILHA DE ENSINO</h4>
+
+                  <div className="course__progress-container">
+                    <div className="wrapper">
+                      <div className="progress-bar" />
+                    </div>
+                  </div>
+
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <Link to="/track" className="course__link">
+                  ACESSAR
+                </Link>
+              </main>
+            </MyCourseCard>
+
+            <MyCourseCard
+              courseType="track"
+              courseProgress={`${70}%`}
+              courseStatus="started"
+              // started, expiring, expired, completed
+            >
+              {/* Envia o progresso do curso para o styled-component como porcentagem */}
+              <div className="course-cover">
+                <img src={MyCourseImg} alt="" />
+              </div>
+
+              <CourseStatus expireDate="03/28/2022" courseProgress={70} />
+
+              <main>
+                <div>
+                  <h4>TRILHA DE ENSINO</h4>
+
+                  <div className="course__progress-container">
+                    <div className="wrapper">
+                      <div className="progress-bar" />
+                    </div>
+                  </div>
+
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <Link to="/track" className="course__link">
+                  ACESSAR
+                </Link>
+              </main>
+            </MyCourseCard>
+
+            <MyCourseCard
+              courseType="course"
+              courseProgress={`${50}%`}
+              courseStatus="started"
+              // started, expiring, expired, completed
+            >
+              {/* Envia o progresso do curso para o styled-component como porcentagem */}
+              <div className="course-cover">
+                <img src={MyCourseImg} alt="" />
+              </div>
+
+              <CourseStatus expireDate="04/28/2021" courseProgress={50} />
+
+              <main>
+                <div>
+                  <h4>CURSO</h4>
+
+                  <div className="course__progress-container">
+                    <div className="wrapper">
+                      <div className="progress-bar" />
+                    </div>
+                  </div>
+
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <Link to="/track" className="course__link">
+                  ACESSAR
+                </Link>
+              </main>
+            </MyCourseCard>
+
+            <MyCourseCard
+              courseType="track"
+              courseProgress={`${10}%`}
+              courseStatus="started"
+              // started, expiring, expired, completed
+            >
+              {/* Envia o progresso do curso para o styled-component como porcentagem */}
+              <div className="course-cover">
+                <img src={MyCourseImg} alt="" />
+              </div>
+
+              <CourseStatus expireDate="02/01/2021" courseProgress={10} />
+
+              <main>
+                <div>
+                  <h4>TRILHA DE ENSINO</h4>
+
+                  <div className="course__progress-container">
+                    <div className="wrapper">
+                      <div className="progress-bar" />
+                    </div>
+                  </div>
+
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <Link to="/track" className="course__link">
+                  ACESSAR
+                </Link>
+              </main>
+            </MyCourseCard>
+
+            <MyCourseCard
+              courseType="course"
+              courseProgress={`${100}%`}
+              courseStatus="started"
+              // started, expiring, expired, completed
+            >
+              {/* Envia o progresso do curso para o styled-component como porcentagem */}
+              <div className="course-cover">
+                <img src={MyCourseImg} alt="" />
+              </div>
+
+              <CourseStatus expireDate="01/28/2021" courseProgress={100} />
+
+              <main>
+                <div>
+                  <h4>CURSO</h4>
+
+                  <div className="course__progress-container">
+                    <div className="wrapper">
+                      <div className="progress-bar" />
+                    </div>
+                  </div>
+
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <Link to="/track" className="course__link">
+                  ACESSAR
+                </Link>
+              </main>
+            </MyCourseCard>
+
+            <MyCourseCard
+              courseType="course"
+              courseProgress={`${35}%`}
+              courseStatus="started"
+              // started, expiring, expired, completed
+            >
+              {/* Envia o progresso do curso para o styled-component como porcentagem */}
+              <div className="course-cover">
+                <img src={MyCourseImg} alt="" />
+              </div>
+
+              <CourseStatus expireDate="01/28/2021" courseProgress={35} />
+
+              <main>
+                <div>
+                  <h4>CURSO</h4>
+
+                  <div className="course__progress-container">
+                    <div className="wrapper">
+                      <div className="progress-bar" />
+                    </div>
+                  </div>
+
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <Link to="/track" className="course__link">
+                  ACESSAR
+                </Link>
+              </main>
+            </MyCourseCard>
+
+            <MyCourseCard
+              courseType="track"
+              courseProgress={`${35}%`}
+              courseStatus="started"
+              // started, expiring, expired, completed
+            >
+              {/* Envia o progresso do curso para o styled-component como porcentagem */}
+              <div className="course-cover">
+                <img src={MyCourseImg} alt="" />
+              </div>
+
+              <CourseStatus expireDate="02/01/2021" courseProgress={35} />
+
+              <main>
+                <div>
+                  <h4>TRILHA DE ENSINO</h4>
+
+                  <div className="course__progress-container">
+                    <div className="wrapper">
+                      <div className="progress-bar" />
+                    </div>
+                  </div>
+
+                  <p>
+                    Fenología y eco-fisiología de la soja para altos
+                    rendimientos
+                  </p>
+                </div>
+
+                <Link to="/track" className="course__link">
+                  ACESSAR
+                </Link>
+              </main>
+            </MyCourseCard>
+          </AliceCarousel>
+        </ContentWrapper>
+      </MyCourses>
+
       <CoursesCarouselContainer>
         <ContentWrapper>
           <ArticleHeader>
@@ -218,7 +489,7 @@ const HomeTracks = () => {
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
           >
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -284,7 +555,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -347,7 +618,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -413,7 +684,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -475,7 +746,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -537,7 +808,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -669,7 +940,7 @@ const HomeTracks = () => {
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
           >
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -735,7 +1006,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -798,7 +1069,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -864,7 +1135,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -926,7 +1197,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -988,7 +1259,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -1247,7 +1518,7 @@ const HomeTracks = () => {
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
           >
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -1313,7 +1584,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -1376,7 +1647,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -1442,7 +1713,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -1504,7 +1775,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -1566,7 +1837,7 @@ const HomeTracks = () => {
               </div>
             </CourseCard>
 
-            <CourseCard>
+            <CourseCard viewerStatus={viewerStatus}>
               <div className="course-cover">
                 <img src={HighlightCardImg} alt="" />
 
@@ -1648,10 +1919,10 @@ const HomeTracks = () => {
           <section>
             <img src={Extras02} alt="" />
             <div>
-              <h4>Planos de assinaturas empresarias</h4>
+              <h4>Ensine na Elevagro</h4>
               <p>
-                Uma Elevagro customizada, para estratégias de relacionamento ou
-                para sua equipe aprender todos os dias.
+                Tem a ideia de fazer um curso voltado para o setor do
+                agronegócio e não sabe por onde começar?
               </p>
               <Link to="/">Saiba mais</Link>
             </div>
@@ -1660,8 +1931,11 @@ const HomeTracks = () => {
           <section>
             <img src={Extras03} alt="" />
             <div>
-              <h4>Conheça também os cursos Elevagro</h4>
-              <p>Feitos por quem realmente entende do agronegócio.</p>
+              <h4>Veja os próximos cursos</h4>
+              <p>
+                Saiba o que vem por aí, converse com a gente sobre suas
+                necessidades.
+              </p>
               <Link to="/">Saiba mais</Link>
             </div>
           </section>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 import './styles.css';
 
@@ -25,6 +25,8 @@ const MainHeader = ({
   backToVisit,
   becomePremium,
 }) => {
+  const { url } = useRouteMatch();
+
   return (
     <header
       id="main-header"
@@ -62,8 +64,8 @@ const MainHeader = ({
           <ul>
             {viewerStatus !== 'premium' && (
               <>
-                <li className="active">
-                  <Link to="/track">
+                <li className={url === '/courses' ? 'active' : ''}>
+                  <Link to="/courses">
                     <CoursesIcon
                       fill="currentColor"
                       alt="CURSOS"
@@ -72,7 +74,7 @@ const MainHeader = ({
                     CURSOS
                   </Link>
                 </li>
-                <li>
+                <li className={url === '/content' ? 'active' : ''}>
                   <Link to="/track">
                     <ContentIcon
                       fill="currentColor"
@@ -82,7 +84,7 @@ const MainHeader = ({
                     CONTEÚDOS
                   </Link>
                 </li>
-                <li>
+                <li className={url === '/lectures' ? 'active' : ''}>
                   <Link to="/track">
                     <LecturesIcon
                       fill="currentColor"
@@ -93,27 +95,27 @@ const MainHeader = ({
                   </Link>
                 </li>
                 <img src={bitwiseImg} alt="Separação de sessão" />
-                <li>
+                <li className={url === '/teach' ? 'active' : ''}>
                   <Link to="/track">ENSINE NA ELEVAGRO</Link>
                 </li>
-                <li>
-                  <Link to="/track">PLANOS</Link>
+                <li className={url === '/plans' ? 'active' : ''}>
+                  <Link to="/plans">PLANOS</Link>
                 </li>
               </>
             )}
 
             {viewerStatus === 'premium' && (
               <>
-                <li>
+                <li className={url === '/teach' ? 'active' : ''}>
                   <Link to="/track">ENSINE NA ELEVAGRO</Link>
                 </li>
-                <li>
+                <li className={url === '/company' ? 'active' : ''}>
                   <Link to="/track">EMPRESARIAL</Link>
                 </li>
 
                 <img src={bitwiseImg} alt="Separação de sessão" />
 
-                <li>
+                <li className={url === '/lectures' ? 'active' : ''}>
                   <Link to="/track">
                     <LecturesIcon
                       fill="currentColor"
@@ -124,7 +126,7 @@ const MainHeader = ({
                   </Link>
                 </li>
 
-                <li>
+                <li className={url === '/content' ? 'active' : ''}>
                   <Link to="/track">
                     <ContentIcon
                       fill="currentColor"
@@ -135,8 +137,8 @@ const MainHeader = ({
                   </Link>
                 </li>
 
-                <li className="active">
-                  <Link to="/track">
+                <li className={url === '/courses' ? 'active' : ''}>
+                  <Link to="/courses">
                     <CoursesIcon
                       fill="currentColor"
                       alt="CURSOS"
