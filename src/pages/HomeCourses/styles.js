@@ -170,14 +170,16 @@ export const SearchSection = styled.article`
   margin: 5rem auto 7rem;
   padding: 0 4rem;
 
-  .col-7 {
-    padding: 0;
-  }
-
   section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 60%;
+    max-width: 85.8rem;
+
+    @media screen and (max-width: 1500px) {
+      width: 54%;
+    }
   }
 
   form {
@@ -264,7 +266,7 @@ export const SearchSection = styled.article`
 
   aside {
     overflow: hidden;
-    width: 100%;
+    width: 21%;
     max-width: 26.9rem;
     height: 10.7rem;
     padding-left: 5rem;
@@ -613,7 +615,7 @@ export const CarouselButton = styled.span`
 
 export const MiniCourseSection = styled.article`
   width: 100%;
-  margin-bottom: 6.5rem;
+  padding: 7rem 0;
 
   ${ContentWrapper} {
     display: flex;
@@ -623,7 +625,7 @@ export const MiniCourseSection = styled.article`
 
   section {
     overflow: hidden;
-    width: 100%;
+    width: 39%;
     max-width: 56.1rem;
     height: 30.9rem;
     border-radius: 1.5rem;
@@ -712,7 +714,7 @@ export const MiniCourseSection = styled.article`
   aside {
     overflow: hidden;
     position: relative;
-    width: 100%;
+    width: 60%;
     max-width: 86.1rem;
     height: 31rem;
     border-radius: 2rem;
@@ -789,25 +791,29 @@ export const CourseModeContainer = styled.article`
   .mode-card {
     overflow: hidden;
     display: flex;
-    width: 100%;
-    max-width: 33.6rem;
+    width: 24.5%;
+    max-width: 33.5rem;
     height: 16.4rem;
     margin-bottom: 4.7rem;
     box-shadow: 0px 0px 6px #00000029;
     border-radius: 1.5rem;
 
     > img {
-      width: 100%;
-      max-width: 8.9rem;
+      width: 27%;
+      max-width: 9.9rem;
       height: 100%;
       object-fit: cover;
+
+      @media screen and (max-width: 1545px) {
+        width: 4vw;
+      }
     }
   }
 
   main {
     width: 100%;
     height: 100%;
-    padding: 1.8rem;
+    padding: 1.8rem 1.5rem;
 
     div {
       display: flex;
@@ -1044,8 +1050,9 @@ export const LastTracksContainer = styled.article`
     overflow: hidden;
     position: relative;
     max-width: 47rem;
-    width: 35%;
-    height: 31.9rem;
+    width: 32%;
+    height: calc(30vw * 0.8);
+    max-height: 31.9rem;
     margin: 0 auto;
     border-radius: 1.4rem;
 
@@ -1129,7 +1136,7 @@ export const ExtrasSection = styled.article`
 
   ${ContentWrapper} {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: space-between;
   }
@@ -1137,7 +1144,7 @@ export const ExtrasSection = styled.article`
   section {
     overflow: hidden;
     position: relative;
-    width: 100%;
+    width: 32%;
     max-width: 45.9rem;
     height: 45.6rem;
     border-radius: 2rem;

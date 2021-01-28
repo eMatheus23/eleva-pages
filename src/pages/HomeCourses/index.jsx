@@ -156,8 +156,8 @@ const HomeTracks = () => {
         </ContentWrapper>
       </Hero>
 
-      <SearchSection className="row">
-        <section className="col-7">
+      <SearchSection>
+        <section>
           <form className="search-container">
             <button type="button">
               <img src={filterIcon} alt="Filtrar" />
