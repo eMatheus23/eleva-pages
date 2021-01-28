@@ -67,7 +67,7 @@ const TrackPlaylistModal = ({
           X
         </span>
 
-        <video controls poster={main_video.tumbnail_url} />
+        <video controls poster={main_video.video_tumbnail_url} />
 
         <p>
           <del>{formatValue(original_price)}</del>
@@ -127,7 +127,7 @@ const TrackPlaylistModal = ({
         <div className="playlist-container">
           {demo_videos.map(video => (
             <div className="video-container" key={video.id}>
-              <img src={video.tumbnail_url} alt={video.title} />
+              <img src={video.video_tumbnail_url} alt={video.title} />
               <button type="button">
                 <img src={videoPlayIcon} alt="Dar play" />
               </button>
@@ -209,7 +209,7 @@ TrackPlaylistModal.propTypes = {
   handlePurchase: PropTypes.func.isRequired,
   trackData: PropTypes.shape({
     main_video: PropTypes.shape({
-      tumbnail_url: PropTypes.string,
+      video_tumbnail_url: PropTypes.string,
     }).isRequired,
     title: PropTypes.string.isRequired,
     demo_videos: PropTypes.string.isRequired,
@@ -284,7 +284,7 @@ const TrackVideoCard = ({ trackData, viewerStatus }) => {
             <video
               controls
               onClick={() => setModalOpened(true)}
-              poster={main_video.tumbnail_url}
+              poster={main_video.video_tumbnail_url}
             />
             <div className="video-caption">
               <p>
@@ -380,7 +380,7 @@ TrackVideoCard.propTypes = {
   trackData: PropTypes.shape({
     id: PropTypes.string.isRequired,
     main_video: PropTypes.shape({
-      tumbnail_url: PropTypes.string,
+      video_tumbnail_url: PropTypes.string,
     }).isRequired,
     title: PropTypes.string.isRequired,
     courses: PropTypes.arrayOf(PropTypes.number).isRequired,

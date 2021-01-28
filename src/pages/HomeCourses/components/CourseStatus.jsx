@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import styled, { css } from 'styled-components';
-import { differenceInCalendarMonths, differenceInCalendarDays } from 'date-fns';
+import { differenceInMonths, differenceInCalendarDays } from 'date-fns';
+import PropTypes from 'prop-types';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ const StyledContainer = styled.div`
   background: var(--color-background-secondary);
 
   ${p =>
-    p.daysInTotal < 5 &&
+    p.daysInTotal < 8 &&
     css`
       background: var(--color-alert);
     `}
@@ -29,7 +30,7 @@ const StyledContainer = styled.div`
     color: var(--color-text-base);
 
     ${p =>
-      p.daysInTotal < 5 &&
+      p.daysInTotal < 8 &&
       css`
         color: var(--color-text-white);
       `}
@@ -43,7 +44,7 @@ const StyledContainer = styled.div`
 `;
 
 const CourseStatus = ({ expireDate, courseProgress }) => {
-  const months = differenceInCalendarMonths(new Date(expireDate), Date.now());
+  const months = differenceInMonths(new Date(expireDate), Date.now());
   const daysInTotal = differenceInCalendarDays(
     new Date(expireDate),
     Date.now(),
@@ -74,6 +75,11 @@ const CourseStatus = ({ expireDate, courseProgress }) => {
       {courseProgress === 100 && <h5>CONCLUÍDO</h5>}
     </StyledContainer>
   );
+};
+
+CourseStatus.propTypes = {
+  expireDate: PropTypes.string.isRequired,
+  courseProgress: PropTypes.number.isRequired,
 };
 
 export default CourseStatus;

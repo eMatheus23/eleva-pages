@@ -178,7 +178,7 @@
       "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
       "title": "Apresentação do curso Vendas e Insumos Agrícolas",
       "length": "10:05",
-      "tumbnail_url": "https://i.ibb.co/dGTCgMf/track-video-thumbnail.png",
+      "video_tumbnail_url": "https://i.ibb.co/dGTCgMf/track-video-thumbnail.png",
       "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
     },
     "demo_videos": [
@@ -186,42 +186,42 @@
         "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
         "title": "Controle das lagartas da soja",
         "length": "10:05",
-        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "8636382d-c53d-4128-a8c7-57183f54440f",
         "title": "Controle das lagartas da soja",
         "length": "8:30",
-        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
         "title": "Doenças que atacam a soja no verão",
         "length": "9:05",
-        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
         "title": "Controle das lagartas da soja",
         "length": "6:05",
-        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
         "title": "Controle das lagartas da soja",
         "length": "4:05",
-        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       },
       {
         "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
         "title": "Doenças que atacam a soja no verão",
         "length": "12:05",
-        "tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
         "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
       }
     ]

@@ -11,7 +11,6 @@ import ButtonRounded from '../../Buttons';
 
 // Utils
 import formatValue from '../../../utils/formatValue';
-
 import getDecimals from '../../../utils/getDecimals';
 
 const ProductCheckout = ({ product, success, deleteProduct, viewerStatus }) => {
@@ -64,7 +63,7 @@ const ProductCheckout = ({ product, success, deleteProduct, viewerStatus }) => {
               {getDecimals(priceToViewer)}
             </h2>
             <span>
-              {discount}
+              {discount * 100}
               <>% de desconto </>
             </span>
           </div>

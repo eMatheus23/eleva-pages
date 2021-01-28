@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight, FiPlus } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
 
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -10,14 +10,13 @@ import {
   ArticleHeader,
   ContentWrapper,
   Container,
-  MyCourses,
+  MyCoursesContainer,
   MyCourseCard,
   CoursesCarouselContainer,
   CarouselButton,
   Hero,
   SearchSection,
   CourseModeContainer,
-  CourseCard,
   CentralBannerContainer,
   LastTracksContainer,
   MiniCourseSection,
@@ -27,7 +26,9 @@ import {
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
 
+// Components
 import CourseStatus from './components/CourseStatus';
+import CourseCardComponent from './components/CourseCard';
 
 // Icons
 import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
@@ -36,9 +37,7 @@ import filterIcon from '../../assets/images/icons/filter-icon.svg';
 import bitwiseImg from '../../assets/images/icons/bitwise.svg';
 import cardDetail02 from '../../assets/images/other/card-detail-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
-import cartIcon from '../../assets/images/icons/cart-icon-03.svg';
-import discountFlag from '../../assets/images/flags/discount-flag.svg';
-import discountLongFlag from '../../assets/images/flags/discount-long-flag.svg';
+import shareIcon from '../../assets/images/icons/share-icon.svg';
 
 import Header from '../../components/headers/MainHeader';
 import Footer from '../../components/footers/MainFooter';
@@ -47,7 +46,6 @@ import Footer from '../../components/footers/MainFooter';
 import trackImg from '../../assets/images/mockups/home-trilhas/Grupo 843.png';
 import trackImg02 from '../../assets/images/mockups/home-trilhas/soybeans-4019684_960_720.png';
 import trackImg03 from '../../assets/images/mockups/home-trilhas/thumbnail-10.png';
-import HighlightCardImg from '../../assets/images/mockups/home-trilhas/7b26a7c5caa547331e37366628b46d43.png';
 import Extras01 from '../../assets/images/mockups/home-trilhas/pexels-photo-1181304.png';
 import Extras02 from '../../assets/images/mockups/home-courses/b.png';
 import Extras03 from '../../assets/images/mockups/home-courses/$y3k61h0util.png';
@@ -68,10 +66,22 @@ import MyCourseImg from '../../assets/images/mockups/home-courses/Hero3-SmartSol
 
 import FindOut from './FindOut';
 
+// Mockup Data
+import CourseReleasesData from '../../data/courses-releases.json';
+
 const HomeTracks = () => {
   document.title = 'Trilhas de Ensino | Elevagro';
 
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
+
+  const [coursesReleases, setCoursesReleases] = useState(CourseReleasesData);
+
+  useEffect(() => {
+    // Simula a chamada da API
+    const responseData = CourseReleasesData;
+
+    setCoursesReleases(responseData);
+  }, []);
 
   // Funções para teste
   const handleLogin = useCallback(() => {
@@ -206,273 +216,360 @@ const HomeTracks = () => {
         </aside>
       </SearchSection>
 
-      <MyCourses>
-        <ContentWrapper>
-          <ArticleHeader>
-            <header>
-              <h3>MEUS CURSOS</h3>
-              <div className="border-bottom" />
-              <Link to="/">VER TODOS</Link>
-            </header>
-          </ArticleHeader>
+      {viewerStatus !== 'visit' && (
+        <MyCoursesContainer>
+          <ContentWrapper>
+            <ArticleHeader>
+              <header>
+                <h3>MEUS CURSOS</h3>
+                <div className="border-bottom" />
+                <Link to="/">VER TODOS</Link>
+              </header>
+            </ArticleHeader>
 
-          <AliceCarousel
-            responsive={responsiveCourse}
-            mouseTracking
-            disableDotsControls
-            renderPrevButton={renderPrevButton}
-            renderNextButton={renderNextButton}
-          >
-            {/* Card de curso do "Meus cursos" */}
-            <MyCourseCard
-              courseType="track"
-              courseProgress={`${35}%`}
-              courseStatus="started"
-              // started, expiring, expired, completed
+            <AliceCarousel
+              responsive={responsiveCourse}
+              mouseTracking
+              disableDotsControls
+              renderPrevButton={renderPrevButton}
+              renderNextButton={renderNextButton}
+              paddingRight={10}
             >
-              {/* Envia o progresso do curso para o styled-component como porcentagem */}
-              <div className="course-cover">
-                <img src={MyCourseImg} alt="" />
-              </div>
-
-              <CourseStatus expireDate="12/28/2021" courseProgress={35} />
-
-              <main>
-                <div>
-                  <h4>TRILHA DE ENSINO</h4>
-
-                  <div className="course__progress-container">
-                    <div className="wrapper">
-                      <div className="progress-bar" />
-                    </div>
-                  </div>
-
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
+              {/* Card de curso do "Meus cursos" */}
+              <MyCourseCard courseType="track" courseProgress={`${35}%`}>
+                {/* Envia o progresso do curso para o styled-component como porcentagem */}
+                <div className="course-cover">
+                  <img src={MyCourseImg} alt="" />
                 </div>
 
-                <Link to="/track" className="course__link">
-                  ACESSAR
-                </Link>
-              </main>
-            </MyCourseCard>
+                <CourseStatus expireDate="02/02/2021" courseProgress={35} />
 
-            <MyCourseCard
-              courseType="track"
-              courseProgress={`${70}%`}
-              courseStatus="started"
-              // started, expiring, expired, completed
-            >
-              {/* Envia o progresso do curso para o styled-component como porcentagem */}
-              <div className="course-cover">
-                <img src={MyCourseImg} alt="" />
-              </div>
+                <main>
+                  <div>
+                    <h4>TRILHA DE ENSINO</h4>
 
-              <CourseStatus expireDate="03/28/2022" courseProgress={70} />
-
-              <main>
-                <div>
-                  <h4>TRILHA DE ENSINO</h4>
-
-                  <div className="course__progress-container">
-                    <div className="wrapper">
-                      <div className="progress-bar" />
+                    <div className="course__progress-container">
+                      <div className="wrapper">
+                        <div className="progress-bar" />
+                      </div>
                     </div>
+
+                    <p>
+                      Fenología y eco-fisiología de la soja para altos
+                      rendimientos
+                    </p>
                   </div>
 
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {35 < 100 && (
+                    <Link to="/track" className="course__link access">
+                      ACESSAR
+                    </Link>
+                  )}
+
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {35 === 100 && (
+                    <div className="flex-buttons">
+                      <Link to="/track" className="course__link share">
+                        <img src={shareIcon} alt="Compatilhar" />
+                      </Link>
+
+                      <Link to="/track" className="course__link certificate">
+                        CERTIFICADO
+                      </Link>
+                    </div>
+                  )}
+                </main>
+              </MyCourseCard>
+
+              <MyCourseCard courseType="track" courseProgress={`${35}%`}>
+                {/* Envia o progresso do curso para o styled-component como porcentagem */}
+                <div className="course-cover">
+                  <img src={MyCourseImg} alt="" />
                 </div>
 
-                <Link to="/track" className="course__link">
-                  ACESSAR
-                </Link>
-              </main>
-            </MyCourseCard>
+                <CourseStatus expireDate="03/28/2022" courseProgress={70} />
 
-            <MyCourseCard
-              courseType="course"
-              courseProgress={`${50}%`}
-              courseStatus="started"
-              // started, expiring, expired, completed
-            >
-              {/* Envia o progresso do curso para o styled-component como porcentagem */}
-              <div className="course-cover">
-                <img src={MyCourseImg} alt="" />
-              </div>
+                <main>
+                  <div>
+                    <h4>TRILHA DE ENSINO</h4>
 
-              <CourseStatus expireDate="04/28/2021" courseProgress={50} />
-
-              <main>
-                <div>
-                  <h4>CURSO</h4>
-
-                  <div className="course__progress-container">
-                    <div className="wrapper">
-                      <div className="progress-bar" />
+                    <div className="course__progress-container">
+                      <div className="wrapper">
+                        <div className="progress-bar" />
+                      </div>
                     </div>
+
+                    <p>
+                      Fenología y eco-fisiología de la soja para altos
+                      rendimientos
+                    </p>
                   </div>
 
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {35 < 100 && (
+                    <Link to="/track" className="course__link access">
+                      ACESSAR
+                    </Link>
+                  )}
+
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {35 === 100 && (
+                    <div className="flex-buttons">
+                      <Link to="/track" className="course__link share">
+                        <img src={shareIcon} alt="Compatilhar" />
+                      </Link>
+
+                      <Link to="/track" className="course__link certificate">
+                        CERTIFICADO
+                      </Link>
+                    </div>
+                  )}
+                </main>
+              </MyCourseCard>
+
+              <MyCourseCard courseType="course" courseProgress={`${50}%`}>
+                {/* Envia o progresso do curso para o styled-component como porcentagem */}
+                <div className="course-cover">
+                  <img src={MyCourseImg} alt="" />
                 </div>
 
-                <Link to="/track" className="course__link">
-                  ACESSAR
-                </Link>
-              </main>
-            </MyCourseCard>
+                <CourseStatus expireDate="04/28/2021" courseProgress={50} />
 
-            <MyCourseCard
-              courseType="track"
-              courseProgress={`${10}%`}
-              courseStatus="started"
-              // started, expiring, expired, completed
-            >
-              {/* Envia o progresso do curso para o styled-component como porcentagem */}
-              <div className="course-cover">
-                <img src={MyCourseImg} alt="" />
-              </div>
+                <main>
+                  <div>
+                    <h4>CURSO</h4>
 
-              <CourseStatus expireDate="02/01/2021" courseProgress={10} />
-
-              <main>
-                <div>
-                  <h4>TRILHA DE ENSINO</h4>
-
-                  <div className="course__progress-container">
-                    <div className="wrapper">
-                      <div className="progress-bar" />
+                    <div className="course__progress-container">
+                      <div className="wrapper">
+                        <div className="progress-bar" />
+                      </div>
                     </div>
+
+                    <p>
+                      Fenología y eco-fisiología de la soja para altos
+                      rendimientos
+                    </p>
                   </div>
 
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {50 < 100 && (
+                    <Link to="/track" className="course__link access">
+                      ACESSAR
+                    </Link>
+                  )}
+
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {50 === 100 && (
+                    <div className="flex-buttons">
+                      <Link to="/track" className="course__link share">
+                        <img src={shareIcon} alt="Compatilhar" />
+                      </Link>
+
+                      <Link to="/track" className="course__link certificate">
+                        CERTIFICADO
+                      </Link>
+                    </div>
+                  )}
+                </main>
+              </MyCourseCard>
+
+              <MyCourseCard courseType="track" courseProgress={`${10}%`}>
+                {/* Envia o progresso do curso para o styled-component como porcentagem */}
+                <div className="course-cover">
+                  <img src={MyCourseImg} alt="" />
                 </div>
 
-                <Link to="/track" className="course__link">
-                  ACESSAR
-                </Link>
-              </main>
-            </MyCourseCard>
+                <CourseStatus expireDate="02/01/2021" courseProgress={10} />
 
-            <MyCourseCard
-              courseType="course"
-              courseProgress={`${100}%`}
-              courseStatus="started"
-              // started, expiring, expired, completed
-            >
-              {/* Envia o progresso do curso para o styled-component como porcentagem */}
-              <div className="course-cover">
-                <img src={MyCourseImg} alt="" />
-              </div>
+                <main>
+                  <div>
+                    <h4>TRILHA DE ENSINO</h4>
 
-              <CourseStatus expireDate="01/28/2021" courseProgress={100} />
-
-              <main>
-                <div>
-                  <h4>CURSO</h4>
-
-                  <div className="course__progress-container">
-                    <div className="wrapper">
-                      <div className="progress-bar" />
+                    <div className="course__progress-container">
+                      <div className="wrapper">
+                        <div className="progress-bar" />
+                      </div>
                     </div>
+
+                    <p>
+                      Fenología y eco-fisiología de la soja para altos
+                      rendimientos
+                    </p>
                   </div>
 
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {10 < 100 && (
+                    <Link to="/track" className="course__link access">
+                      ACESSAR
+                    </Link>
+                  )}
+
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {10 === 100 && (
+                    <div className="flex-buttons">
+                      <Link to="/track" className="course__link share">
+                        <img src={shareIcon} alt="Compatilhar" />
+                      </Link>
+
+                      <Link to="/track" className="course__link certificate">
+                        CERTIFICADO
+                      </Link>
+                    </div>
+                  )}
+                </main>
+              </MyCourseCard>
+
+              <MyCourseCard courseType="course" courseProgress={`${100}%`}>
+                {/* Envia o progresso do curso para o styled-component como porcentagem */}
+                <div className="course-cover">
+                  <img src={MyCourseImg} alt="" />
                 </div>
 
-                <Link to="/track" className="course__link">
-                  ACESSAR
-                </Link>
-              </main>
-            </MyCourseCard>
+                <CourseStatus expireDate="01/28/2021" courseProgress={100} />
 
-            <MyCourseCard
-              courseType="course"
-              courseProgress={`${35}%`}
-              courseStatus="started"
-              // started, expiring, expired, completed
-            >
-              {/* Envia o progresso do curso para o styled-component como porcentagem */}
-              <div className="course-cover">
-                <img src={MyCourseImg} alt="" />
-              </div>
+                <main>
+                  <div>
+                    <h4>CURSO</h4>
 
-              <CourseStatus expireDate="01/28/2021" courseProgress={35} />
-
-              <main>
-                <div>
-                  <h4>CURSO</h4>
-
-                  <div className="course__progress-container">
-                    <div className="wrapper">
-                      <div className="progress-bar" />
+                    <div className="course__progress-container">
+                      <div className="wrapper">
+                        <div className="progress-bar" />
+                      </div>
                     </div>
+
+                    <p>
+                      Fenología y eco-fisiología de la soja para altos
+                      rendimientos
+                    </p>
                   </div>
 
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {100 < 100 && (
+                    <Link to="/track" className="course__link access">
+                      ACESSAR
+                    </Link>
+                  )}
+
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {100 === 100 && (
+                    <div className="flex-buttons">
+                      <Link to="/track" className="course__link share">
+                        <img src={shareIcon} alt="Compatilhar" />
+                      </Link>
+
+                      <Link to="/track" className="course__link certificate">
+                        CERTIFICADO
+                      </Link>
+                    </div>
+                  )}
+                </main>
+              </MyCourseCard>
+
+              <MyCourseCard courseType="course" courseProgress={`${35}%`}>
+                {/* Envia o progresso do curso para o styled-component como porcentagem */}
+                <div className="course-cover">
+                  <img src={MyCourseImg} alt="" />
                 </div>
 
-                <Link to="/track" className="course__link">
-                  ACESSAR
-                </Link>
-              </main>
-            </MyCourseCard>
+                <CourseStatus expireDate="01/28/2021" courseProgress={35} />
 
-            <MyCourseCard
-              courseType="track"
-              courseProgress={`${35}%`}
-              courseStatus="started"
-              // started, expiring, expired, completed
-            >
-              {/* Envia o progresso do curso para o styled-component como porcentagem */}
-              <div className="course-cover">
-                <img src={MyCourseImg} alt="" />
-              </div>
+                <main>
+                  <div>
+                    <h4>CURSO</h4>
 
-              <CourseStatus expireDate="02/01/2021" courseProgress={35} />
-
-              <main>
-                <div>
-                  <h4>TRILHA DE ENSINO</h4>
-
-                  <div className="course__progress-container">
-                    <div className="wrapper">
-                      <div className="progress-bar" />
+                    <div className="course__progress-container">
+                      <div className="wrapper">
+                        <div className="progress-bar" />
+                      </div>
                     </div>
+
+                    <p>
+                      Fenología y eco-fisiología de la soja para altos
+                      rendimientos
+                    </p>
                   </div>
 
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {35 < 100 && (
+                    <Link to="/track" className="course__link access">
+                      ACESSAR
+                    </Link>
+                  )}
+
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {35 === 100 && (
+                    <div className="flex-buttons">
+                      <Link to="/track" className="course__link share">
+                        <img src={shareIcon} alt="Compatilhar" />
+                      </Link>
+
+                      <Link to="/track" className="course__link certificate">
+                        CERTIFICADO
+                      </Link>
+                    </div>
+                  )}
+                </main>
+              </MyCourseCard>
+
+              <MyCourseCard courseType="track" courseProgress={`${35}%`}>
+                {/* Envia o progresso do curso para o styled-component como porcentagem */}
+                <div className="course-cover">
+                  <img src={MyCourseImg} alt="" />
                 </div>
 
-                <Link to="/track" className="course__link">
-                  ACESSAR
-                </Link>
-              </main>
-            </MyCourseCard>
-          </AliceCarousel>
-        </ContentWrapper>
-      </MyCourses>
+                <CourseStatus expireDate="02/01/2021" courseProgress={35} />
 
-      <CoursesCarouselContainer>
+                <main>
+                  <div>
+                    <h4>TRILHA DE ENSINO</h4>
+
+                    <div className="course__progress-container">
+                      <div className="wrapper">
+                        <div className="progress-bar" />
+                      </div>
+                    </div>
+
+                    <p>
+                      Fenología y eco-fisiología de la soja para altos
+                      rendimientos
+                    </p>
+                  </div>
+
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {35 < 100 && (
+                    <Link to="/track" className="course__link access">
+                      ACESSAR
+                    </Link>
+                  )}
+
+                  {/* eslint-disable-next-line no-self-compare */}
+                  {35 === 100 && (
+                    <div className="flex-buttons">
+                      <Link to="/track" className="course__link share">
+                        <img src={shareIcon} alt="Compatilhar" />
+                      </Link>
+
+                      <Link to="/track" className="course__link certificate">
+                        CERTIFICADO
+                      </Link>
+                    </div>
+                  )}
+                </main>
+              </MyCourseCard>
+            </AliceCarousel>
+
+            <footer>
+              <Link to="/">
+                MEUS CURSOS
+                <FiLogIn size={25} />
+              </Link>
+            </footer>
+          </ContentWrapper>
+        </MyCoursesContainer>
+      )}
+
+      <CoursesCarouselContainer background className="courses-releases">
         <ContentWrapper>
           <ArticleHeader>
             <header>
@@ -489,386 +586,13 @@ const HomeTracks = () => {
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
           >
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>30% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Nutrição de Plantas</h4>
-                  <p>
-                    Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                    eficiente e segura
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>30% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Nematologia</h4>
-                  <p>Mofo-branco na folha da soja: causas e tratamentos</p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>245</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>40% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>98</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Solos</h4>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                    geneticamente modificadas
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>74</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Oídio: métodos de controle para acabar de vez com este
-                    problema
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>175</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Oídio: métodos de controle para acabar de vez com este
-                    problema
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>175</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
+            {coursesReleases &&
+              coursesReleases.map(course => (
+                <CourseCardComponent
+                  viewerStatus={viewerStatus}
+                  course={course}
+                />
+              ))}
           </AliceCarousel>
         </ContentWrapper>
       </CoursesCarouselContainer>
@@ -923,7 +647,7 @@ const HomeTracks = () => {
         </ContentWrapper>
       </MiniCourseSection>
 
-      <CoursesCarouselContainer background>
+      <CoursesCarouselContainer background className="top-courses">
         <ContentWrapper>
           <ArticleHeader>
             <header>
@@ -940,386 +664,13 @@ const HomeTracks = () => {
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
           >
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>30% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Nutrição de Plantas</h4>
-                  <p>
-                    Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                    eficiente e segura
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>30% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Nematologia</h4>
-                  <p>Mofo-branco na folha da soja: causas e tratamentos</p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>245</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>40% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>98</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Solos</h4>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                    geneticamente modificadas
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>74</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Oídio: métodos de controle para acabar de vez com este
-                    problema
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>175</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Oídio: métodos de controle para acabar de vez com este
-                    problema
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>175</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
+            {coursesReleases &&
+              coursesReleases.map(course => (
+                <CourseCardComponent
+                  viewerStatus={viewerStatus}
+                  course={course}
+                />
+              ))}
           </AliceCarousel>
         </ContentWrapper>
       </CoursesCarouselContainer>
@@ -1501,7 +852,7 @@ const HomeTracks = () => {
         </ContentWrapper>
       </LastTracksContainer>
 
-      <CoursesCarouselContainer>
+      <CoursesCarouselContainer className="top-courses-02">
         <ContentWrapper>
           <ArticleHeader>
             <header>
@@ -1518,386 +869,13 @@ const HomeTracks = () => {
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
           >
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>30% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Nutrição de Plantas</h4>
-                  <p>
-                    Tecnologia de aplicação de herbicidas sistêmicos: Aplicação
-                    eficiente e segura
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>238</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>30% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Nematologia</h4>
-                  <p>Mofo-branco na folha da soja: causas e tratamentos</p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>245</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <span className="discount-flag">
-                <img src={discountFlag} alt="" />
-                <p>40% OFF</p>
-              </span>
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Fenología y eco-fisiología de la soja para altos
-                    rendimientos
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>98</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Solos</h4>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                    geneticamente modificadas
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>74</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Oídio: métodos de controle para acabar de vez com este
-                    problema
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>175</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
-
-            <CourseCard viewerStatus={viewerStatus}>
-              <div className="course-cover">
-                <img src={HighlightCardImg} alt="" />
-
-                <div className="hover-container">
-                  <div className="hover-container__text">
-                    <h3>
-                      R$:
-                      <> </>
-                      <big>123</big>
-                      ,00
-                    </h3>
-                    <p>
-                      Em até 10x de R$
-                      <strong>12</strong>
-                      ,30
-                    </p>
-                  </div>
-
-                  <div className="filter" />
-
-                  <span className="discount-long-flag">
-                    <img src={discountLongFlag} alt="" />
-                    <p>Seja PREMIUM e pague:</p>
-                  </span>
-                </div>
-              </div>
-
-              <main>
-                <div>
-                  <h4>Doenças</h4>
-                  <p>
-                    Oídio: métodos de controle para acabar de vez com este
-                    problema
-                  </p>
-                </div>
-
-                <section className="price-section">
-                  <div>
-                    <span>
-                      De
-                      <del> R$: 265,00</del>
-                    </span>
-                    <h5>
-                      R$:
-                      <> </>
-                      <strong>175</strong>
-                      ,00
-                    </h5>
-                    <p>10x R$ 23,00</p>
-                  </div>
-
-                  <button type="button">
-                    <img src={cartIcon} alt="" />
-                  </button>
-                </section>
-              </main>
-              <div>
-                <Link to="/">Saiba mais</Link>
-              </div>
-            </CourseCard>
+            {coursesReleases &&
+              coursesReleases.map(course => (
+                <CourseCardComponent
+                  viewerStatus={viewerStatus}
+                  course={course}
+                />
+              ))}
           </AliceCarousel>
         </ContentWrapper>
       </CoursesCarouselContainer>

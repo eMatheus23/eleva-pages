@@ -40,7 +40,7 @@ const TrackPlaylistModal = ({
   const history = useHistory();
 
   const {
-    tumbnail_url,
+    video_tumbnail_url,
     title,
     demo_videos,
     videos_count,
@@ -67,7 +67,7 @@ const TrackPlaylistModal = ({
           X
         </span>
 
-        <video controls poster={tumbnail_url} />
+        <video controls poster={video_tumbnail_url} />
 
         <p>
           <del>{formatValue(original_price)}</del>
@@ -126,7 +126,7 @@ const TrackPlaylistModal = ({
         <div className="playlist-container">
           {demo_videos.map(video => (
             <div className="video-container" key={video.id}>
-              <img src={video.tumbnail_url} alt={video.title} />
+              <img src={video.video_tumbnail_url} alt={video.title} />
               <button type="button">
                 <img src={videoPlayIcon} alt="Dar play" />
               </button>
@@ -207,7 +207,7 @@ TrackPlaylistModal.propTypes = {
   priceToViewer: PropTypes.number.isRequired,
   handlePurchase: PropTypes.func.isRequired,
   courseData: PropTypes.shape({
-    tumbnail_url: PropTypes.string.isRequired,
+    video_tumbnail_url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     demo_videos: PropTypes.string.isRequired,
     original_price: PropTypes.number.isRequired,
@@ -226,7 +226,7 @@ const TrackVideoCard = ({ courseData, viewerStatus }) => {
   const [modalOpened, setModalOpened] = useState(false);
   const {
     id,
-    tumbnail_url,
+    video_tumbnail_url,
     original_price,
     price,
     discount,
@@ -282,7 +282,7 @@ const TrackVideoCard = ({ courseData, viewerStatus }) => {
       >
         <div className="card">
           <main>
-            <video controls onClick={openModal} poster={tumbnail_url} />
+            <video controls onClick={openModal} poster={video_tumbnail_url} />
             <div className="video-caption">
               <p>
                 <del>{formatValue(original_price)}</del>
@@ -375,7 +375,7 @@ const TrackVideoCard = ({ courseData, viewerStatus }) => {
 TrackVideoCard.propTypes = {
   courseData: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    tumbnail_url: PropTypes.string.isRequired,
+    video_tumbnail_url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     courses: PropTypes.arrayOf(PropTypes.number).isRequired,
     demo_videos: PropTypes.string.isRequired,

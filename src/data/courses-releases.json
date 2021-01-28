@@ -1,0 +1,642 @@
+[
+  {
+    "id": "e6513528-aa03-471d-97be-1948a8ce60a3",
+    "type": "course",
+    "category": "Nutrição de Plantas",
+    "url_name": "manejo-da-resistencia-a-incetos",
+    "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
+    "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
+    "original_price": 265,
+    "price": 238.70,
+    "discount": 0.10,
+    "price_for_premium": 190.96,
+    "discount_for_premium": 0.20,
+    "video_tumbnail_url": "https://i.ibb.co/jLx5gFq/video-mockup-02.png",
+    "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
+    "videos_count": 12,
+    "hours": 16,
+    "length": {
+      "years": 1,
+      "months": 0,
+      "days": 0
+    },
+    "course_performance": {
+      "total_purchases": 430,
+      "rating": 0.78,
+      "total_completions": 161,
+      "popularity": 0.55
+    },
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de Nutrição de Plantas.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/JxNCCCM/scientist2.png",
+        "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      }
+    ]
+  },
+  {
+    "id": "48b3a6dc-8443-4ff5-9e84-852968405a6f",
+    "type": "course",
+    "category": "Nematologia",
+    "url_name": "tecnologia-de-aplicacao-de-herbicidas",
+    "title": "Tecnologia de aplicação de herbicidas sistêmicos: Aplicação eficiente e segura",
+    "cover_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "original_price": 275,
+    "price": 245.00,
+    "discount": 0.08,
+    "price_for_premium": 196,
+    "discount_for_premium": 0.20,
+    "video_tumbnail_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "background_img_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "videos_count": 12,
+    "hours": 16,
+    "length": {
+      "years": 1,
+      "months": 0,
+      "days": 0
+    },
+    "course_performance": {
+      "total_purchases": 430,
+      "rating": 0.78,
+      "total_completions": 161,
+      "popularity": 0.55
+    },
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de entomologia.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/JxNCCCM/scientist2.png",
+        "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      }
+    ]
+  },
+  {
+    "id": "cf894ecf-0548-467d-b5a5-b7ba9acffa96",
+    "type": "course",
+    "category": "Doenças",
+    "url_name": "fenologia-e-eco-fisiologia",
+    "title": "Fenología y eco-fisiología de la soja para altos rendimientos",
+    "cover_url": "https://i.ibb.co/ft56CRT/curso1.png",
+    "original_price": 265,
+    "price": 98,
+    "discount": 0.63,
+    "price_for_premium": 78.4,
+    "discount_for_premium": 0.20,
+    "video_tumbnail_url": "https://i.ibb.co/ft56CRT/curso1.png",
+    "background_img_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "videos_count": 12,
+    "hours": 16,
+    "length": {
+      "years": 1,
+      "months": 0,
+      "days": 0
+    },
+    "course_performance": {
+      "total_purchases": 430,
+      "rating": 0.78,
+      "total_completions": 161,
+      "popularity": 0.55
+    },
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
+        "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      }
+    ]
+  },
+  {
+    "id": "810bb9d6-ce20-4c2f-8ba0-772011291939",
+    "type": "course",
+    "category": "Solos",
+    "url_name": "manejo-de-plantas-daninhas",
+    "title": "Manejo de plantas daninhas em soja",
+    "cover_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "original_price": 152,
+    "price": 74,
+    "discount": 0.72,
+    "price_for_premium": 59.2,
+    "discount_for_premium": 0.20,
+    "video_tumbnail_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
+    "videos_count": 12,
+    "hours": 16,
+    "length": {
+      "years": 1,
+      "months": 0,
+      "days": 0
+    },
+    "course_performance": {
+      "total_purchases": 430,
+      "rating": 0.78,
+      "total_completions": 161,
+      "popularity": 0.55
+    },
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de entomologia.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
+        "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      }
+    ]
+  },
+  {
+    "id": "e5c2be12-8d14-4846-b64b-17b26734aef9",
+    "type": "course",
+    "category": "Doenças",
+    "url_name": "oidio-metodos",
+    "title": "Oídio: métodos de controle para acabar de vez com este problema",
+    "cover_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "original_price": 225,
+    "price": 175.5,
+    "discount": 0.34,
+    "price_for_premium": 140.4,
+    "discount_for_premium": 0.20,
+    "video_tumbnail_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
+    "videos_count": 12,
+    "hours": 16,
+    "length": {
+      "years": 1,
+      "months": 0,
+      "days": 0
+    },
+    "course_performance": {
+      "total_purchases": 430,
+      "rating": 0.78,
+      "total_completions": 161,
+      "popularity": 0.55
+    },
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de entomologia.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/Pr6dLnd/scientist2.png",
+        "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      }
+    ]
+  },
+  {
+    "id": "bd0aba5d-4c63-44f1-8b99-186d68548c69",
+    "type": "course",
+    "category": "Nutrição de Plantas",
+    "url_name": "manejo-da-resistencia-a-incetos",
+    "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
+    "cover_url": "https://github.com/eMatheus23/eleva-pages/blob/master/src/assets/images/mockups/course-thumbnail-02.png?raw=true",
+    "original_price": 265,
+    "price": 238.70,
+    "discount": 0.10,
+    "price_for_premium": 190.96,
+    "discount_for_premium": 0.20,
+    "video_tumbnail_url": "https://i.ibb.co/jLx5gFq/video-mockup-02.png",
+    "background_img_url": "https://i.ibb.co/zNNxxgw/course-track-hero.jpg",
+    "videos_count": 12,
+    "hours": 16,
+    "length": {
+      "years": 1,
+      "months": 0,
+      "days": 0
+    },
+    "course_performance": {
+      "total_purchases": 430,
+      "rating": 0.78,
+      "total_completions": 161,
+      "popularity": 0.55
+    },
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de Nutrição de Plantas.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/JxNCCCM/scientist2.png",
+        "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      }
+    ]
+  },
+  {
+    "id": "fa1960c2-547b-44c1-9dd8-8d8da292b1ff",
+    "type": "course",
+    "category": "Nematologia",
+    "url_name": "tecnologia-de-aplicacao-de-herbicidas",
+    "title": "Tecnologia de aplicação de herbicidas sistêmicos: Aplicação eficiente e segura",
+    "cover_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "original_price": 265,
+    "price": 245.00,
+    "discount": 0.08,
+    "price_for_premium": 196,
+    "discount_for_premium": 0.20,
+    "video_tumbnail_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "background_img_url": "https://i.ibb.co/S7x40QT/thumbnail-4.png",
+    "videos_count": 12,
+    "hours": 16,
+    "length": {
+      "years": 1,
+      "months": 0,
+      "days": 0
+    },
+    "course_performance": {
+      "total_purchases": 430,
+      "rating": 0.78,
+      "total_completions": 161,
+      "popularity": 0.55
+    },
+    "advantages": [
+      "Aprenda com uma profissional que tem mais de 10 anos de experiência na área de entomologia.",
+      "Cases reais e práticos para reforço no aprendizado."
+    ],
+    "modules": [
+      "Principais plantas daninhas na soja e sua interferência na produção Identificar as principais plantas daninhas e suas interferências na produção da soja e diferenciar resistência de tolerância.",
+      "Manejo Integrado de Plantas Daninhas (MIPD) na Soja Analisar o manejo integrado de plantas daninhas na soja como alternativa viável dentro do sistema.",
+      "Dessecação bem feita para implantação da cultura Avaliar a importância da dessecação correta para implantação da cultura da soja.",
+      "Herbicidas pré-emergentes: A ferramenta mais importante Caracterizar a aplicação de herbicidas pré-emergentes na cultura da soja",
+      "Herbicidas Pós-emergentes Conhecer o funcionamento dos herbicidas pós-emergentes e saber como e quando estes herbicidas podem ser aplicados na cultura da soja.",
+      "Novas tecnologias na cultura da soja: Enlist e Xtend Entender as novas tecnologias que surgirão no Brasil nas próximas safras e os cuidados importantes na adoção destas tecnologias."
+    ],
+    "authors": [
+      {
+        "id": "efcfdf7b-65bf-4b39-97cc-81ba4dec1de1",
+        "name": "Dr.ª Margarete Manuele Siqueira Silva",
+        "avatar_url": "https://i.ibb.co/JxNCCCM/scientist2.png",
+        "profile_url": "/"
+      }
+    ],
+    "demo_videos": [
+      {
+        "id": "1acc4a28-bd3c-4631-8686-148dbaa7a256",
+        "title": "Controle das lagartas da soja",
+        "length": "10:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "8636382d-c53d-4128-a8c7-57183f54440f",
+        "title": "Controle das lagartas da soja",
+        "length": "8:30",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "fd783b59-a1e7-424f-9ca7-b606a878eceb",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "9:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "dd85f588-1c10-4c5b-bb84-a90304a0f6e2",
+        "title": "Controle das lagartas da soja",
+        "length": "6:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-01.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "9c1ab769-b711-4f29-8c95-f58c4568aa36",
+        "title": "Controle das lagartas da soja",
+        "length": "4:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-02.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      },
+      {
+        "id": "ca714045-1275-4692-adda-b3a18abfaf6d",
+        "title": "Doenças que atacam a soja no verão",
+        "length": "12:05",
+        "video_tumbnail_url": "https://i.ibb.co/LRxtWR8/video-mockup-03.png",
+        "video_url": "https://www.youtube.com/channel/UCxhDMxv8VthB5Qhs6ZdowhA"
+      }
+    ]
+  }
+]
