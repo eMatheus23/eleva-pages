@@ -63,7 +63,7 @@ const CourseStatus = ({ expireDate, courseProgress }) => {
     <StyledContainer daysInTotal={daysInTotal} courseProgress={courseProgress}>
       {courseProgress !== 100 && (
         <h5>
-          Termina em
+          {daysInTotal > 0 ? <>Termina em</> : <>EXPIRADO</>}
           <> </>
           {months > 0 && (
             <>{months === 1 ? `${months} mês e ` : `${months} meses e `}</>

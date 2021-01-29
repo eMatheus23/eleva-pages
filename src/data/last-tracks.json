@@ -1,0 +1,26 @@
+[
+  {
+    "id": "2e851e5b-f8fb-465e-9e70-fce2b729014a",
+    "type_name": "Trilha",
+    "title": "SOJA 360º",
+    "catch_frase": "Visão completa para o domínio da soja",
+    "cover_url": "https://i.ibb.co/DgVwg1H/3f4ebfab01bd436786930e2c4eb45654.png",
+    "url_name": "soja-360"
+  },
+  {
+    "id": "5f427d5c-2a08-4ec8-8be9-2c9093b8e8fb",
+    "type_name": "Trilha",
+    "title": "Plantação",
+    "catch_frase": "Aumente os rendimentos da sua lavoura do início ao fim.",
+    "cover_url": "https://i.ibb.co/k6Dbqy4/soybeans-4019684-960-720.png",
+    "url_name": "manejo-da-resistencia-a-incetos"
+  },
+  {
+    "id": "42b0a416-98d6-40d4-afb9-eab7c9042758",
+    "type_name": "Trilha",
+    "title": "Percevejos",
+    "catch_frase": "Conhecimento garantido para o combate",
+    "cover_url": "https://i.ibb.co/MVxCqjx/thumbnail-10.png",
+    "url_name": "manejo-da-resistencia-a-incetos"
+  }
+]

@@ -11,7 +11,6 @@ import {
   ContentWrapper,
   Container,
   MyCoursesContainer,
-  MyCourseCard,
   CoursesCarouselContainer,
   CarouselButton,
   Hero,
@@ -27,8 +26,9 @@ import {
 import getViewerStatus from '../../services/getViewerStatus';
 
 // Components
-import CourseStatus from './components/CourseStatus';
 import CourseCardComponent from './components/CourseCard';
+import UserCourseCard from './components/UserCourseCard';
+import FindOut from './components/FindOut';
 
 // Icons
 import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
@@ -37,15 +37,11 @@ import filterIcon from '../../assets/images/icons/filter-icon.svg';
 import bitwiseImg from '../../assets/images/icons/bitwise.svg';
 import cardDetail02 from '../../assets/images/other/card-detail-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
-import shareIcon from '../../assets/images/icons/share-icon.svg';
 
 import Header from '../../components/headers/MainHeader';
 import Footer from '../../components/footers/MainFooter';
 
 // Mockups
-import trackImg from '../../assets/images/mockups/home-trilhas/Grupo 843.png';
-import trackImg02 from '../../assets/images/mockups/home-trilhas/soybeans-4019684_960_720.png';
-import trackImg03 from '../../assets/images/mockups/home-trilhas/thumbnail-10.png';
 import Extras01 from '../../assets/images/mockups/home-trilhas/pexels-photo-1181304.png';
 import Extras02 from '../../assets/images/mockups/home-courses/b.png';
 import Extras03 from '../../assets/images/mockups/home-courses/$y3k61h0util.png';
@@ -62,25 +58,30 @@ import AdvancedLogo from '../../assets/images/mockups/home-courses/Captura de Te
 import DegreeImg from '../../assets/images/mockups/home-courses/julia-kutsaeva-iEPgp2bPbZM-unsplash.png';
 import DegreeLogo from '../../assets/images/icons/graduation-cap.svg';
 import CertificationIcon from '../../assets/images/icons/certification.svg';
-import MyCourseImg from '../../assets/images/mockups/home-courses/Hero3-SmartSolutions-1366x768.png';
-
-import FindOut from './FindOut';
 
 // Mockup Data
-import CourseReleasesData from '../../data/courses-releases.json';
+import CoursesReleasesData from '../../data/courses-releases.json';
+import MyCourses from '../../data/user-mockup/my-courses.json';
+import LastTracksData from '../../data/last-tracks.json';
 
 const HomeTracks = () => {
   document.title = 'Trilhas de Ensino | Elevagro';
 
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
 
-  const [coursesReleases, setCoursesReleases] = useState(CourseReleasesData);
+  const [coursesReleases, setCoursesReleases] = useState(null);
+  const [userCourses, setUserCourses] = useState(null);
+  const [lastTracks, setLastTracks] = useState(null);
 
   useEffect(() => {
     // Simula a chamada da API
-    const responseData = CourseReleasesData;
+    const responseDataCourses = CoursesReleasesData;
+    const responseDataUserCourses = MyCourses;
+    const responseDataLastTracks = LastTracksData;
 
-    setCoursesReleases(responseData);
+    setCoursesReleases(responseDataCourses);
+    setUserCourses(responseDataUserCourses);
+    setLastTracks(responseDataLastTracks);
   }, []);
 
   // Funções para teste
@@ -102,6 +103,18 @@ const HomeTracks = () => {
     setViewerStatus('premium');
   }, []);
   // Funções para teste
+
+  const shuffleArray = useCallback(originalArray => {
+    const array = originalArray;
+    let i = array.length - 1;
+    for (; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }, []);
 
   const responsiveCourse = {
     0: { items: 4 },
@@ -227,337 +240,30 @@ const HomeTracks = () => {
               </header>
             </ArticleHeader>
 
-            <AliceCarousel
-              responsive={responsiveCourse}
-              mouseTracking
-              disableDotsControls
-              renderPrevButton={renderPrevButton}
-              renderNextButton={renderNextButton}
-              paddingRight={10}
-            >
-              {/* Card de curso do "Meus cursos" */}
-              <MyCourseCard courseType="track" courseProgress={`${35}%`}>
-                {/* Envia o progresso do curso para o styled-component como porcentagem */}
-                <div className="course-cover">
-                  <img src={MyCourseImg} alt="" />
-                </div>
+            {userCourses && userCourses.length > 4 && (
+              <AliceCarousel
+                responsive={responsiveCourse}
+                mouseTracking
+                disableDotsControls
+                renderPrevButton={renderPrevButton}
+                renderNextButton={renderNextButton}
+                paddingRight={10}
+              >
+                {userCourses &&
+                  userCourses.map(course => (
+                    <UserCourseCard course={course} key={course.id} />
+                  ))}
+              </AliceCarousel>
+            )}
 
-                <CourseStatus expireDate="02/02/2021" courseProgress={35} />
-
-                <main>
-                  <div>
-                    <h4>TRILHA DE ENSINO</h4>
-
-                    <div className="course__progress-container">
-                      <div className="wrapper">
-                        <div className="progress-bar" />
-                      </div>
-                    </div>
-
-                    <p>
-                      Fenología y eco-fisiología de la soja para altos
-                      rendimientos
-                    </p>
-                  </div>
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {35 < 100 && (
-                    <Link to="/track" className="course__link access">
-                      ACESSAR
-                    </Link>
-                  )}
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {35 === 100 && (
-                    <div className="flex-buttons">
-                      <Link to="/track" className="course__link share">
-                        <img src={shareIcon} alt="Compatilhar" />
-                      </Link>
-
-                      <Link to="/track" className="course__link certificate">
-                        CERTIFICADO
-                      </Link>
-                    </div>
-                  )}
-                </main>
-              </MyCourseCard>
-
-              <MyCourseCard courseType="track" courseProgress={`${35}%`}>
-                {/* Envia o progresso do curso para o styled-component como porcentagem */}
-                <div className="course-cover">
-                  <img src={MyCourseImg} alt="" />
-                </div>
-
-                <CourseStatus expireDate="03/28/2022" courseProgress={70} />
-
-                <main>
-                  <div>
-                    <h4>TRILHA DE ENSINO</h4>
-
-                    <div className="course__progress-container">
-                      <div className="wrapper">
-                        <div className="progress-bar" />
-                      </div>
-                    </div>
-
-                    <p>
-                      Fenología y eco-fisiología de la soja para altos
-                      rendimientos
-                    </p>
-                  </div>
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {35 < 100 && (
-                    <Link to="/track" className="course__link access">
-                      ACESSAR
-                    </Link>
-                  )}
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {35 === 100 && (
-                    <div className="flex-buttons">
-                      <Link to="/track" className="course__link share">
-                        <img src={shareIcon} alt="Compatilhar" />
-                      </Link>
-
-                      <Link to="/track" className="course__link certificate">
-                        CERTIFICADO
-                      </Link>
-                    </div>
-                  )}
-                </main>
-              </MyCourseCard>
-
-              <MyCourseCard courseType="course" courseProgress={`${50}%`}>
-                {/* Envia o progresso do curso para o styled-component como porcentagem */}
-                <div className="course-cover">
-                  <img src={MyCourseImg} alt="" />
-                </div>
-
-                <CourseStatus expireDate="04/28/2021" courseProgress={50} />
-
-                <main>
-                  <div>
-                    <h4>CURSO</h4>
-
-                    <div className="course__progress-container">
-                      <div className="wrapper">
-                        <div className="progress-bar" />
-                      </div>
-                    </div>
-
-                    <p>
-                      Fenología y eco-fisiología de la soja para altos
-                      rendimientos
-                    </p>
-                  </div>
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {50 < 100 && (
-                    <Link to="/track" className="course__link access">
-                      ACESSAR
-                    </Link>
-                  )}
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {50 === 100 && (
-                    <div className="flex-buttons">
-                      <Link to="/track" className="course__link share">
-                        <img src={shareIcon} alt="Compatilhar" />
-                      </Link>
-
-                      <Link to="/track" className="course__link certificate">
-                        CERTIFICADO
-                      </Link>
-                    </div>
-                  )}
-                </main>
-              </MyCourseCard>
-
-              <MyCourseCard courseType="track" courseProgress={`${10}%`}>
-                {/* Envia o progresso do curso para o styled-component como porcentagem */}
-                <div className="course-cover">
-                  <img src={MyCourseImg} alt="" />
-                </div>
-
-                <CourseStatus expireDate="02/01/2021" courseProgress={10} />
-
-                <main>
-                  <div>
-                    <h4>TRILHA DE ENSINO</h4>
-
-                    <div className="course__progress-container">
-                      <div className="wrapper">
-                        <div className="progress-bar" />
-                      </div>
-                    </div>
-
-                    <p>
-                      Fenología y eco-fisiología de la soja para altos
-                      rendimientos
-                    </p>
-                  </div>
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {10 < 100 && (
-                    <Link to="/track" className="course__link access">
-                      ACESSAR
-                    </Link>
-                  )}
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {10 === 100 && (
-                    <div className="flex-buttons">
-                      <Link to="/track" className="course__link share">
-                        <img src={shareIcon} alt="Compatilhar" />
-                      </Link>
-
-                      <Link to="/track" className="course__link certificate">
-                        CERTIFICADO
-                      </Link>
-                    </div>
-                  )}
-                </main>
-              </MyCourseCard>
-
-              <MyCourseCard courseType="course" courseProgress={`${100}%`}>
-                {/* Envia o progresso do curso para o styled-component como porcentagem */}
-                <div className="course-cover">
-                  <img src={MyCourseImg} alt="" />
-                </div>
-
-                <CourseStatus expireDate="01/28/2021" courseProgress={100} />
-
-                <main>
-                  <div>
-                    <h4>CURSO</h4>
-
-                    <div className="course__progress-container">
-                      <div className="wrapper">
-                        <div className="progress-bar" />
-                      </div>
-                    </div>
-
-                    <p>
-                      Fenología y eco-fisiología de la soja para altos
-                      rendimientos
-                    </p>
-                  </div>
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {100 < 100 && (
-                    <Link to="/track" className="course__link access">
-                      ACESSAR
-                    </Link>
-                  )}
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {100 === 100 && (
-                    <div className="flex-buttons">
-                      <Link to="/track" className="course__link share">
-                        <img src={shareIcon} alt="Compatilhar" />
-                      </Link>
-
-                      <Link to="/track" className="course__link certificate">
-                        CERTIFICADO
-                      </Link>
-                    </div>
-                  )}
-                </main>
-              </MyCourseCard>
-
-              <MyCourseCard courseType="course" courseProgress={`${35}%`}>
-                {/* Envia o progresso do curso para o styled-component como porcentagem */}
-                <div className="course-cover">
-                  <img src={MyCourseImg} alt="" />
-                </div>
-
-                <CourseStatus expireDate="01/28/2021" courseProgress={35} />
-
-                <main>
-                  <div>
-                    <h4>CURSO</h4>
-
-                    <div className="course__progress-container">
-                      <div className="wrapper">
-                        <div className="progress-bar" />
-                      </div>
-                    </div>
-
-                    <p>
-                      Fenología y eco-fisiología de la soja para altos
-                      rendimientos
-                    </p>
-                  </div>
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {35 < 100 && (
-                    <Link to="/track" className="course__link access">
-                      ACESSAR
-                    </Link>
-                  )}
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {35 === 100 && (
-                    <div className="flex-buttons">
-                      <Link to="/track" className="course__link share">
-                        <img src={shareIcon} alt="Compatilhar" />
-                      </Link>
-
-                      <Link to="/track" className="course__link certificate">
-                        CERTIFICADO
-                      </Link>
-                    </div>
-                  )}
-                </main>
-              </MyCourseCard>
-
-              <MyCourseCard courseType="track" courseProgress={`${35}%`}>
-                {/* Envia o progresso do curso para o styled-component como porcentagem */}
-                <div className="course-cover">
-                  <img src={MyCourseImg} alt="" />
-                </div>
-
-                <CourseStatus expireDate="02/01/2021" courseProgress={35} />
-
-                <main>
-                  <div>
-                    <h4>TRILHA DE ENSINO</h4>
-
-                    <div className="course__progress-container">
-                      <div className="wrapper">
-                        <div className="progress-bar" />
-                      </div>
-                    </div>
-
-                    <p>
-                      Fenología y eco-fisiología de la soja para altos
-                      rendimientos
-                    </p>
-                  </div>
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {35 < 100 && (
-                    <Link to="/track" className="course__link access">
-                      ACESSAR
-                    </Link>
-                  )}
-
-                  {/* eslint-disable-next-line no-self-compare */}
-                  {35 === 100 && (
-                    <div className="flex-buttons">
-                      <Link to="/track" className="course__link share">
-                        <img src={shareIcon} alt="Compatilhar" />
-                      </Link>
-
-                      <Link to="/track" className="course__link certificate">
-                        CERTIFICADO
-                      </Link>
-                    </div>
-                  )}
-                </main>
-              </MyCourseCard>
-            </AliceCarousel>
+            {userCourses && userCourses.length <= 4 && (
+              <section className="courses-container">
+                {userCourses &&
+                  userCourses.map(course => (
+                    <UserCourseCard course={course} key={course.id} />
+                  ))}
+              </section>
+            )}
 
             <footer>
               <Link to="/">
@@ -585,6 +291,9 @@ const HomeTracks = () => {
             disableDotsControls
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
+            infinite
+            autoPlay
+            autoPlayInterval={3000}
           >
             {coursesReleases &&
               coursesReleases.map(course => (
@@ -663,12 +372,16 @@ const HomeTracks = () => {
             disableDotsControls
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
+            infinite
+            autoPlay
+            autoPlayInterval={3000}
           >
             {coursesReleases &&
-              coursesReleases.map(course => (
+              shuffleArray(coursesReleases).map(course => (
                 <CourseCardComponent
                   viewerStatus={viewerStatus}
                   course={course}
+                  key={course.id}
                 />
               ))}
           </AliceCarousel>
@@ -808,47 +521,22 @@ const HomeTracks = () => {
             </header>
           </ArticleHeader>
 
-          <div className="track">
-            <section>
-              <div>
-                <span>TRILHA</span>
-                <h4>SOJA 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
+          {lastTracks &&
+            lastTracks.map(track => (
+              <div className="track" key={track.id}>
+                <section>
+                  <div>
+                    <span>{track.typ_name}</span>
+                    <h4>{track.title}</h4>
+                    <p>{track.catch_frase}</p>
+                  </div>
+
+                  <Link to="/track">Saiba mais</Link>
+                </section>
+                <div className="filter" />
+                <img src={track.cover_url} alt="" />
               </div>
-
-              <Link to="/">Saiba mais</Link>
-            </section>
-            <div className="filter" />
-            <img src={trackImg} alt="" />
-          </div>
-
-          <div className="track">
-            <section>
-              <div>
-                <span>TRILHA</span>
-                <h4>PLANTAÇÃO</h4>
-                <p>Aumente os rendimentos da sua lavoura do início ao fim.</p>
-              </div>
-
-              <Link to="/">Saiba mais</Link>
-            </section>
-            <div className="filter" />
-            <img src={trackImg02} alt="" />
-          </div>
-
-          <div className="track">
-            <section>
-              <div>
-                <span>TRILHA</span>
-                <h4>PERCEVEJOS</h4>
-                <p>Conhecimento garantido para o combate.</p>
-              </div>
-
-              <Link to="/">Saiba mais</Link>
-            </section>
-            <div className="filter" />
-            <img src={trackImg03} alt="" />
-          </div>
+            ))}
         </ContentWrapper>
       </LastTracksContainer>
 
@@ -862,12 +550,16 @@ const HomeTracks = () => {
             </header>
           </ArticleHeader>
 
+          {}
           <AliceCarousel
             responsive={responsiveCourse}
             mouseTracking
             disableDotsControls
             renderPrevButton={renderPrevButton}
             renderNextButton={renderNextButton}
+            infinite
+            autoPlay
+            autoPlayInterval={3000}
           >
             {coursesReleases &&
               coursesReleases.map(course => (

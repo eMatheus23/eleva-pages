@@ -379,193 +379,14 @@ export const MyCoursesContainer = styled.article`
       }
     }
   }
-`;
 
-export const MyCourseCard = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 95%;
-  max-width: 25.8rem;
-  height: 35.8rem;
-  margin: 0 auto 4rem;
-  border-radius: 0.7rem;
-  box-shadow: 0px 3px 6px #00000029;
-  background: var(--color-background);
-
-  ${p =>
-    p.courseType === 'track' &&
-    css`
-      background: var(--color-secondary);
-    `}
-
-  .course-cover {
-    position: relative;
+  .courses-container {
     width: 100%;
-    height: 15.9rem;
-
-    > img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 0.7rem 0.7rem 0 0;
-      object-fit: cover;
-    }
-  }
-
-  main {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 19.8rem;
-    padding: 1rem 1rem 2rem 1.4rem;
+    justify-content: flex-start;
 
-    h4 {
-      font: bold 1.3rem/1.6rem var(--font-primary);
-      color: var(--color-secondary);
-
-      ${p =>
-        p.courseType === 'track' &&
-        css`
-          color: var(--color-primary);
-        `}
-    }
-
-    p {
-      font: normal 1.5rem/2rem var(--font-primary);
-      color: var(--color-text-base);
-
-      ${p =>
-        p.courseType === 'track' &&
-        css`
-          color: var(--color-text-white);
-        `}
-    }
-  }
-
-  .course__progress-container {
-    position: relative;
-    width: 21.5rem;
-    height: 0.5rem;
-    margin: 1rem 0;
-    margin-left: 0.9rem;
-    background: var(--color-background-secondary);
-
-    .wrapper {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-
-    .progress-bar {
-      // Recebe a largura da barra como uma prop (courseProgress)
-      width: ${p => (p.courseProgress ? p.courseProgress : '0%')};
-      height: 100%;
-      background: var(--color-primary);
-    }
-
-    // Primeiro círculo
-    &::before {
-      content: '';
-      position: absolute;
-      left: -8px;
-      top: 50%;
-      transform: translate(0, -50%);
-      width: 0.9rem;
-      height: 0.9rem;
-      border-radius: 50%;
-      background: var(--color-primary);
-    }
-
-    // Último círculo
-    &::after {
-      content: '';
-      position: absolute;
-      right: -8px;
-      top: 50%;
-      transform: translate(0, -50%);
-      width: 0.9rem;
-      height: 0.9rem;
-      border-radius: 50%;
-      background: var(--color-line-in-white);
-
-      // Se o progresso for 100%, o último círculo fica verde.
-      ${p =>
-        p.courseProgress === '100%' &&
-        css`
-          background: var(--color-primary);
-        `}
-    }
-  }
-
-  .flex-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .course__link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 5.1rem;
-    border: 0.1rem solid #bfbfbf;
-    border-radius: 2.6rem;
-    text-decoration: none;
-    font: normal 1.5rem/2.2rem var(--font-primary);
-    color: var(--color-text-white);
-    transition: background-color 0.2s;
-
-    ${p =>
-      p.courseType === 'course' &&
-      css`
-        color: var(--color-text-in-white);
-      `}
-
-    &:hover {
-      background-color: ${shade(0.2, '#ffffff')};
-    }
-
-    &:hover {
-      ${p =>
-        p.courseType === 'track' &&
-        css`
-          background-color: var(--color-secondary-hover);
-        `}
-    }
-
-    &.access {
-      width: 22.1rem;
-      margin: 0 auto;
-    }
-
-    &.share {
-      width: 8.1rem;
-      border: none;
-      color: var(--color-text-in-white);
-      background: var(--color-primary);
-
-      &:hover {
-        background-color: var(--color-primary-hover);
-      }
-
-      img {
-        width: 2.3rem;
-      }
-    }
-
-    &.certificate {
-      width: 13rem;
-      border: none;
-      color: var(--color-text-in-white);
-      background: var(--color-primary);
-
-      &:hover {
-        background-color: var(--color-primary-hover);
-      }
+    .user-course-card {
+      margin: 0 1rem 4rem;
     }
   }
 `;
@@ -595,6 +416,10 @@ export const ArticleHeader = styled.div`
       margin-left: 3rem;
       font: normal 2rem/2.5rem var(--font-primary);
       color: #5d883e;
+
+      &:hover {
+        color: var(--color-text-in-white);
+      }
     }
   }
 
@@ -1082,12 +907,14 @@ export const LastTracksContainer = styled.article`
 
       span {
         font: normal 2.5rem/2.5rem var(--font-primary);
+        text-transform: uppercase;
       }
 
       h4 {
         margin: 1rem 0;
         font: normal 4rem/4rem var(--font-primary);
         color: var(--color-primary);
+        text-transform: uppercase;
       }
 
       p {
