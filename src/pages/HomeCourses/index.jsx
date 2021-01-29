@@ -1,36 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
-
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-
-import { BiSearchAlt } from 'react-icons/bi';
-import {
-  ArticleHeader,
-  ContentWrapper,
-  Container,
-  MyCoursesContainer,
-  CoursesCarouselContainer,
-  CarouselButton,
-  Hero,
-  SearchSection,
-  CourseModeContainer,
-  CentralBannerContainer,
-  LastTracksContainer,
-  MiniCourseSection,
-  ExtrasSection,
-} from './styles';
-
-// Services
-import getViewerStatus from '../../services/getViewerStatus';
-
-// Components
-import CourseCardComponent from './components/CourseCard';
-import UserCourseCard from './components/UserCourseCard';
-import FindOut from './components/FindOut';
 
 // Icons
+import { BiSearchAlt } from 'react-icons/bi';
+import { FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
 import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
 import heroDetail from '../../assets/images/other/hero-detail.svg';
 import filterIcon from '../../assets/images/icons/filter-icon.svg';
@@ -38,8 +11,13 @@ import bitwiseImg from '../../assets/images/icons/bitwise.svg';
 import cardDetail02 from '../../assets/images/other/card-detail-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
 
+// Components
+import CourseCardComponent from './components/CourseCard';
+import UserCourseCard from './components/UserCourseCard';
+import FindOut from './components/FindOut';
 import Header from '../../components/headers/MainHeader';
 import Footer from '../../components/footers/MainFooter';
+import Carousel from '../../components/Carousel';
 
 // Mockups
 import Extras01 from '../../assets/images/mockups/home-trilhas/pexels-photo-1181304.png';
@@ -63,6 +41,24 @@ import CertificationIcon from '../../assets/images/icons/certification.svg';
 import CoursesReleasesData from '../../data/courses-releases.json';
 import MyCourses from '../../data/user-mockup/my-courses.json';
 import LastTracksData from '../../data/last-tracks.json';
+
+// Services
+import getViewerStatus from '../../services/getViewerStatus';
+
+import {
+  ArticleHeader,
+  ContentWrapper,
+  Container,
+  MyCoursesContainer,
+  CoursesCarouselContainer,
+  Hero,
+  SearchSection,
+  CourseModeContainer,
+  CentralBannerContainer,
+  LastTracksContainer,
+  MiniCourseSection,
+  ExtrasSection,
+} from './styles';
 
 const HomeTracks = () => {
   document.title = 'Trilhas de Ensino | Elevagro';
@@ -116,26 +112,11 @@ const HomeTracks = () => {
     return array;
   }, []);
 
-  const responsiveCourse = {
+  // Configuração de responsividade do Carrossel (Carousel)
+  const carouselResponsiveConfig = {
     0: { items: 4 },
     1250: { items: 5 },
     1530: { items: 5 },
-  };
-
-  const renderPrevButton = ({ isDisabled }) => {
-    return (
-      <CarouselButton style={{ opacity: isDisabled ? '0.5' : 1 }}>
-        <FiChevronLeft size={30} />
-      </CarouselButton>
-    );
-  };
-
-  const renderNextButton = ({ isDisabled }) => {
-    return (
-      <CarouselButton style={{ opacity: isDisabled ? '0.5' : 1 }}>
-        <FiChevronRight size={30} />
-      </CarouselButton>
-    );
   };
 
   return (
@@ -241,19 +222,12 @@ const HomeTracks = () => {
             </ArticleHeader>
 
             {userCourses && userCourses.length > 4 && (
-              <AliceCarousel
-                responsive={responsiveCourse}
-                mouseTracking
-                disableDotsControls
-                renderPrevButton={renderPrevButton}
-                renderNextButton={renderNextButton}
-                paddingRight={10}
-              >
+              <Carousel responsive={carouselResponsiveConfig} paddingRight={10}>
                 {userCourses &&
                   userCourses.map(course => (
                     <UserCourseCard course={course} key={course.id} />
                   ))}
-              </AliceCarousel>
+              </Carousel>
             )}
 
             {userCourses && userCourses.length <= 4 && (
@@ -285,16 +259,7 @@ const HomeTracks = () => {
             </header>
           </ArticleHeader>
 
-          <AliceCarousel
-            responsive={responsiveCourse}
-            mouseTracking
-            disableDotsControls
-            renderPrevButton={renderPrevButton}
-            renderNextButton={renderNextButton}
-            infinite
-            autoPlay
-            autoPlayInterval={3000}
-          >
+          <Carousel responsive={carouselResponsiveConfig}>
             {coursesReleases &&
               coursesReleases.map(course => (
                 <CourseCardComponent
@@ -302,7 +267,7 @@ const HomeTracks = () => {
                   course={course}
                 />
               ))}
-          </AliceCarousel>
+          </Carousel>
         </ContentWrapper>
       </CoursesCarouselContainer>
 
@@ -366,16 +331,7 @@ const HomeTracks = () => {
             </header>
           </ArticleHeader>
 
-          <AliceCarousel
-            responsive={responsiveCourse}
-            mouseTracking
-            disableDotsControls
-            renderPrevButton={renderPrevButton}
-            renderNextButton={renderNextButton}
-            infinite
-            autoPlay
-            autoPlayInterval={3000}
-          >
+          <Carousel responsive={carouselResponsiveConfig}>
             {coursesReleases &&
               shuffleArray(coursesReleases).map(course => (
                 <CourseCardComponent
@@ -384,7 +340,7 @@ const HomeTracks = () => {
                   key={course.id}
                 />
               ))}
-          </AliceCarousel>
+          </Carousel>
         </ContentWrapper>
       </CoursesCarouselContainer>
 
@@ -551,16 +507,7 @@ const HomeTracks = () => {
           </ArticleHeader>
 
           {}
-          <AliceCarousel
-            responsive={responsiveCourse}
-            mouseTracking
-            disableDotsControls
-            renderPrevButton={renderPrevButton}
-            renderNextButton={renderNextButton}
-            infinite
-            autoPlay
-            autoPlayInterval={3000}
-          >
+          <Carousel responsive={carouselResponsiveConfig}>
             {coursesReleases &&
               coursesReleases.map(course => (
                 <CourseCardComponent
@@ -568,7 +515,7 @@ const HomeTracks = () => {
                   course={course}
                 />
               ))}
-          </AliceCarousel>
+          </Carousel>
         </ContentWrapper>
       </CoursesCarouselContainer>
 

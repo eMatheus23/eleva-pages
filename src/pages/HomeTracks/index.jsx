@@ -1,48 +1,27 @@
 import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight, FiPlus } from 'react-icons/fi';
+import { FiPlus } from 'react-icons/fi';
 
 // Signup card
 import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
-
-import { BiSearchAlt } from 'react-icons/bi';
-import {
-  Container,
-  ContentWrapper,
-  CarouselContainer,
-  CarouselButton,
-  Hero,
-  SearchSection,
-  LaunchCard,
-  HighlightsContainer,
-  HighlightsCard,
-  ThemesContainer,
-  CareerCard,
-  SignupCard,
-  BecomePremiumCard,
-  ExtrasSection,
-} from './styles';
-
-// Services
-import getViewerStatus from '../../services/getViewerStatus';
-
 // Icons
+import { BiSearchAlt } from 'react-icons/bi';
 import CoursesIcon from '../../assets/images/icons/courses-icon-02.svg';
 import HeroDetail from '../../assets/images/other/hero-detail.svg';
 import FilterIcon from '../../assets/images/icons/filter-icon.svg';
 import BitwiseImg from '../../assets/images/icons/bitwise.svg';
 import CardDetail from '../../assets/images/other/card-detail.svg';
 
+// Components
+import FindOut from './FindOut';
 import Header from '../../components/headers/MainHeader';
 import Footer from '../../components/footers/MainFooter';
+import Carousel from '../../components/Carousel';
 
 // Mockups
-import HeroImg from '../../assets/images/mockups/home-trilhas/person-touching-open-macbook-on-table-839465.png';
 import PremiumCardImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
 import TrackImg from '../../assets/images/mockups/home-trilhas/Grupo 843.png';
 import TrackImg02 from '../../assets/images/mockups/home-trilhas/soybeans-4019684_960_720.png';
@@ -68,7 +47,24 @@ import Extras01 from '../../assets/images/mockups/home-trilhas/pexels-photo-1181
 import Extras02 from '../../assets/images/mockups/home-trilhas/Captura de Tela 2019-04-23 às 9.08.22 PM.png';
 import Extras03 from '../../assets/images/mockups/home-trilhas/stil--837JygbCJo-unsplash.png';
 
-import FindOut from './FindOut';
+// Services
+import getViewerStatus from '../../services/getViewerStatus';
+
+import {
+  Container,
+  ContentWrapper,
+  CarouselContainer,
+  Hero,
+  SearchSection,
+  LaunchCard,
+  HighlightsContainer,
+  HighlightsCard,
+  ThemesContainer,
+  CareerCard,
+  SignupCard,
+  BecomePremiumCard,
+  ExtrasSection,
+} from './styles';
 
 const GreenCheckbox = withStyles({
   root: {
@@ -105,32 +101,17 @@ const HomeTracks = () => {
   }, []);
   // Funções para teste
 
-  const responsive = {
+  // Configuração de responsividade do Carrossel (Carousel)
+  const carouselResponsiveConfig = {
     0: { items: 3 },
     1100: { items: 4 },
     1530: { items: 4 },
   };
 
-  const responsiveSmall = {
+  const carouselResponsiveConfigSmall = {
     0: { items: 3 },
     1250: { items: 4 },
     1530: { items: 4 },
-  };
-
-  const renderPrevButton = ({ isDisabled }) => {
-    return (
-      <CarouselButton style={{ opacity: isDisabled ? '0.5' : 1 }}>
-        <FiChevronLeft size={30} />
-      </CarouselButton>
-    );
-  };
-
-  const renderNextButton = ({ isDisabled }) => {
-    return (
-      <CarouselButton style={{ opacity: isDisabled ? '0.5' : 1 }}>
-        <FiChevronRight size={30} />
-      </CarouselButton>
-    );
   };
 
   const [state, setState] = React.useState({
@@ -151,10 +132,6 @@ const HomeTracks = () => {
       />
 
       <Hero>
-        <div className="hero-img">
-          <img src={HeroImg} className="image" alt="Hero" />
-        </div>
-
         <ContentWrapper>
           <div className="page-title">
             <h1>
@@ -229,13 +206,7 @@ const HomeTracks = () => {
           <Link to="/">VER TODAS</Link>
         </header>
 
-        <AliceCarousel
-          responsive={responsive}
-          mouseTracking
-          disableDotsControls
-          renderPrevButton={renderPrevButton}
-          renderNextButton={renderNextButton}
-        >
+        <Carousel responsive={carouselResponsiveConfig}>
           <LaunchCard>
             <div>
               <div>
@@ -337,7 +308,7 @@ const HomeTracks = () => {
             <span className="filter" />
             <img src={TrackImg03} alt="" />
           </LaunchCard>
-        </AliceCarousel>
+        </Carousel>
       </CarouselContainer>
 
       <HighlightsContainer>
@@ -363,13 +334,7 @@ const HomeTracks = () => {
 
           <aside>
             <h5>Você vai aprender sobre:</h5>
-            <AliceCarousel
-              responsive={responsiveSmall}
-              mouseTracking
-              disableDotsControls
-              renderPrevButton={renderPrevButton}
-              renderNextButton={renderNextButton}
-            >
+            <Carousel responsive={carouselResponsiveConfigSmall}>
               <HighlightsCard>
                 <Link to="/">
                   <img src={HighlightCardImg} alt="" />
@@ -447,7 +412,7 @@ const HomeTracks = () => {
                   </div>
                 </Link>
               </HighlightsCard>
-            </AliceCarousel>
+            </Carousel>
           </aside>
 
           <div className="filters-container">
@@ -502,13 +467,7 @@ const HomeTracks = () => {
           crescer na sua carreira.
         </h4>
 
-        <AliceCarousel
-          responsive={responsive}
-          mouseTracking
-          disableDotsControls
-          renderPrevButton={renderPrevButton}
-          renderNextButton={renderNextButton}
-        >
+        <Carousel responsive={carouselResponsiveConfig}>
           <CareerCard>
             <img src={CareerMockupImg} alt="" />
             <div>
@@ -625,7 +584,7 @@ const HomeTracks = () => {
               <FindOut>Saiba mais</FindOut>
             </div>
           </CareerCard>
-        </AliceCarousel>
+        </Carousel>
       </CarouselContainer>
 
       {viewerStatus === 'visit' && (
@@ -715,13 +674,7 @@ const HomeTracks = () => {
 
         <h4>Visão completa, panorâmica sobre o tema que você quer aprender.</h4>
 
-        <AliceCarousel
-          responsive={responsive}
-          mouseTracking
-          disableDotsControls
-          renderPrevButton={renderPrevButton}
-          renderNextButton={renderNextButton}
-        >
+        <Carousel responsive={carouselResponsiveConfig}>
           <LaunchCard>
             <div>
               <div>
@@ -821,7 +774,7 @@ const HomeTracks = () => {
             <span className="filter" />
             <img src={TrackImg03} alt="" />
           </LaunchCard>
-        </AliceCarousel>
+        </Carousel>
       </CarouselContainer>
 
       <HighlightsContainer extraMargin>
@@ -847,13 +800,7 @@ const HomeTracks = () => {
 
           <aside>
             <h5>Você vai aprender sobre:</h5>
-            <AliceCarousel
-              responsive={responsiveSmall}
-              mouseTracking
-              disableDotsControls
-              renderPrevButton={renderPrevButton}
-              renderNextButton={renderNextButton}
-            >
+            <Carousel responsive={carouselResponsiveConfigSmall}>
               <HighlightsCard>
                 <Link to="/">
                   <img src={HighlightCardImg05} alt="" />
@@ -931,7 +878,7 @@ const HomeTracks = () => {
                   </div>
                 </Link>
               </HighlightsCard>
-            </AliceCarousel>
+            </Carousel>
           </aside>
 
           <div className="filters-container">

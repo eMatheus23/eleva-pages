@@ -63,7 +63,7 @@ const ProductCheckout = ({ product, success, deleteProduct, viewerStatus }) => {
               {getDecimals(priceToViewer)}
             </h2>
             <span>
-              {discount * 100}
+              {discount}
               <>% de desconto </>
             </span>
           </div>
