@@ -5,21 +5,19 @@ import { Link } from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import { FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
 import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
+import heroDetail from '../../assets/images/other/hero-detail.svg';
 import filterIcon from '../../assets/images/icons/filter-icon.svg';
 import bitwiseImg from '../../assets/images/icons/bitwise.svg';
 import cardDetail02 from '../../assets/images/other/card-detail-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
 
-import heroImg from '../../assets/images/mockups/home-courses/as.png';
-
 // Components
-import Header from '../../components/headers/MainHeader';
-import HomeHero from '../../components/HomeHero';
-import Carousel from '../../components/Carousel';
 import CourseCardComponent from './components/CourseCard';
 import UserCourseCard from './components/UserCourseCard';
-import { FindOutButton } from '../../components/Buttons';
+import FindOut from './components/FindOut';
+import Header from '../../components/headers/MainHeader';
 import Footer from '../../components/footers/MainFooter';
+import Carousel from '../../components/Carousel';
 
 // Mockups
 import Extras01 from '../../assets/images/mockups/home-trilhas/pexels-photo-1181304.png';
@@ -53,6 +51,7 @@ import {
   Container,
   MyCoursesContainer,
   CoursesCarouselContainer,
+  Hero,
   SearchSection,
   CourseModeContainer,
   CentralBannerContainer,
@@ -129,17 +128,27 @@ const HomeTracks = () => {
         becomePremium={becomePremium}
       />
 
-      <HomeHero background={heroImg}>
-        <h1>
-          <img src={coursesIcon} alt="TRILHAS DE ENSINO" />
-          CURSOS
-        </h1>
-        <h2>Capacitação para o NOVO agronegócio</h2>
-        <p>
-          Aqui você aprende uma nova habilidade ou área com profissionais
-          referência de mercado.
-        </p>
-      </HomeHero>
+      <Hero>
+        <ContentWrapper>
+          <div className="page-title">
+            <h1>
+              <img src={coursesIcon} alt="TRILHAS DE ENSINO" />
+              CURSOS
+            </h1>
+            <h2>Capacitação para o NOVO agronegócio</h2>
+            <p>
+              Aqui você aprende uma nova habilidade ou área com profissionais
+              referência de mercado.
+            </p>
+          </div>
+
+          <div className="details-container">
+            <img src={heroDetail} className="detail" alt="Hero" />
+            <div className="triangle" />
+            <div className="filter" />
+          </div>
+        </ContentWrapper>
+      </Hero>
 
       <SearchSection>
         <section>
@@ -448,7 +457,7 @@ const HomeTracks = () => {
               Já temos esta função, agora é só adaptar ao layout novo.
               https://api.elevagro.com/admin/produto/lancamento/add/
             </p>
-            <FindOutButton to="/">Saiba mais</FindOutButton>
+            <FindOut to="/">Saiba mais</FindOut>
           </section>
 
           <div className="filters-container">

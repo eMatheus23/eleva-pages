@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -8,12 +9,6 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { CarouselButton, Container } from './styles';
 
 const Carousel = ({ children, responsive, ...rest }) => {
-  // const responsiveCourse = {
-  //   0: { items: 4 },
-  //   1250: { items: 5 },
-  //   1530: { items: 5 },
-  // };
-
   const renderPrevButton = ({ isDisabled }) => {
     return (
       <CarouselButton style={{ opacity: isDisabled ? '0.5' : 1 }}>
@@ -39,14 +34,23 @@ const Carousel = ({ children, responsive, ...rest }) => {
         renderPrevButton={renderPrevButton}
         renderNextButton={renderNextButton}
         infinite
-        autoPlay
-        autoPlayInterval={3000}
+        // autoPlay
+        // autoPlayInterval={3000}
         {...rest}
       >
         {children}
       </AliceCarousel>
     </Container>
   );
+};
+
+Carousel.propTypes = {
+  responsive: PropTypes.objectOf(PropTypes.object),
+  children: PropTypes.node,
+};
+
+Carousel.defaultProps = {
+  children: <></>,
 };
 
 export default Carousel;

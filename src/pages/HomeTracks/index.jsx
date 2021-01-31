@@ -10,16 +10,18 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 // Icons
 import { BiSearchAlt } from 'react-icons/bi';
 import CoursesIcon from '../../assets/images/icons/courses-icon-02.svg';
-import HeroDetail from '../../assets/images/other/hero-detail.svg';
 import FilterIcon from '../../assets/images/icons/filter-icon.svg';
 import BitwiseImg from '../../assets/images/icons/bitwise.svg';
 import CardDetail from '../../assets/images/other/card-detail.svg';
 
+import heroImg from '../../assets/images/mockups/home-trilhas/person-touching-open-macbook-on-table-839465.png';
+
 // Components
-import FindOut from './FindOut';
 import Header from '../../components/headers/MainHeader';
-import Footer from '../../components/footers/MainFooter';
+import HomeHero from '../../components/HomeHero';
+import { FindOutButton } from '../../components/Buttons';
 import Carousel from '../../components/Carousel';
+import Footer from '../../components/footers/MainFooter';
 
 // Mockups
 import PremiumCardImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
@@ -54,7 +56,6 @@ import {
   Container,
   ContentWrapper,
   CarouselContainer,
-  Hero,
   SearchSection,
   LaunchCard,
   HighlightsContainer,
@@ -131,27 +132,17 @@ const HomeTracks = () => {
         becomePremium={becomePremium}
       />
 
-      <Hero>
-        <ContentWrapper>
-          <div className="page-title">
-            <h1>
-              <img src={CoursesIcon} alt="TRILHAS DE ENSINO" />
-              TRILHAS DE ENSINO
-            </h1>
-            <h2>EDUCAÇÃO NO AGRO ELEVADA A OUTRO NÍVEL.</h2>
-            <p>
-              Montamos grades de ensino com nossos cursos para o seu melhor
-              aprendizado.
-            </p>
-          </div>
-
-          <div className="details-container">
-            <img src={HeroDetail} className="detail" alt="Hero" />
-            <div className="triangle" />
-            <div className="filter" />
-          </div>
-        </ContentWrapper>
-      </Hero>
+      <HomeHero background={heroImg}>
+        <h1>
+          <img src={CoursesIcon} alt="TRILHAS DE ENSINO" />
+          TRILHAS DE ENSINO
+        </h1>
+        <h2>EDUCAÇÃO NO AGRO ELEVADA A OUTRO NÍVEL.</h2>
+        <p>
+          Montamos grades de ensino com nossos cursos para o seu melhor
+          aprendizado.
+        </p>
+      </HomeHero>
 
       <SearchSection className="row">
         <section className="col-7">
@@ -215,7 +206,7 @@ const HomeTracks = () => {
                 <p>Visão completa para o domínio da soja.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg} alt="" />
@@ -231,7 +222,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg02} alt="" />
@@ -245,7 +236,7 @@ const HomeTracks = () => {
                 <p>Conhecimento garantido para o combate.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg03} alt="" />
@@ -259,7 +250,7 @@ const HomeTracks = () => {
                 <p>Visão completa para o domínio da soja.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg} alt="" />
@@ -273,7 +264,7 @@ const HomeTracks = () => {
                 <p>Visão completa para o domínio da soja.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg} alt="" />
@@ -289,7 +280,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg02} alt="" />
@@ -303,7 +294,7 @@ const HomeTracks = () => {
                 <p>Conhecimento garantido para o combate.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg03} alt="" />
@@ -328,7 +319,7 @@ const HomeTracks = () => {
               ,00
             </span>
             <p>Em até 10x de R$122,30</p>
-            <FindOut to="/">Saiba mais</FindOut>
+            <FindOutButton to="/">Saiba mais</FindOutButton>
             <span>Associado Premium tem 30% de desconto.</span>
           </section>
 
@@ -448,7 +439,7 @@ const HomeTracks = () => {
 
           <aside>
             <h3>BANNER PROMOCIONAL COM CTA EX: MONTE SUA TRILHA</h3>
-            <FindOut>Saiba mais</FindOut>
+            <FindOutButton>Saiba mais</FindOutButton>
             <div className="filter" />
             <img src={PremiumCardImg} alt="" />
           </aside>
@@ -479,7 +470,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut>Saiba mais</FindOut>
+              <FindOutButton>Saiba mais</FindOutButton>
             </div>
           </CareerCard>
 
@@ -494,7 +485,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut>Saiba mais</FindOut>
+              <FindOutButton>Saiba mais</FindOutButton>
             </div>
           </CareerCard>
 
@@ -509,7 +500,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut>Saiba mais</FindOut>
+              <FindOutButton>Saiba mais</FindOutButton>
             </div>
           </CareerCard>
 
@@ -521,7 +512,7 @@ const HomeTracks = () => {
                 <p>Chega de perder dinheiro! Domine a gestão do seu negócio.</p>
               </div>
 
-              <FindOut>Saiba mais</FindOut>
+              <FindOutButton>Saiba mais</FindOutButton>
             </div>
           </CareerCard>
 
@@ -536,7 +527,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut>Saiba mais</FindOut>
+              <FindOutButton>Saiba mais</FindOutButton>
             </div>
           </CareerCard>
 
@@ -551,7 +542,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut>Saiba mais</FindOut>
+              <FindOutButton>Saiba mais</FindOutButton>
             </div>
           </CareerCard>
 
@@ -566,7 +557,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut>Saiba mais</FindOut>
+              <FindOutButton>Saiba mais</FindOutButton>
             </div>
           </CareerCard>
 
@@ -581,7 +572,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut>Saiba mais</FindOut>
+              <FindOutButton>Saiba mais</FindOutButton>
             </div>
           </CareerCard>
         </Carousel>
@@ -683,7 +674,7 @@ const HomeTracks = () => {
                 <p>Visão completa para o domínio da soja.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg} alt="" />
@@ -697,7 +688,7 @@ const HomeTracks = () => {
                 <p>Chega de perder dinheiro! Domine a gestão do seu negócio.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg04} alt="" />
@@ -711,7 +702,7 @@ const HomeTracks = () => {
                 <p>Conhecimento garantido para o combate.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg05} alt="" />
@@ -725,7 +716,7 @@ const HomeTracks = () => {
                 <p>Chega de perder dinheiro! Domine a gestão do seu negócio.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg06} alt="" />
@@ -739,7 +730,7 @@ const HomeTracks = () => {
                 <p>Visão completa para o domínio da soja.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg} alt="" />
@@ -755,7 +746,7 @@ const HomeTracks = () => {
                 </p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg02} alt="" />
@@ -769,7 +760,7 @@ const HomeTracks = () => {
                 <p>Conhecimento garantido para o combate.</p>
               </div>
 
-              <FindOut to="/">Saiba mais</FindOut>
+              <FindOutButton to="/">Saiba mais</FindOutButton>
             </div>
             <span className="filter" />
             <img src={TrackImg03} alt="" />
@@ -794,7 +785,7 @@ const HomeTracks = () => {
               ,00
             </span>
             <p>Em até 10x de R$122,30</p>
-            <FindOut to="/">Saiba mais</FindOut>
+            <FindOutButton to="/">Saiba mais</FindOutButton>
             <span>Associado Premium tem 30% de desconto.</span>
           </section>
 

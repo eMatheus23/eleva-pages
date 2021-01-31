@@ -2,11 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import { StyledContainer, StyledButton } from './styles';
+
+export const FindOutButton = ({ children, ...rest }) => (
+  <StyledContainer>
+    <Link to="/" {...rest}>
+      {children}
+    </Link>
+  </StyledContainer>
+);
+
+FindOutButton.propTypes = {
+  children: PropTypes.node,
+};
 
 const ButtonRounded = ({ children, buttonStyle, type, ...rest }) => {
   return (
-    <>
+    <StyledButton>
       {type === 'link' && (
         <Link
           id="button-rounded"
@@ -38,7 +50,7 @@ const ButtonRounded = ({ children, buttonStyle, type, ...rest }) => {
           {children}
         </button>
       )}
-    </>
+    </StyledButton>
   );
 };
 
