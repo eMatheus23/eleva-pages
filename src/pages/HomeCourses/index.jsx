@@ -2,11 +2,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // Icons
-import { BiSearchAlt } from 'react-icons/bi';
 import { FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
 import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
-import filterIcon from '../../assets/images/icons/filter-icon.svg';
-import bitwiseImg from '../../assets/images/icons/bitwise.svg';
 import cardDetail02 from '../../assets/images/other/card-detail-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
 
@@ -15,6 +12,7 @@ import heroImg from '../../assets/images/mockups/home-courses/as.png';
 // Components
 import Header from '../../components/headers/MainHeader';
 import HomeHero from '../../components/HomeHero';
+import SearchInput from '../../components/SearchInput';
 import Carousel from '../../components/Carousel';
 import CourseCardComponent from './components/CourseCard';
 import UserCourseCard from './components/UserCourseCard';
@@ -61,7 +59,7 @@ import {
   ExtrasSection,
 } from './styles';
 
-const HomeTracks = () => {
+const HomeCourses = () => {
   document.title = 'Trilhas de Ensino | Elevagro';
 
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
@@ -143,17 +141,7 @@ const HomeTracks = () => {
 
       <SearchSection>
         <section>
-          <form className="search-container">
-            <button type="button">
-              <img src={filterIcon} alt="Filtrar" />
-              CATEGORIA
-              <img src={bitwiseImg} alt="" />
-            </button>
-            <input type="text" placeholder="Localizar uma trilha" />
-            <button type="submit">
-              <BiSearchAlt size={20} />
-            </button>
-          </form>
+          <SearchInput placeholder="Procure um curso" />
 
           <div className="sugestions">
             <p>Sugestões:</p>
@@ -473,7 +461,7 @@ const HomeTracks = () => {
               <div className="track" key={track.id}>
                 <section>
                   <div>
-                    <span>{track.typ_name}</span>
+                    <span>{track.type_name}</span>
                     <h4>{track.title}</h4>
                     <p>{track.catch_frase}</p>
                   </div>
@@ -555,4 +543,4 @@ const HomeTracks = () => {
   );
 };
 
-export default HomeTracks;
+export default HomeCourses;

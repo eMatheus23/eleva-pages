@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 
 const wrapperMaxWidth = '153rem';
 
@@ -38,6 +38,33 @@ export const Hero = styled.section`
     justify-content: space-evenly;
     height: 100%;
     padding: 4rem 0 6rem;
+
+    ${p =>
+      p.justify === 'center' &&
+      css`
+        justify-content: center;
+        h1 {
+          margin-bottom: 1rem;
+        }
+      `}
+  }
+
+  aside {
+    position: absolute;
+    top: 0;
+    right: 15rem;
+    display: flex;
+    width: 46.8rem;
+    height: 100%;
+
+    h3 {
+      margin: auto;
+      font: normal 38px/53px Montserrat;
+      text-transform: uppercase;
+      text-align: right;
+      color: #ffffff;
+      text-shadow: 0px 3px 6px #00000029;
+    }
   }
 
   h1 {

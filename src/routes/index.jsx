@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import HomeTracks from '../pages/HomeTracks';
 import HomeCourses from '../pages/HomeCourses';
-import HomeCoursesPromotional from '../pages/HomeCoursesPromotional';
+import HomeCoursesPromo from '../pages/HomeCoursesPromo';
 import Plans from '../pages/Plans';
 import Signup from '../pages/Signup';
 import CheckoutPage from '../pages/CheckoutPage';
@@ -19,7 +19,7 @@ const Routes = () => {
         <Route exact path="/" component={HomeCourses} />
         <Route path="/tracks" component={HomeTracks} />
         <Route exact path="/courses" component={HomeCourses} />
-        <Route path="/courses/promo" component={HomeCoursesPromotional} />
+        <Route path="/courses/promo" component={HomeCoursesPromo} />
         <Route path="/track" component={TrackPage} />
         <Route path="/course" component={CoursePage} />
         <Route path="/plans" component={Plans} />

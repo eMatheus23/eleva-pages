@@ -3,16 +3,14 @@ import { Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 
 // Icons
-import { BiSearchAlt } from 'react-icons/bi';
 import CoursesIcon from '../../assets/images/icons/courses-icon-02.svg';
-import FilterIcon from '../../assets/images/icons/filter-icon.svg';
-import BitwiseImg from '../../assets/images/icons/bitwise.svg';
 import CardDetail from '../../assets/images/other/card-detail.svg';
 
 import heroImg from '../../assets/images/mockups/home-trilhas/person-touching-open-macbook-on-table-839465.png';
 
 // Components
 import Header from '../../components/headers/MainHeader';
+import SearchInput from '../../components/SearchInput';
 import SignupCard from '../../components/cards/SignupHomeCard';
 import HomeHero from '../../components/HomeHero';
 import { FindOutButton } from '../../components/Buttons';
@@ -123,17 +121,7 @@ const HomeTracks = () => {
 
       <SearchSection className="row">
         <section className="col-7">
-          <form className="search-container">
-            <button type="button">
-              <img src={FilterIcon} alt="Filtrar" />
-              CATEGORIA
-              <img src={BitwiseImg} alt="" />
-            </button>
-            <input type="text" placeholder="Localizar uma trilha" />
-            <button type="submit">
-              <BiSearchAlt size={20} />
-            </button>
-          </form>
+          <SearchInput placeholder="Localizar uma trilha" />
 
           <div className="sugestions">
             <p>Sugestões:</p>

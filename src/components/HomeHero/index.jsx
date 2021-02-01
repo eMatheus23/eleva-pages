@@ -5,9 +5,9 @@ import { Hero, ContentWrapper, HeroDesignDetails } from './styles';
 
 import heroDetail from '../../assets/images/other/hero-detail.svg';
 
-const HomeHero = ({ background, children }) => {
+const HomeHero = ({ background, children, justify }) => {
   return (
-    <Hero background={background}>
+    <Hero background={background} justify={justify}>
       <ContentWrapper>
         <div className="page-title">{children}</div>
 
@@ -23,6 +23,7 @@ const HomeHero = ({ background, children }) => {
 
 HomeHero.propTypes = {
   background: PropTypes.string.isRequired,
+  justify: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 
