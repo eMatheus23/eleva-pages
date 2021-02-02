@@ -18,7 +18,7 @@ const GreenCheckbox = withStyles({
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
-const SignupHomeCard = () => {
+const HomeSignupCard = () => {
   const [state, setState] = React.useState({
     checkedA: true,
   });
@@ -42,7 +42,7 @@ const SignupHomeCard = () => {
             </div>
 
             <div>
-              <label htmlFor="email">E-mail para acesso</label>
+              <label htmlFor="email">E-mail</label>
               <input type="text" placeholder="E-mail para acesso" />
             </div>
 
@@ -85,4 +85,4 @@ const SignupHomeCard = () => {
   );
 };
 
-export default SignupHomeCard;
+export default HomeSignupCard;

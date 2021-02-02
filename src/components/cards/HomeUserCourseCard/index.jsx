@@ -6,12 +6,12 @@ import { isBefore } from 'date-fns';
 import { StyledCard } from './styles';
 
 // Icons
-import shareIcon from '../../../../assets/images/icons/share-icon.svg';
+import shareIcon from '../../../assets/images/icons/share-icon.svg';
 
 // Components
-import CourseStatus from '../CourseStatus';
+import CourseStatus from './CourseStatus';
 
-const UserCourseCard = ({ course }) => {
+const HomeUserCourseCard = ({ course }) => {
   const { user_purchase_info, title, type, type_name, cover_url } = course;
 
   const { progress, expiring_date } = user_purchase_info;
@@ -73,7 +73,7 @@ const UserCourseCard = ({ course }) => {
   );
 };
 
-UserCourseCard.propTypes = {
+HomeUserCourseCard.propTypes = {
   course: PropTypes.shape({
     cover_url: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -86,4 +86,4 @@ UserCourseCard.propTypes = {
   }),
 };
 
-export default UserCourseCard;
+export default HomeUserCourseCard;

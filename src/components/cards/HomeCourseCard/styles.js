@@ -1,5 +1,63 @@
 import styled, { css } from 'styled-components/macro';
 
+export const HoverContainer = styled.div`
+  position: relative;
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  .hover-container__text {
+    z-index: +2;
+    position: absolute;
+    top: 6.2rem;
+    right: 0;
+    width: 100%;
+    padding: 0 2rem;
+    text-align: right;
+
+    h3 {
+      color: var(--color-primary);
+      font: normal 1.5rem/2rem var(--font-primary);
+      letter-spacing: 0.17px;
+
+      big {
+        font: bold 3.5rem/2rem var(--font-primary);
+      }
+    }
+
+    p {
+      font: normal 1.5rem/2rem var(--font-primary);
+      color: var(--color-text-white);
+    }
+  }
+
+  .discount-long-flag {
+    position: absolute;
+    z-index: +1;
+    top: 6px;
+    right: -13px;
+
+    p {
+      position: absolute;
+      top: 7px;
+      right: 29px;
+      font: bold 1.3rem/2.2rem var(--font-primary);
+    }
+  }
+
+  .filter {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    border-radius: 0.7rem 0.7rem 0 0;
+    background: #000000;
+    opacity: 0.78;
+  }
+`;
+
 export const StyledCard = styled.div`
   position: relative;
   display: flex;
@@ -11,21 +69,13 @@ export const StyledCard = styled.div`
   border-radius: 0.7rem;
   box-shadow: 0px 3px 6px #00000029;
 
-  &:hover .course-cover .hover-container {
+  &:hover ${HoverContainer} {
     // Habilita o hover apenas para visitantes e usuários free
     ${p =>
       p.viewerStatus !== 'premium' &&
       css`
         display: block;
       `}
-  }
-
-  > a {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
   }
 
   .course-cover {
@@ -41,64 +91,6 @@ export const StyledCard = styled.div`
       height: 100%;
       border-radius: 0.7rem 0.7rem 0 0;
       object-fit: cover;
-    }
-  }
-
-  .hover-container {
-    position: relative;
-    display: none;
-    width: 100%;
-    height: 100%;
-
-    .hover-container__text {
-      z-index: +2;
-      position: absolute;
-      top: 6.2rem;
-      right: 0;
-      width: 100%;
-      padding: 0 2rem;
-      text-align: right;
-
-      h3 {
-        color: var(--color-primary);
-        font: normal 1.5rem/2rem var(--font-primary);
-        letter-spacing: 0.17px;
-
-        big {
-          font: bold 3.5rem/2rem var(--font-primary);
-        }
-      }
-
-      p {
-        font: normal 1.5rem/2rem var(--font-primary);
-        color: var(--color-text-white);
-      }
-    }
-
-    .discount-long-flag {
-      position: absolute;
-      z-index: +1;
-      top: 6px;
-      right: -13px;
-
-      p {
-        position: absolute;
-        top: 7px;
-        right: 29px;
-        font: bold 1.3rem/2.2rem var(--font-primary);
-      }
-    }
-
-    .filter {
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: 1;
-      height: 100%;
-      width: 100%;
-      border-radius: 0.7rem 0.7rem 0 0;
-      background: #000000;
-      opacity: 0.78;
     }
   }
 
@@ -130,6 +122,9 @@ export const StyledCard = styled.div`
     }
 
     p {
+      overflow: hidden;
+      max-height: 6rem;
+      text-overflow: ellipsis;
       font: normal 1.5rem/2rem var(--font-primary);
       color: var(--color-text-base);
     }
@@ -178,7 +173,7 @@ export const StyledCard = styled.div`
     }
   }
 
-  > div:last-of-type {
+  .card-footer {
     display: flex;
     align-items: center;
     justify-content: center;

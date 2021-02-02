@@ -2,17 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { StyledCard } from './styles';
+import { StyledCard, HoverContainer } from './styles';
 // Icons
-import cartIcon from '../../../../assets/images/icons/cart-icon-03.svg';
-import discountFlag from '../../../../assets/images/flags/discount-flag.svg';
-import discountLongFlag from '../../../../assets/images/flags/discount-long-flag.svg';
+import cartIcon from '../../../assets/images/icons/cart-icon-03.svg';
+import discountFlag from '../../../assets/images/flags/discount-flag.svg';
+import discountLongFlag from '../../../assets/images/flags/discount-long-flag.svg';
 
 // Utils
-import formatValue from '../../../../utils/formatValue';
-import getDecimals from '../../../../utils/getDecimals';
+import formatValue from '../../../utils/formatValue';
+import getDecimals from '../../../utils/getDecimals';
 
-const CourseCard = ({ viewerStatus, course }) => {
+const HomeCourseCard = ({ viewerStatus, course }) => {
   const {
     cover_url,
     price_for_premium,
@@ -38,7 +38,7 @@ const CourseCard = ({ viewerStatus, course }) => {
       <div className="course-cover">
         <img src={cover_url} alt="" />
 
-        <div className="hover-container">
+        <HoverContainer>
           <div className="hover-container__text">
             <h3>
               R$:
@@ -61,7 +61,7 @@ const CourseCard = ({ viewerStatus, course }) => {
             <img src={discountLongFlag} alt="" />
             <p>Seja PREMIUM e pague:</p>
           </span>
-        </div>
+        </HoverContainer>
       </div>
 
       <span className="discount-flag">
@@ -71,6 +71,7 @@ const CourseCard = ({ viewerStatus, course }) => {
           <>% OFF</>
         </p>
       </span>
+
       <main>
         <div>
           <h4>{category}</h4>
@@ -103,14 +104,15 @@ const CourseCard = ({ viewerStatus, course }) => {
           </button>
         </section>
       </main>
-      <div>
+
+      <div className="card-footer">
         <Link to="/course">Saiba mais</Link>
       </div>
     </StyledCard>
   );
 };
 
-CourseCard.propTypes = {
+HomeCourseCard.propTypes = {
   viewerStatus: PropTypes.string.isRequired,
   course: PropTypes.shape({
     cover_url: PropTypes.string.isRequired,
@@ -122,4 +124,4 @@ CourseCard.propTypes = {
   }),
 };
 
-export default CourseCard;
+export default HomeCourseCard;
