@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 // Icons
 import { FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
 import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
-import cardDetail02 from '../../assets/images/other/card-detail-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
 
 import heroImg from '../../assets/images/mockups/home-courses/as.png';
@@ -14,8 +13,8 @@ import Header from '../../components/headers/MainHeader';
 import HomeHero from '../../components/HomeHero';
 import SearchInput from '../../components/SearchInput';
 import Carousel from '../../components/Carousel';
-import CourseCardComponent from './components/CourseCard';
-import UserCourseCard from './components/UserCourseCard';
+import CourseCardComponent from '../../components/cards/HomeCourseCard';
+import UserCourseCard from '../../components/cards/HomeUserCourseCard';
 import { FindOutButton } from '../../components/Buttons';
 import Footer from '../../components/footers/MainFooter';
 
@@ -51,7 +50,7 @@ import {
   Container,
   MyCoursesContainer,
   CoursesCarouselContainer,
-  SearchSection,
+  SearchContainer,
   CourseModeContainer,
   CentralBannerContainer,
   LastTracksContainer,
@@ -113,7 +112,9 @@ const HomeCourses = () => {
 
   // Configuração de responsividade do Carrossel (Carousel)
   const carouselResponsiveConfig = {
-    0: { items: 4 },
+    0: { items: 2 },
+    800: { items: 3 },
+    1040: { items: 4 },
     1250: { items: 5 },
     1530: { items: 5 },
   };
@@ -139,8 +140,8 @@ const HomeCourses = () => {
         </p>
       </HomeHero>
 
-      <SearchSection>
-        <section>
+      <SearchContainer>
+        <section className="search-section">
           <SearchInput placeholder="Procure um curso" />
 
           <div className="sugestions">
@@ -156,8 +157,8 @@ const HomeCourses = () => {
           </div>
         </section>
 
-        <aside className="track-card">
-          <div>
+        <aside className="navi-cards__container">
+          <div className="navi-card track-card">
             <div className="text">
               <h4>
                 Trilhas
@@ -165,15 +166,12 @@ const HomeCourses = () => {
                 de Ensino
               </h4>
               <Link to="/tracks">Acesse</Link>
-              <img src={cardDetail02} alt="" />
-              <div className="triangle" />
-              <div className="filter" />
             </div>
-          </div>
-        </aside>
 
-        <aside className="mini-course">
-          <div>
+            <div className="filter" />
+          </div>
+
+          <div className="navi-card mini-course">
             <div className="text">
               <h4>
                 Mini
@@ -181,13 +179,12 @@ const HomeCourses = () => {
                 Cursos
               </h4>
               <Link to="/tracks">Acesse</Link>
-              <img src={cardDetail02} alt="" />
-              <div className="triangle" />
-              <div className="filter" />
             </div>
+
+            <div className="filter" />
           </div>
         </aside>
-      </SearchSection>
+      </SearchContainer>
 
       {viewerStatus !== 'visit' && (
         <MyCoursesContainer>
@@ -252,7 +249,7 @@ const HomeCourses = () => {
 
       <MiniCourseSection>
         <ContentWrapper>
-          <section>
+          <main>
             <header>
               <div>
                 <h4>MINI CURSOS</h4>
@@ -287,9 +284,9 @@ const HomeCourses = () => {
                 <FiChevronRight size={30} />
               </Link>
             </div>
-          </section>
+          </main>
 
-          <aside>
+          <aside className="banner">
             <div>
               <h2>PROMOÇÃO</h2>
               <p>Aprenda novas habilidades com cursos a partir de R$56,00</p>
@@ -333,7 +330,7 @@ const HomeCourses = () => {
             </header>
           </ArticleHeader>
 
-          <section className="modes">
+          <section className="modes-section">
             <div className="mode-card">
               <img src={ElementaryImg} alt="" />
               <main>

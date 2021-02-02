@@ -11,7 +11,7 @@ import heroImg from '../../assets/images/mockups/home-trilhas/person-touching-op
 // Components
 import Header from '../../components/headers/MainHeader';
 import SearchInput from '../../components/SearchInput';
-import SignupCard from '../../components/cards/SignupHomeCard';
+import SignupCard from '../../components/cards/HomeSignupCard';
 import HomeHero from '../../components/HomeHero';
 import { FindOutButton } from '../../components/Buttons';
 import Carousel from '../../components/Carousel';

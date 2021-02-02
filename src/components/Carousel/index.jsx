@@ -33,6 +33,7 @@ const Carousel = ({ children, responsive, ...rest }) => {
         disableDotsControls
         renderPrevButton={renderPrevButton}
         renderNextButton={renderNextButton}
+        controlsStrategy={responsive}
         infinite
         // autoPlay
         // autoPlayInterval={3000}

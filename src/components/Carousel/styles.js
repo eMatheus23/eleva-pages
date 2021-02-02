@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { shade } from 'polished';
 
 export const Container = styled.div`
   .alice-carousel__prev-btn,
@@ -10,9 +11,13 @@ export const Container = styled.div`
     width: 4.8rem;
     border-radius: 50%;
     box-shadow: 0px 3px 6px #00000029;
-    border: 1px solid #ffffff;
     background: var(--color-background);
     cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: ${shade(0.2, '#ffffff')};
+    }
   }
 
   .alice-carousel__prev-btn {
@@ -34,4 +39,8 @@ export const CarouselButton = styled.span`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+
+  &:hover {
+    background: ${shade(0.2, '#ffffff')};
+  }
 `;

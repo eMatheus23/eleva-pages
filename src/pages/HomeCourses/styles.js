@@ -6,8 +6,17 @@ import miniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-s
 import miniCourseHeaderImg from '../../assets/images/mockups/home-courses/photo-of-person-holding-black-pen-959816.png';
 import bannerImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
 import centralBannerBackground from '../../assets/images/mockups/home-courses/notebook-1280538.png';
+import cardDetail from '../../assets/images/other/card-detail-02.svg';
 
 const wrapperMaxWidth = '153rem';
+
+const breakPoints = {
+  // Telas de até:
+  phone: 'max-width: 600px',
+  tabletPortrait: 'max-width: 900px',
+  tablet: 'max-width: 1200px',
+  desktop: 'max-width: 1800px',
+};
 
 export const Container = styled.div`
   width: 100vw;
@@ -24,16 +33,15 @@ export const ContentWrapper = styled.div`
   padding: 0 4rem;
 `;
 
-export const SearchSection = styled.article`
+export const SearchContainer = styled.article`
   display: flex;
   justify-content: space-between;
   width: 100%;
   max-width: ${wrapperMaxWidth};
-  height: 10.9rem;
   margin: 5rem auto 7rem;
   padding: 0 4rem;
 
-  section {
+  .search-section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,50 +51,47 @@ export const SearchSection = styled.article`
     @media screen and (max-width: 1500px) {
       width: 54%;
     }
-  }
 
-  .sugestions {
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 85.8rem;
+    .sugestions {
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 85.8rem;
 
-    p {
-      font: normal 1.3rem/1.6rem var(--font-primary);
-      margin-right: 3vw;
-    }
+      p {
+        font: normal 1.3rem/1.6rem var(--font-primary);
+        margin-right: 3vw;
+      }
 
-    button {
-      padding: 0.3rem 1rem;
-      border: 1px solid var(--color-background-secondary);
-      border-radius: 1.6rem;
-      background: none;
-      font: normal 1.3rem/1.6rem var(--font-primary);
+      button {
+        padding: 0.3rem 1rem;
+        border: 1px solid var(--color-background-secondary);
+        border-radius: 1.6rem;
+        background: none;
+        font: normal 1.3rem/1.6rem var(--font-primary);
 
-      & + button {
-        margin-left: 0.4vw;
+        & + button {
+          margin-left: 0.4vw;
+        }
       }
     }
   }
 
   aside {
-    overflow: hidden;
-    width: 21%;
-    max-width: 26.9rem;
-    height: 10.7rem;
-    padding-left: 5rem;
-    padding-right: 0;
-    border-radius: 0.9rem;
-    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
 
-    > div {
-      position: relative;
-
+    .navi-card {
       overflow: hidden;
-      width: 100%;
-      height: 100%;
+      position: relative;
+      width: 43%;
+      max-width: 26.9rem;
+      height: 10.7rem;
+      padding-right: 0;
       border-radius: 0.9rem;
+      background-size: cover;
     }
 
     .text {
@@ -113,46 +118,71 @@ export const SearchSection = styled.article`
 
       img {
         position: absolute;
-        right: 16.5rem;
+        right: 17rem;
         top: 0;
         height: 10.9rem;
       }
+    }
 
-      .triangle {
+    .filter {
+      z-index: 2;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: min(17rem, 80%);
+      background: #141414;
+      opacity: 0.65;
+
+      &::before {
+        content: '';
         position: absolute;
-        right: 17rem;
+        left: -26px;
         top: 0;
         z-index: -1;
         height: 0;
         width: 0;
         border-left: 0px solid transparent;
-        border-right: 18px solid #141414;
+        border-right: 26px solid #141414;
         border-bottom: 55px solid transparent;
         border-top: 55px solid transparent;
-        opacity: 0.65;
       }
 
-      .filter {
+      &::after {
+        content: url(${cardDetail});
         position: absolute;
-        right: 0;
+        left: -21px;
         top: 0;
-        z-index: -1;
-        height: 10.9rem;
-        width: 17rem;
-        background: #141414;
-        opacity: 0.65;
+        height: 100%;
       }
+    }
+
+    .track-card {
+      background: url(${trackCardImg}) no-repeat center top;
+      background-size: cover;
+    }
+
+    .mini-course {
+      background: url(${miniCourseCardImg}) no-repeat center top;
+      background-size: cover;
     }
   }
 
-  .track-card {
-    background: url(${trackCardImg}) no-repeat center top;
-    background-size: cover;
-  }
+  @media screen and (${breakPoints.tablet}) {
+    flex-direction: column;
+    align-items: center;
 
-  .mini-course {
-    background: url(${miniCourseCardImg}) no-repeat center top;
-    background-size: cover;
+    .search-section {
+      width: 100%;
+    }
+
+    .sugestions {
+      margin-top: 1.5rem;
+    }
+
+    aside {
+      margin-top: 5rem;
+    }
   }
 `;
 
@@ -245,13 +275,18 @@ export const MiniCourseSection = styled.article`
     justify-content: space-between;
   }
 
-  section {
+  main {
     overflow: hidden;
     width: 39%;
     max-width: 56.1rem;
     height: 30.9rem;
     border-radius: 1.5rem;
     background: var(--color-background-secondary);
+
+    @media screen and (${breakPoints.tablet}) {
+      width: 100%;
+      max-width: unset;
+    }
 
     header {
       position: relative;
@@ -333,7 +368,7 @@ export const MiniCourseSection = styled.article`
     }
   }
 
-  aside {
+  aside.banner {
     overflow: hidden;
     position: relative;
     width: 60%;
@@ -376,6 +411,19 @@ export const MiniCourseSection = styled.article`
       opacity: 0.81;
     }
   }
+
+  @media screen and (${breakPoints.tablet}) {
+    ${ContentWrapper} {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    aside.banner {
+      width: 100%;
+      max-width: unset;
+      margin-top: 5rem;
+    }
+  }
 `;
 
 export const CoursesCarouselContainer = styled.article`
@@ -404,8 +452,9 @@ export const CourseModeContainer = styled.article`
     justify-content: space-between;
   }
 
-  .modes {
+  .modes-section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
   }
@@ -562,6 +611,38 @@ export const CourseModeContainer = styled.article`
       }
     }
   }
+
+  @media screen and (${breakPoints.tablet}) {
+    .modes-section {
+      justify-content: space-evenly;
+    }
+
+    .mode-card {
+      width: 46%;
+
+      > img {
+        width: 7vw;
+      }
+    }
+  }
+
+  @media screen and (${breakPoints.tablet}) {
+    ${ContentWrapper} {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .certification,
+    .themes-container {
+      width: 100%;
+      max-width: 79rem;
+
+      p {
+        margin-bottom: 3rem;
+        max-width: unset;
+      }
+    }
+  }
 `;
 
 export const CentralBannerContainer = styled.article`
@@ -666,6 +747,7 @@ export const LastTracksContainer = styled.article`
   ${ContentWrapper} {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .track {
@@ -675,7 +757,6 @@ export const LastTracksContainer = styled.article`
     width: 32%;
     height: calc(30vw * 0.8);
     max-height: 31.9rem;
-    margin: 0 auto;
     border-radius: 1.4rem;
 
     section {
@@ -696,6 +777,7 @@ export const LastTracksContainer = styled.article`
       color: var(--color-text-white);
 
       > div {
+        width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -752,6 +834,30 @@ export const LastTracksContainer = styled.article`
       object-fit: cover;
     }
   }
+
+  @media screen and (${breakPoints.tablet}) {
+    ${ContentWrapper} {
+      justify-content: space-evenly;
+    }
+    .track {
+      min-width: 40rem;
+      width: 45%;
+      min-height: 26rem;
+      height: calc(45vw * 0.8);
+      max-height: unset;
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media screen and (${breakPoints.tabletPortrait}) {
+    .track {
+      width: 70vw;
+      max-width: unset;
+      height: calc(70vw * 0.61);
+      min-height: 26rem;
+      margin-bottom: 3rem;
+    }
+  }
 `;
 
 export const ExtrasSection = styled.article`
@@ -760,7 +866,7 @@ export const ExtrasSection = styled.article`
 
   ${ContentWrapper} {
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
   }
@@ -825,6 +931,29 @@ export const ExtrasSection = styled.article`
           background: ${shade(0.1, '#ffffff')};
         }
       }
+    }
+  }
+
+  @media screen and (${breakPoints.tablet}) {
+    ${ContentWrapper} {
+      justify-content: space-evenly;
+    }
+    section {
+      min-width: 40rem;
+      width: 45%;
+      min-height: 26rem;
+      height: calc(45vw);
+      max-height: unset;
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media screen and (${breakPoints.tabletPortrait}) {
+    section {
+      width: 60vw;
+      max-width: unset;
+      height: calc(60vw);
+      margin-bottom: 3rem;
     }
   }
 `;

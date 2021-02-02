@@ -20,7 +20,7 @@ export const Hero = styled.section`
   margin: 0 auto;
   margin-top: 6.5rem;
 
-  background: url(${p => p.background}) no-repeat center top;
+  background: url(${p => p.background}) no-repeat 80% top;
   background-size: cover;
 
   ${ContentWrapper} {

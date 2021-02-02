@@ -8,9 +8,9 @@ import heroImg from '../../assets/images/heroes/promo.png';
 import Header from '../../components/headers/MainHeader';
 import HomeHero from '../../components/HomeHero';
 import Carousel from '../../components/Carousel';
-import CourseCardComponent from './components/CourseCard';
+import CourseCardComponent from '../../components/cards/HomeCourseCard';
 import SearchInput from '../../components/SearchInput';
-import SignupHomeCard from '../../components/cards/SignupHomeCard';
+import HomeSignupCard from '../../components/cards/HomeSignupCard';
 import Footer from '../../components/footers/MainFooter';
 
 // Mockups
@@ -249,7 +249,7 @@ const HomeCoursesPromo = () => {
         </ContentWrapper>
       </ExtrasSection>
 
-      <SignupHomeCard />
+      <HomeSignupCard />
 
       <Footer />
     </Container>
