@@ -298,7 +298,6 @@ export const ExtrasSection = styled.article`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 5rem;
   }
 
   section {
@@ -374,6 +373,7 @@ export const ExtrasSection = styled.article`
       min-height: 26rem;
       height: calc(45vw);
       max-height: unset;
+      margin-bottom: 5rem;
     }
   }
 
