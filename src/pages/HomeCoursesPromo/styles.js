@@ -109,7 +109,7 @@ export const LastTracksContainer = styled.article`
     justify-content: space-between;
   }
 
-  .track {
+  .last-track__container {
     overflow: hidden;
     position: relative;
 
@@ -137,7 +137,7 @@ export const LastTracksContainer = styled.article`
       padding: 3rem;
       color: var(--color-text-white);
 
-      .text-container {
+      .last-track__text-container {
         width: 100%;
         height: 100%;
         display: flex;
@@ -162,7 +162,7 @@ export const LastTracksContainer = styled.article`
       }
     }
 
-    .filter {
+    .last-track__filter {
       z-index: +1;
       position: absolute;
       top: 0;
@@ -175,7 +175,7 @@ export const LastTracksContainer = styled.article`
       opacity: 0.36;
     }
 
-    img.background-cover {
+    img.last-track__background-cover {
       z-index: 1;
       width: 100%;
       height: 100%;
@@ -183,7 +183,7 @@ export const LastTracksContainer = styled.article`
     }
   }
 
-  .details {
+  .last-track__details {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -226,7 +226,7 @@ export const LastTracksContainer = styled.article`
     ${ContentWrapper} {
       justify-content: space-evenly;
     }
-    .track {
+    .last-track__container {
       min-width: 40rem;
       width: 45%;
       min-height: 26rem;
@@ -238,7 +238,7 @@ export const LastTracksContainer = styled.article`
   }
 
   @media screen and (${breakPoints.tabletPortrait}) {
-    .track {
+    .last-track__container {
       width: 70vw;
       max-width: unset;
       height: calc(70vw * 0.61);
@@ -328,11 +328,11 @@ export const ExtrasSection = styled.article`
       flex-direction: column;
       width: 100%;
       height: 50%;
-      padding: 1.8rem 2rem 1.8rem 3rem;
+      padding: 0.8rem 2rem 1.8rem 3rem;
       background: var(--color-background);
 
       h4 {
-        font: normal 2.7rem/3.5rem var(--font-primary);
+        font: normal 2.7rem/3rem var(--font-primary);
         color: var(--color-secondary);
       }
 

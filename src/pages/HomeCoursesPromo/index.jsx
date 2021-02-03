@@ -183,14 +183,14 @@ const HomeCoursesPromo = () => {
         <ContentWrapper>
           {lastTracks &&
             lastTracks.map(track => (
-              <div className="track" key={track.id}>
+              <div className="last-track__container" key={track.id}>
                 <section>
-                  <div className="text-container">
+                  <div className="last-track__text-container">
                     <span>PACOTE</span>
                     <h4>{track.title}</h4>
                   </div>
 
-                  <div className="details">
+                  <div className="last-track__details">
                     <div className="price">
                       <p>De R$980,00</p>
                       <h5>R$800,00</h5>
@@ -198,11 +198,11 @@ const HomeCoursesPromo = () => {
                     <Link to="/track">Saiba mais</Link>
                   </div>
                 </section>
-                <div className="filter" />
+                <div className="last-track__filter" />
                 <img
                   src={track.cover_url}
                   alt=""
-                  className="background-cover"
+                  className="last-track__background-cover"
                 />
               </div>
             ))}

@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, useRouteMatch } from 'react-router-dom';
 
-import './styles.css';
-
 import { BiSearchAlt } from 'react-icons/bi';
 import ButtonRounded from '../../Buttons';
 import CustomBadge from '../../CustomBadge';
@@ -15,6 +13,8 @@ import premiumFlagImg from '../../../assets/images/flags/premium-flag.svg';
 import { ReactComponent as CoursesIcon } from '../../../assets/images/icons/courses-icon.svg';
 import { ReactComponent as ContentIcon } from '../../../assets/images/icons/content-icon.svg';
 import { ReactComponent as LecturesIcon } from '../../../assets/images/icons/lectures-icon.svg';
+
+import { Header, HeaderMenu } from './styles';
 
 // Mockup
 import profileImg from '../../../assets/images/mockups/profile.png';
@@ -28,10 +28,7 @@ const MainHeader = ({
   const { url } = useRouteMatch();
 
   return (
-    <header
-      id="main-header"
-      className={viewerStatus === 'premium' ? 'premium' : ''}
-    >
+    <Header viewerStatus={viewerStatus}>
       <div className="header-content-wrapper">
         {viewerStatus === 'premium' && (
           <img src={premiumFlagImg} alt="Plano Premium" fill="currentColor" />
@@ -48,7 +45,7 @@ const MainHeader = ({
           />
         </button>
 
-        <form>
+        <form className="header__search-container">
           <input
             type="text"
             placeholder="Busque na Elevagro"
@@ -60,8 +57,8 @@ const MainHeader = ({
           </button>
         </form>
 
-        <nav className="header-menu">
-          <ul>
+        <HeaderMenu viewerStatus={viewerStatus}>
+          <ul className="header__menu-itens">
             {viewerStatus !== 'premium' && (
               <>
                 <li className={url === '/courses' ? 'active' : ''}>
@@ -152,7 +149,7 @@ const MainHeader = ({
 
             <li>
               {viewerStatus === 'visit' && (
-                <button type="button" className="signup" onClick={handleLogin}>
+                <button type="button" className="signin" onClick={handleLogin}>
                   ENTRAR
                 </button>
               )}
@@ -172,9 +169,9 @@ const MainHeader = ({
           {viewerStatus === 'free' && (
             <ButtonRounded onClick={becomePremium}>SEJA PREMIUM</ButtonRounded>
           )}
-        </nav>
+        </HeaderMenu>
       </div>
-    </header>
+    </Header>
   );
 };
 

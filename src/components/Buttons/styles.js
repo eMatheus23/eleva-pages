@@ -18,9 +18,12 @@ export const StyledContainer = styled.div`
 `;
 
 export const StyledButton = styled.div`
+  width: 16.4rem;
+  height: 4.5rem;
+
   #button-rounded {
-    width: 16.4rem;
-    height: 4.5rem;
+    width: 100%;
+    height: 100%;
 
     padding: 0 0.6rem;
     margin: 0;
