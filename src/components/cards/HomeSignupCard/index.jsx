@@ -36,24 +36,24 @@ const HomeSignupCard = () => {
             trilhas de ensino.
           </p>
           <form>
-            <div>
+            <div className="card__input-container name">
               <label htmlFor="name">Nome completo</label>
               <input type="text" placeholder="Nome completo" />
             </div>
 
-            <div>
+            <div className="card__input-container email">
               <label htmlFor="email">E-mail</label>
               <input type="text" placeholder="E-mail para acesso" />
             </div>
 
-            <div>
+            <div className="card__input-container phone">
               <label htmlFor="phone">Celular</label>
               <input type="text" placeholder="(XX) 99999-9999" />
             </div>
 
-            <section>
+            <section className="card__button-container">
               <button type="submit">Inscreva-se</button>
-              <div>
+              <div className="terms-container">
                 <FormControlLabel
                   // eslint-disable-next-line prettier/prettier
                   control={(

@@ -8,15 +8,10 @@ import bannerImg from '../../assets/images/mockups/home-trilhas/person-in-blue-s
 import centralBannerBackground from '../../assets/images/mockups/home-courses/notebook-1280538.png';
 import cardDetail from '../../assets/images/other/card-detail-02.svg';
 
-const wrapperMaxWidth = '153rem';
+// Importa os break points já configurados
+import breakPoints from '../../styles/config/breakPoints';
 
-const breakPoints = {
-  // Telas de até:
-  phone: 'max-width: 600px',
-  tabletPortrait: 'max-width: 900px',
-  tablet: 'max-width: 1200px',
-  desktop: 'max-width: 1800px',
-};
+const wrapperMaxWidth = '153rem';
 
 export const Container = styled.div`
   width: 100vw;

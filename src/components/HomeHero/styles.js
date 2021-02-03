@@ -91,6 +91,11 @@ export const Hero = styled.section`
     font: normal 2rem/3rem var(--font-primary);
     color: var(--color-text-white);
   }
+
+  // Para ser usado com media query no componente pai
+  .small-screen-only {
+    display: none;
+  }
 `;
 
 export const HeroDesignDetails = styled.div`

@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 
 export const Container = styled.div`
   form {
@@ -13,6 +13,12 @@ export const Container = styled.div`
 
     border-radius: 3.2rem;
     background: var(--color-background-secondary);
+
+    ${p =>
+      p.fullWidth &&
+      css`
+        width: 85vw;
+      `}
 
     button:first-of-type {
       display: flex;

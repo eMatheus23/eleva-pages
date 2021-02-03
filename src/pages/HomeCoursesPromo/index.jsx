@@ -86,7 +86,9 @@ const HomeCoursesPromo = () => {
 
   // Configuração de responsividade do Carrossel (Carousel)
   const carouselResponsiveConfig = {
-    0: { items: 4 },
+    0: { items: 2 },
+    800: { items: 3 },
+    1040: { items: 4 },
     1250: { items: 5 },
     1530: { items: 5 },
   };
@@ -105,8 +107,11 @@ const HomeCoursesPromo = () => {
       <HomeHero background={heroImg} justify="center">
         <h1>CURSOS</h1>
         <h2>PROMOÇÃO DE ANIVERSÁRIO Elevagro</h2>
+        <p className="small-screen-only">
+          Aprenda uma nova habilidade por menos de R$ 100,00
+        </p>
 
-        <aside>
+        <aside className="big-screen-only">
           <h3>APRENDA UMA NOVA HABILIDADE POR menos de R$ 100,00</h3>
         </aside>
       </HomeHero>
@@ -194,7 +199,11 @@ const HomeCoursesPromo = () => {
                   </div>
                 </section>
                 <div className="filter" />
-                <img src={track.cover_url} alt="" />
+                <img
+                  src={track.cover_url}
+                  alt=""
+                  className="background-cover"
+                />
               </div>
             ))}
         </ContentWrapper>
@@ -204,7 +213,7 @@ const HomeCoursesPromo = () => {
         <section>
           <h4>Não encontrou o seu curso?</h4>
           <p>Faça uma busca na Elevagro</p>
-          <SearchInput placeholder="O que você quer aprender?" />
+          <SearchInput placeholder="O que você quer aprender?" fullWidth />
         </section>
 
         <div className="filter" />

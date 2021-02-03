@@ -8,9 +8,9 @@ import bitwiseImg from '../../assets/images/icons/bitwise.svg';
 
 import { Container } from './styles';
 
-const SearchInput = ({ placeholder }) => {
+const SearchInput = ({ placeholder, fullWidth }) => {
   return (
-    <Container>
+    <Container fullWidth={fullWidth}>
       <form className="search-container">
         <button type="button">
           <img src={filterIcon} alt="Filtrar" />
@@ -28,6 +28,11 @@ const SearchInput = ({ placeholder }) => {
 
 SearchInput.propTypes = {
   placeholder: PropTypes.string.isRequired,
+  fullWidth: PropTypes.bool,
+};
+
+SearchInput.defaultTypes = {
+  fullWidth: false,
 };
 
 export default SearchInput;
