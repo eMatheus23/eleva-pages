@@ -6,7 +6,6 @@ import miniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-s
 import miniCourseHeaderImg from '../../assets/images/mockups/home-courses/photo-of-person-holding-black-pen-959816.png';
 import bannerImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
 import centralBannerBackground from '../../assets/images/mockups/home-courses/notebook-1280538.png';
-import cardDetail from '../../assets/images/other/card-detail-02.svg';
 
 // Importa os break points já configurados
 import breakPoints from '../../styles/config/breakPoints';
