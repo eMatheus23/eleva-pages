@@ -53,7 +53,7 @@ const MainHeader = ({
           />
 
           <button type="button">
-            <BiSearchAlt size={22} title="Busque na Elevagro" />
+            <BiSearchAlt size="2.2rem" title="Busque na Elevagro" />
           </button>
         </form>
 

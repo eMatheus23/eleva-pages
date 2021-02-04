@@ -3,21 +3,18 @@ import { shade } from 'polished';
 
 import BecomePremiumImg from '../../assets/images/mockups/home-trilhas/ballpen-blur-close-up-computer-461077.png';
 
+// Importa a estilização comum "ContentWrapper" para que seja possível alterar suas propriedades
+import { ContentWrapper } from '../../styles/common/HomeStyledComponents';
+
+// Importa as configurações de quebra das telas
+import breakPoints from '../../styles/config/breakPoints';
+
 const wrapperMaxWidth = '153rem';
 
 export const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: var(--color-background);
-`;
-
-export const ContentWrapper = styled.div`
-  width: 100%;
-  max-width: 153rem;
-  height: 100%;
-
-  margin: 0 auto;
-  padding: 0 4rem;
 `;
 
 export const SearchSection = styled.article`
@@ -341,10 +338,11 @@ export const HighlightsContainer = styled.article`
 
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
 
     > section {
-      max-width: 27.5rem;
+      width: 27.5rem;
       color: var(--color-text-white);
 
       h5 {
@@ -389,9 +387,16 @@ export const HighlightsContainer = styled.article`
     }
 
     > aside {
-      flex: 1;
-      width: 71rem;
+      width: 75%;
       max-width: 108.2rem;
+
+      @media screen and (${breakPoints.tablet}) {
+        width: 70%;
+      }
+
+      @media screen and (${breakPoints.tabletPortrait}) {
+        width: 60%;
+      }
 
       h5 {
         padding-bottom: 1rem;
@@ -750,76 +755,6 @@ export const BecomePremiumCard = styled.article`
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-  }
-`;
-
-export const ExtrasSection = styled.article`
-  width: 100%;
-  margin: 9.6rem 0 9rem;
-
-  ${ContentWrapper} {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  section {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    max-width: 45.9rem;
-    height: 45.6rem;
-    border-radius: 2rem;
-    box-shadow: 0px 3px 6px #00000029;
-
-    a {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 100%;
-      text-decoration: none;
-    }
-
-    img {
-      width: 100%;
-      height: 50%;
-      object-fit: cover;
-    }
-
-    div {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      height: 50%;
-      padding: 1.8rem 2rem 1.4rem 3rem;
-      background: var(--color-background);
-
-      h4 {
-        font: normal 2.7rem/3.5rem var(--font-primary);
-        color: var(--color-secondary);
-      }
-
-      p {
-        margin-top: 1rem;
-        font: normal 1.8rem/2rem var(--font-primary);
-        color: #535353;
-      }
-
-      a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        align-self: center;
-        width: 16.4rem;
-        height: 4.5rem;
-        margin-top: auto;
-        border: 1px solid #707070;
-        border-radius: 2.3rem;
-        font: normal 1.8rem/2.2rem var(--font-primary);
-        color: #535353;
-      }
     }
   }
 `;

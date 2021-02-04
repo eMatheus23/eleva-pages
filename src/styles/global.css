@@ -37,8 +37,8 @@
   /* Tamanho da fonte padrão: 16px - 100% - 1rem */
   /* Tamanho da fonte no projeto: 10px - 62.5% - 1rem */
   font-size: 62.5%; /* controle das medidas rem */
-  -webkit-text-size-adjust: 62.5%;
-  -ms-text-size-adjust: 62.5%;
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
 }
 
 body {

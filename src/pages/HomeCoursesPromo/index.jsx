@@ -26,14 +26,18 @@ import LastTracksData from '../../data/last-tracks.json';
 import getViewerStatus from '../../services/getViewerStatus';
 
 import {
-  ContentWrapper,
   Container,
   CountdownContainer,
   CoursesCarouselContainer,
   SearchContainer,
   LastTracksContainer,
-  ExtrasSection,
 } from './styles';
+
+// Importação da estilização comum a todas as homes
+import {
+  ExtrasSection,
+  ContentWrapper,
+} from '../../styles/common/HomeStyledComponents';
 
 const HomeCoursesPromo = () => {
   document.title = 'Trilhas de Ensino | Elevagro';

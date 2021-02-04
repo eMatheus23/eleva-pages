@@ -12,9 +12,9 @@ const HomeHero = ({ background, children, justify }) => {
         <div className="page-title">{children}</div>
 
         <HeroDesignDetails>
-          <img src={heroDetail} className="green-chevron" alt="Hero" />
-          <div className="triangle" />
-          <div className="filter" />
+          <div className="filter">
+            <img src={heroDetail} className="green-chevron" alt="Hero" />
+          </div>
         </HeroDesignDetails>
       </ContentWrapper>
     </Hero>

@@ -115,20 +115,6 @@ export const HeroDesignDetails = styled.div`
     height: 100%;
   }
 
-  .triangle {
-    position: absolute;
-    right: -10.2rem;
-    top: 0;
-    z-index: 4;
-    height: 0;
-    width: 0;
-    border-left: 102px solid #141414;
-    border-right: 0px solid transparent;
-    border-bottom: 180px solid transparent;
-    border-top: 180px solid transparent;
-    opacity: 0.77;
-  }
-
   .filter {
     position: absolute;
     right: 0;
@@ -136,8 +122,22 @@ export const HeroDesignDetails = styled.div`
     z-index: 4;
     height: 100%;
     width: 120rem;
-    border-right: 1px solid #141414;
+    border-right: 0.1rem solid #141414;
     background: #141414;
     opacity: 0.77;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -10.2rem;
+      top: 0;
+      z-index: 4;
+      height: 0;
+      width: 0;
+      border-left: 10.2rem solid #141414;
+      border-right: 0rem solid transparent;
+      border-bottom: 18rem solid transparent;
+      border-top: 18rem solid transparent;
+    }
   }
 `;

@@ -96,13 +96,18 @@ export const StyledCard = styled.div`
 
   .discount-flag {
     position: absolute;
-    top: 8px;
-    right: -13px;
+    top: 0.8rem;
+    right: -1.3rem;
+
+    img {
+      width: 12.3rem;
+      height: 4rem;
+    }
 
     p {
       position: absolute;
-      top: 6px;
-      right: 29px;
+      top: 0.6rem;
+      right: 2.9rem;
       font: normal 1.4rem/2.2rem var(--font-primary);
     }
   }

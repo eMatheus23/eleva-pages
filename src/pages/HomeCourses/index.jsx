@@ -7,6 +7,7 @@ import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
 
 import heroImg from '../../assets/images/mockups/home-courses/as.png';
+import cardDetail from '../../assets/images/other/card-detail-02.svg';
 
 // Components
 import Header from '../../components/headers/MainHeader';
@@ -46,7 +47,6 @@ import getViewerStatus from '../../services/getViewerStatus';
 
 import {
   ArticleHeader,
-  ContentWrapper,
   Container,
   MyCoursesContainer,
   CoursesCarouselContainer,
@@ -55,8 +55,22 @@ import {
   CentralBannerContainer,
   LastTracksContainer,
   MiniCourseSection,
-  ExtrasSection,
 } from './styles';
+
+// Importação da estilização comum a todas as homes
+import {
+  ExtrasSection,
+  ContentWrapper,
+} from '../../styles/common/HomeStyledComponents';
+
+// Configuração de responsividade do Carrossel (Carousel)
+const carouselResponsiveConfig = {
+  0: { items: 2 },
+  800: { items: 3 },
+  1040: { items: 4 },
+  1250: { items: 5 },
+  1530: { items: 5 },
+};
 
 const HomeCourses = () => {
   document.title = 'Trilhas de Ensino | Elevagro';
@@ -110,15 +124,6 @@ const HomeCourses = () => {
     return array;
   }, []);
 
-  // Configuração de responsividade do Carrossel (Carousel)
-  const carouselResponsiveConfig = {
-    0: { items: 2 },
-    800: { items: 3 },
-    1040: { items: 4 },
-    1250: { items: 5 },
-    1530: { items: 5 },
-  };
-
   return (
     <Container>
       <Header
@@ -168,6 +173,7 @@ const HomeCourses = () => {
               <Link to="/tracks">Acesse</Link>
             </div>
 
+            <img src={cardDetail} className="green-chevron" alt="Hero" />
             <div className="filter" />
           </div>
 
@@ -181,6 +187,7 @@ const HomeCourses = () => {
               <Link to="/tracks">Acesse</Link>
             </div>
 
+            <img src={cardDetail} className="green-chevron" alt="Hero" />
             <div className="filter" />
           </div>
         </aside>
@@ -256,7 +263,7 @@ const HomeCourses = () => {
                 <p>Exclusivos para Premium</p>
               </div>
               <Link to="/">VER TODOS</Link>
-              <img src={cardDetailMini} alt="" />
+              <img src={cardDetailMini} alt="" className="green-chevron" />
             </header>
 
             <div>

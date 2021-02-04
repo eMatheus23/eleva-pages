@@ -6,7 +6,8 @@ import searchBackground from '../../assets/images/mockups/home-courses/cover.png
 // Importa os break points já configurados
 import breakPoints from '../../styles/config/breakPoints';
 
-const wrapperMaxWidth = '153rem';
+// Importa a estilização comum "ContentWrapper" para que seja possível alterar suas propriedades
+import { ContentWrapper } from '../../styles/common/HomeStyledComponents';
 
 export const Container = styled.div`
   width: 100vw;
@@ -22,15 +23,6 @@ export const Container = styled.div`
       display: none;
     }
   }
-`;
-
-export const ContentWrapper = styled.div`
-  width: 100%;
-  max-width: ${wrapperMaxWidth};
-  height: 100%;
-
-  margin: 0 auto;
-  padding: 0 4rem;
 `;
 
 export const CountdownContainer = styled.article`

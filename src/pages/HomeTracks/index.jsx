@@ -48,7 +48,6 @@ import getViewerStatus from '../../services/getViewerStatus';
 
 import {
   Container,
-  ContentWrapper,
   CarouselContainer,
   SearchSection,
   LaunchCard,
@@ -57,8 +56,30 @@ import {
   ThemesContainer,
   CareerCard,
   BecomePremiumCard,
-  ExtrasSection,
 } from './styles';
+
+// Importação da estilização comum a todas as homes
+import {
+  ContentWrapper,
+  ExtrasSection,
+} from '../../styles/common/HomeStyledComponents';
+
+// Configuração de responsividade do Carrossel (Carousel)
+const carouselResponsiveConfig = {
+  0: { items: 2 },
+  800: { items: 3 },
+  1040: { items: 4 },
+  1250: { items: 5 },
+  1530: { items: 5 },
+};
+
+const carouselResponsiveConfigSmall = {
+  0: { items: 1 },
+  700: { items: 2 },
+  900: { items: 3 },
+  1250: { items: 4 },
+  1530: { items: 4 },
+};
 
 const HomeTracks = () => {
   document.title = 'Trilhas de Ensino | Elevagro';
@@ -84,19 +105,6 @@ const HomeTracks = () => {
     setViewerStatus('premium');
   }, []);
   // Funções para teste
-
-  // Configuração de responsividade do Carrossel (Carousel)
-  const carouselResponsiveConfig = {
-    0: { items: 3 },
-    1100: { items: 4 },
-    1530: { items: 4 },
-  };
-
-  const carouselResponsiveConfigSmall = {
-    0: { items: 3 },
-    1250: { items: 4 },
-    1530: { items: 4 },
-  };
 
   return (
     <Container>

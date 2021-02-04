@@ -11,21 +11,15 @@ import cardDetail from '../../assets/images/other/card-detail-02.svg';
 // Importa os break points já configurados
 import breakPoints from '../../styles/config/breakPoints';
 
+// Importa a estilização comum "ContentWrapper" para que seja possível alterar suas propriedades
+import { ContentWrapper } from '../../styles/common/HomeStyledComponents';
+
 const wrapperMaxWidth = '153rem';
 
 export const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: var(--color-background);
-`;
-
-export const ContentWrapper = styled.div`
-  width: 100%;
-  max-width: ${wrapperMaxWidth};
-  height: 100%;
-
-  margin: 0 auto;
-  padding: 0 4rem;
 `;
 
 export const SearchContainer = styled.article`
@@ -119,6 +113,14 @@ export const SearchContainer = styled.article`
       }
     }
 
+    .green-chevron {
+      z-index: +3;
+      position: absolute;
+      right: 17rem;
+      top: 0;
+      height: 10.7rem;
+    }
+
     .filter {
       z-index: 2;
       position: absolute;
@@ -132,23 +134,15 @@ export const SearchContainer = styled.article`
       &::before {
         content: '';
         position: absolute;
-        left: -26px;
+        left: -2.6rem;
         top: 0;
         z-index: -1;
         height: 0;
         width: 0;
-        border-left: 0px solid transparent;
-        border-right: 26px solid #141414;
-        border-bottom: 55px solid transparent;
-        border-top: 55px solid transparent;
-      }
-
-      &::after {
-        content: url(${cardDetail});
-        position: absolute;
-        left: -21px;
-        top: 0;
-        height: 100%;
+        border-left: 0rem solid transparent;
+        border-right: 2.6rem solid #141414;
+        border-bottom: 5.5rem solid transparent;
+        border-top: 5.5rem solid transparent;
       }
     }
 
@@ -316,17 +310,17 @@ export const MiniCourseSection = styled.article`
         color: var(--color-text-white);
       }
 
-      > img {
+      .green-chevron {
         position: absolute;
         top: 0;
         left: 48%;
         transform: translate(-50%, 0);
+        height: 8.4rem;
       }
     }
 
     > div {
       width: 100%;
-      height: 22.5rem;
       padding: 1rem 3.3rem 2rem 3.9rem;
     }
 
