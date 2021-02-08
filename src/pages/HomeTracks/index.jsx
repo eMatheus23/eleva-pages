@@ -4,7 +4,6 @@ import { FiPlus } from 'react-icons/fi';
 
 // Icons
 import CoursesIcon from '../../assets/images/icons/courses-icon-02.svg';
-import CardDetail from '../../assets/images/other/card-detail.svg';
 
 import heroImg from '../../assets/images/mockups/home-trilhas/person-touching-open-macbook-on-table-839465.png';
 
