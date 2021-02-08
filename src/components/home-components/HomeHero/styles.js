@@ -1,5 +1,8 @@
 import styled, { css } from 'styled-components/macro';
 
+// Importa os break points já configurados
+import breakPoints from '../../../styles/config/breakPoints';
+
 const wrapperMaxWidth = '153rem';
 
 export const ContentWrapper = styled.div`
@@ -96,6 +99,23 @@ export const Hero = styled.section`
   .small-screen-only {
     display: none;
   }
+
+  .full-width__filter {
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+    height: 100%;
+    width: 100%;
+    border-right: 0.1rem solid #141414;
+    background: #141414;
+    opacity: 0.77;
+
+    @media screen and (max-width: ${breakPoints.phone}) {
+      display: block;
+    }
+  }
 `;
 
 export const HeroDesignDetails = styled.div`
@@ -116,10 +136,10 @@ export const HeroDesignDetails = styled.div`
   }
 
   .filter {
+    z-index: 4;
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 4;
     height: 100%;
     width: 120rem;
     border-right: 0.1rem solid #141414;
@@ -138,6 +158,10 @@ export const HeroDesignDetails = styled.div`
       border-right: 0rem solid transparent;
       border-bottom: 18rem solid transparent;
       border-top: 18rem solid transparent;
+    }
+
+    @media screen and (max-width: ${breakPoints.phone}) {
+      display: none;
     }
   }
 `;

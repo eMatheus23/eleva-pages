@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Hero, ContentWrapper, HeroDesignDetails } from './styles';
 
-import heroDetail from '../../assets/images/other/hero-detail.svg';
+import heroDetail from '../../../assets/images/other/hero-detail.svg';
 
 const HomeHero = ({ background, children, justify }) => {
   return (
@@ -16,6 +16,8 @@ const HomeHero = ({ background, children, justify }) => {
             <img src={heroDetail} className="green-chevron" alt="Hero" />
           </div>
         </HeroDesignDetails>
+
+        <div className="full-width__filter" />
       </ContentWrapper>
     </Hero>
   );

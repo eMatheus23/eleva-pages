@@ -17,7 +17,7 @@ export const Container = styled.div`
   background: var(--color-background);
 `;
 
-export const SearchSection = styled.article`
+export const SearchContainer = styled.article`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -208,43 +208,13 @@ export const SearchSection = styled.article`
 `;
 
 export const CarouselContainer = styled.article`
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  max-width: ${wrapperMaxWidth};
-  margin: 0 auto 8rem;
-  padding: 0 4rem;
 
-  header {
+  ${ContentWrapper} {
     display: flex;
-    align-items: center;
-    width: 100%;
-
-    h3 {
-      margin-right: 1rem;
-      font: bold 2.5rem/2.5rem var(--font-primary);
-    }
-
-    > div {
-      flex: 1;
-      height: 1.6rem;
-      border-bottom: 1px solid #bfbfbf;
-    }
-
-    a {
-      margin-left: 3rem;
-      font: normal 2rem/2.5rem var(--font-primary);
-      color: #5d883e;
-    }
-  }
-
-  > h4 {
-    margin-top: 1rem;
-    font: normal 1.8rem/2.2rem var(--font-primary);
-  }
-
-  > div {
-    margin-top: 3rem;
+    flex-direction: column;
+    margin: 0 auto 8rem;
+    padding: 0 4rem;
   }
 `;
 
@@ -390,11 +360,11 @@ export const HighlightsContainer = styled.article`
       width: 75%;
       max-width: 108.2rem;
 
-      @media screen and (${breakPoints.tablet}) {
+      @media screen and (max-width: ${breakPoints.tablet}) {
         width: 70%;
       }
 
-      @media screen and (${breakPoints.tabletPortrait}) {
+      @media screen and (max-width: ${breakPoints.tabletPortrait}) {
         width: 60%;
       }
 

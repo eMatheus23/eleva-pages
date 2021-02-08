@@ -8,11 +8,14 @@ import CustomBadge from '../../CustomBadge';
 
 import logoElevagroImg from '../../../assets/images/logos/marca-elevagro.svg';
 import logoElevagroNegativaImg from '../../../assets/images/logos/marca-elevagro-negativa.svg';
+import logoElevagroImgSmall from '../../../assets/images/logos/marca-elevagro-small.svg';
+import logoElevagroNegativaImgSmall from '../../../assets/images/logos/marca-elevagro-negativa-small.svg';
 import bitwiseImg from '../../../assets/images/icons/bitwise.svg';
 import premiumFlagImg from '../../../assets/images/flags/premium-flag.svg';
 import { ReactComponent as CoursesIcon } from '../../../assets/images/icons/courses-icon.svg';
 import { ReactComponent as ContentIcon } from '../../../assets/images/icons/content-icon.svg';
 import { ReactComponent as LecturesIcon } from '../../../assets/images/icons/lectures-icon.svg';
+import { ReactComponent as SandwichImg } from '../../../assets/images/icons/sandwich-icon.svg';
 
 import { Header, HeaderMenu } from './styles';
 
@@ -34,12 +37,31 @@ const MainHeader = ({
           <img src={premiumFlagImg} alt="Plano Premium" fill="currentColor" />
         )}
 
-        <button type="button" onClick={backToVisit}>
+        <button
+          type="button"
+          onClick={backToVisit}
+          className="header__logo desktop"
+        >
           <img
             src={
               viewerStatus === 'premium'
                 ? logoElevagroNegativaImg
                 : logoElevagroImg
+            }
+            alt="Elevagro"
+          />
+        </button>
+
+        <button
+          type="button"
+          onClick={backToVisit}
+          className="header__logo mobile"
+        >
+          <img
+            src={
+              viewerStatus === 'premium'
+                ? logoElevagroNegativaImgSmall
+                : logoElevagroImgSmall
             }
             alt="Elevagro"
           />
@@ -61,7 +83,11 @@ const MainHeader = ({
           <ul className="header__menu-itens">
             {viewerStatus !== 'premium' && (
               <>
-                <li className={url === '/courses' ? 'active' : ''}>
+                <li
+                  className={`desktop-only ${
+                    url === '/courses' ? 'active' : ''
+                  }`}
+                >
                   <Link to="/courses">
                     <CoursesIcon
                       fill="currentColor"
@@ -71,7 +97,12 @@ const MainHeader = ({
                     CURSOS
                   </Link>
                 </li>
-                <li className={url === '/content' ? 'active' : ''}>
+
+                <li
+                  className={`desktop-only ${
+                    url === '/content' ? 'active' : ''
+                  }`}
+                >
                   <Link to="/track">
                     <ContentIcon
                       fill="currentColor"
@@ -81,7 +112,12 @@ const MainHeader = ({
                     CONTEÚDOS
                   </Link>
                 </li>
-                <li className={url === '/lectures' ? 'active' : ''}>
+
+                <li
+                  className={`desktop-only ${
+                    url === '/lectures' ? 'active' : ''
+                  }`}
+                >
                   <Link to="/track">
                     <LecturesIcon
                       fill="currentColor"
@@ -91,11 +127,22 @@ const MainHeader = ({
                     PALESTRAS
                   </Link>
                 </li>
-                <img src={bitwiseImg} alt="Separação de sessão" />
-                <li className={url === '/teach' ? 'active' : ''}>
+
+                <img
+                  src={bitwiseImg}
+                  alt="Separação de sessão"
+                  className="desktop-only"
+                />
+
+                <li
+                  className={`desktop-only ${url === '/teach' ? 'active' : ''}`}
+                >
                   <Link to="/track">ENSINE NA ELEVAGRO</Link>
                 </li>
-                <li className={url === '/plans' ? 'active' : ''}>
+
+                <li
+                  className={`desktop-only ${url === '/plans' ? 'active' : ''}`}
+                >
                   <Link to="/plans">PLANOS</Link>
                 </li>
               </>
@@ -103,16 +150,31 @@ const MainHeader = ({
 
             {viewerStatus === 'premium' && (
               <>
-                <li className={url === '/teach' ? 'active' : ''}>
+                <li
+                  className={`desktop-only ${url === '/teach' ? 'active' : ''}`}
+                >
                   <Link to="/track">ENSINE NA ELEVAGRO</Link>
                 </li>
-                <li className={url === '/company' ? 'active' : ''}>
+
+                <li
+                  className={`desktop-only ${
+                    url === '/company' ? 'active' : ''
+                  }`}
+                >
                   <Link to="/track">EMPRESARIAL</Link>
                 </li>
 
-                <img src={bitwiseImg} alt="Separação de sessão" />
+                <img
+                  src={bitwiseImg}
+                  alt="Separação de sessão"
+                  className="desktop-only"
+                />
 
-                <li className={url === '/lectures' ? 'active' : ''}>
+                <li
+                  className={`desktop-only ${
+                    url === '/lectures' ? 'active' : ''
+                  }`}
+                >
                   <Link to="/track">
                     <LecturesIcon
                       fill="currentColor"
@@ -123,7 +185,11 @@ const MainHeader = ({
                   </Link>
                 </li>
 
-                <li className={url === '/content' ? 'active' : ''}>
+                <li
+                  className={`desktop-only ${
+                    url === '/content' ? 'active' : ''
+                  }`}
+                >
                   <Link to="/track">
                     <ContentIcon
                       fill="currentColor"
@@ -134,7 +200,11 @@ const MainHeader = ({
                   </Link>
                 </li>
 
-                <li className={url === '/courses' ? 'active' : ''}>
+                <li
+                  className={`desktop-only ${
+                    url === '/courses' ? 'active' : ''
+                  }`}
+                >
                   <Link to="/courses">
                     <CoursesIcon
                       fill="currentColor"
@@ -154,7 +224,7 @@ const MainHeader = ({
                 </button>
               )}
               {viewerStatus !== 'visit' && (
-                <CustomBadge badgeContent={3}>
+                <CustomBadge badgeContent={5}>
                   <button type="button" className="profile-picture">
                     <img src={profileImg} alt="Entre no seu perfil" />
                   </button>
@@ -166,9 +236,14 @@ const MainHeader = ({
           {viewerStatus === 'visit' && (
             <ButtonRounded>INSCREVA-SE GRATUITAMENTE</ButtonRounded>
           )}
+
           {viewerStatus === 'free' && (
             <ButtonRounded onClick={becomePremium}>SEJA PREMIUM</ButtonRounded>
           )}
+
+          <button type="button" className="header__sandwich">
+            <SandwichImg fill="currentColor" />
+          </button>
         </HeaderMenu>
       </div>
     </Header>

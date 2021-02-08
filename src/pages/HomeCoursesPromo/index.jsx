@@ -6,11 +6,11 @@ import heroImg from '../../assets/images/heroes/promo.png';
 
 // Components
 import Header from '../../components/headers/MainHeader';
-import HomeHero from '../../components/HomeHero';
+import HomeHero from '../../components/home-components/HomeHero';
 import Carousel from '../../components/Carousel';
-import CourseCardComponent from '../../components/cards/HomeCourseCard';
+import CourseCardComponent from '../../components/home-components/HomeCourseCard';
 import SearchInput from '../../components/SearchInput';
-import HomeSignupCard from '../../components/cards/HomeSignupCard';
+import HomeSignupCard from '../../components/home-components/HomeSignupCard';
 import Footer from '../../components/footers/MainFooter';
 
 // Mockups

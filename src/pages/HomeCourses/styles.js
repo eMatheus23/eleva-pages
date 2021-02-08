@@ -156,7 +156,7 @@ export const SearchContainer = styled.article`
     }
   }
 
-  @media screen and (${breakPoints.tablet}) {
+  @media screen and (max-width: ${breakPoints.tablet}) {
     flex-direction: column;
     align-items: center;
 
@@ -215,44 +215,6 @@ export const MyCoursesContainer = styled.article`
   }
 `;
 
-export const ArticleHeader = styled.div`
-  margin-bottom: 2.2rem;
-  width: 100%;
-
-  header {
-    display: flex;
-    align-items: center;
-    width: 100%;
-
-    h3 {
-      margin-right: 1rem;
-      font: normal 2.5rem/2.5rem var(--font-primary);
-      text-transform: uppercase;
-    }
-
-    > div {
-      flex: 1;
-      height: 1.6rem;
-      border-bottom: 1px solid #bfbfbf;
-    }
-
-    a {
-      margin-left: 3rem;
-      font: normal 2rem/2.5rem var(--font-primary);
-      color: #5d883e;
-
-      &:hover {
-        color: var(--color-text-in-white);
-      }
-    }
-  }
-
-  h4 {
-    margin-top: 1rem;
-    font: normal 1.8rem/2.2rem var(--font-primary);
-  }
-`;
-
 export const MiniCourseSection = styled.article`
   width: 100%;
   padding: 7rem 0;
@@ -271,7 +233,7 @@ export const MiniCourseSection = styled.article`
     border-radius: 1.5rem;
     background: var(--color-background-secondary);
 
-    @media screen and (${breakPoints.tablet}) {
+    @media screen and (max-width: ${breakPoints.tablet}) {
       width: 100%;
       max-width: unset;
     }
@@ -400,7 +362,7 @@ export const MiniCourseSection = styled.article`
     }
   }
 
-  @media screen and (${breakPoints.tablet}) {
+  @media screen and (max-width: ${breakPoints.tablet}) {
     ${ContentWrapper} {
       flex-direction: column;
       align-items: center;
@@ -600,7 +562,12 @@ export const CourseModeContainer = styled.article`
     }
   }
 
-  @media screen and (${breakPoints.tablet}) {
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    ${ContentWrapper} {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .modes-section {
       justify-content: space-evenly;
     }
@@ -612,13 +579,6 @@ export const CourseModeContainer = styled.article`
         width: 7vw;
       }
     }
-  }
-
-  @media screen and (${breakPoints.tablet}) {
-    ${ContentWrapper} {
-      flex-direction: column;
-      align-items: center;
-    }
 
     .certification,
     .themes-container {
@@ -628,6 +588,17 @@ export const CourseModeContainer = styled.article`
       p {
         margin-bottom: 3rem;
         max-width: unset;
+      }
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    .mode-card {
+      width: 100%;
+      margin-bottom: 2rem;
+
+      > img {
+        width: 15vw;
       }
     }
   }
@@ -658,6 +629,7 @@ export const CentralBannerContainer = styled.article`
     align-items: center;
 
     section {
+      width: 100%;
       max-width: 59rem;
       height: 24rem;
       color: var(--color-text-white);
@@ -669,6 +641,7 @@ export const CentralBannerContainer = styled.article`
       }
 
       p {
+        white-space: pre-wrap;
         margin-bottom: 6rem;
         font: normal 2rem/2.2rem var(--font-primary);
       }
@@ -823,7 +796,7 @@ export const LastTracksContainer = styled.article`
     }
   }
 
-  @media screen and (${breakPoints.tablet}) {
+  @media screen and (max-width: ${breakPoints.tablet}) {
     ${ContentWrapper} {
       justify-content: space-evenly;
     }
@@ -837,7 +810,7 @@ export const LastTracksContainer = styled.article`
     }
   }
 
-  @media screen and (${breakPoints.tabletPortrait}) {
+  @media screen and (max-width: ${breakPoints.tabletPortrait}) {
     .track {
       width: 70vw;
       max-width: unset;
@@ -922,7 +895,7 @@ export const ExtrasSection = styled.article`
     }
   }
 
-  @media screen and (${breakPoints.tablet}) {
+  @media screen and (max-width: ${breakPoints.tablet}) {
     ${ContentWrapper} {
       justify-content: space-evenly;
     }
@@ -936,7 +909,7 @@ export const ExtrasSection = styled.article`
     }
   }
 
-  @media screen and (${breakPoints.tabletPortrait}) {
+  @media screen and (max-width: ${breakPoints.tabletPortrait}) {
     section {
       width: 60vw;
       max-width: unset;

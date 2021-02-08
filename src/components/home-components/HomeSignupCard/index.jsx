@@ -6,7 +6,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-import { Container, ContentWrapper } from './styles';
+import { ContentWrapper } from '../../../styles/common/HomeStyledComponents';
+import { Container } from './styles';
 
 const GreenCheckbox = withStyles({
   root: {
@@ -31,11 +32,13 @@ const HomeSignupCard = () => {
     <Container>
       <ContentWrapper>
         <div className="card">
-          <p>
+          <p className="card__text">
             Inscreva-se gratuitamente na Elevagro e seja avisado(a) sobre novas
             trilhas de ensino.
           </p>
           <form>
+            <p className="form-title">Associação rápida e gratuita.</p>
+
             <div className="card__input-container name">
               <label htmlFor="name">Nome completo</label>
               <input type="text" placeholder="Nome completo" />
@@ -52,7 +55,9 @@ const HomeSignupCard = () => {
             </div>
 
             <section className="card__button-container">
-              <button type="submit">Inscreva-se</button>
+              <button type="submit" className="submit__button">
+                Inscreva-se
+              </button>
               <div className="terms-container">
                 <FormControlLabel
                   // eslint-disable-next-line prettier/prettier

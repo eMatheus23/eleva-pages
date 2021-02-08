@@ -7,15 +7,16 @@ import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
 
 import heroImg from '../../assets/images/mockups/home-courses/as.png';
-import cardDetail from '../../assets/images/other/card-detail-02.svg';
 
 // Components
 import Header from '../../components/headers/MainHeader';
-import HomeHero from '../../components/HomeHero';
-import SearchInput from '../../components/SearchInput';
+import HomeHero from '../../components/home-components/HomeHero';
+import SearchContainer, {
+  NavCard,
+} from '../../components/home-components/HomeSearchContainer';
 import Carousel from '../../components/Carousel';
-import CourseCardComponent from '../../components/cards/HomeCourseCard';
-import UserCourseCard from '../../components/cards/HomeUserCourseCard';
+import CourseCardComponent from '../../components/home-components/HomeCourseCard';
+import UserCourseCard from '../../components/home-components/HomeUserCourseCard';
 import { FindOutButton } from '../../components/Buttons';
 import Footer from '../../components/footers/MainFooter';
 
@@ -37,6 +38,10 @@ import DegreeImg from '../../assets/images/mockups/home-courses/julia-kutsaeva-i
 import DegreeLogo from '../../assets/images/icons/graduation-cap.svg';
 import CertificationIcon from '../../assets/images/icons/certification.svg';
 
+// Images
+import trackCardImg from '../../assets/images/mockups/home-courses/a.png';
+import miniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-startup-stock-photos-7096.png';
+
 // Mockup Data
 import CoursesReleasesData from '../../data/courses-releases.json';
 import MyCourses from '../../data/user-mockup/my-courses.json';
@@ -46,11 +51,9 @@ import LastTracksData from '../../data/last-tracks.json';
 import getViewerStatus from '../../services/getViewerStatus';
 
 import {
-  ArticleHeader,
   Container,
   MyCoursesContainer,
   CoursesCarouselContainer,
-  SearchContainer,
   CourseModeContainer,
   CentralBannerContainer,
   LastTracksContainer,
@@ -59,13 +62,15 @@ import {
 
 // Importação da estilização comum a todas as homes
 import {
+  ArticleHeader,
   ExtrasSection,
   ContentWrapper,
 } from '../../styles/common/HomeStyledComponents';
 
 // Configuração de responsividade do Carrossel (Carousel)
 const carouselResponsiveConfig = {
-  0: { items: 2 },
+  0: { items: 1 },
+  650: { items: 2 },
   800: { items: 3 },
   1040: { items: 4 },
   1250: { items: 5 },
@@ -73,7 +78,7 @@ const carouselResponsiveConfig = {
 };
 
 const HomeCourses = () => {
-  document.title = 'Trilhas de Ensino | Elevagro';
+  document.title = 'Cursos | Elevagro';
 
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
 
@@ -145,63 +150,33 @@ const HomeCourses = () => {
         </p>
       </HomeHero>
 
-      <SearchContainer>
-        <section className="search-section">
-          <SearchInput placeholder="Procure um curso" />
+      <SearchContainer inputPlaceholder="Procure um curso">
+        <NavCard linkTo="/tracks" backgroundImg={trackCardImg}>
+          <h4>
+            Trilhas
+            <br />
+            de Ensino
+          </h4>
+        </NavCard>
 
-          <div className="sugestions">
-            <p>Sugestões:</p>
-            <button type="button">SOJA</button>
-            <button type="button">DOENÇAS</button>
-            <button type="button">SEMENTES</button>
-            <button type="button">NUTRIÇÃO</button>
-            <button type="button">DANINHAS</button>
-            <button type="button">SOLOS</button>
-            <button type="button">GESTÃO</button>
-            <button type="button">FINANÇAS</button>
-          </div>
-        </section>
-
-        <aside className="navi-cards__container">
-          <div className="navi-card track-card">
-            <div className="text">
-              <h4>
-                Trilhas
-                <br />
-                de Ensino
-              </h4>
-              <Link to="/tracks">Acesse</Link>
-            </div>
-
-            <img src={cardDetail} className="green-chevron" alt="Hero" />
-            <div className="filter" />
-          </div>
-
-          <div className="navi-card mini-course">
-            <div className="text">
-              <h4>
-                Mini
-                <br />
-                Cursos
-              </h4>
-              <Link to="/tracks">Acesse</Link>
-            </div>
-
-            <img src={cardDetail} className="green-chevron" alt="Hero" />
-            <div className="filter" />
-          </div>
-        </aside>
+        <NavCard linkTo="/" backgroundImg={miniCourseCardImg}>
+          <h4>
+            Mini
+            <br />
+            Cursos
+          </h4>
+        </NavCard>
       </SearchContainer>
 
       {viewerStatus !== 'visit' && (
         <MyCoursesContainer>
           <ContentWrapper>
             <ArticleHeader>
-              <header>
+              <section className="header__title">
                 <h3>MEUS CURSOS</h3>
                 <div className="border-bottom" />
                 <Link to="/">VER TODOS</Link>
-              </header>
+              </section>
             </ArticleHeader>
 
             {userCourses && userCourses.length > 4 && (
@@ -235,11 +210,11 @@ const HomeCourses = () => {
       <CoursesCarouselContainer background className="courses-releases">
         <ContentWrapper>
           <ArticleHeader>
-            <header>
+            <section className="header__title">
               <h3>LANÇAMENTOS</h3>
               <div className="border-bottom" />
               <Link to="/">VER TODOS</Link>
-            </header>
+            </section>
           </ArticleHeader>
 
           <Carousel responsive={carouselResponsiveConfig}>
@@ -307,11 +282,11 @@ const HomeCourses = () => {
       <CoursesCarouselContainer background className="top-courses">
         <ContentWrapper>
           <ArticleHeader>
-            <header>
+            <section className="header__title">
               <h3>Cursos em alta</h3>
               <div className="border-bottom" />
               <Link to="/">VER TODOS</Link>
-            </header>
+            </section>
           </ArticleHeader>
 
           <Carousel responsive={carouselResponsiveConfig}>
@@ -330,11 +305,11 @@ const HomeCourses = () => {
       <CourseModeContainer>
         <ContentWrapper>
           <ArticleHeader>
-            <header>
+            <section className="header__title">
               <h3>MODALIDADES dos CursoS</h3>
               <div className="border-bottom" />
               <Link to="/">VER TODOS</Link>
-            </header>
+            </section>
           </ArticleHeader>
 
           <section className="modes-section">
@@ -438,7 +413,7 @@ const HomeCourses = () => {
             <h4>ÁREA PARA BANNER NO CENTRO DA PÁGINA</h4>
             <p>
               Já temos esta função, agora é só adaptar ao layout novo.
-              https://api.elevagro.com/admin/produto/lancamento/add/
+              https://api.elevagro.com/admin/ produto/lancamento/add/
             </p>
             <FindOutButton to="/">Saiba mais</FindOutButton>
           </section>
@@ -453,11 +428,11 @@ const HomeCourses = () => {
       <LastTracksContainer>
         <ContentWrapper>
           <ArticleHeader>
-            <header>
+            <section className="header__title">
               <h3>Últimas Trilhas adicionadas</h3>
               <div className="border-bottom" />
               <Link to="/">VER TODAS</Link>
-            </header>
+            </section>
           </ArticleHeader>
 
           {lastTracks &&
@@ -482,11 +457,11 @@ const HomeCourses = () => {
       <CoursesCarouselContainer className="top-courses-02">
         <ContentWrapper>
           <ArticleHeader>
-            <header>
+            <section className="header__title">
               <h3>Cursos em alta</h3>
               <div className="border-bottom" />
               <Link to="/">VER TODOS</Link>
-            </header>
+            </section>
           </ArticleHeader>
 
           {}

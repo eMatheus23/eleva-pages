@@ -1,6 +1,6 @@
-$font-primary: Montserrat, sans-serif;
+import styled from 'styled-components';
 
-#main-footer {
+export const Container = styled.footer`
   z-index: 6;
 
   width: 100vw;
@@ -88,13 +88,15 @@ $font-primary: Montserrat, sans-serif;
 
     .social-networks-links {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       flex-direction: row;
+      gap: 0.3rem;
       margin-top: 0.8rem;
 
       img {
         width: 3.9rem;
-        margin-right: 0.6rem;
       }
     }
   }
-}
+`;

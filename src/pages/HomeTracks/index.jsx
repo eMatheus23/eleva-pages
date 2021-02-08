@@ -10,9 +10,11 @@ import heroImg from '../../assets/images/mockups/home-trilhas/person-touching-op
 
 // Components
 import Header from '../../components/headers/MainHeader';
-import SearchInput from '../../components/SearchInput';
-import SignupCard from '../../components/cards/HomeSignupCard';
-import HomeHero from '../../components/HomeHero';
+import SearchContainer, {
+  PremiumBanner,
+} from '../../components/home-components/HomeSearchContainer';
+import SignupCard from '../../components/home-components/HomeSignupCard';
+import HomeHero from '../../components/home-components/HomeHero';
 import { FindOutButton } from '../../components/Buttons';
 import Carousel from '../../components/Carousel';
 import Footer from '../../components/footers/MainFooter';
@@ -49,7 +51,6 @@ import getViewerStatus from '../../services/getViewerStatus';
 import {
   Container,
   CarouselContainer,
-  SearchSection,
   LaunchCard,
   HighlightsContainer,
   HighlightsCard,
@@ -60,13 +61,15 @@ import {
 
 // Importação da estilização comum a todas as homes
 import {
+  ArticleHeader,
   ContentWrapper,
   ExtrasSection,
 } from '../../styles/common/HomeStyledComponents';
 
 // Configuração de responsividade do Carrossel (Carousel)
 const carouselResponsiveConfig = {
-  0: { items: 2 },
+  0: { items: 1 },
+  650: { items: 2 },
   800: { items: 3 },
   1040: { items: 4 },
   1250: { items: 5 },
@@ -127,152 +130,124 @@ const HomeTracks = () => {
         </p>
       </HomeHero>
 
-      <SearchSection className="row">
-        <section className="col-7">
-          <SearchInput placeholder="Localizar uma trilha" />
-
-          <div className="sugestions">
-            <p>Sugestões:</p>
-            <button type="button">SOJA</button>
-            <button type="button">DOENÇAS</button>
-            <button type="button">SEMENTES</button>
-            <button type="button">NUTRIÇÃO</button>
-            <button type="button">DANINHAS</button>
-            <button type="button">SOLOS</button>
-            <button type="button">GESTÃO</button>
-            <button type="button">FINANÇAS</button>
-          </div>
-        </section>
-
-        <aside className="col-5">
-          <div>
-            <div className="text">
-              <h4>Descontos Premium</h4>
-              <p>
-                Associado Premium tem grandes descontos e promoções exclusivas
-                em todos as trilhas.
-              </p>
-              <Link to="/">Saiba mais</Link>
-              <img src={CardDetail} alt="" />
-              <div className="triangle" />
-              <div className="filter" />
-            </div>
-
-            <img src={PremiumCardImg} alt="" />
-          </div>
-        </aside>
-      </SearchSection>
+      <SearchContainer inputPlaceholder="Procure uma trilha">
+        <PremiumBanner />
+      </SearchContainer>
 
       <CarouselContainer>
-        <header>
-          <h3>LANÇAMENTOS</h3>
-          <div className="border-bottom" />
-          <Link to="/">VER TODAS</Link>
-        </header>
+        <ContentWrapper>
+          <ArticleHeader>
+            <section className="header__title">
+              <h3>LANÇAMENTOS</h3>
+              <div className="border-bottom" />
+              <Link to="/">VER TODAS</Link>
+            </section>
+          </ArticleHeader>
 
-        <Carousel responsive={carouselResponsiveConfig}>
-          <LaunchCard>
-            <div>
+          <Carousel responsive={carouselResponsiveConfig}>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>FERRUGEM 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>FERRUGEM 360º</h4>
+                  <p>Visão completa para o domínio da soja.</p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>VENDAS DE INSUMOS AGRÍCOLAS </h4>
-                <p>
-                  Aumente suas skills de vendas fortaleça o seu argumentario.
-                </p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>VENDAS DE INSUMOS AGRÍCOLAS </h4>
+                  <p>
+                    Aumente suas skills de vendas fortaleça o seu argumentario.
+                  </p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg02} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg02} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>PERCEVEJOS</h4>
-                <p>Conhecimento garantido para o combate.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>PERCEVEJOS</h4>
+                  <p>Conhecimento garantido para o combate.</p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg03} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg03} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>FERRUGEM 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>FERRUGEM 360º</h4>
+                  <p>Visão completa para o domínio da soja.</p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>FERRUGEM 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>FERRUGEM 360º</h4>
+                  <p>Visão completa para o domínio da soja.</p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>VENDAS DE INSUMOS AGRÍCOLAS </h4>
-                <p>
-                  Aumente suas skills de vendas fortaleça o seu argumentario.
-                </p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>VENDAS DE INSUMOS AGRÍCOLAS </h4>
+                  <p>
+                    Aumente suas skills de vendas fortaleça o seu argumentario.
+                  </p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg02} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg02} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>PERCEVEJOS</h4>
-                <p>Conhecimento garantido para o combate.</p>
-              </div>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>PERCEVEJOS</h4>
+                  <p>Conhecimento garantido para o combate.</p>
+                </div>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg03} alt="" />
-          </LaunchCard>
-        </Carousel>
+                <FindOutButton to="/">Saiba mais</FindOutButton>
+              </div>
+              <span className="filter" />
+              <img src={TrackImg03} alt="" />
+            </LaunchCard>
+          </Carousel>
+        </ContentWrapper>
       </CarouselContainer>
 
       <HighlightsContainer>
@@ -420,135 +395,141 @@ const HomeTracks = () => {
       </ThemesContainer>
 
       <CarouselContainer>
-        <header>
-          <h3>CARREIRAS NO AGRO</h3>
-          <div className="border-bottom" />
-          <Link to="/">VER TODAS</Link>
-        </header>
+        <ContentWrapper>
+          <ArticleHeader>
+            <section className="header__title">
+              <h3>CARREIRAS NO AGRO</h3>
+              <div className="border-bottom" />
+              <Link to="/">VER TODAS</Link>
+            </section>
 
-        <h4>
-          Aprenda as especificidades de cada área e prepare-se para atuar e
-          crescer na sua carreira.
-        </h4>
+            <h4 className="header__subtitle">
+              Aprenda as especificidades de cada área e prepare-se para atuar e
+              crescer na sua carreira.
+            </h4>
+          </ArticleHeader>
 
-        <Carousel responsive={carouselResponsiveConfig}>
-          <CareerCard>
-            <img src={CareerMockupImg} alt="" />
-            <div>
+          <Carousel responsive={carouselResponsiveConfig}>
+            <CareerCard>
+              <img src={CareerMockupImg} alt="" />
               <div>
-                <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
-                <p>
-                  Área para descrição da trilha de ensino. Não pode ter muita
-                  palavra.
-                </p>
+                <div>
+                  <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
+                  <p>
+                    Área para descrição da trilha de ensino. Não pode ter muita
+                    palavra.
+                  </p>
+                </div>
+
+                <FindOutButton>Saiba mais</FindOutButton>
               </div>
+            </CareerCard>
 
-              <FindOutButton>Saiba mais</FindOutButton>
-            </div>
-          </CareerCard>
-
-          <CareerCard>
-            <img src={CareerMockupImg02} alt="" />
-            <div>
+            <CareerCard>
+              <img src={CareerMockupImg02} alt="" />
               <div>
-                <h4>AGRÔNOMO GERAÇÃO DE DEMANDA</h4>
-                <p>
-                  Área para descrição da trilha de ensino. Não pode ter muita
-                  palavra.
-                </p>
+                <div>
+                  <h4>AGRÔNOMO GERAÇÃO DE DEMANDA</h4>
+                  <p>
+                    Área para descrição da trilha de ensino. Não pode ter muita
+                    palavra.
+                  </p>
+                </div>
+
+                <FindOutButton>Saiba mais</FindOutButton>
               </div>
+            </CareerCard>
 
-              <FindOutButton>Saiba mais</FindOutButton>
-            </div>
-          </CareerCard>
-
-          <CareerCard>
-            <img src={CareerMockupImg03} alt="" />
-            <div>
+            <CareerCard>
+              <img src={CareerMockupImg03} alt="" />
               <div>
-                <h4>COOPERADOR DE FATURAMENTO</h4>
-                <p>
-                  Área para descrição da trilha de ensino. Não pode ter muita
-                  palavra.
-                </p>
+                <div>
+                  <h4>COOPERADOR DE FATURAMENTO</h4>
+                  <p>
+                    Área para descrição da trilha de ensino. Não pode ter muita
+                    palavra.
+                  </p>
+                </div>
+
+                <FindOutButton>Saiba mais</FindOutButton>
               </div>
+            </CareerCard>
 
-              <FindOutButton>Saiba mais</FindOutButton>
-            </div>
-          </CareerCard>
-
-          <CareerCard>
-            <img src={CareerMockupImg04} alt="" />
-            <div>
+            <CareerCard>
+              <img src={CareerMockupImg04} alt="" />
               <div>
-                <h4>CAPACITAÇÃO TÉCNICA PARA REVENDAS</h4>
-                <p>Chega de perder dinheiro! Domine a gestão do seu negócio.</p>
+                <div>
+                  <h4>CAPACITAÇÃO TÉCNICA PARA REVENDAS</h4>
+                  <p>
+                    Chega de perder dinheiro! Domine a gestão do seu negócio.
+                  </p>
+                </div>
+
+                <FindOutButton>Saiba mais</FindOutButton>
               </div>
+            </CareerCard>
 
-              <FindOutButton>Saiba mais</FindOutButton>
-            </div>
-          </CareerCard>
-
-          <CareerCard>
-            <img src={CareerMockupImg} alt="" />
-            <div>
+            <CareerCard>
+              <img src={CareerMockupImg} alt="" />
               <div>
-                <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
-                <p>
-                  Área para descrição da trilha de ensino. Não pode ter muita
-                  palavra.
-                </p>
+                <div>
+                  <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
+                  <p>
+                    Área para descrição da trilha de ensino. Não pode ter muita
+                    palavra.
+                  </p>
+                </div>
+
+                <FindOutButton>Saiba mais</FindOutButton>
               </div>
+            </CareerCard>
 
-              <FindOutButton>Saiba mais</FindOutButton>
-            </div>
-          </CareerCard>
-
-          <CareerCard>
-            <img src={CareerMockupImg02} alt="" />
-            <div>
+            <CareerCard>
+              <img src={CareerMockupImg02} alt="" />
               <div>
-                <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
-                <p>
-                  Área para descrição da trilha de ensino. Não pode ter muita
-                  palavra.
-                </p>
+                <div>
+                  <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
+                  <p>
+                    Área para descrição da trilha de ensino. Não pode ter muita
+                    palavra.
+                  </p>
+                </div>
+
+                <FindOutButton>Saiba mais</FindOutButton>
               </div>
+            </CareerCard>
 
-              <FindOutButton>Saiba mais</FindOutButton>
-            </div>
-          </CareerCard>
-
-          <CareerCard>
-            <img src={CareerMockupImg03} alt="" />
-            <div>
+            <CareerCard>
+              <img src={CareerMockupImg03} alt="" />
               <div>
-                <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
-                <p>
-                  Área para descrição da trilha de ensino. Não pode ter muita
-                  palavra.
-                </p>
+                <div>
+                  <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
+                  <p>
+                    Área para descrição da trilha de ensino. Não pode ter muita
+                    palavra.
+                  </p>
+                </div>
+
+                <FindOutButton>Saiba mais</FindOutButton>
               </div>
+            </CareerCard>
 
-              <FindOutButton>Saiba mais</FindOutButton>
-            </div>
-          </CareerCard>
-
-          <CareerCard>
-            <img src={CareerMockupImg04} alt="" />
-            <div>
+            <CareerCard>
+              <img src={CareerMockupImg04} alt="" />
               <div>
-                <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
-                <p>
-                  Área para descrição da trilha de ensino. Não pode ter muita
-                  palavra.
-                </p>
-              </div>
+                <div>
+                  <h4>REPRESENTANTE TÉCNICO DE VENDAS</h4>
+                  <p>
+                    Área para descrição da trilha de ensino. Não pode ter muita
+                    palavra.
+                  </p>
+                </div>
 
-              <FindOutButton>Saiba mais</FindOutButton>
-            </div>
-          </CareerCard>
-        </Carousel>
+                <FindOutButton>Saiba mais</FindOutButton>
+              </div>
+            </CareerCard>
+          </Carousel>
+        </ContentWrapper>
       </CarouselContainer>
 
       {viewerStatus === 'visit' && <SignupCard />}
@@ -575,115 +556,125 @@ const HomeTracks = () => {
       )}
 
       <CarouselContainer>
-        <header>
-          <h3>TRILHAS 360º</h3>
-          <div className="border-bottom" />
-          <Link to="/">VER TODAS</Link>
-        </header>
+        <ContentWrapper>
+          <ArticleHeader>
+            <section className="header__title">
+              <h3>TRILHAS 360º</h3>
+              <div className="border-bottom" />
+              <Link to="/">VER TODAS</Link>
+            </section>
 
-        <h4>Visão completa, panorâmica sobre o tema que você quer aprender.</h4>
+            <h4 className="header__subtitle">
+              Visão completa, panorâmica sobre o tema que você quer aprender.
+            </h4>
+          </ArticleHeader>
 
-        <Carousel responsive={carouselResponsiveConfig}>
-          <LaunchCard>
-            <div>
+          <Carousel responsive={carouselResponsiveConfig}>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>FERRUGEM 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>FERRUGEM 360º</h4>
+                  <p>Visão completa para o domínio da soja.</p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>HORTALIÇAS 360º</h4>
-                <p>Chega de perder dinheiro! Domine a gestão do seu negócio.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>HORTALIÇAS 360º</h4>
+                  <p>
+                    Chega de perder dinheiro! Domine a gestão do seu negócio.
+                  </p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg04} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg04} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>TRIGO 360º </h4>
-                <p>Conhecimento garantido para o combate.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>TRIGO 360º </h4>
+                  <p>Conhecimento garantido para o combate.</p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg05} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg05} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>PLANTABILIDADE 360º </h4>
-                <p>Chega de perder dinheiro! Domine a gestão do seu negócio.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>PLANTABILIDADE 360º </h4>
+                  <p>
+                    Chega de perder dinheiro! Domine a gestão do seu negócio.
+                  </p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg06} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg06} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>FERRUGEM 360º</h4>
-                <p>Visão completa para o domínio da soja.</p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>FERRUGEM 360º</h4>
+                  <p>Visão completa para o domínio da soja.</p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>VENDAS DE INSUMOS AGRÍCOLAS </h4>
-                <p>
-                  Aumente suas skills de vendas fortaleça o seu argumentario.
-                </p>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>VENDAS DE INSUMOS AGRÍCOLAS </h4>
+                  <p>
+                    Aumente suas skills de vendas fortaleça o seu argumentario.
+                  </p>
+                </div>
+
+                <FindOutButton to="/">Saiba mais</FindOutButton>
               </div>
+              <span className="filter" />
+              <img src={TrackImg02} alt="" />
+            </LaunchCard>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg02} alt="" />
-          </LaunchCard>
-
-          <LaunchCard>
-            <div>
+            <LaunchCard>
               <div>
-                <span>TRILHA</span>
-                <h4>PERCEVEJOS</h4>
-                <p>Conhecimento garantido para o combate.</p>
-              </div>
+                <div>
+                  <span>TRILHA</span>
+                  <h4>PERCEVEJOS</h4>
+                  <p>Conhecimento garantido para o combate.</p>
+                </div>
 
-              <FindOutButton to="/">Saiba mais</FindOutButton>
-            </div>
-            <span className="filter" />
-            <img src={TrackImg03} alt="" />
-          </LaunchCard>
-        </Carousel>
+                <FindOutButton to="/">Saiba mais</FindOutButton>
+              </div>
+              <span className="filter" />
+              <img src={TrackImg03} alt="" />
+            </LaunchCard>
+          </Carousel>
+        </ContentWrapper>
       </CarouselContainer>
 
       <HighlightsContainer extraMargin>

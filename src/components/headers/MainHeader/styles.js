@@ -11,7 +11,7 @@ export const Header = styled.header`
   height: 6.6rem;
 
   padding-left: 3vw;
-  padding-right: 3vw;
+  padding-right: 4vw;
 
   background: var(--color-background);
   box-shadow: 0px 3px 6px #00000029;
@@ -27,19 +27,34 @@ export const Header = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 
     max-width: 192rem;
     height: 100%;
 
     margin: 0 auto;
 
-    > button {
+    .header__logo {
       display: flex;
       align-items: center;
       background: none;
 
       img {
         height: 3.8rem;
+      }
+
+      &.mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: ${breakPoints.phone}) {
+        &.desktop {
+          display: none;
+        }
+
+        &.mobile {
+          display: flex;
+        }
       }
     }
 
@@ -73,6 +88,10 @@ export const Header = styled.header`
 
   .header__search-container {
     position: relative;
+
+    @media screen and (max-width: ${breakPoints.extendedPhone}) {
+      display: none;
+    }
 
     button {
       position: absolute;
@@ -113,6 +132,10 @@ export const Header = styled.header`
       img {
         width: 1.7rem;
       }
+
+      @media screen and (max-width: ${breakPoints.tablet}) {
+        width: 27vw;
+      }
     }
   }
 
@@ -123,6 +146,33 @@ export const Header = styled.header`
 
     font-size: 1.3rem;
     font-weight: 700;
+  }
+
+  button.header__sandwich {
+    display: none;
+    padding: 0.5rem;
+    background: none;
+    transition: transform 0.2s;
+
+    svg {
+      width: 2.7rem;
+      height: 1.8rem;
+
+      ${p =>
+        p.viewerStatus === 'premium' &&
+        css`
+          color: var(--color-text-white);
+        `}
+    }
+
+    &:hover {
+      padding: 0.4rem;
+      border: 1px solid #bfbfbf;
+    }
+
+    @media screen and (max-width: ${breakPoints.tablet}) {
+      display: flex;
+    }
   }
 `;
 
@@ -152,7 +202,7 @@ export const HeaderMenu = styled.nav`
     }
 
     a,
-    button {
+    button.signin {
       background: none;
       color: var(--color-text-base);
 
@@ -171,7 +221,7 @@ export const HeaderMenu = styled.nav`
           fill: currentColor;
         }
 
-        @media screen and (${breakPoints.tablet}) {
+        @media screen and (max-width: 1300px) {
           display: none;
         }
       }
@@ -208,14 +258,39 @@ export const HeaderMenu = styled.nav`
     }
   }
 
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    justify-content: flex-end;
+    gap: 5%;
+    width: 100%;
+
+    ul.header__menu-itens {
+      width: unset;
+
+      & .desktop-only {
+        display: none;
+      }
+    }
+  }
+
   .profile-picture {
     width: 3.7rem;
     height: 3.7rem;
+    background: none;
 
     img {
       width: 3.7rem;
       border-radius: 50%;
       object-fit: cover;
+    }
+  }
+
+  .small-screen_search-button {
+    width: 2.2rem;
+    height: 2.2rem;
+    background: none;
+
+    svg {
+      color: var(--color-text-base);
     }
   }
 `;

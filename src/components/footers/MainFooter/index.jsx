@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles.css';
-
 import logoElevagroImg from '../../../assets/images/logos/marca-elevagro.svg';
 
 // Logos
-import InstagramLogoImg from '../../../assets/images/logos/instagram-gray-logo.png';
-import FacebookLogoImg from '../../../assets/images/logos/facebook-gray-logo.png';
-import YoutubeLogoImg from '../../../assets/images/logos/youtube-gray-logo.png';
-import MessengerLogoImg from '../../../assets/images/logos/messenger-gray-logo.png';
+import InstagramLogoImg from '../../../assets/images/logos/instagram-gray-logo.svg';
+import FacebookLogoImg from '../../../assets/images/logos/facebook-gray-logo.svg';
+import YoutubeLogoImg from '../../../assets/images/logos/youtube-gray-logo.svg';
+import MessengerLogoImg from '../../../assets/images/logos/messenger-gray-logo.svg';
+
+import { Container } from './styles';
 
 const MainFooter = () => (
-  <footer id="main-footer">
+  <Container>
     <div className="footer-content-wrapper">
       <div className="row first-row">
         <div className="col-lg-3 col-sm-4 col-6">
@@ -166,7 +166,7 @@ const MainFooter = () => (
         <p>© Todos os direitos reservados a Elevagro</p>
       </div>
     </div>
-  </footer>
+  </Container>
 );
 
 export default MainFooter;
