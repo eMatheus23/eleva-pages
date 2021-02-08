@@ -4,6 +4,7 @@ import { FiPlus } from 'react-icons/fi';
 
 // Icons
 import CoursesIcon from '../../assets/images/icons/courses-icon-02.svg';
+import goInsideIcon from '../../assets/images/icons/go-inside-green-icon.svg';
 
 import heroImg from '../../assets/images/mockups/home-trilhas/person-touching-open-macbook-on-table-839465.png';
 
@@ -139,7 +140,11 @@ const HomeTracks = () => {
             <section className="header__title">
               <h3>LANÇAMENTOS</h3>
               <div className="border-bottom" />
-              <Link to="/">VER TODAS</Link>
+              <Link to="/">
+                <span className="desktop__link">VER TODOS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
             </section>
           </ArticleHeader>
 
@@ -399,7 +404,11 @@ const HomeTracks = () => {
             <section className="header__title">
               <h3>CARREIRAS NO AGRO</h3>
               <div className="border-bottom" />
-              <Link to="/">VER TODAS</Link>
+              <Link to="/">
+                <span className="desktop__link">VER TODAS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
             </section>
 
             <h4 className="header__subtitle">
@@ -560,7 +569,11 @@ const HomeTracks = () => {
             <section className="header__title">
               <h3>TRILHAS 360º</h3>
               <div className="border-bottom" />
-              <Link to="/">VER TODAS</Link>
+              <Link to="/">
+                <span className="desktop__link">VER TODAS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
             </section>
 
             <h4 className="header__subtitle">

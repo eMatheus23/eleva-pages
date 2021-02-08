@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
 import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
+import goInsideIcon from '../../assets/images/icons/go-inside-green-icon.svg';
 
 import heroImg from '../../assets/images/mockups/home-courses/as.png';
 
@@ -175,7 +176,15 @@ const HomeCourses = () => {
               <section className="header__title">
                 <h3>MEUS CURSOS</h3>
                 <div className="border-bottom" />
-                <Link to="/">VER TODOS</Link>
+                <Link to="/">
+                  <span className="desktop__link">VER TODOS</span>
+
+                  <img
+                    src={goInsideIcon}
+                    alt="Ver..."
+                    className="mobile__link"
+                  />
+                </Link>
               </section>
             </ArticleHeader>
 
@@ -213,7 +222,11 @@ const HomeCourses = () => {
             <section className="header__title">
               <h3>LANÇAMENTOS</h3>
               <div className="border-bottom" />
-              <Link to="/">VER TODOS</Link>
+              <Link to="/">
+                <span className="desktop__link">VER TODOS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
             </section>
           </ArticleHeader>
 
@@ -285,7 +298,11 @@ const HomeCourses = () => {
             <section className="header__title">
               <h3>Cursos em alta</h3>
               <div className="border-bottom" />
-              <Link to="/">VER TODOS</Link>
+              <Link to="/">
+                <span className="desktop__link">VER TODOS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
             </section>
           </ArticleHeader>
 
@@ -308,7 +325,11 @@ const HomeCourses = () => {
             <section className="header__title">
               <h3>MODALIDADES dos CursoS</h3>
               <div className="border-bottom" />
-              <Link to="/">VER TODOS</Link>
+              <Link to="/">
+                <span className="desktop__link">VER TODOS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
             </section>
           </ArticleHeader>
 
@@ -430,7 +451,11 @@ const HomeCourses = () => {
             <section className="header__title">
               <h3>Últimas Trilhas adicionadas</h3>
               <div className="border-bottom" />
-              <Link to="/">VER TODAS</Link>
+              <Link to="/">
+                <span className="desktop__link">VER TODOS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
             </section>
           </ArticleHeader>
 
@@ -459,7 +484,11 @@ const HomeCourses = () => {
             <section className="header__title">
               <h3>Cursos em alta</h3>
               <div className="border-bottom" />
-              <Link to="/">VER TODOS</Link>
+              <Link to="/">
+                <span className="desktop__link">VER TODOS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
             </section>
           </ArticleHeader>
 

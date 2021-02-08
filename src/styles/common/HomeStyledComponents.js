@@ -35,12 +35,47 @@ export const ArticleHeader = styled.header`
       &:hover {
         color: var(--color-text-in-white);
       }
+
+      .mobile__link {
+        display: none;
+      }
     }
   }
 
   h4.header__subtitle {
     margin-top: 1rem;
     font: normal 1.8rem/2.2rem var(--font-primary);
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    section.header__title {
+      justify-content: space-between;
+
+      h3 {
+        font: bold 1.8rem/1.8rem var(--font-primary);
+      }
+
+      .border-bottom {
+        display: none;
+      }
+
+      a {
+        .desktop__link {
+          display: none;
+        }
+
+        .mobile__link {
+          display: block;
+        }
+
+        margin-left: 0;
+      }
+    }
+
+    h4.header__subtitle {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
   }
 `;
 
@@ -104,7 +139,7 @@ export const ExtrasSection = styled.article`
       background: var(--color-background);
 
       h4 {
-        font: normal 2.7rem/3.5rem var(--font-primary);
+        font: normal 2.7rem/2.7rem var(--font-primary);
         color: var(--color-secondary);
       }
 
@@ -175,6 +210,10 @@ export const ExtrasSection = styled.article`
 
       div {
         height: 70%;
+
+        h4 {
+          font: bold 2rem/2.5rem var(--font-primary);
+        }
       }
     }
   }

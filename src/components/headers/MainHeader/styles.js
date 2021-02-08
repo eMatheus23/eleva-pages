@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components/macro';
 
 import breakPoints from '../../../styles/config/breakPoints';
-import { Container } from '../../Buttons/styles';
-import ButtonRounded from '../../Buttons';
 
 export const Header = styled.header`
   position: fixed;

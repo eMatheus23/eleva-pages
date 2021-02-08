@@ -214,7 +214,6 @@ export const CarouselContainer = styled.article`
     display: flex;
     flex-direction: column;
     margin: 0 auto 8rem;
-    padding: 0 4rem;
   }
 `;
 
@@ -286,6 +285,10 @@ export const HighlightsContainer = styled.article`
   width: 100%;
   height: 52.5rem;
   margin: 3rem 0;
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    height: 75rem;
+  }
 
   ${props =>
     props.extraMargin &&
@@ -360,20 +363,39 @@ export const HighlightsContainer = styled.article`
       width: 75%;
       max-width: 108.2rem;
 
-      @media screen and (max-width: ${breakPoints.tablet}) {
-        width: 70%;
-      }
-
-      @media screen and (max-width: ${breakPoints.tabletPortrait}) {
-        width: 60%;
-      }
-
       h5 {
         padding-bottom: 1rem;
         margin-bottom: 1.5rem;
         border-bottom: 1px solid #bfbfbf;
         font: normal 2rem/2.4rem var(--font-primary);
         color: var(--color-text-white);
+      }
+    }
+
+    @media screen and (max-width: ${breakPoints.tablet}) {
+      > aside {
+        width: 70%;
+      }
+    }
+
+    @media screen and (max-width: ${breakPoints.tabletPortrait}) {
+      > aside {
+        width: 60%;
+      }
+    }
+
+    @media screen and (max-width: ${breakPoints.phone}) {
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+
+      > section {
+        width: 100%;
+      }
+
+      > aside {
+        width: 100%;
       }
     }
   }
@@ -547,6 +569,23 @@ export const ThemesContainer = styled.article`
 
       svg {
         margin-right: 0.5rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.tabletPortrait}) {
+    ${ContentWrapper} {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem 2.8rem 2.8rem;
+
+      a {
+        width: 47%;
+        margin-top: 1rem;
       }
     }
   }
