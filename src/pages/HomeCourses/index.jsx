@@ -338,7 +338,7 @@ const HomeCourses = () => {
                     alt=""
                     className="intermediary-logo"
                   />
-                  <span>20h</span>
+                  <span>30h</span>
                 </div>
                 <h4>INTERMEDIÁRIOS</h4>
                 <p>Aliam os conceitos à prática com aprofundamento.</p>
@@ -350,7 +350,7 @@ const HomeCourses = () => {
               <main>
                 <div>
                   <img src={AdvancedLogo} alt="" className="advanced-logo" />
-                  <span>20h</span>
+                  <span>40h</span>
                 </div>
                 <h4>AVANÇADOS</h4>
                 <p>
@@ -364,7 +364,6 @@ const HomeCourses = () => {
               <main>
                 <div>
                   <img src={DegreeLogo} alt="" className="degree-logo" />
-                  <span>20h</span>
                 </div>
                 <h4>PÓS-GRADUAÇÃO</h4>
                 <p>

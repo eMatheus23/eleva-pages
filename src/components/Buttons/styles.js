@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 
-export const StyledContainer = styled.div`
-  a {
-    display: block;
-    border-radius: 2.3rem;
-    padding: 0.8rem 2.5rem;
-    background: var(--color-primary);
-    text-decoration: none;
-    font: normal 1.8rem/2.2rem var(--font-primary);
-    color: #494949;
-    transition: background-color 0.2s;
+import { Link } from 'react-router-dom';
 
-    &:hover {
-      background: var(--color-primary-hover);
-    }
+export const FindOutLink = styled(Link)`
+  display: block;
+  border-radius: 2.3rem;
+  padding: 0.8rem 2.5rem;
+  background: var(--color-primary);
+  text-decoration: none;
+  font: normal 1.8rem/2.2rem var(--font-primary);
+  color: #494949;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: var(--color-primary-hover);
   }
 `;
 
-export const StyledButton = styled.div`
+export const Container = styled.div`
   width: 16.4rem;
   height: 4.5rem;
 
@@ -31,9 +31,7 @@ export const StyledButton = styled.div`
     border-radius: 2.3rem;
     border: 0;
 
-    font-family: Montserrat, sans-serif;
-    font-weight: normal;
-    font-size: 1.8rem;
+    font: normal 1.8rem/1.8rem var(--font-primary);
 
     display: flex;
     align-items: center;

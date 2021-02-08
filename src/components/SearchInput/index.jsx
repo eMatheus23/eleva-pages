@@ -11,7 +11,7 @@ import { Container } from './styles';
 const SearchInput = ({ placeholder, fullWidth }) => {
   return (
     <Container fullWidth={fullWidth}>
-      <form className="search-container">
+      <form className="search__container">
         <button type="button" className="open-filter__button">
           <img src={filterIcon} alt="Filtrar" className="filter__icon" />
 

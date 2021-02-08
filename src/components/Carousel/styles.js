@@ -21,11 +21,11 @@ export const Container = styled.div`
   }
 
   .alice-carousel__prev-btn {
-    left: -2.5rem;
+    left: -0.5rem;
   }
 
   .alice-carousel__next-btn {
-    right: -1.2rem;
+    right: -0.5rem;
   }
 
   .alice-carousel__stage-item {

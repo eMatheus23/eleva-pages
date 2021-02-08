@@ -3,16 +3,7 @@ import styled, { css } from 'styled-components/macro';
 // Importa os break points já configurados
 import breakPoints from '../../../styles/config/breakPoints';
 
-const wrapperMaxWidth = '153rem';
-
-export const ContentWrapper = styled.div`
-  width: 100%;
-  max-width: ${wrapperMaxWidth};
-  height: 100%;
-
-  margin: 0 auto;
-  padding: 0 4rem;
-`;
+import { ContentWrapper } from '../../../styles/common/HomeStyledComponents';
 
 export const Hero = styled.section`
   position: relative;

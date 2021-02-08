@@ -51,6 +51,14 @@ export const ContentWrapper = styled.div`
 
   margin: 0 auto;
   padding: 0 4rem;
+
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    padding: 0 3rem;
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    padding: 0 2rem;
+  }
 `;
 
 export const ExtrasSection = styled.article`

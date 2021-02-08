@@ -2,16 +2,18 @@ import styled from 'styled-components';
 
 // Importa os break points já configurados
 import breakPoints from '../../../styles/config/breakPoints';
-
-const wrapperMaxWidth = '153rem';
+import { ContentWrapper } from '../../../styles/common/HomeStyledComponents';
 
 export const Container = styled.article`
   display: flex;
-  justify-content: space-between;
   width: 100%;
-  max-width: ${wrapperMaxWidth};
-  margin: 5rem auto 7rem;
-  padding: 0 4rem;
+  padding: 5rem 0 7rem;
+
+  ${ContentWrapper} {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
 
   .search-section {
     display: flex;
@@ -53,15 +55,20 @@ export const Container = styled.article`
   aside.cards__container {
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: 38%;
   }
 
   @media screen and (max-width: ${breakPoints.tablet}) {
-    flex-direction: column;
-    align-items: center;
+    ${ContentWrapper} {
+      flex-direction: column;
+      align-items: center;
+    }
 
     .search-section {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .sugestions {
@@ -69,6 +76,7 @@ export const Container = styled.article`
     }
 
     aside.cards__container {
+      width: 100%;
       margin-top: 5rem;
     }
   }
@@ -76,7 +84,6 @@ export const Container = styled.article`
   @media screen and (max-width: ${breakPoints.phone}) {
     aside.cards__container {
       flex-wrap: wrap;
-      gap: 1.5rem;
     }
   }
 `;
@@ -91,6 +98,12 @@ export const NavCardContainer = styled.div`
   border-radius: 0.9rem;
   background: url(${p => p.backgroundImg}) no-repeat center top;
   background-size: cover;
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    & + & {
+      margin-top: 1.5rem;
+    }
+  }
 
   .text {
     position: absolute;

@@ -10,6 +10,7 @@ import PremiumCardImg from '../../../assets/images/mockups/home-trilhas/person-i
 // Components
 import SearchInput from '../../SearchInput';
 
+import { ContentWrapper } from '../../../styles/common/HomeStyledComponents';
 import { Container, NavCardContainer, BannerContainer } from './styles';
 
 export const NavCard = ({ children, linkTo, backgroundImg }) => (
@@ -52,23 +53,25 @@ export const PremiumBanner = () => (
 const HomeSearchContainer = ({ inputPlaceholder, children }) => {
   return (
     <Container>
-      <section className="search-section">
-        <SearchInput placeholder={inputPlaceholder} />
+      <ContentWrapper>
+        <section className="search-section">
+          <SearchInput placeholder={inputPlaceholder} />
 
-        <div className="sugestions">
-          <p>Sugestões:</p>
-          <button type="button">SOJA</button>
-          <button type="button">DOENÇAS</button>
-          <button type="button">SEMENTES</button>
-          <button type="button">NUTRIÇÃO</button>
-          <button type="button">DANINHAS</button>
-          <button type="button">SOLOS</button>
-          <button type="button">GESTÃO</button>
-          <button type="button">FINANÇAS</button>
-        </div>
-      </section>
+          <div className="sugestions">
+            <p>Sugestões:</p>
+            <button type="button">SOJA</button>
+            <button type="button">DOENÇAS</button>
+            <button type="button">SEMENTES</button>
+            <button type="button">NUTRIÇÃO</button>
+            <button type="button">DANINHAS</button>
+            <button type="button">SOLOS</button>
+            <button type="button">GESTÃO</button>
+            <button type="button">FINANÇAS</button>
+          </div>
+        </section>
 
-      <aside className="cards__container">{children}</aside>
+        <aside className="cards__container">{children}</aside>
+      </ContentWrapper>
     </Container>
   );
 };

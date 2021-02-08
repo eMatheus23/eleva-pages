@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import breakPoints from '../../../styles/config/breakPoints';
+
 export const Container = styled.footer`
   z-index: 6;
 
@@ -8,15 +10,27 @@ export const Container = styled.footer`
   padding: 0 min(4vw, 4rem);
 
   background: var(--color-background-secondary);
-  font-family: $font-primary;
+  font-family: var(--font-primary);
   color: var(--color-text-base);
 
-  .footer-content-wrapper {
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    padding: 0 3rem;
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    padding: 0 2rem;
+  }
+
+  .footer-content-wrapper__desktop {
     max-width: 145rem;
     height: 100%;
 
     margin: 0 auto;
     padding-top: 5.7rem;
+
+    @media screen and (max-width: ${breakPoints.phone}) {
+      display: none;
+    }
 
     .row {
       min-height: 15.5rem;
@@ -58,7 +72,7 @@ export const Container = styled.footer`
     }
 
     li {
-      font-family: $font-primary;
+      font-family: var(--font-primary);
       font-size: 1.8rem;
       line-height: 2.5rem;
       list-style: none;
@@ -80,12 +94,6 @@ export const Container = styled.footer`
       }
     }
 
-    .copyrights {
-      justify-content: center;
-      align-items: center;
-      min-height: 9.3rem;
-    }
-
     .social-networks-links {
       display: flex;
       flex-wrap: wrap;
@@ -98,5 +106,61 @@ export const Container = styled.footer`
         width: 3.9rem;
       }
     }
+  }
+
+  .phone {
+    padding-top: 2rem;
+
+    .footer__links {
+      margin-bottom: 2.2rem;
+    }
+
+    li {
+      font-family: var(--font-primary);
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      list-style: none;
+
+      & + li {
+        margin-top: 0.3rem;
+      }
+
+      a {
+        display: block;
+        max-width: 26.6rem;
+
+        color: var(--color-text-base);
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font: bold 2rem/2.5rem var(--font-primary);
+    }
+
+    .social-networks-links {
+      a {
+        width: 3.9rem;
+        margin-bottom: 2rem;
+
+        & + a {
+          margin-left: 2rem;
+        }
+      }
+    }
+
+    .contacts {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .copyrights {
+    justify-content: center;
+    align-items: center;
+    min-height: 9.3rem;
   }
 `;

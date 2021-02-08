@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Hero, ContentWrapper, HeroDesignDetails } from './styles';
+import { ContentWrapper } from '../../../styles/common/HomeStyledComponents';
+import { Hero, HeroDesignDetails } from './styles';
 
 import heroDetail from '../../../assets/images/other/hero-detail.svg';
 

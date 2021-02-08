@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/macro';
 import breakPoints from '../../styles/config/breakPoints';
 
 export const Container = styled.div`
-  form {
+  form.search__container {
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -51,6 +51,10 @@ export const Container = styled.div`
       &::placeholder {
         color: #b9b9b9;
       }
+    }
+
+    @media screen and (max-width: ${breakPoints.tablet}) {
+      width: 90vw;
     }
 
     @media screen and (max-width: ${breakPoints.phone}) {

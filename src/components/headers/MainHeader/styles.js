@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components/macro';
 
 import breakPoints from '../../../styles/config/breakPoints';
+import { Container } from '../../Buttons/styles';
+import ButtonRounded from '../../Buttons';
 
 export const Header = styled.header`
   position: fixed;
@@ -27,7 +29,6 @@ export const Header = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
 
     max-width: 192rem;
     height: 100%;
@@ -37,6 +38,7 @@ export const Header = styled.header`
     .header__logo {
       display: flex;
       align-items: center;
+      margin-right: 1rem;
       background: none;
 
       img {
@@ -139,15 +141,6 @@ export const Header = styled.header`
     }
   }
 
-  button#button-rounded {
-    width: max(25%, 17.2rem);
-    max-width: 25.2rem;
-    height: 4rem;
-
-    font-size: 1.3rem;
-    font-weight: 700;
-  }
-
   button.header__sandwich {
     display: none;
     padding: 0.5rem;
@@ -172,6 +165,7 @@ export const Header = styled.header`
 
     @media screen and (max-width: ${breakPoints.tablet}) {
       display: flex;
+      margin-left: 1.5rem;
     }
   }
 `;
@@ -258,20 +252,6 @@ export const HeaderMenu = styled.nav`
     }
   }
 
-  @media screen and (max-width: ${breakPoints.tablet}) {
-    justify-content: flex-end;
-    gap: 5%;
-    width: 100%;
-
-    ul.header__menu-itens {
-      width: unset;
-
-      & .desktop-only {
-        display: none;
-      }
-    }
-  }
-
   .profile-picture {
     width: 3.7rem;
     height: 3.7rem;
@@ -292,5 +272,42 @@ export const HeaderMenu = styled.nav`
     svg {
       color: var(--color-text-base);
     }
+  }
+
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    justify-content: flex-end;
+    width: 100%;
+
+    ul.header__menu-itens {
+      width: unset;
+
+      & .desktop-only {
+        display: none;
+      }
+    }
+  }
+`;
+
+export const StyledButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(17.2rem, 25%, 25.2rem);
+  height: 4rem;
+
+  padding: 0 0.6rem;
+  margin-left: max(2%, 1.5rem);
+
+  border-radius: 2.3rem;
+  border: 0;
+
+  background: var(--color-primary);
+  color: var(--color-text-in-white);
+  font: bold 1.3rem/1.3rem var(--font-primary);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--color-primary-hover);
   }
 `;

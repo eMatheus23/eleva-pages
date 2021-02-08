@@ -1,15 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-import { StyledContainer, StyledButton } from './styles';
+import { FindOutLink, Container } from './styles';
 
 export const FindOutButton = ({ children, ...rest }) => (
-  <StyledContainer>
-    <Link to="/" {...rest}>
-      {children}
-    </Link>
-  </StyledContainer>
+  <FindOutLink to="/" {...rest}>
+    {children}
+  </FindOutLink>
 );
 
 FindOutButton.propTypes = {
@@ -18,13 +16,9 @@ FindOutButton.propTypes = {
 
 const ButtonRounded = ({ children, buttonStyle, type, ...rest }) => {
   return (
-    <StyledButton>
+    <Container>
       {type === 'link' && (
-        <Link
-          id="button-rounded"
-          className={buttonStyle || 'primary'}
-          {...rest}
-        >
+        <Link id="button-rounded" className={buttonStyle} {...rest}>
           {children}
         </Link>
       )}
@@ -33,7 +27,7 @@ const ButtonRounded = ({ children, buttonStyle, type, ...rest }) => {
         <button
           type="button"
           id="button-rounded"
-          className={buttonStyle || 'primary'}
+          className={buttonStyle}
           {...rest}
         >
           {children}
@@ -44,13 +38,13 @@ const ButtonRounded = ({ children, buttonStyle, type, ...rest }) => {
         <button
           type="submit"
           id="button-rounded"
-          className={buttonStyle || 'primary'}
+          className={buttonStyle}
           {...rest}
         >
           {children}
         </button>
       )}
-    </StyledButton>
+    </Container>
   );
 };
 

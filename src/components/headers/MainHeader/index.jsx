@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Link, useRouteMatch } from 'react-router-dom';
 
 import { BiSearchAlt } from 'react-icons/bi';
-import ButtonRounded from '../../Buttons';
 import CustomBadge from '../../CustomBadge';
 
 import logoElevagroImg from '../../../assets/images/logos/marca-elevagro.svg';
@@ -17,7 +16,7 @@ import { ReactComponent as ContentIcon } from '../../../assets/images/icons/cont
 import { ReactComponent as LecturesIcon } from '../../../assets/images/icons/lectures-icon.svg';
 import { ReactComponent as SandwichImg } from '../../../assets/images/icons/sandwich-icon.svg';
 
-import { Header, HeaderMenu } from './styles';
+import { Header, HeaderMenu, StyledButton } from './styles';
 
 // Mockup
 import profileImg from '../../../assets/images/mockups/profile.png';
@@ -234,11 +233,11 @@ const MainHeader = ({
           </ul>
 
           {viewerStatus === 'visit' && (
-            <ButtonRounded>INSCREVA-SE GRATUITAMENTE</ButtonRounded>
+            <StyledButton>INSCREVA-SE GRATUITAMENTE</StyledButton>
           )}
 
           {viewerStatus === 'free' && (
-            <ButtonRounded onClick={becomePremium}>SEJA PREMIUM</ButtonRounded>
+            <StyledButton onClick={becomePremium}>SEJA PREMIUM</StyledButton>
           )}
 
           <button type="button" className="header__sandwich">
