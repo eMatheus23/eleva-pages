@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components/macro';
 
+import breakPoints from '../../styles/config/breakPoints';
+
 export const Container = styled.div`
   form {
     overflow: hidden;
@@ -20,7 +22,7 @@ export const Container = styled.div`
         width: 85vw;
       `}
 
-    button:first-of-type {
+    .open-filter__button {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -31,7 +33,7 @@ export const Container = styled.div`
       background: none;
       font: normal 1.3rem/1.3rem var(--font-primary);
 
-      img:first-of-type {
+      .filter__icon {
         width: 1.5rem;
         margin-left: 2.3rem;
       }
@@ -48,6 +50,27 @@ export const Container = styled.div`
 
       &::placeholder {
         color: #b9b9b9;
+      }
+    }
+
+    @media screen and (max-width: ${breakPoints.phone}) {
+      .open-filter__button {
+        width: fit-content;
+      }
+
+      span {
+        display: none;
+      }
+
+      .filter__icon {
+        margin-left: 2rem;
+        margin-right: 1rem;
+      }
+
+      input {
+        flex: unset;
+        width: 100%;
+        padding: 0 1.5rem;
       }
     }
 

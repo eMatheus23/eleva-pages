@@ -12,12 +12,16 @@ const SearchInput = ({ placeholder, fullWidth }) => {
   return (
     <Container fullWidth={fullWidth}>
       <form className="search-container">
-        <button type="button">
-          <img src={filterIcon} alt="Filtrar" />
-          CATEGORIA
+        <button type="button" className="open-filter__button">
+          <img src={filterIcon} alt="Filtrar" className="filter__icon" />
+
+          <span>CATEGORIA</span>
+
           <img src={bitwiseImg} alt="" />
         </button>
+
         <input type="text" placeholder={placeholder} />
+
         <button type="button" className="search-button">
           <BiSearchAlt size={20} />
         </button>

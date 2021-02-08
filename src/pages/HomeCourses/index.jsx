@@ -439,7 +439,7 @@ const HomeCourses = () => {
             lastTracks.map(track => (
               <div className="track" key={track.id}>
                 <section>
-                  <div>
+                  <div className="text__container">
                     <span>{track.type_name}</span>
                     <h4>{track.title}</h4>
                     <p>{track.catch_frase}</p>

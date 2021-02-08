@@ -72,6 +72,13 @@ export const Container = styled.article`
       margin-top: 5rem;
     }
   }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    aside.cards__container {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+  }
 `;
 
 export const NavCardContainer = styled.div`
@@ -146,6 +153,11 @@ export const NavCardContainer = styled.div`
       border-bottom: 5.5rem solid transparent;
       border-top: 5.5rem solid transparent;
     }
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    width: 100%;
+    max-width: unset;
   }
 `;
 

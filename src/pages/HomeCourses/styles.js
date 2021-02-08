@@ -236,6 +236,7 @@ export const MiniCourseSection = styled.article`
     @media screen and (max-width: ${breakPoints.tablet}) {
       width: 100%;
       max-width: unset;
+      height: unset;
     }
 
     header {
@@ -563,6 +564,8 @@ export const CourseModeContainer = styled.article`
   }
 
   @media screen and (max-width: ${breakPoints.tablet}) {
+    padding-bottom: 5rem;
+
     ${ContentWrapper} {
       flex-direction: column;
       align-items: center;
@@ -589,10 +592,14 @@ export const CourseModeContainer = styled.article`
         margin-bottom: 3rem;
         max-width: unset;
       }
+
+      a {
+        margin-bottom: 1rem;
+      }
     }
   }
 
-  @media screen and (max-width: ${breakPoints.phone}) {
+  @media screen and (max-width: ${breakPoints.extendedPhone}) {
     .mode-card {
       width: 100%;
       margin-bottom: 2rem;
@@ -649,6 +656,10 @@ export const CentralBannerContainer = styled.article`
       a {
         display: block;
         width: fit-content;
+      }
+
+      @media screen and (max-width: ${breakPoints.phone}) {
+        height: 85%;
       }
     }
   }
@@ -737,7 +748,7 @@ export const LastTracksContainer = styled.article`
       padding: 3rem;
       color: var(--color-text-white);
 
-      > div {
+      .text__container {
         width: 100%;
         height: 100%;
         display: flex;
@@ -762,8 +773,11 @@ export const LastTracksContainer = styled.article`
       }
 
       a {
-        display: block;
-        padding: 1.25rem 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 16.7rem;
+        height: 4.6rem;
         border-radius: 2.3rem;
         background: var(--color-background);
         text-decoration: none;
@@ -794,6 +808,33 @@ export const LastTracksContainer = styled.article`
       height: 100%;
       object-fit: cover;
     }
+
+    @media screen and (max-width: 400px) {
+      section {
+        span {
+          display: none;
+        }
+
+        h4 {
+          margin: 0;
+          font-size: 3rem;
+        }
+
+        a {
+          width: 100%;
+          height: 4rem;
+          background-color: var(--color-primary);
+
+          &:hover {
+            background: var(--color-primary-hover);
+          }
+        }
+      }
+    }
+
+    .filter {
+      opacity: 0.56;
+    }
   }
 
   @media screen and (max-width: ${breakPoints.tablet}) {
@@ -817,6 +858,21 @@ export const LastTracksContainer = styled.article`
       height: calc(70vw * 0.61);
       min-height: 26rem;
       margin-bottom: 3rem;
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    .track {
+      width: 85vw;
+      max-width: unset;
+      height: 79vw;
+      min-width: unset;
+      min-height: unset;
+      margin-bottom: 3rem;
+
+      section .text__container {
+        justify-content: flex-start;
+      }
     }
   }
 `;
