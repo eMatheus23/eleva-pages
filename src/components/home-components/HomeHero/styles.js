@@ -43,7 +43,7 @@ export const Hero = styled.section`
       `}
   }
 
-  aside {
+  .desktop-only {
     position: absolute;
     top: 0;
     right: 15rem;
@@ -87,7 +87,7 @@ export const Hero = styled.section`
   }
 
   // Para ser usado com media query no componente pai
-  .small-screen-only {
+  .mobile-only {
     display: none;
   }
 
@@ -105,6 +105,16 @@ export const Hero = styled.section`
 
     @media screen and (max-width: ${breakPoints.phone}) {
       display: block;
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    .mobile-only {
+      display: block;
+    }
+
+    .desktop-only {
+      display: none;
     }
   }
 `;

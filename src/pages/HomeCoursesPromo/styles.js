@@ -13,28 +13,22 @@ export const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
   background: var(--color-background);
-
-  @media screen and (${breakPoints.tablet}) {
-    .small-screen-only {
-      display: initial;
-    }
-
-    .big-screen-only {
-      display: none;
-    }
-  }
 `;
 
 export const CountdownContainer = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   padding-top: 6rem;
 
+  ${ContentWrapper} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   h3 {
     font: normal 3.5rem/4.2rem var(--font-primary);
+    text-align: center;
     color: var(--color-secondary);
   }
 
@@ -91,163 +85,17 @@ export const CoursesCarouselContainer = styled.article`
     `}
 `;
 
-export const LastTracksContainer = styled.article`
-  padding-top: 9rem;
-  padding-bottom: 4.8rem;
-
-  ${ContentWrapper} {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .last-track__container {
-    overflow: hidden;
-    position: relative;
-
-    max-width: 47rem;
-    width: 32%;
-    height: calc(30vw * 0.8);
-    max-height: 31.9rem;
-
-    border-radius: 1.4rem;
-
-    section {
-      z-index: +3;
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: space-between;
-
-      width: 100%;
-      height: 100%;
-
-      padding: 3rem;
-      color: var(--color-text-white);
-
-      .last-track__text-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      span {
-        font: normal 2.5rem/2.5rem var(--font-primary);
-        text-transform: uppercase;
-      }
-
-      h4 {
-        margin: 1rem 0;
-        font: normal 4rem/4rem var(--font-primary);
-        color: var(--color-primary);
-        text-transform: uppercase;
-      }
-
-      p {
-        font: normal 2.5rem/3rem var(--font-primary);
-      }
-    }
-
-    .last-track__filter {
-      z-index: +1;
-      position: absolute;
-      top: 0;
-      left: 0;
-
-      width: 100%;
-      height: 100%;
-
-      background: #000000;
-      opacity: 0.36;
-    }
-
-    img.last-track__background-cover {
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  .last-track__details {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: flex-end;
-    justify-content: space-between;
-
-    p {
-      font: normal 2.4rem/2.9rem var(--font-primary);
-    }
-
-    h5 {
-      font: normal 4rem/4.9rem var(--font-primary);
-    }
-
-    a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      width: 42%;
-      max-width: 16.7rem;
-      height: 4.6rem;
-
-      border-radius: 2.3rem;
-      background: var(--color-background);
-      text-decoration: none;
-      font: normal 1.8rem/2.2rem var(--font-primary);
-      color: #494949;
-
-      transition: background-color 0.2s;
-
-      &:hover {
-        background: ${shade(0.2, '#ffffff')};
-      }
-    }
-  }
-
-  @media screen and (${breakPoints.tablet}) {
-    ${ContentWrapper} {
-      justify-content: space-evenly;
-    }
-    .last-track__container {
-      min-width: 40rem;
-      width: 45%;
-      min-height: 26rem;
-      height: calc(45vw * 0.8);
-      max-height: unset;
-
-      margin-bottom: 3rem;
-    }
-  }
-
-  @media screen and (${breakPoints.tabletPortrait}) {
-    .last-track__container {
-      width: 70vw;
-      max-width: unset;
-      height: calc(70vw * 0.61);
-      min-height: 26rem;
-      margin-bottom: 3rem;
-    }
-  }
-`;
-
 export const SearchContainer = styled.article`
   overflow: hidden;
-  position: relative;
-  display: flex;
   width: 100%;
   height: 35.1rem;
   background: url(${searchBackground}) no-repeat center top;
   background-size: cover;
+
+  ${ContentWrapper} {
+    position: relative;
+    display: flex;
+  }
 
   section {
     width: 100%;
@@ -260,7 +108,8 @@ export const SearchContainer = styled.article`
 
   h4 {
     margin-bottom: 0.4rem;
-    font: normal 3.5rem/2.3rem var(--font-primary);
+    font: normal 3.5rem/3.5rem var(--font-primary);
+    text-align: center;
     color: var(--color-primary);
   }
 

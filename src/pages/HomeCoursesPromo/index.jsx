@@ -25,18 +25,21 @@ import LastTracksData from '../../data/last-tracks.json';
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
 
+// Configuração da responsividade do carrossel
+import carouselResponsiveConfig from '../../styles/config/carouselResponsiveConfig';
+
 import {
   Container,
   CountdownContainer,
   CoursesCarouselContainer,
   SearchContainer,
-  LastTracksContainer,
 } from './styles';
 
 // Importação da estilização comum a todas as homes
 import {
   ExtrasSection,
   ContentWrapper,
+  LastTracksContainer,
 } from '../../styles/common/HomeStyledComponents';
 
 const HomeCoursesPromo = () => {
@@ -88,15 +91,6 @@ const HomeCoursesPromo = () => {
   //   return array;
   // }, []);
 
-  // Configuração de responsividade do Carrossel (Carousel)
-  const carouselResponsiveConfig = {
-    0: { items: 2 },
-    800: { items: 3 },
-    1040: { items: 4 },
-    1250: { items: 5 },
-    1530: { items: 5 },
-  };
-
   // const shuffled = shuffleArray(coursesReleases && coursesReleases);
 
   return (
@@ -111,48 +105,50 @@ const HomeCoursesPromo = () => {
       <HomeHero background={heroImg} justify="center">
         <h1>CURSOS</h1>
         <h2>PROMOÇÃO DE ANIVERSÁRIO Elevagro</h2>
-        <p className="small-screen-only">
+        <p className="mobile-only">
           Aprenda uma nova habilidade por menos de R$ 100,00
         </p>
 
-        <aside className="big-screen-only">
+        <aside className="desktop-only">
           <h3>APRENDA UMA NOVA HABILIDADE POR menos de R$ 100,00</h3>
         </aside>
       </HomeHero>
 
       <CountdownContainer>
-        <h3>ESTA PROMOÇÃO ACABA EM:</h3>
+        <ContentWrapper>
+          <h3>ESTA PROMOÇÃO ACABA EM:</h3>
 
-        <main>
-          <Countdown
-            date={Date.now() + 1000 * 60 * 60 * 24 * 6}
-            intervalDelay={0}
-            precision={3}
-            renderer={({ formatted }) => (
-              <>
-                <section>
-                  <h4>{formatted.days}</h4>
-                  <p>DIAS</p>
-                </section>
-                <span>:</span>
-                <section>
-                  <h4>{formatted.hours}</h4>
-                  <p>HORAS</p>
-                </section>
-                <span>:</span>
-                <section>
-                  <h4>{formatted.minutes}</h4>
-                  <p>MINUTOS</p>
-                </section>
-                <span>:</span>
-                <section>
-                  <h4>{formatted.seconds}</h4>
-                  <p>SEGUNDOS</p>
-                </section>
-              </>
-            )}
-          />
-        </main>
+          <main>
+            <Countdown
+              date={Date.now() + 1000 * 60 * 60 * 24 * 6}
+              intervalDelay={0}
+              precision={3}
+              renderer={({ formatted }) => (
+                <>
+                  <section>
+                    <h4>{formatted.days}</h4>
+                    <p>DIAS</p>
+                  </section>
+                  <span>:</span>
+                  <section>
+                    <h4>{formatted.hours}</h4>
+                    <p>HORAS</p>
+                  </section>
+                  <span>:</span>
+                  <section>
+                    <h4>{formatted.minutes}</h4>
+                    <p>MINUTOS</p>
+                  </section>
+                  <span>:</span>
+                  <section>
+                    <h4>{formatted.seconds}</h4>
+                    <p>SEGUNDOS</p>
+                  </section>
+                </>
+              )}
+            />
+          </main>
+        </ContentWrapper>
       </CountdownContainer>
 
       <CoursesCarouselContainer>
@@ -187,26 +183,31 @@ const HomeCoursesPromo = () => {
         <ContentWrapper>
           {lastTracks &&
             lastTracks.map(track => (
-              <div className="last-track__container" key={track.id}>
-                <section>
-                  <div className="last-track__text-container">
+              <div className="track" key={track.id}>
+                <main>
+                  <div className="text__container">
                     <span>PACOTE</span>
                     <h4>{track.title}</h4>
+                    <p>{track.catch_frase}</p>
                   </div>
 
-                  <div className="last-track__details">
+                  <div className="track__details">
                     <div className="price">
                       <p>De R$980,00</p>
                       <h5>R$800,00</h5>
                     </div>
-                    <Link to="/track">Saiba mais</Link>
+
+                    <Link to="/track" className="CTA__button">
+                      Saiba mais
+                    </Link>
                   </div>
-                </section>
-                <div className="last-track__filter" />
+                </main>
+
+                <div className="filter" />
                 <img
                   src={track.cover_url}
                   alt=""
-                  className="last-track__background-cover"
+                  className="track__background"
                 />
               </div>
             ))}
@@ -214,13 +215,15 @@ const HomeCoursesPromo = () => {
       </LastTracksContainer>
 
       <SearchContainer>
-        <section>
-          <h4>Não encontrou o seu curso?</h4>
-          <p>Faça uma busca na Elevagro</p>
-          <SearchInput placeholder="O que você quer aprender?" fullWidth />
-        </section>
+        <ContentWrapper>
+          <section>
+            <h4>Não encontrou o seu curso?</h4>
+            <p>Faça uma busca na Elevagro</p>
+            <SearchInput placeholder="O que quer aprender?" fullWidth />
+          </section>
 
-        <div className="filter" />
+          <div className="filter" />
+        </ContentWrapper>
       </SearchContainer>
 
       <ExtrasSection>

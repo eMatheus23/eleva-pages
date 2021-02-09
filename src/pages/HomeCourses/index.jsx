@@ -51,13 +51,15 @@ import LastTracksData from '../../data/last-tracks.json';
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
 
+// Configuração da responsividade do carrossel
+import carouselResponsiveConfig from '../../styles/config/carouselResponsiveConfig';
+
 import {
   Container,
   MyCoursesContainer,
   CoursesCarouselContainer,
   CourseModeContainer,
   CentralBannerContainer,
-  LastTracksContainer,
   MiniCourseSection,
 } from './styles';
 
@@ -66,17 +68,8 @@ import {
   ArticleHeader,
   ExtrasSection,
   ContentWrapper,
+  LastTracksContainer,
 } from '../../styles/common/HomeStyledComponents';
-
-// Configuração de responsividade do Carrossel (Carousel)
-const carouselResponsiveConfig = {
-  0: { items: 1 },
-  650: { items: 2 },
-  800: { items: 3 },
-  1040: { items: 4 },
-  1250: { items: 5 },
-  1530: { items: 5 },
-};
 
 const HomeCourses = () => {
   document.title = 'Cursos | Elevagro';
@@ -462,17 +455,24 @@ const HomeCourses = () => {
           {lastTracks &&
             lastTracks.map(track => (
               <div className="track" key={track.id}>
-                <section>
+                <main>
                   <div className="text__container">
                     <span>{track.type_name}</span>
                     <h4>{track.title}</h4>
                     <p>{track.catch_frase}</p>
                   </div>
 
-                  <Link to="/track">Saiba mais</Link>
-                </section>
+                  <Link to="/track" className="CTA__button">
+                    Saiba mais
+                  </Link>
+                </main>
+
                 <div className="filter" />
-                <img src={track.cover_url} alt="" />
+                <img
+                  src={track.cover_url}
+                  alt=""
+                  className="track__background"
+                />
               </div>
             ))}
         </ContentWrapper>
