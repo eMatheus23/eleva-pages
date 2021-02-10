@@ -12,7 +12,6 @@ export const Hero = styled.section`
   height: 36.1rem;
 
   margin: 0 auto;
-  margin-top: 6.5rem;
 
   background: url(${p => p.background}) no-repeat 80% top;
   background-size: cover;

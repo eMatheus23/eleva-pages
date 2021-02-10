@@ -55,7 +55,6 @@ import getViewerStatus from '../../services/getViewerStatus';
 import carouselResponsiveConfig from '../../styles/config/carouselResponsiveConfig';
 
 import {
-  Container,
   MyCoursesContainer,
   CoursesCarouselContainer,
   CourseModeContainer,
@@ -65,6 +64,7 @@ import {
 
 // Importação da estilização comum a todas as homes
 import {
+  Container,
   ArticleHeader,
   ExtrasSection,
   ContentWrapper,

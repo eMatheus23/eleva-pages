@@ -11,6 +11,7 @@ import CheckoutBill from '../pages/CheckoutBill';
 import CheckoutAccessPage from '../pages/CheckoutAccessPage';
 import TrackPage from '../pages/TrackPage';
 import CoursePage from '../pages/CoursePage';
+import ContentListing from '../pages/ContentListing';
 
 const Routes = () => {
   return (
@@ -24,6 +25,7 @@ const Routes = () => {
         <Route path="/course" component={CoursePage} />
         <Route path="/plans" component={Plans} />
         <Route path="/signup" component={Signup} />
+        <Route path="/content-listing" component={ContentListing} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route path="/checkout/bill" component={CheckoutBill} />
         <Route path="/checkout/access" component={CheckoutAccessPage} />

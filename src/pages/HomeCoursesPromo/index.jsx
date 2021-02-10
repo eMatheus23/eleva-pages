@@ -29,7 +29,6 @@ import getViewerStatus from '../../services/getViewerStatus';
 import carouselResponsiveConfig from '../../styles/config/carouselResponsiveConfig';
 
 import {
-  Container,
   CountdownContainer,
   CoursesCarouselContainer,
   SearchContainer,
@@ -37,6 +36,7 @@ import {
 
 // Importação da estilização comum a todas as homes
 import {
+  Container,
   ExtrasSection,
   ContentWrapper,
   LastTracksContainer,

@@ -6,6 +6,13 @@ import breakPoints from '../config/breakPoints';
 
 const wrapperMaxWidth = '153rem';
 
+export const Container = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  padding-top: 6.5rem; /* Padding para compensar o header */
+  background: var(--color-background);
+`;
+
 export const ArticleHeader = styled.header`
   margin-bottom: 2.2rem;
   width: 100%;
