@@ -21,7 +21,7 @@ export const Container = styled.footer`
     padding: 0 2rem;
   }
 
-  .footer-content-wrapper__desktop {
+  .footer__desktop-content {
     max-width: 145rem;
     height: 100%;
 
@@ -108,8 +108,13 @@ export const Container = styled.footer`
     }
   }
 
-  .phone {
+  .footer__phone-content {
+    display: none;
     padding-top: 2rem;
+
+    @media screen and (max-width: ${breakPoints.phone}) {
+      display: block;
+    }
 
     .footer__links {
       margin-bottom: 2.2rem;
@@ -159,8 +164,12 @@ export const Container = styled.footer`
   }
 
   .copyrights {
-    justify-content: center;
     align-items: center;
     min-height: 9.3rem;
+
+    p {
+      width: 100%;
+      text-align: center;
+    }
   }
 `;

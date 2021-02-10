@@ -16,7 +16,7 @@ import { Container } from './styles';
 
 const MainFooter = () => (
   <Container>
-    <div className="footer-content-wrapper__desktop">
+    <div className="footer__desktop-content">
       <div className="row first-row">
         <div className="col-lg-3 col-sm-4 col-6">
           <img src={logoElevagroImg} alt="Elevagro" className="footer-logo" />
@@ -166,7 +166,7 @@ const MainFooter = () => (
       </div>
     </div>
 
-    <div className="phone">
+    <div className="footer__phone-content">
       <ul className="footer__links">
         <li>
           <Link to="/track">Blog</Link>
