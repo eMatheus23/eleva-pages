@@ -4,7 +4,7 @@ import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 // MaterialUI Checkbox
 import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 // Componentes
 import Header from '../../components/headers/MainHeader';

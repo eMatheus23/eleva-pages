@@ -1,8 +1,5 @@
 import styled from 'styled-components/macro';
 
-// Importa os break points já configurados
-import breakPoints from '../../../../styles/config/breakPoints';
-
 export const GreenCard = styled.div`
   width: 100%;
   min-height: 19.6rem;
