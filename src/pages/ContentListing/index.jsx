@@ -23,14 +23,29 @@ import {
   Content,
   SmallerContentWrapper,
   FilterContainer,
+  FilterField,
 } from './styles';
 import { Container } from '../../styles/common/HomeStyledComponents';
 
 const GreenCheckbox = withStyles({
   root: {
-    color: '#009688',
+    color: '#BFBFBF',
+    width: 35,
+    height: 35,
     '&$checked': {
       color: '#009688',
+    },
+  },
+  icon: {
+    width: 25,
+    height: 25,
+    'input:hover ~ &': {
+      backgroundColor: '#ebf1f5',
+    },
+  },
+  checkedIcon: {
+    '&:hover': {
+      backgroundColor: '#106ba3',
     },
   },
   checked: {},
@@ -38,7 +53,23 @@ const GreenCheckbox = withStyles({
 
 const ContentListing = () => {
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
-  const [areasFilterOpened, setAreasFilterOpened] = useState(false);
+
+  /* ---------------------- Estados dos filtros ---------------------- */
+  // Area
+  const [areasFilterClosed, setAreasFilterClosed] = useState(false);
+  const [areasFilterFull, setAreasFilterFull] = useState(false);
+
+  // Cultura
+  const [culturesClosed, setCulturesClosed] = useState(false);
+  const [culturesFull, setCulturesFull] = useState(false);
+
+  // Categoria do conteúdo
+  const [contentClosed, setContentClosed] = useState(false);
+  const [contentFull, setContentFull] = useState(false);
+
+  // Idioma
+  const [languageClosed, setLanguageClosed] = useState(true);
+  const [languageFull, setLanguageFull] = useState(false);
 
   // Funções para teste
   const handleLogin = useCallback(() => {
@@ -62,7 +93,7 @@ const ContentListing = () => {
 
   const repeat = 36;
 
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     checkedTodas: true,
   });
 
@@ -106,18 +137,23 @@ const ContentListing = () => {
 
             <FilterContainer>
               <h3>Refinar busca</h3>
-              <div className="filter__field">
-                <header>
+
+              {/* Campo de área */}
+              <FilterField
+                fullHeight={areasFilterFull}
+                filterOpened={areasFilterClosed}
+              >
+                <header className="field__header">
                   <h4>Área</h4>
 
                   <div
                     className="collapse__button"
                     role="button"
-                    onClick={() => setAreasFilterOpened(!areasFilterOpened)}
+                    onClick={() => setAreasFilterClosed(!areasFilterClosed)}
                     tabIndex={0}
                   >
-                    {areasFilterOpened && <FiChevronUp size="3rem" />}
-                    {!areasFilterOpened && <FiChevronDown size="3rem" />}
+                    {areasFilterClosed && <FiChevronDown size="3rem" />}
+                    {!areasFilterClosed && <FiChevronUp size="3rem" />}
                   </div>
                 </header>
                 <main className="field__content">
@@ -176,8 +212,289 @@ const ContentListing = () => {
                       <span>Etc</span>
                     </li>
                   </ul>
+
+                  <div className="field__linear-gradient" />
                 </main>
-              </div>
+
+                <button
+                  type="button"
+                  className="field__show-button"
+                  onClick={() => setAreasFilterFull(!areasFilterFull)}
+                >
+                  <h5>
+                    Mostrar
+                    {!areasFilterFull && <> mais</>}
+                    {areasFilterFull && <> menos</>}
+                  </h5>
+
+                  {!areasFilterFull && <FiChevronDown size="2.5rem" />}
+                  {areasFilterFull && <FiChevronUp size="2.5rem" />}
+                </button>
+              </FilterField>
+
+              {/* Campo de Cultura */}
+              <FilterField
+                fullHeight={culturesFull}
+                filterOpened={culturesClosed}
+              >
+                <header className="field__header">
+                  <h4>Cultura</h4>
+
+                  <div
+                    className="collapse__button"
+                    role="button"
+                    onClick={() => setCulturesClosed(!culturesClosed)}
+                    tabIndex={0}
+                  >
+                    {culturesClosed && <FiChevronDown size="3rem" />}
+                    {!culturesClosed && <FiChevronUp size="3rem" />}
+                  </div>
+                </header>
+                <main className="field__content">
+                  <ul>
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedTodas}
+                        onChange={handleChange}
+                        name="checkedTodas"
+                      />
+                      <span>Todas</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedDoencas}
+                        onChange={handleChange}
+                        name="checkedDoencas"
+                      />
+                      <span>Doenças</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedPragas}
+                        onChange={handleChange}
+                        name="checkedPragas"
+                      />
+                      <span>Pragas</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedTecnology}
+                        onChange={handleChange}
+                        name="checkedTecnology"
+                      />
+                      <span>Tecnologia e Aplicação</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedNematoides}
+                        onChange={handleChange}
+                        name="checkedNematoides"
+                      />
+                      <span>Nematoides</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedEtc}
+                        onChange={handleChange}
+                        name="checkedEtc"
+                      />
+                      <span>Etc</span>
+                    </li>
+                  </ul>
+
+                  <div className="field__linear-gradient" />
+                </main>
+
+                <button
+                  type="button"
+                  className="field__show-button"
+                  onClick={() => setCulturesFull(!culturesFull)}
+                >
+                  <h5>
+                    Mostrar
+                    {!areasFilterFull && <> mais</>}
+                    {areasFilterFull && <> menos</>}
+                  </h5>
+
+                  {!areasFilterFull && <FiChevronDown size="2.5rem" />}
+                  {areasFilterFull && <FiChevronUp size="2.5rem" />}
+                </button>
+              </FilterField>
+
+              {/* Campo de Categorias de Conteúdo */}
+              <FilterField
+                fullHeight={contentFull}
+                filterOpened={contentClosed}
+              >
+                <header className="field__header">
+                  <h4>Categoria do conteúdo</h4>
+
+                  <div
+                    className="collapse__button"
+                    role="button"
+                    onClick={() => setContentClosed(!contentClosed)}
+                    tabIndex={0}
+                  >
+                    {contentClosed && <FiChevronDown size="3rem" />}
+                    {!contentClosed && <FiChevronUp size="3rem" />}
+                  </div>
+                </header>
+                <main className="field__content">
+                  <ul>
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedTodas}
+                        onChange={handleChange}
+                        name="checkedTodas"
+                      />
+                      <span>Todas</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedDoencas}
+                        onChange={handleChange}
+                        name="checkedDoencas"
+                      />
+                      <span>Doenças</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedPragas}
+                        onChange={handleChange}
+                        name="checkedPragas"
+                      />
+                      <span>Pragas</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedTecnology}
+                        onChange={handleChange}
+                        name="checkedTecnology"
+                      />
+                      <span>Tecnologia e Aplicação</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedNematoides}
+                        onChange={handleChange}
+                        name="checkedNematoides"
+                      />
+                      <span>Nematoides</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedEtc}
+                        onChange={handleChange}
+                        name="checkedEtc"
+                      />
+                      <span>Etc</span>
+                    </li>
+                  </ul>
+
+                  <div className="field__linear-gradient" />
+                </main>
+
+                <button
+                  type="button"
+                  className="field__show-button"
+                  onClick={() => setContentFull(!contentFull)}
+                >
+                  <h5>
+                    Mostrar
+                    {!contentFull && <> mais</>}
+                    {contentFull && <> menos</>}
+                  </h5>
+
+                  {!contentFull && <FiChevronDown size="2.5rem" />}
+                  {contentFull && <FiChevronUp size="2.5rem" />}
+                </button>
+              </FilterField>
+
+              {/* Campo de Idiomas */}
+              <FilterField
+                fullHeight={languageFull}
+                filterOpened={languageClosed}
+              >
+                <header className="field__header">
+                  <h4>Idioma</h4>
+
+                  <div
+                    className="collapse__button"
+                    role="button"
+                    onClick={() => setLanguageClosed(!languageClosed)}
+                    tabIndex={0}
+                  >
+                    {languageClosed && <FiChevronDown size="3rem" />}
+                    {!languageClosed && <FiChevronUp size="3rem" />}
+                  </div>
+                </header>
+                <main className="field__content">
+                  <ul>
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedTodas}
+                        onChange={handleChange}
+                        name="checkedTodas"
+                      />
+                      <span>Português</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedDoencas}
+                        onChange={handleChange}
+                        name="checkedDoencas"
+                      />
+                      <span>Espanhol</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedPragas}
+                        onChange={handleChange}
+                        name="checkedPragas"
+                      />
+                      <span>Inglês</span>
+                    </li>
+
+                    <li>
+                      <GreenCheckbox
+                        checked={state.checkedTecnology}
+                        onChange={handleChange}
+                        name="checkedTecnology"
+                      />
+                      <span>Francês</span>
+                    </li>
+                  </ul>
+
+                  <div className="field__linear-gradient" />
+                </main>
+
+                <button
+                  type="button"
+                  className="field__show-button"
+                  onClick={() => setLanguageFull(!languageFull)}
+                >
+                  <h5>
+                    Mostrar
+                    {!languageFull && <> mais</>}
+                    {languageFull && <> menos</>}
+                  </h5>
+
+                  {!languageFull && <FiChevronDown size="2.5rem" />}
+                  {languageFull && <FiChevronUp size="2.5rem" />}
+                </button>
+              </FilterField>
             </FilterContainer>
           </aside>
         </SmallerContentWrapper>

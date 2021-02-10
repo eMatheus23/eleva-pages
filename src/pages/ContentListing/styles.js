@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 
 import { ContentWrapper } from '../../styles/common/HomeStyledComponents';
 
@@ -80,7 +80,6 @@ export const Content = styled.article`
 
 export const FilterContainer = styled.section`
   width: 41.2rem;
-  min-height: 92.4rem;
   padding: 3rem 4rem;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 1.5rem;
@@ -90,34 +89,105 @@ export const FilterContainer = styled.section`
     font: bold 2.5rem/3rem var(--font-primary);
     color: var(--color-secondary);
   }
+`;
 
-  .filter__field {
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
+export const FilterField = styled.div`
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #707070;
 
-      h4 {
-        font: bold 2rem/2.4rem var(--font-primary);
-      }
+  ${p =>
+    p.filterOpened &&
+    css`
+      padding-bottom: 0.4rem;
+    `}
 
-      .collapse__button {
-        cursor: pointer;
-      }
+  header.field__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    h4 {
+      font: bold 2rem/2.4rem var(--font-primary);
     }
+
+    .collapse__button {
+      cursor: pointer;
+    }
+  }
+
+  .field__content {
+    overflow-y: hidden;
+    overflow-x: visible;
+    position: relative;
+    height: 17rem;
+
+    ${p =>
+      p.fullHeight &&
+      css`
+        height: unset;
+        padding-bottom: 3rem;
+      `}
+
+    ${p =>
+      p.filterOpened &&
+      css`
+        display: none;
+      `}
 
     ul {
       list-style: none;
     }
+
+    li {
+      font: normal 1.8rem/1.8rem var(--font-primary);
+      margin-bottom: -0.5rem;
+
+      /* Estiliza o ícone do checkbox */
+      .MuiSvgIcon-root {
+        font-size: 2.5rem; /* Define o tamanho do icon */
+        margin-right: -0.2rem;
+      }
+    }
   }
 
-  .MuiFormControlLabel-root {
-    margin-right: 0;
+  .field__linear-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 14rem;
+    background: transparent linear-gradient(180deg, #ffffff00 0%, #ffffff 100%)
+      0% 0% no-repeat padding-box;
+
+    ${p =>
+      p.fullHeight &&
+      css`
+        display: none;
+      `}
   }
 
-  .MuiSvgIcon-root {
-    width: 2.5rem;
-    height: 2.5rem;
+  .field__show-button {
+    display: flex;
+    align-items: center;
+    color: var(--color-secondary);
+    background: none;
+
+    ${p =>
+      p.filterOpened &&
+      css`
+        display: none;
+      `}
+
+    h5 {
+      font: bold 1.8rem/2.2rem var(--font-primary);
+    }
+
+    svg {
+      margin-left: 0.6rem;
+    }
   }
 `;
