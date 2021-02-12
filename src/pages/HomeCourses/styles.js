@@ -15,12 +15,6 @@ import { ContentWrapper } from '../../styles/common/HomeStyledComponents';
 
 const wrapperMaxWidth = '153rem';
 
-export const Container = styled.div`
-  width: 100vw;
-  min-height: 100vh;
-  background: var(--color-background);
-`;
-
 export const SearchContainer = styled.article`
   display: flex;
   justify-content: space-between;

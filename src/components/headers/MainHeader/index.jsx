@@ -102,7 +102,7 @@ const MainHeader = ({
                     url === '/content' ? 'active' : ''
                   }`}
                 >
-                  <Link to="/track">
+                  <Link to="/content">
                     <ContentIcon
                       fill="currentColor"
                       alt="CONTEÚDOS"
@@ -189,7 +189,7 @@ const MainHeader = ({
                     url === '/content' ? 'active' : ''
                   }`}
                 >
-                  <Link to="/track">
+                  <Link to="/content">
                     <ContentIcon
                       fill="currentColor"
                       alt="CONTEÚDOS"

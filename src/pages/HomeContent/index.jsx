@@ -1,13 +1,18 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+// AliceCarousel
+import AliceCarousel from 'react-alice-carousel';
+
 // Icons
 import { FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
-import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
+// import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
 import goInsideIcon from '../../assets/images/icons/go-inside-green-icon.svg';
 
-import heroImg from '../../assets/images/mockups/home-courses/as.png';
+import heroImg from '../../assets/images/pages/home-content/Soja-SLM2.png';
+import heroImg02 from '../../assets/images/pages/home-content/Soja-SLMSL.png';
+import heroImg03 from '../../assets/images/pages/home-content/Captura.png';
 
 // Components
 import Header from '../../components/headers/MainHeader';
@@ -55,6 +60,8 @@ import getViewerStatus from '../../services/getViewerStatus';
 import carouselResponsiveConfig from '../../styles/config/carouselResponsiveConfig';
 
 import {
+  CarouselDots,
+  StyledCarousel,
   MyCoursesContainer,
   CoursesCarouselContainer,
   CourseModeContainer,
@@ -123,6 +130,8 @@ const HomeCourses = () => {
     return array;
   }, []);
 
+  const renderDotsItem = ({ isActive }) => <CarouselDots isActive={isActive} />;
+
   return (
     <Container>
       <Header
@@ -132,17 +141,56 @@ const HomeCourses = () => {
         becomePremium={becomePremium}
       />
 
-      <HomeHero background={heroImg}>
-        <h1>
-          <img src={coursesIcon} alt="TRILHAS DE ENSINO" />
-          CURSOS
-        </h1>
-        <h2>Capacitação para o NOVO agronegócio</h2>
-        <p>
-          Aqui você aprende uma nova habilidade ou área com profissionais
-          referência de mercado.
-        </p>
-      </HomeHero>
+      <StyledCarousel>
+        <AliceCarousel
+          responsive={{ 0: 1 }}
+          mouseTracking
+          infinite
+          disableButtonsControls
+          renderDotsItem={renderDotsItem}
+          autoPlay
+          autoPlayInterval={3000}
+        >
+          <HomeHero background={heroImg}>
+            <h1>CONTEÚDO: Material Técnico</h1>
+            <h2>O uso de bactérias para controlar nematóides</h2>
+            <p>
+              A uma nova habilidade ou área com profissionais referência de
+              mercado.
+            </p>
+
+            <Link to="/content" className="hero__content-link">
+              Acesse
+            </Link>
+          </HomeHero>
+
+          <HomeHero background={heroImg02}>
+            <h1>CONTEÚDO: Material Técnico</h1>
+            <h2>O uso de bactérias para controlar nematóides</h2>
+            <p>
+              A uma nova habilidade ou área com profissionais referência de
+              mercado.
+            </p>
+
+            <Link to="/content" className="hero__content-link">
+              Acesse
+            </Link>
+          </HomeHero>
+
+          <HomeHero background={heroImg03}>
+            <h1>CONTEÚDO: Material Técnico</h1>
+            <h2>O uso de bactérias para controlar nematóides</h2>
+            <p>
+              A uma nova habilidade ou área com profissionais referência de
+              mercado.
+            </p>
+
+            <Link to="/content" className="hero__content-link">
+              Acesse
+            </Link>
+          </HomeHero>
+        </AliceCarousel>
+      </StyledCarousel>
 
       <SearchContainer inputPlaceholder="Procure um curso">
         <NavCard linkTo="/tracks" backgroundImg={trackCardImg}>

@@ -6,6 +6,8 @@ import breakPoints from '../../../styles/config/breakPoints';
 import { ContentWrapper } from '../../../styles/common/HomeStyledComponents';
 
 export const Hero = styled.section`
+  overflow: hidden;
+
   position: relative;
 
   width: 100%;
@@ -95,6 +97,7 @@ export const Hero = styled.section`
     position: absolute;
     right: 0;
     top: 0;
+
     display: none;
     height: 100%;
     width: 100%;
@@ -104,6 +107,24 @@ export const Hero = styled.section`
 
     @media screen and (max-width: ${breakPoints.phone}) {
       display: block;
+    }
+  }
+
+  .hero__content-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16.4rem;
+    height: 4.5rem;
+    background: var(--color-primary);
+    border-radius: 2.3rem;
+    font: normal 1.8rem/2.2rem var(--font-primary);
+    text-decoration: none;
+    color: #535353;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: var(--color-primary-hover);
     }
   }
 

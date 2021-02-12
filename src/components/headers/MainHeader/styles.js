@@ -206,7 +206,7 @@ export const HeaderMenu = styled.nav`
 
       .menu-icon {
         width: 1.6rem;
-        margin-right: 0.3rem;
+        margin-right: 0.4rem;
         fill: currentColor;
 
         svg {
@@ -231,22 +231,28 @@ export const HeaderMenu = styled.nav`
           : 'var(--color-text-base)'};
     }
 
-    &.active {
+    .active {
       a {
-        // border-bottom: 3px solid #b0d135;
-
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #b0d135;
         font-weight: 700;
         color: #5d883e;
         pointer-events: none;
+
+        ${p =>
+          p.viewerStatus === 'premium' &&
+          css`
+            color: #b0d135;
+          `}
       }
-    }
 
-    a:hover,
-    button:hover {
-      font-weight: 700;
+      a:hover,
+      button:hover {
+        font-weight: 700;
 
-      color: #5d883e;
-      text-decoration: none;
+        color: #5d883e;
+        text-decoration: none;
+      }
     }
   }
 

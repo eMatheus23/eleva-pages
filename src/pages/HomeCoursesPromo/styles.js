@@ -9,12 +9,6 @@ import breakPoints from '../../styles/config/breakPoints';
 // Importa a estilização comum "ContentWrapper" para que seja possível alterar suas propriedades
 import { ContentWrapper } from '../../styles/common/HomeStyledComponents';
 
-export const Container = styled.div`
-  width: 100vw;
-  min-height: 100vh;
-  background: var(--color-background);
-`;
-
 export const CountdownContainer = styled.article`
   width: 100%;
   padding-top: 6rem;

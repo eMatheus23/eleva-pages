@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components/macro';
 import { shade } from 'polished';
 
+// AliceCarousel
+import 'react-alice-carousel/lib/alice-carousel.css';
+
 import trackCardImg from '../../assets/images/mockups/home-courses/a.png';
 import miniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-startup-stock-photos-7096.png';
 import miniCourseHeaderImg from '../../assets/images/mockups/home-courses/photo-of-person-holding-black-pen-959816.png';
@@ -15,10 +18,33 @@ import { ContentWrapper } from '../../styles/common/HomeStyledComponents';
 
 const wrapperMaxWidth = '153rem';
 
-export const Container = styled.div`
-  width: 100vw;
-  min-height: 100vh;
-  background: var(--color-background);
+export const CarouselDots = styled.div`
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  background: #f8f7f8;
+
+  opacity: 0.37;
+
+  cursor: pointer;
+
+  ${p =>
+    p.isActive &&
+    css`
+      background: var(--color-primary);
+      opacity: 1;
+    `}
+`;
+
+export const StyledCarousel = styled.div`
+  .alice-carousel__dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+  }
 `;
 
 export const SearchContainer = styled.article`

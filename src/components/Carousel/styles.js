@@ -21,14 +21,11 @@ export const Container = styled.div`
   }
 
   .alice-carousel__prev-btn {
-    left: -0.5rem;
+    left: -2.2rem;
   }
 
   .alice-carousel__next-btn {
-    right: -0.5rem;
-  }
-
-  .alice-carousel__stage-item {
+    right: -1.5rem;
   }
 `;
 
