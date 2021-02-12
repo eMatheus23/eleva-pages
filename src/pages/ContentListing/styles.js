@@ -32,8 +32,14 @@ export const Content = styled.article`
     justify-content: space-between;
   }
 
-  main.content__container {
+  .infinite-scroll-component__outerdiv {
     width: 75%;
+  }
+
+  .infinite-scroll-component {
+    /* Desabilita o overflow do componente InfiniteScroll */
+    overflow: unset !important;
+    width: 100%;
     max-width: 88.1rem;
     display: flex;
     justify-content: space-between;
@@ -46,6 +52,13 @@ export const Content = styled.article`
       margin-bottom: 6rem;
       box-shadow: 0px 3px 6px #00000029;
       border-radius: 0.7rem;
+      text-decoration: none;
+      color: #707070;
+      transition: transform 0.1s;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
 
       .card__img {
         width: 100%;
@@ -68,6 +81,15 @@ export const Content = styled.article`
           font: normal 1.5rem/2rem var(--font-primary);
         }
       }
+    }
+    .load__content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 10rem;
+      font: normal 2rem/2.4rem var(--font-primary);
+      color: var(--color-line-in-white);
     }
   }
 

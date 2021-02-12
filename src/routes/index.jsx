@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import HomeTracks from '../pages/HomeTracks';
 import HomeCourses from '../pages/HomeCourses';
 import HomeCoursesPromo from '../pages/HomeCoursesPromo';
+import HomeContent from '../pages/HomeContent';
 import Plans from '../pages/Plans';
 import Signup from '../pages/Signup';
 import CheckoutPage from '../pages/CheckoutPage';
@@ -25,6 +26,7 @@ const Routes = () => {
         <Route path="/course" component={CoursePage} />
         <Route path="/plans" component={Plans} />
         <Route path="/signup" component={Signup} />
+        <Route path="/content" component={HomeContent} />
         <Route path="/content-listing" component={ContentListing} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route path="/checkout/bill" component={CheckoutBill} />

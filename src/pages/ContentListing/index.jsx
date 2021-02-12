@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FiChevronUp, FiChevronDown, FiArrowUpCircle } from 'react-icons/fi';
-import { FaArrowCircleUp } from 'react-icons/fa';
+import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 import axios from 'axios';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -14,6 +13,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 // Componentes
 import Header from '../../components/headers/MainHeader';
 import SignupCard from './components/SignupCard';
+import ScrollTop from '../../components/ScrollTop';
 
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
@@ -91,36 +91,7 @@ const ContentListing = () => {
     getPhotos(scrollState.page);
   }, []);
 
-  const [showScroll, setShowScroll] = useState(false);
-
-  const checkScrollTop = () => {
-    const bottomOffset = window.innerHeight;
-    const reference = loadingRef.current.offsetTop;
-
-    if (!showScroll && window.pageYOffset > reference) {
-      setShowScroll(true);
-    } else if (showScroll && bottomOffset <= reference) {
-      console.log('cheguei');
-      setShowScroll(false);
-    }
-  };
-
-  // window.addEventListener('scroll', checkScrollTop);
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 1.0,
-    };
-    // initialize IntersectionObserver
-    const observer = new IntersectionObserver(checkScrollTop, options);
-
-    observer.observe(loadingRef.current);
-  }, []);
+  console.log(photos.length);
 
   // Funções para teste
   const handleLogin = useCallback(() => {
@@ -170,8 +141,15 @@ const ContentListing = () => {
           <InfiniteScroll
             dataLength={photos}
             next={getPhotos}
-            hasMore
+            hasMore={photos.length < 70}
             loader={<h4 className="load__content">Carregando...</h4>}
+            /* eslint-disable prettier/prettier */
+            endMessage={(
+              <h4 className="load__content">
+                Esses foram os resultados para X, Y, Z...
+              </h4>
+            )}
+            /* eslint-enable prettier/prettier */
           >
             {photos &&
               photos.map((content, index) => (
@@ -577,16 +555,7 @@ const ContentListing = () => {
 
             <div className="observer__target" ref={loadingRef} />
 
-            <button
-              type="button"
-              className="scroll-top fade-in"
-              style={{ display: showScroll ? 'flex' : 'none' }}
-              onClick={scrollTop}
-            >
-              <span>Voltar ao topo</span>
-
-              <FiArrowUpCircle size={40} />
-            </button>
+            <ScrollTop />
           </aside>
         </SmallerContentWrapper>
       </Content>

@@ -37,6 +37,15 @@
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
 .animate-up {
   animation-name: up;
   animation-duration: 300ms;
@@ -53,9 +62,13 @@
   animation-duration: 300ms;
 }
 
-
 .animate-apper {
   animation-name: apper;
   animation-duration: 300ms;
   animation-fill-mode: backwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s;
+  transition: opacity 0.4s;
 }
