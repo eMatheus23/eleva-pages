@@ -1,5 +1,10 @@
-import React, { useState, useCallback } from 'react';
-import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { FiChevronUp, FiChevronDown, FiArrowUpCircle } from 'react-icons/fi';
+import { FaArrowCircleUp } from 'react-icons/fa';
+import axios from 'axios';
+
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 // MaterialUI Checkbox
 import { withStyles } from '@material-ui/core/styles';
@@ -36,13 +41,6 @@ const GreenCheckbox = withStyles({
       color: '#009688',
     },
   },
-  icon: {
-    width: 25,
-    height: 25,
-    'input:hover ~ &': {
-      backgroundColor: '#ebf1f5',
-    },
-  },
   checkedIcon: {
     '&:hover': {
       backgroundColor: '#106ba3',
@@ -70,6 +68,59 @@ const ContentListing = () => {
   // Idioma
   const [languageClosed, setLanguageClosed] = useState(true);
   const [languageFull, setLanguageFull] = useState(false);
+  /* ---------------------- Estados dos filtros ---------------------- */
+
+  const [photos, setPhotos] = useState([]);
+  const [scrollState, setScrollState] = useState({
+    page: 0,
+  });
+  const loadingRef = useRef(null);
+  const getPhotos = page => {
+    setTimeout(() => {
+      axios
+        .get(
+          `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=36`,
+        )
+        .then(res => {
+          setPhotos([...photos, ...res.data]);
+          setScrollState({ page: scrollState.page + 1 });
+        });
+    }, 1000);
+  };
+  useEffect(() => {
+    getPhotos(scrollState.page);
+  }, []);
+
+  const [showScroll, setShowScroll] = useState(false);
+
+  const checkScrollTop = () => {
+    const bottomOffset = window.innerHeight;
+    const reference = loadingRef.current.offsetTop;
+
+    if (!showScroll && window.pageYOffset > reference) {
+      setShowScroll(true);
+    } else if (showScroll && bottomOffset <= reference) {
+      console.log('cheguei');
+      setShowScroll(false);
+    }
+  };
+
+  // window.addEventListener('scroll', checkScrollTop);
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 1.0,
+    };
+    // initialize IntersectionObserver
+    const observer = new IntersectionObserver(checkScrollTop, options);
+
+    observer.observe(loadingRef.current);
+  }, []);
 
   // Funções para teste
   const handleLogin = useCallback(() => {
@@ -90,8 +141,6 @@ const ContentListing = () => {
     setViewerStatus('premium');
   }, []);
   // Funções para teste
-
-  const repeat = 36;
 
   const [state, setState] = useState({
     checkedTodas: true,
@@ -118,19 +167,48 @@ const ContentListing = () => {
 
       <Content>
         <SmallerContentWrapper>
-          <main className="content__container">
-            {[...Array(repeat)].map((card, index) => (
-              <div className="content__card" key={index}>
-                <img src={CardImg} alt="" className="card__img" />
-                <div className="card__text">
-                  <h5>Nutrição de Plantas</h5>
-                  <p>
-                    Manejo da resistência de insetos a inseticidas e a plantas
-                  </p>
-                </div>
-              </div>
-            ))}
-          </main>
+          <InfiniteScroll
+            dataLength={photos}
+            next={getPhotos}
+            hasMore
+            loader={<h4 className="load__content">Carregando...</h4>}
+          >
+            {photos &&
+              photos.map((content, index) => (
+                <Link to="/" className="content__card" key={index}>
+                  <img src={CardImg} alt="" className="card__img" />
+                  <div className="card__text">
+                    <h5>Nutrição de Plantas</h5>
+                    <p>
+                      Manejo da resistência de insetos a inseticidas e a plantas
+                    </p>
+                  </div>
+                </Link>
+              ))}
+          </InfiniteScroll>
+
+          {/* <secion className="content__container">
+            {photos &&
+              photos.map((content, index) => (
+                <Link to="/" className="content__card" key={index}>
+                  <img
+                    src={content.thumbnailUrl}
+                    alt=""
+                    className="card__img"
+                  />
+                  <div className="card__text">
+                    <h5>Nutrição de Plantas</h5>
+                    <p>
+                      Manejo da resistência de insetos a inseticidas e a plantas
+                    </p>
+                  </div>
+                </Link>
+              ))}
+
+            <div ref={loadingRef} className="load__content">
+              <span>Carregando...</span>
+            </div>
+          </secion> */}
 
           <aside>
             <SignupCard viewerStatus={viewerStatus} />
@@ -496,6 +574,19 @@ const ContentListing = () => {
                 </button>
               </FilterField>
             </FilterContainer>
+
+            <div className="observer__target" ref={loadingRef} />
+
+            <button
+              type="button"
+              className="scroll-top fade-in"
+              style={{ display: showScroll ? 'flex' : 'none' }}
+              onClick={scrollTop}
+            >
+              <span>Voltar ao topo</span>
+
+              <FiArrowUpCircle size={40} />
+            </button>
           </aside>
         </SmallerContentWrapper>
       </Content>
