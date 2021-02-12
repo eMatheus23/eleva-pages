@@ -89,9 +89,8 @@ const ContentListing = () => {
   };
   useEffect(() => {
     getPhotos(scrollState.page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(photos.length);
 
   // Funções para teste
   const handleLogin = useCallback(() => {
