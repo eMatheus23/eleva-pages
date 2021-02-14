@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import selectImg from '../../assets/images/icons/form-select-open.svg';
+import selectImg from '../../assets/icons/form-select-open.svg';
 
 const fontPrimary = 'Montserrat, sans-serif';
 

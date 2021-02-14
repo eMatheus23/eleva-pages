@@ -19,7 +19,7 @@
 
 .complete-profile-wrapper .card-container.page01 h2 {
   font: normal 2.4rem/2.8rem Montserrat;
-  color: #5D883E;
+  color: #5d883e;
   text-align: center;
 }
 
@@ -93,14 +93,14 @@
   /* Remove estilo padrão do FireFox*/
   appearance: none;
   /* Imagem de fundo (Seta) */
-  background: url('../../../assets/images/icons/form-select-open.svg') no-repeat #ffffff;
+  background: url("../../../assets/icons/form-select-open.svg") no-repeat #ffffff;
   /*Posição da imagem do background*/
   background-position: 41rem center;
 
   width: 44.6rem;
   height: 5rem;
 
-  border: 1px solid #BFBFBF;
+  border: 1px solid #bfbfbf;
   border-radius: 9px;
 
   color: var(--color-text-base);
@@ -111,14 +111,13 @@
   margin-bottom: 2rem;
 }
 
-
 .input-container-research {
   width: 44.6rem;
   height: 5rem;
 
   display: none;
 
-  border: 0.1rem solid #BFBFBF;
+  border: 0.1rem solid #bfbfbf;
   border-radius: 0.9rem;
   margin-bottom: 2rem;
 
@@ -138,7 +137,7 @@
 }
 
 .input-container-research input::placeholder {
-  color: #BFBFBF;
+  color: #bfbfbf;
   font-size: 1.8rem;
   font-family: Montserrat, sans-serif;
 }
@@ -160,7 +159,6 @@
 .input-container-research button:hover {
   background: #dadada;
 }
-
 
 .complete-profile-wrapper #button-rounded.secondary {
   width: 27.3rem;

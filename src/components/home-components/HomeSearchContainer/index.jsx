@@ -32,15 +32,11 @@ NavCard.propTypes = {
   backgroundImg: PropTypes.string.isRequired,
 };
 
-export const PremiumBanner = () => (
+export const BannerCard = ({ children, linkTo }) => (
   <BannerContainer>
     <div className="text__container">
-      <h4>Descontos Premium</h4>
-      <p>
-        Associado Premium tem grandes descontos e promoções exclusivas em todos
-        as trilhas.
-      </p>
-      <Link to="/">Saiba mais</Link>
+      {children}
+      <Link to={linkTo}>Saiba mais</Link>
       <img src={CardDetail} alt="" />
       <div className="triangle" />
       <div className="filter" />
@@ -49,6 +45,11 @@ export const PremiumBanner = () => (
     <img src={PremiumCardImg} alt="" />
   </BannerContainer>
 );
+
+BannerCard.propTypes = {
+  children: PropTypes.node.isRequired,
+  linkTo: PropTypes.string.isRequired,
+};
 
 const HomeSearchContainer = ({ inputPlaceholder, children }) => {
   return (

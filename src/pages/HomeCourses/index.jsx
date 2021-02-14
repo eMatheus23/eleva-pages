@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 // Icons
 import { FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
-import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
+import coursesIcon from '../../assets/icons/courses-icon-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
-import goInsideIcon from '../../assets/images/icons/go-inside-green-icon.svg';
+import goInsideIcon from '../../assets/icons/go-inside-green-icon.svg';
 
 import heroImg from '../../assets/images/mockups/home-courses/as.png';
 
@@ -36,8 +36,8 @@ import IntermediaryLogo from '../../assets/images/mockups/home-courses/Captura d
 import AdvancedImg from '../../assets/images/mockups/home-courses/adult-african-american-afro-black-female-1181519.png';
 import AdvancedLogo from '../../assets/images/mockups/home-courses/Captura de Tela 2020-04-05 às 16.46.24.png';
 import DegreeImg from '../../assets/images/mockups/home-courses/julia-kutsaeva-iEPgp2bPbZM-unsplash.png';
-import DegreeLogo from '../../assets/images/icons/graduation-cap.svg';
-import CertificationIcon from '../../assets/images/icons/certification.svg';
+import DegreeLogo from '../../assets/icons/graduation-cap.svg';
+import CertificationIcon from '../../assets/icons/certification.svg';
 
 // Images
 import trackCardImg from '../../assets/images/mockups/home-courses/a.png';
@@ -125,6 +125,7 @@ const HomeCourses = () => {
 
   return (
     <Container>
+      {/* Header padrão das páginas home */}
       <Header
         viewerStatus={viewerStatus}
         handleLogin={handleLogin}
@@ -132,6 +133,7 @@ const HomeCourses = () => {
         becomePremium={becomePremium}
       />
 
+      {/* Hero padrão */}
       <HomeHero background={heroImg}>
         <h1>
           <img src={coursesIcon} alt="TRILHAS DE ENSINO" />
@@ -144,6 +146,7 @@ const HomeCourses = () => {
         </p>
       </HomeHero>
 
+      {/* Sessão de buscas e cards de links */}
       <SearchContainer inputPlaceholder="Procure um curso">
         <NavCard linkTo="/tracks" backgroundImg={trackCardImg}>
           <h4>
@@ -162,16 +165,20 @@ const HomeCourses = () => {
         </NavCard>
       </SearchContainer>
 
+      {/* Sessão dos "Meus Cursos" para usuários logados */}
       {viewerStatus !== 'visit' && (
         <MyCoursesContainer>
           <ContentWrapper>
+            {/* Componente de títulos das sessões */}
             <ArticleHeader>
               <section className="header__title">
                 <h3>MEUS CURSOS</h3>
                 <div className="border-bottom" />
                 <Link to="/">
+                  {/* Link de "Ver mais" quando em telas grandes */}
                   <span className="desktop__link">VER TODOS</span>
 
+                  {/* Link de "Ver mais" quando no mobile */}
                   <img
                     src={goInsideIcon}
                     alt="Ver..."
@@ -181,6 +188,7 @@ const HomeCourses = () => {
               </section>
             </ArticleHeader>
 
+            {/* Map dos cursos do usuário. Se tiver mais de 4 cursos, entra no carrossel */}
             {userCourses && userCourses.length > 4 && (
               <Carousel responsive={carouselResponsiveConfig} paddingRight={10}>
                 {userCourses &&
@@ -199,6 +207,7 @@ const HomeCourses = () => {
               </section>
             )}
 
+            {/* Footer da sessão dos "Meus cursos" */}
             <footer>
               <Link to="/">
                 MEUS CURSOS
@@ -209,6 +218,7 @@ const HomeCourses = () => {
         </MyCoursesContainer>
       )}
 
+      {/* Sessão de lançamentos. Propriedade "backgroud" ativa um background cinza */}
       <CoursesCarouselContainer background className="courses-releases">
         <ContentWrapper>
           <ArticleHeader>

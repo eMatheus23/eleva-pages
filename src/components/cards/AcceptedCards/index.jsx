@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 import Switch from '@material-ui/core/Switch';
-import cardImg from '../../../assets/images/icons/card-icon-gray.svg';
-import acceptedCardsImg from '../../../assets/images/icons/accepted-cards.png';
+import cardImg from '../../../assets/icons/card-icon-gray.svg';
+import acceptedCardsImg from '../../../assets/icons/accepted-cards.png';
 
 const AcceptedCards = ({ saveCardOptionActive }) => {
   const [saveCardActive] = useState(() => {

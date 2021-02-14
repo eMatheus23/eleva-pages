@@ -24,7 +24,7 @@ export const ArticleHeader = styled.header`
 
     h3 {
       margin-right: 1rem;
-      font: normal 2.5rem/2.5rem var(--font-primary);
+      font: bold 2.5rem/2.5rem var(--font-primary);
       text-transform: uppercase;
     }
 

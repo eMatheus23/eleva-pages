@@ -6,7 +6,7 @@ import './styles.css';
 
 // Images
 import ilustrationImg from '../../../assets/images/ilustrations/annual-premium-offer.png';
-import addCart from '../../../assets/images/icons/add-cart.svg';
+import addCart from '../../../assets/icons/add-cart.svg';
 
 // Data
 import products from '../../../data/products';

@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-import logoElevagro from '../../assets/images/logos/marca-elevagro.svg';
+import logoElevagro from '../../assets/logos/marca-elevagro.svg';
 
 // Flags
-import brazilFlag from '../../assets/images/flags/brazil.svg';
-import spainFlag from '../../assets/images/flags/spain.svg';
-import usaFlag from '../../assets/images/flags/usa.svg';
+import brazilFlag from '../../assets/flags/brazil.svg';
+import spainFlag from '../../assets/flags/spain.svg';
+import usaFlag from '../../assets/flags/usa.svg';
 
 const HeaderSignup = () => {
   const [selectedLanguage, setSelectedLanguage] = useState('pt-br');

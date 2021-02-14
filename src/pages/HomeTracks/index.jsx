@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import { FiPlus } from 'react-icons/fi';
 
 // Icons
-import CoursesIcon from '../../assets/images/icons/courses-icon-02.svg';
-import goInsideIcon from '../../assets/images/icons/go-inside-green-icon.svg';
+import CoursesIcon from '../../assets/icons/courses-icon-02.svg';
+import goInsideIcon from '../../assets/icons/go-inside-green-icon.svg';
 
 import heroImg from '../../assets/images/mockups/home-trilhas/person-touching-open-macbook-on-table-839465.png';
 
 // Components
 import Header from '../../components/headers/MainHeader';
 import SearchContainer, {
-  PremiumBanner,
+  BannerCard,
 } from '../../components/home-components/HomeSearchContainer';
 import SignupCard from '../../components/home-components/HomeSignupCard';
 import HomeHero from '../../components/home-components/HomeHero';
@@ -124,7 +124,13 @@ const HomeTracks = () => {
       </HomeHero>
 
       <SearchContainer inputPlaceholder="Procure uma trilha">
-        <PremiumBanner />
+        <BannerCard linkTo="/tracks">
+          <h4>Descontos Premium</h4>
+          <p>
+            Associado Premium tem grandes descontos e promoções exclusivas em
+            todos as trilhas.
+          </p>
+        </BannerCard>
       </SearchContainer>
 
       <CarouselContainer>

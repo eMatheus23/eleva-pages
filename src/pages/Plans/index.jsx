@@ -10,7 +10,7 @@ import ButtonRounded from '../../components/Buttons';
 import LoginCard from '../../components/cards/LoginCard';
 
 // Logos
-import logoElevagro from '../../assets/images/logos/marca-elevagro-negativa.svg';
+import logoElevagro from '../../assets/logos/marca-elevagro-negativa.svg';
 
 // Imagens
 import centralImgMensal from '../../assets/images/acerconceptd800@2x.png';
@@ -23,8 +23,8 @@ import videoImgSemestral from '../../assets/images/mockups/pexels-photo-1326946.
 import videoImgAnual from '../../assets/images/mockups/Captura de Tela 2020-11-03 às 22.37.05.png';
 
 // Icons
-import cardIcon from '../../assets/images/icons/card-icon.svg';
-import barcodeIcon from '../../assets/images/icons/barcode-icon.svg';
+import cardIcon from '../../assets/icons/card-icon.svg';
+import barcodeIcon from '../../assets/icons/barcode-icon.svg';
 
 import cornerImg from '../../assets/images/corner.svg';
 

@@ -5,16 +5,16 @@ import { Link, useRouteMatch } from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import CustomBadge from '../../CustomBadge';
 
-import logoElevagroImg from '../../../assets/images/logos/marca-elevagro.svg';
-import logoElevagroNegativaImg from '../../../assets/images/logos/marca-elevagro-negativa.svg';
-import logoElevagroImgSmall from '../../../assets/images/logos/marca-elevagro-small.svg';
-import logoElevagroNegativaImgSmall from '../../../assets/images/logos/marca-elevagro-negativa-small.svg';
-import bitwiseImg from '../../../assets/images/icons/bitwise.svg';
-import premiumFlagImg from '../../../assets/images/flags/premium-flag.svg';
-import { ReactComponent as CoursesIcon } from '../../../assets/images/icons/courses-icon.svg';
-import { ReactComponent as ContentIcon } from '../../../assets/images/icons/content-icon.svg';
-import { ReactComponent as LecturesIcon } from '../../../assets/images/icons/lectures-icon.svg';
-import { ReactComponent as SandwichImg } from '../../../assets/images/icons/sandwich-icon.svg';
+import logoElevagroImg from '../../../assets/logos/marca-elevagro.svg';
+import logoElevagroNegativaImg from '../../../assets/logos/marca-elevagro-negativa.svg';
+import logoElevagroImgSmall from '../../../assets/logos/marca-elevagro-small.svg';
+import logoElevagroNegativaImgSmall from '../../../assets/logos/marca-elevagro-negativa-small.svg';
+import bitwiseImg from '../../../assets/icons/bitwise.svg';
+import premiumFlagImg from '../../../assets/flags/premium-flag.svg';
+import { ReactComponent as CoursesIcon } from '../../../assets/icons/courses-icon.svg';
+import { ReactComponent as ContentIcon } from '../../../assets/icons/content-icon.svg';
+import { ReactComponent as LecturesIcon } from '../../../assets/icons/lectures-icon.svg';
+import { ReactComponent as SandwichImg } from '../../../assets/icons/sandwich-icon.svg';
 
 import { Header, HeaderMenu, StyledButton } from './styles';
 

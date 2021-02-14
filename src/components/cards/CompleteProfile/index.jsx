@@ -7,7 +7,7 @@ import ProgressBar from '../../ProgressBar';
 import ButtonRounded from '../../Buttons';
 import OptionsGenerator from '../../SelectorOptionsGenerator';
 
-import ProfileIcon from '../../../assets/images/icons/complete-profile.svg';
+import ProfileIcon from '../../../assets/icons/complete-profile.svg';
 import successIlustration from '../../../assets/images/ilustrations/checkout-success-ilustration.png';
 
 import {

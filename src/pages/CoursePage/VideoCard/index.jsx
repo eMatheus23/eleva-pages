@@ -12,23 +12,23 @@ import useDisableBodyScroll from '../../../utils/Hooks/useDisableBodyScroll';
 // Services
 import AddCourseToCart from '../../../services/AddCourseToCart';
 
-import cartIcon from '../../../assets/images/icons/cart-icon.svg';
-import saveIcon from '../../../assets/images/icons/bookmark-icon.svg';
-import cart02Icon from '../../../assets/images/icons/cart-icon-02.svg';
-import videoPlayIcon from '../../../assets/images/icons/video-play-icon.svg';
-import facebookLogo from '../../../assets/images/logos/facebook-logo-02.svg';
-import linkedinLogo from '../../../assets/images/logos/linkedin-logo.svg';
-import messengerLogo from '../../../assets/images/logos/messenger-logo.svg';
-import whatsappLogo from '../../../assets/images/logos/whatsapp-logo.svg';
-import bitwiseImg from '../../../assets/images/icons/bitwise.svg';
+import cartIcon from '../../../assets/icons/cart-icon.svg';
+import saveIcon from '../../../assets/icons/bookmark-icon.svg';
+import cart02Icon from '../../../assets/icons/cart-icon-02.svg';
+import videoPlayIcon from '../../../assets/icons/video-play-icon.svg';
+import facebookLogo from '../../../assets/logos/facebook-logo-02.svg';
+import linkedinLogo from '../../../assets/logos/linkedin-logo.svg';
+import messengerLogo from '../../../assets/logos/messenger-logo.svg';
+import whatsappLogo from '../../../assets/logos/whatsapp-logo.svg';
+import bitwiseImg from '../../../assets/icons/bitwise.svg';
 
 // Icons
-import videoIcon from '../../../assets/images/icons/videos-icon.svg';
-import materialsIcon from '../../../assets/images/icons/materials-icon.svg';
-import certificateIcon from '../../../assets/images/icons/certificate-icon.svg';
-import articlesIcon from '../../../assets/images/icons/articles-icon.svg';
-import infoIcon from '../../../assets/images/icons/info-icon.svg';
-import clockIcon from '../../../assets/images/icons/clock-icon.svg';
+import videoIcon from '../../../assets/icons/videos-icon.svg';
+import materialsIcon from '../../../assets/icons/materials-icon.svg';
+import certificateIcon from '../../../assets/icons/certificate-icon.svg';
+import articlesIcon from '../../../assets/icons/articles-icon.svg';
+import infoIcon from '../../../assets/icons/info-icon.svg';
+import clockIcon from '../../../assets/icons/clock-icon.svg';
 
 const TrackPlaylistModal = ({
   closeModal,

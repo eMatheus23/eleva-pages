@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 import './checkout-bill.css';
 
-import logoElevagroFooter from '../../assets/images/logos/marca-elevagro.svg';
+import logoElevagroFooter from '../../assets/logos/marca-elevagro.svg';
 
 // Components
 import ButtonRounded from '../../components/Buttons';

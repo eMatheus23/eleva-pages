@@ -7,8 +7,8 @@ import './styles.css';
 // Icons
 import Radio from '@material-ui/core/Radio';
 import Switch from '@material-ui/core/Switch';
-import cardIcon from '../../../assets/images/icons/card-icon-gray.svg';
-import barcodeIcon from '../../../assets/images/icons/barcode-icon-gray.svg';
+import cardIcon from '../../../assets/icons/card-icon-gray.svg';
+import barcodeIcon from '../../../assets/icons/barcode-icon-gray.svg';
 
 // Components
 import ButtonRounded from '../../Buttons';

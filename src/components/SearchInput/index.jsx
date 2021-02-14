@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 // icons
 import { BiSearchAlt } from 'react-icons/bi';
-import filterIcon from '../../assets/images/icons/filter-icon.svg';
-import bitwiseImg from '../../assets/images/icons/bitwise.svg';
+import filterIcon from '../../assets/icons/filter-icon.svg';
+import bitwiseImg from '../../assets/icons/bitwise.svg';
 
 import { Container } from './styles';
 

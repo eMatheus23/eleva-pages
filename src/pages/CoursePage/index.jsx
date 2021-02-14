@@ -15,12 +15,12 @@ import VideoCard from './VideoCard';
 import getViewerStatus from '../../services/getViewerStatus';
 
 // Icons
-import videoIcon from '../../assets/images/icons/videos-icon.svg';
-import materialsIcon from '../../assets/images/icons/materials-icon.svg';
-import certificateIcon from '../../assets/images/icons/certificate-icon.svg';
-import articlesIcon from '../../assets/images/icons/articles-icon.svg';
-import infoIcon from '../../assets/images/icons/info-icon.svg';
-import clockIcon from '../../assets/images/icons/clock-icon.svg';
+import videoIcon from '../../assets/icons/videos-icon.svg';
+import materialsIcon from '../../assets/icons/materials-icon.svg';
+import certificateIcon from '../../assets/icons/certificate-icon.svg';
+import articlesIcon from '../../assets/icons/articles-icon.svg';
+import infoIcon from '../../assets/icons/info-icon.svg';
+import clockIcon from '../../assets/icons/clock-icon.svg';
 
 const CoursePage = () => {
   document.title = 'Curso | Elevagro';

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 import { StyledCard, HoverContainer } from './styles';
 // Icons
-import cartIcon from '../../../assets/images/icons/cart-icon-03.svg';
-import discountFlag from '../../../assets/images/flags/discount-flag.svg';
-import discountLongFlag from '../../../assets/images/flags/discount-long-flag.svg';
+import cartIcon from '../../../assets/icons/cart-icon-03.svg';
+import discountFlag from '../../../assets/flags/discount-flag.svg';
+import discountLongFlag from '../../../assets/flags/discount-long-flag.svg';
 
 // Utils
 import formatValue from '../../../utils/formatValue';

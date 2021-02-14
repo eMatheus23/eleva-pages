@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
 
 // Icons
-import { FiChevronRight, FiPlus, FiLogIn } from 'react-icons/fi';
-// import coursesIcon from '../../assets/images/icons/courses-icon-02.svg';
+import { FiChevronRight } from 'react-icons/fi';
+// import coursesIcon from '../../assets/icons/courses-icon-02.svg';
 import cardDetailMini from '../../assets/images/other/card-detail-mini-courses.svg';
-import goInsideIcon from '../../assets/images/icons/go-inside-green-icon.svg';
+import goInsideIcon from '../../assets/icons/go-inside-green-icon.svg';
 
 import heroImg from '../../assets/images/pages/home-content/Soja-SLM2.png';
 import heroImg02 from '../../assets/images/pages/home-content/Soja-SLMSL.png';
@@ -18,12 +18,12 @@ import heroImg03 from '../../assets/images/pages/home-content/Captura.png';
 import Header from '../../components/headers/MainHeader';
 import HomeHero from '../../components/home-components/HomeHero';
 import SearchContainer, {
-  NavCard,
+  BannerCard,
 } from '../../components/home-components/HomeSearchContainer';
 import Carousel from '../../components/Carousel';
 import CourseCardComponent from '../../components/home-components/HomeCourseCard';
-import UserCourseCard from '../../components/home-components/HomeUserCourseCard';
 import { FindOutButton } from '../../components/Buttons';
+import SignupCard from '../../components/home-components/HomeSignupCard';
 import Footer from '../../components/footers/MainFooter';
 
 // Mockups
@@ -34,24 +34,14 @@ import MiniCourseImg from '../../assets/images/mockups/home-courses/man-taking-n
 import MiniCourseImg02 from '../../assets/images/mockups/home-courses/man-in-black-suit-jacket-standing-and-smiling-3777557.png';
 import MiniCourseImg03 from '../../assets/images/mockups/home-courses/person-playing-chess-1040157.png';
 import MiniCourseImg04 from '../../assets/images/mockups/home-courses/woman-in-black-coat-holding-black-smartphone-3755824.png';
-import ElementaryImg from '../../assets/images/mockups/home-courses/low-angle-photography-of-man-jumping-2923156.png';
-import ElementaryLogo from '../../assets/images/mockups/home-courses/fast-stopwatch-thin-line-icon-time-and-speed-vector-23869785.png';
-import IntermediaryImg from '../../assets/images/mockups/home-courses/man-wearing-black-cap-with-eyes-closed-under-cloudy-sky-810775.png';
-import IntermediaryLogo from '../../assets/images/mockups/home-courses/Captura de Tela 2020-04-05 às 16.46.32.png';
-import AdvancedImg from '../../assets/images/mockups/home-courses/adult-african-american-afro-black-female-1181519.png';
-import AdvancedLogo from '../../assets/images/mockups/home-courses/Captura de Tela 2020-04-05 às 16.46.24.png';
-import DegreeImg from '../../assets/images/mockups/home-courses/julia-kutsaeva-iEPgp2bPbZM-unsplash.png';
-import DegreeLogo from '../../assets/images/icons/graduation-cap.svg';
-import CertificationIcon from '../../assets/images/icons/certification.svg';
-
-// Images
-import trackCardImg from '../../assets/images/mockups/home-courses/a.png';
-import miniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-startup-stock-photos-7096.png';
+import authorImg from '../../assets/images/pages/home-content/user--7.png';
+import author02Img from '../../assets/images/pages/home-content/user-4.png';
+import bigLectureCardImg from '../../assets/images/pages/home-content/big-lecture.png';
+import smallLectureCardImg from '../../assets/images/pages/home-content/thumbnail-cesb3.png';
+import centralBannerCardImg from '../../assets/images/pages/home-content/ballpen-blur-close-up-computer-461077.png';
 
 // Mockup Data
 import CoursesReleasesData from '../../data/courses-releases.json';
-import MyCourses from '../../data/user-mockup/my-courses.json';
-import LastTracksData from '../../data/last-tracks.json';
 
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
@@ -62,11 +52,12 @@ import carouselResponsiveConfig from '../../styles/config/carouselResponsiveConf
 import {
   CarouselDots,
   StyledCarousel,
-  MyCoursesContainer,
+  LecturesContainer,
+  MediumBannerCard,
+  BigLectureCard,
+  SmallLectureCard,
   CoursesCarouselContainer,
-  CourseModeContainer,
   CentralBannerContainer,
-  MiniCourseSection,
 } from './styles';
 
 // Importação da estilização comum a todas as homes
@@ -75,27 +66,20 @@ import {
   ArticleHeader,
   ExtrasSection,
   ContentWrapper,
-  LastTracksContainer,
 } from '../../styles/common/HomeStyledComponents';
 
 const HomeCourses = () => {
-  document.title = 'Cursos | Elevagro';
+  document.title = 'Conteúdos | Elevagro';
 
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
 
   const [coursesReleases, setCoursesReleases] = useState(null);
-  const [userCourses, setUserCourses] = useState(null);
-  const [lastTracks, setLastTracks] = useState(null);
 
   useEffect(() => {
     // Simula a chamada da API
     const responseDataCourses = CoursesReleasesData;
-    const responseDataUserCourses = MyCourses;
-    const responseDataLastTracks = LastTracksData;
 
     setCoursesReleases(responseDataCourses);
-    setUserCourses(responseDataUserCourses);
-    setLastTracks(responseDataLastTracks);
   }, []);
 
   // Funções para teste
@@ -134,6 +118,7 @@ const HomeCourses = () => {
 
   return (
     <Container>
+      {/* Header padrão das páginas Home */}
       <Header
         viewerStatus={viewerStatus}
         handleLogin={handleLogin}
@@ -141,6 +126,7 @@ const HomeCourses = () => {
         becomePremium={becomePremium}
       />
 
+      {/* Hero da página com carrossel */}
       <StyledCarousel>
         <AliceCarousel
           responsive={{ 0: 1 }}
@@ -192,76 +178,24 @@ const HomeCourses = () => {
         </AliceCarousel>
       </StyledCarousel>
 
-      <SearchContainer inputPlaceholder="Procure um curso">
-        <NavCard linkTo="/tracks" backgroundImg={trackCardImg}>
-          <h4>
-            Trilhas
+      {/* Sessão de buscas e do banner da página de cursos */}
+      <SearchContainer inputPlaceholder="O que você quer aprender?">
+        <BannerCard linkTo="/courses">
+          <h4>Cursos Elevagro</h4>
+          <p>
+            Potencialize o seu treinamento
             <br />
-            de Ensino
-          </h4>
-        </NavCard>
-
-        <NavCard linkTo="/" backgroundImg={miniCourseCardImg}>
-          <h4>
-            Mini
-            <br />
-            Cursos
-          </h4>
-        </NavCard>
+            ou da sua equipe.
+          </p>
+        </BannerCard>
       </SearchContainer>
 
-      {viewerStatus !== 'visit' && (
-        <MyCoursesContainer>
-          <ContentWrapper>
-            <ArticleHeader>
-              <section className="header__title">
-                <h3>MEUS CURSOS</h3>
-                <div className="border-bottom" />
-                <Link to="/">
-                  <span className="desktop__link">VER TODOS</span>
-
-                  <img
-                    src={goInsideIcon}
-                    alt="Ver..."
-                    className="mobile__link"
-                  />
-                </Link>
-              </section>
-            </ArticleHeader>
-
-            {userCourses && userCourses.length > 4 && (
-              <Carousel responsive={carouselResponsiveConfig} paddingRight={10}>
-                {userCourses &&
-                  userCourses.map(course => (
-                    <UserCourseCard course={course} key={course.id} />
-                  ))}
-              </Carousel>
-            )}
-
-            {userCourses && userCourses.length <= 4 && (
-              <section className="courses-container">
-                {userCourses &&
-                  userCourses.map(course => (
-                    <UserCourseCard course={course} key={course.id} />
-                  ))}
-              </section>
-            )}
-
-            <footer>
-              <Link to="/">
-                MEUS CURSOS
-                <FiLogIn size={25} />
-              </Link>
-            </footer>
-          </ContentWrapper>
-        </MyCoursesContainer>
-      )}
-
-      <CoursesCarouselContainer background className="courses-releases">
+      {/* Sessão de lançamentos */}
+      <CoursesCarouselContainer className="courses-releases">
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
-              <h3>LANÇAMENTOS</h3>
+              <h3>conteúdos MAIS RECENTES</h3>
               <div className="border-bottom" />
               <Link to="/">
                 <span className="desktop__link">VER TODOS</span>
@@ -283,12 +217,95 @@ const HomeCourses = () => {
         </ContentWrapper>
       </CoursesCarouselContainer>
 
-      <MiniCourseSection>
+      {/* Sessão de palestras */}
+      <LecturesContainer background>
+        {/* A propriedade background, deixa o background cinza no styled-component */}
         <ContentWrapper>
-          <main>
+          <ArticleHeader>
+            <section className="header__title">
+              <h3>PalestraS Online</h3>
+              <div className="border-bottom" />
+              <Link to="/lectures">
+                <span className="desktop__link">VER TODAS</span>
+
+                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
+              </Link>
+            </section>
+          </ArticleHeader>
+
+          {/* Card grande de palestra */}
+          <BigLectureCard background={bigLectureCardImg}>
+            <div className="cover-authors__section">
+              <div className="authors__section">
+                <div className="author">
+                  <img src={authorImg} alt="" />
+                  <p>Dr. Laércio B. Inácio</p>
+                </div>
+
+                <div className="author">
+                  <img src={author02Img} alt="" />
+                  <p>Marcos Copetti</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="text__section">
+              <h6 className="lecture__title">
+                Alertas importantes sobre misturas de produtos em tanque de
+                pulverização
+              </h6>
+
+              <div className="info__section">
+                <div className="lecture__day">
+                  <span>Quando?</span>
+                  <p>20/04</p>
+                </div>
+
+                <div className="lecture__hour">
+                  <span>Horário</span>
+                  <p>19h</p>
+                </div>
+
+                <Link to="/" className="lecture__link">
+                  Saiba mais
+                </Link>
+
+                <Link to="/" className="lecture__signup-link">
+                  Inscreva-se aqui
+                </Link>
+              </div>
+            </div>
+          </BigLectureCard>
+
+          {/* Card pequeno de palestra */}
+          <SmallLectureCard>
+            <img src={smallLectureCardImg} alt="" className="lecture__cover" />
+
+            <div className="text__section">
+              <h6 className="lecture__category">Palestra Online</h6>
+
+              <p className="lecture__title">
+                Doenças da soja: proteção da planta para maximizar o enchimento
+                de grãos
+              </p>
+
+              <div className="links__section">
+                <Link to="/" className="lecture__link">
+                  Saiba mais
+                </Link>
+
+                <Link to="/" className="lecture__signup-link">
+                  Inscreva-se
+                </Link>
+              </div>
+            </div>
+          </SmallLectureCard>
+
+          {/* Card de palestras gravadas */}
+          <section className="recorded-lectures__card">
             <header>
               <div>
-                <h4>MINI CURSOS</h4>
+                <h4>GRAVAÇÕES DE PALESTRAS</h4>
                 <p>Exclusivos para Premium</p>
               </div>
               <Link to="/">VER TODOS</Link>
@@ -320,24 +337,16 @@ const HomeCourses = () => {
                 <FiChevronRight size={30} />
               </Link>
             </div>
-          </main>
-
-          <aside className="banner">
-            <div>
-              <h2>PROMOÇÃO</h2>
-              <p>Aprenda novas habilidades com cursos a partir de R$56,00</p>
-              <p>Área para banner</p>
-            </div>
-            <div className="filter" />
-          </aside>
+          </section>
         </ContentWrapper>
-      </MiniCourseSection>
+      </LecturesContainer>
 
-      <CoursesCarouselContainer background className="top-courses">
+      {/* Sessão dos cursos recomendados por região */}
+      <CoursesCarouselContainer>
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
-              <h3>Cursos em alta</h3>
+              <h3>RECOMENDADOS PARA A SUA REGIÃO</h3>
               <div className="border-bottom" />
               <Link to="/">
                 <span className="desktop__link">VER TODOS</span>
@@ -357,117 +366,21 @@ const HomeCourses = () => {
                 />
               ))}
           </Carousel>
+
+          <MediumBannerCard background={centralBannerCardImg}>
+            <div className="text-filter__section">
+              <h3>ÁREA PARA BANNER</h3>
+              <h4>Área para inserção de banner</h4>
+
+              <Link to="/" className="banner-cta__link">
+                CTA Customizável
+              </Link>
+            </div>
+          </MediumBannerCard>
         </ContentWrapper>
       </CoursesCarouselContainer>
 
-      <CourseModeContainer>
-        <ContentWrapper>
-          <ArticleHeader>
-            <section className="header__title">
-              <h3>MODALIDADES dos CursoS</h3>
-              <div className="border-bottom" />
-              <Link to="/">
-                <span className="desktop__link">VER TODOS</span>
-
-                <img src={goInsideIcon} alt="Ver..." className="mobile__link" />
-              </Link>
-            </section>
-          </ArticleHeader>
-
-          <section className="modes-section">
-            <div className="mode-card">
-              <img src={ElementaryImg} alt="" />
-              <main>
-                <div>
-                  <img
-                    src={ElementaryLogo}
-                    alt=""
-                    className="elementary-logo"
-                  />
-                  <span>20h</span>
-                </div>
-                <h4>ELEMENTARES</h4>
-                <p>Cursos rápidos para quem tem pressa em aprender.</p>
-              </main>
-            </div>
-
-            <div className="mode-card">
-              <img src={IntermediaryImg} alt="" />
-              <main>
-                <div>
-                  <img
-                    src={IntermediaryLogo}
-                    alt=""
-                    className="intermediary-logo"
-                  />
-                  <span>30h</span>
-                </div>
-                <h4>INTERMEDIÁRIOS</h4>
-                <p>Aliam os conceitos à prática com aprofundamento.</p>
-              </main>
-            </div>
-
-            <div className="mode-card">
-              <img src={AdvancedImg} alt="" />
-              <main>
-                <div>
-                  <img src={AdvancedLogo} alt="" className="advanced-logo" />
-                  <span>40h</span>
-                </div>
-                <h4>AVANÇADOS</h4>
-                <p>
-                  Nível mais aprofundado, para aprimorar a sua aprendizagem.
-                </p>
-              </main>
-            </div>
-
-            <div className="mode-card">
-              <img src={DegreeImg} alt="" />
-              <main>
-                <div>
-                  <img src={DegreeLogo} alt="" className="degree-logo" />
-                </div>
-                <h4>PÓS-GRADUAÇÃO</h4>
-                <p>
-                  Conhecimento técnico de altíssimo nível, com certificação do
-                  MEC.
-                </p>
-              </main>
-            </div>
-          </section>
-
-          <section className="certification">
-            <h2>
-              <img src={CertificationIcon} alt="" />
-              CERTIFICAÇÃO
-            </h2>
-            <p>
-              Os cursos Elevagro possuem certificação de acordo com a carga
-              horária de cada modalidade, e será emitido após o aluno atingir
-              uma nota mínima de 70% de aprovação.
-            </p>
-          </section>
-
-          <section className="themes-container">
-            <div>
-              <Link to="/">Soja</Link>
-              <Link to="/">Doenças</Link>
-              <Link to="/">Pragas</Link>
-              <Link to="/">Nutrição</Link>
-              <Link to="/">Solos</Link>
-              <Link to="/">GESTÃO</Link>
-              <Link to="/">Controle Biológico</Link>
-              <Link to="/">Tec. de aplicação</Link>
-              <Link to="/">GESTÃO</Link>
-              <Link to="/" className="more-themes">
-                <FiPlus size={20} />
-                TEMAS
-              </Link>
-            </div>
-          </section>
-        </ContentWrapper>
-      </CourseModeContainer>
-
+      {/* Sessão do banner central da página */}
       <CentralBannerContainer>
         <ContentWrapper>
           <section>
@@ -486,11 +399,12 @@ const HomeCourses = () => {
         </ContentWrapper>
       </CentralBannerContainer>
 
-      <LastTracksContainer>
+      {/* Sessão de conteúdos mais acessados */}
+      <CoursesCarouselContainer>
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
-              <h3>Últimas Trilhas adicionadas</h3>
+              <h3>Conteúdos mais acessados</h3>
               <div className="border-bottom" />
               <Link to="/">
                 <span className="desktop__link">VER TODOS</span>
@@ -500,37 +414,27 @@ const HomeCourses = () => {
             </section>
           </ArticleHeader>
 
-          {lastTracks &&
-            lastTracks.map(track => (
-              <div className="track" key={track.id}>
-                <main>
-                  <div className="text__container">
-                    <span>{track.type_name}</span>
-                    <h4>{track.title}</h4>
-                    <p>{track.catch_frase}</p>
-                  </div>
-
-                  <Link to="/track" className="CTA__button">
-                    Saiba mais
-                  </Link>
-                </main>
-
-                <div className="filter" />
-                <img
-                  src={track.cover_url}
-                  alt=""
-                  className="track__background"
+          {}
+          <Carousel responsive={carouselResponsiveConfig}>
+            {coursesReleases &&
+              coursesReleases.map(course => (
+                <CourseCardComponent
+                  viewerStatus={viewerStatus}
+                  course={course}
                 />
-              </div>
-            ))}
+              ))}
+          </Carousel>
         </ContentWrapper>
-      </LastTracksContainer>
+      </CoursesCarouselContainer>
 
-      <CoursesCarouselContainer className="top-courses-02">
+      {/* Card de login que aparece apenas para usuários do tipo 'visit' */}
+      {viewerStatus === 'visit' && <SignupCard />}
+
+      <CoursesCarouselContainer background>
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
-              <h3>Cursos em alta</h3>
+              <h3>Você pode gostar</h3>
               <div className="border-bottom" />
               <Link to="/">
                 <span className="desktop__link">VER TODOS</span>

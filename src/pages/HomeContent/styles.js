@@ -7,7 +7,6 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import trackCardImg from '../../assets/images/mockups/home-courses/a.png';
 import miniCourseCardImg from '../../assets/images/mockups/home-courses/pexels-startup-stock-photos-7096.png';
 import miniCourseHeaderImg from '../../assets/images/mockups/home-courses/photo-of-person-holding-black-pen-959816.png';
-import bannerImg from '../../assets/images/mockups/home-trilhas/person-in-blue-shirt-wearing-black-round-analog-watch-3747106.png';
 import centralBannerBackground from '../../assets/images/mockups/home-courses/notebook-1280538.png';
 
 // Importa os break points já configurados
@@ -24,6 +23,7 @@ export const CarouselDots = styled.div`
   margin: 0 0.5rem;
   border-radius: 50%;
   background: #f8f7f8;
+  transition: background-color 0.35s;
 
   opacity: 0.37;
 
@@ -38,6 +38,7 @@ export const CarouselDots = styled.div`
 `;
 
 export const StyledCarousel = styled.div`
+  // Div que contém os dots do carrossel, não os dots em si.
   .alice-carousel__dots {
     position: absolute;
     bottom: 1rem;
@@ -200,50 +201,15 @@ export const SearchContainer = styled.article`
   }
 `;
 
-export const MyCoursesContainer = styled.article`
-  padding-bottom: 3.8rem;
+export const LecturesContainer = styled.article`
+  overflow: hidden;
+  padding: 5.2rem 0 5rem;
 
-  footer {
-    width: 100%;
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 25.9rem;
-      height: 5.1rem;
-      margin: 0 auto;
-      border: 0.1rem solid #bfbfbf;
-      border-radius: 2.6rem;
-      text-decoration: none;
-      color: var(--color-text-in-white);
-      font: normal 2rem/2.5rem var(--font-primary);
-      transition: background-color 0.2s;
-
-      &:hover {
-        background: ${shade(0.2, '#ffffff')};
-      }
-
-      svg {
-        margin-left: 1rem;
-      }
-    }
-  }
-
-  .courses-container {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-
-    .user-course-card {
-      margin: 0 1rem 4rem;
-    }
-  }
-`;
-
-export const MiniCourseSection = styled.article`
-  width: 100%;
-  padding: 7rem 0;
+  ${p =>
+    p.background &&
+    css`
+      background: var(--color-background-secondary);
+    `}
 
   ${ContentWrapper} {
     display: flex;
@@ -251,13 +217,13 @@ export const MiniCourseSection = styled.article`
     justify-content: space-between;
   }
 
-  main {
+  .recorded-lectures__card {
     overflow: hidden;
     width: 39%;
     max-width: 56.1rem;
     height: 30.9rem;
     border-radius: 1.5rem;
-    background: var(--color-background-secondary);
+    background: var(--color-background);
 
     @media screen and (max-width: ${breakPoints.tablet}) {
       width: 100%;
@@ -344,61 +310,198 @@ export const MiniCourseSection = styled.article`
       }
     }
   }
+`;
 
-  aside.banner {
+export const BigLectureCard = styled.section`
+  overflow: hidden;
+  width: 55.5rem;
+  height: 30.2rem;
+  background: var(--color-background);
+  box-shadow: 0rem 0.3rem 0.6rem #00000029;
+  border-radius: 0.9rem;
+
+  .cover-authors__section {
     overflow: hidden;
-    position: relative;
-    width: 60%;
-    max-width: 86.1rem;
-    height: 31rem;
-    border-radius: 2rem;
-    background: url(${bannerImg}) no-repeat;
+    width: 100%;
+    height: 51%;
+    background: url(${p => p.background}) no-repeat center top;
     background-size: cover;
 
-    div {
-      z-index: +2;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      height: 100%;
+    .authors__section {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      align-items: center;
-      transform: translate(-50%, 0);
-      color: var(--color-secondary);
-
-      h2 {
-        font: normal 3.5rem/4.5rem var(--font-primary);
-      }
-
-      p {
-        font: normal 2.2rem/2.4rem var(--font-primary);
-        text-align: center;
-      }
-    }
-
-    .filter {
-      z-index: +1;
-      position: absolute;
-      top: 0;
-      width: 100%;
+      width: 46%;
       height: 100%;
-      background: #ffffff;
-      opacity: 0.81;
+      padding-left: 3.9rem;
+      background: rgba(20, 20, 20, 0.77);
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(99%, 0);
+        z-index: 4;
+        height: 0;
+        width: 0;
+        border-left: 3rem solid rgba(20, 20, 20, 0.77);
+        border-right: 0rem solid transparent;
+        border-bottom: 7.8rem solid transparent;
+        border-top: 7.8rem solid transparent;
+      }
+
+      .author {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 3.8rem;
+          height: 3.8rem;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        p {
+          margin-left: 1rem;
+          font: normal 1.4rem/2.2rem var(--font-primary);
+          color: var(--color-text-white);
+        }
+      }
     }
   }
 
-  @media screen and (max-width: ${breakPoints.tablet}) {
-    ${ContentWrapper} {
-      flex-direction: column;
-      align-items: center;
+  .text__section {
+    h6.lecture__title {
+      width: 100%;
+      padding: 2.4rem 2.8rem 2.6rem 3.4rem;
+      font: normal 1.6rem/2.2rem var(--font-primary);
     }
 
-    aside.banner {
+    .info__section {
       width: 100%;
-      max-width: unset;
-      margin-top: 5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-right: 2.8rem;
+      padding-left: 3.4rem;
+
+      .lecture__day,
+      .lecture__hour {
+        span {
+          font: normal 1.4rem/1.8rem var(--font-primary);
+          font-style: italic;
+        }
+
+        p {
+          font: normal 2rem/1.8rem var(--font-primary);
+          color: #5d883e;
+        }
+      }
+
+      .lecture__hour {
+        margin-right: 12%;
+      }
+
+      .lecture__link {
+        font: normal 1.5rem/1.9rem var(--font-primary);
+        color: #494949;
+
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      .lecture__signup-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 17.7rem;
+        height: 3.7rem;
+        background: var(--color-primary);
+        border-radius: 2.3rem;
+        color: #494949;
+        font: normal 1.6rem/1.9rem var(--font-primary);
+        text-decoration: none;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background: var(--color-primary-hover);
+        }
+      }
+    }
+  }
+`;
+
+export const SmallLectureCard = styled.section`
+  overflow: hidden;
+  width: 25.8rem;
+  height: 30.2rem;
+  background: var(--color-background);
+  box-shadow: 0rem 0.3rem 0.6rem #00000029;
+  border-radius: 0.8rem;
+
+  img.lecture__cover {
+    width: 100%;
+    height: 51%;
+    object-fit: cover;
+  }
+
+  .text__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 48%;
+    padding: 1rem 1rem 1.3rem;
+
+    h6.lecture__category {
+      font: normal 1.5rem/1.6rem var(--font-primary);
+      color: #5d883e;
+    }
+
+    p.lecture__title {
+      font: normal 1.6rem/1.8rem var(--font-primary);
+    }
+
+    .links__section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-left: 1rem;
+      padding-right: 0.2rem;
+
+      .lecture__link {
+        font: normal 1.5rem/1.9rem var(--font-primary);
+        color: #494949;
+
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      .lecture__signup-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 11.3rem;
+        height: 3.7rem;
+        background: var(--color-primary);
+        border-radius: 2.3rem;
+        color: #494949;
+        font: normal 1.6rem/1.9rem var(--font-primary);
+        text-decoration: none;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background: var(--color-primary-hover);
+        }
+      }
     }
   }
 `;
@@ -415,8 +518,59 @@ export const CoursesCarouselContainer = styled.article`
     p.background &&
     css`
       background: var(--color-background-secondary);
-      padding-top: ;
     `}
+`;
+
+export const MediumBannerCard = styled.section`
+  overflow: hidden;
+  width: 85.6rem;
+  height: 32.1rem;
+  margin-top: 10rem;
+  background: url(${p => p.background}) no-repeat center top;
+  background-size: cover;
+  border-radius: 0.9rem;
+
+  .text-filter__section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 8.1rem 6.1rem 3.7rem 6.6rem;
+    background: rgba(0, 0, 0, 0.53);
+
+    h3 {
+      margin-bottom: 0.8rem;
+      font: bold 3.3rem/2.4rem var(--font-primary);
+      text-transform: uppercase;
+      color: #b0d135;
+    }
+
+    h4 {
+      font: bold 2rem/2.4rem var(--font-primary);
+      text-transform: uppercase;
+      color: var(--color-text-white);
+    }
+
+    .banner-cta__link {
+      align-self: flex-end;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 17.1rem;
+      height: 4.3rem;
+      margin-top: auto;
+      background: var(--color-primary);
+      border-radius: 2.3rem;
+      color: #494949;
+      font: normal 1.6rem/1.9rem var(--font-primary);
+      text-decoration: none;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background: var(--color-primary-hover);
+      }
+    }
+  }
 `;
 
 export const CourseModeContainer = styled.article`

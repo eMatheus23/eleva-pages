@@ -6,7 +6,7 @@ import { isBefore } from 'date-fns';
 import { StyledCard } from './styles';
 
 // Icons
-import shareIcon from '../../../assets/images/icons/share-icon.svg';
+import shareIcon from '../../../assets/icons/share-icon.svg';
 
 // Components
 import CourseStatus from './CourseStatus';

@@ -9,8 +9,8 @@ import Switch from '@material-ui/core/Switch';
 import ButtonRounded from '../../Buttons';
 
 // Logos
-import googleLogo from '../../../assets/images/logos/google-logo.svg';
-import faceLogo from '../../../assets/images/logos/facebook-logo.svg';
+import googleLogo from '../../../assets/logos/google-logo.svg';
+import faceLogo from '../../../assets/logos/facebook-logo.svg';
 
 const LoginCard = ({ handleLogin }) => {
   const [state, setState] = useState({

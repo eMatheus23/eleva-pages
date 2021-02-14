@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 // Icons
-import deleteIcon from '../../../assets/images/icons/delete-product-checkout.svg';
+import deleteIcon from '../../../assets/icons/delete-product-checkout.svg';
 
 // Components
 import ButtonRounded from '../../Buttons';

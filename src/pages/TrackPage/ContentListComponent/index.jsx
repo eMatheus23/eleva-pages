@@ -14,7 +14,7 @@ import useDisableBodyScroll from '../../../utils/Hooks/useDisableBodyScroll';
 
 import AddCourseToCart from '../../../services/AddCourseToCart';
 
-import cartIcon from '../../../assets/images/icons/cart-icon.svg';
+import cartIcon from '../../../assets/icons/cart-icon.svg';
 
 const CourseDetailsModal = ({ closeModal, course, viewerStatus }) => {
   const history = useHistory();

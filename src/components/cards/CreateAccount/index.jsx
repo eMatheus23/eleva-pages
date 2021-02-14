@@ -19,8 +19,8 @@ import Select from '../../FormSelect';
 import CountryPicker from '../../CountryPicker';
 
 // Icons
-import ArrowRight from '../../../assets/images/icons/arrow-right-white.svg';
-import ArrowRightGray from '../../../assets/images/icons/arrow-right-gray.svg';
+import ArrowRight from '../../../assets/icons/arrow-right-white.svg';
+import ArrowRightGray from '../../../assets/icons/arrow-right-gray.svg';
 
 import getValidationErrors from '../../../utils/getValidationErrors';
 

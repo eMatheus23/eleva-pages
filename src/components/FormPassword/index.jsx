@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useField } from '@unform/core';
 
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
-import BitwiseImg from '../../assets/images/icons/bitwise.svg';
+import BitwiseImg from '../../assets/icons/bitwise.svg';
 
 import { Container } from './styles';
 

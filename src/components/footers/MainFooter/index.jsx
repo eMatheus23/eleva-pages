@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import logoElevagroImg from '../../../assets/images/logos/marca-elevagro.svg';
+import logoElevagroImg from '../../../assets/logos/marca-elevagro.svg';
 
 // Logos
-import instagramLogo from '../../../assets/images/logos/instagram-gray-logo.svg';
-import facebookLogo from '../../../assets/images/logos/facebook-gray-logo.svg';
-import youtubeLogo from '../../../assets/images/logos/youtube-gray-logo.svg';
-import messengerLogo from '../../../assets/images/logos/messenger-gray-logo.svg';
-import telegramLogo from '../../../assets/images/logos/telegram-gray-logo.svg';
-import whatsappLogo from '../../../assets/images/logos/whatsapp-gray-logo.svg';
-import mailLogo from '../../../assets/images/logos/mail-gray-logo.svg';
+import instagramLogo from '../../../assets/logos/instagram-gray-logo.svg';
+import facebookLogo from '../../../assets/logos/facebook-gray-logo.svg';
+import youtubeLogo from '../../../assets/logos/youtube-gray-logo.svg';
+import messengerLogo from '../../../assets/logos/messenger-gray-logo.svg';
+import telegramLogo from '../../../assets/logos/telegram-gray-logo.svg';
+import whatsappLogo from '../../../assets/logos/whatsapp-gray-logo.svg';
+import mailLogo from '../../../assets/logos/mail-gray-logo.svg';
 
 import { Container } from './styles';
 

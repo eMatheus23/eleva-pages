@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { rgba } from 'polished';
 
-import selectArrow from '../../assets/images/icons/form-select-open.svg';
+import selectArrow from '../../assets/icons/form-select-open.svg';
 
 export const Card = styled.div`
   position: relative;
