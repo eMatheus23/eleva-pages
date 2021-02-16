@@ -46,14 +46,12 @@ export const Container = styled.footer`
       margin-left: -0.4rem;
     }
 
-    p {
+    .brand-description {
+      max-width: 27.6rem;
+      margin-top: -0.4rem;
+
       font-size: 1.8rem;
       line-height: 2.6rem;
-
-      &.brand-description {
-        max-width: 27.6rem;
-        margin-top: -0.4rem;
-      }
     }
 
     h3 {
@@ -72,9 +70,7 @@ export const Container = styled.footer`
     }
 
     li {
-      font-family: var(--font-primary);
-      font-size: 1.8rem;
-      line-height: 2.5rem;
+      font: normal 1.4rem/2.5rem var(--font-primary);
       list-style: none;
 
       & + li {
@@ -94,16 +90,45 @@ export const Container = styled.footer`
       }
     }
 
+    .connected__section {
+      .connected-link__container {
+        a {
+          display: flex;
+          align-items: center;
+          width: 100%;
+
+          img {
+            width: 1.9rem;
+            margin-right: 0.6rem;
+          }
+        }
+
+        p {
+          font: normal 1.4rem/2rem var(--font-primary);
+        }
+
+        & + .connected-link__container {
+          margin-top: 1rem;
+        }
+      }
+    }
+
     .social-networks-links {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       flex-direction: row;
       gap: 0.3rem;
+      max-width: 17.3rem;
       margin-top: 0.8rem;
 
       img {
-        width: 3.9rem;
+        width: 3.3rem;
+        transition: transform 0.35s;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
       }
     }
   }

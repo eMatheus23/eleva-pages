@@ -223,7 +223,7 @@ const MainHeader = ({
                 </button>
               )}
               {viewerStatus !== 'visit' && (
-                <CustomBadge badgeContent={5}>
+                <CustomBadge badgeContent={1}>
                   <button type="button" className="profile-picture">
                     <img src={profileImg} alt="Entre no seu perfil" />
                   </button>

@@ -112,7 +112,8 @@ const HomeCourses = () => {
   // Funções para teste
 
   const shuffleArray = useCallback(originalArray => {
-    const array = originalArray;
+    const array = [...originalArray];
+
     let i = array.length - 1;
     for (; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

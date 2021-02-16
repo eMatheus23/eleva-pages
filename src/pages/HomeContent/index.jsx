@@ -39,6 +39,7 @@ import author02Img from '../../assets/images/pages/home-content/user-4.png';
 import bigLectureCardImg from '../../assets/images/pages/home-content/big-lecture.png';
 import smallLectureCardImg from '../../assets/images/pages/home-content/thumbnail-cesb3.png';
 import centralBannerCardImg from '../../assets/images/pages/home-content/ballpen-blur-close-up-computer-461077.png';
+import videoCoverImg from '../../assets/images/pages/home-content/video-cover.png';
 
 // Mockup Data
 import CoursesReleasesData from '../../data/courses-releases.json';
@@ -52,11 +53,14 @@ import carouselResponsiveConfig from '../../styles/config/carouselResponsiveConf
 import {
   CarouselDots,
   StyledCarousel,
+  CityDialog,
   LecturesContainer,
   MediumBannerCard,
   BigLectureCard,
   SmallLectureCard,
-  CoursesCarouselContainer,
+  RecordedLecturesCard,
+  BannedAndVideoSection,
+  ContentCarouselSection,
   CentralBannerContainer,
 } from './styles';
 
@@ -72,7 +76,7 @@ const HomeCourses = () => {
   document.title = 'Conteúdos | Elevagro';
 
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
-
+  const [tooltipPopupOpened, setTooltipPopupOpened] = useState(false);
   const [coursesReleases, setCoursesReleases] = useState(null);
 
   useEffect(() => {
@@ -178,6 +182,48 @@ const HomeCourses = () => {
         </AliceCarousel>
       </StyledCarousel>
 
+      {/* Sessão de diálogo da cidade do usuário free */}
+      {viewerStatus === 'free' && (
+        <CityDialog popupOpened={tooltipPopupOpened}>
+          <ContentWrapper>
+            <h3>
+              <strong>Marcos,</strong>
+              <> qual a é a </>
+              <strong>cidade</strong>
+              <> que você reside?</>
+            </h3>
+
+            <form className="input__container">
+              <input type="text" />
+
+              <button type="submit" name="user_city" htmlFor="city">
+                Enviar
+              </button>
+            </form>
+
+            <button
+              className="tooltip"
+              type="button"
+              onClick={() => setTooltipPopupOpened(!tooltipPopupOpened)}
+            >
+              <span>?</span>
+
+              <div className="tooltip__popup">
+                <h6>Por que perguntamos isso?</h6>
+                <p>
+                  <>Quanto mais completo estiver o </>
+                  <Link to="/">seu perfil</Link>
+                  <>
+                    , mais precisas serão as informações que enviaremos para
+                    você.
+                  </>
+                </p>
+              </div>
+            </button>
+          </ContentWrapper>
+        </CityDialog>
+      )}
+
       {/* Sessão de buscas e do banner da página de cursos */}
       <SearchContainer inputPlaceholder="O que você quer aprender?">
         <BannerCard linkTo="/courses">
@@ -191,7 +237,7 @@ const HomeCourses = () => {
       </SearchContainer>
 
       {/* Sessão de lançamentos */}
-      <CoursesCarouselContainer className="courses-releases">
+      <ContentCarouselSection className="courses-releases">
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
@@ -215,7 +261,7 @@ const HomeCourses = () => {
               ))}
           </Carousel>
         </ContentWrapper>
-      </CoursesCarouselContainer>
+      </ContentCarouselSection>
 
       {/* Sessão de palestras */}
       <LecturesContainer background>
@@ -233,116 +279,123 @@ const HomeCourses = () => {
             </section>
           </ArticleHeader>
 
-          {/* Card grande de palestra */}
-          <BigLectureCard background={bigLectureCardImg}>
-            <div className="cover-authors__section">
-              <div className="authors__section">
-                <div className="author">
-                  <img src={authorImg} alt="" />
-                  <p>Dr. Laércio B. Inácio</p>
-                </div>
+          {/* Container dos cards */}
+          <div className="cards__container">
+            {/* Card grande de palestra */}
+            <BigLectureCard background={bigLectureCardImg}>
+              <div className="cover-authors__section">
+                <div className="authors__section">
+                  <div className="author">
+                    <img src={authorImg} alt="" />
+                    <p>Dr. Laércio B. Inácio</p>
+                  </div>
 
-                <div className="author">
-                  <img src={author02Img} alt="" />
-                  <p>Marcos Copetti</p>
+                  <div className="author">
+                    <img src={author02Img} alt="" />
+                    <p>Marcos Copetti</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="text__section">
-              <h6 className="lecture__title">
-                Alertas importantes sobre misturas de produtos em tanque de
-                pulverização
-              </h6>
+              <div className="text__section">
+                <h6 className="lecture__title">
+                  Alertas importantes sobre misturas de produtos em tanque de
+                  pulverização
+                </h6>
 
-              <div className="info__section">
-                <div className="lecture__day">
-                  <span>Quando?</span>
-                  <p>20/04</p>
+                <div className="info__section">
+                  <div className="lecture__day">
+                    <span>Quando?</span>
+                    <p>20/04</p>
+                  </div>
+
+                  <div className="lecture__hour">
+                    <span>Horário</span>
+                    <p>19h</p>
+                  </div>
+
+                  <Link to="/" className="lecture__link">
+                    Saiba mais
+                  </Link>
+
+                  <Link to="/" className="lecture__signup-link">
+                    Inscreva-se aqui
+                  </Link>
                 </div>
+              </div>
+            </BigLectureCard>
 
-                <div className="lecture__hour">
-                  <span>Horário</span>
-                  <p>19h</p>
+            {/* Card pequeno de palestra */}
+            <SmallLectureCard>
+              <img
+                src={smallLectureCardImg}
+                alt=""
+                className="lecture__cover"
+              />
+
+              <div className="text__section">
+                <h6 className="lecture__category">Palestra Online</h6>
+
+                <p className="lecture__title">
+                  Doenças da soja: proteção da planta para maximizar o
+                  enchimento de grãos
+                </p>
+
+                <div className="links__section">
+                  <Link to="/" className="lecture__link">
+                    Saiba mais
+                  </Link>
+
+                  <Link to="/" className="lecture__signup-link">
+                    Inscreva-se
+                  </Link>
                 </div>
-
-                <Link to="/" className="lecture__link">
-                  Saiba mais
-                </Link>
-
-                <Link to="/" className="lecture__signup-link">
-                  Inscreva-se aqui
-                </Link>
               </div>
-            </div>
-          </BigLectureCard>
+            </SmallLectureCard>
 
-          {/* Card pequeno de palestra */}
-          <SmallLectureCard>
-            <img src={smallLectureCardImg} alt="" className="lecture__cover" />
+            {/* Card de palestras gravadas */}
+            <RecordedLecturesCard>
+              <header>
+                <div>
+                  <h4>GRAVAÇÕES DE PALESTRAS</h4>
+                  <p>Exclusivos para Premium</p>
+                </div>
+                <Link to="/">VER TODOS</Link>
+                <img src={cardDetailMini} alt="" className="green-chevron" />
+              </header>
 
-            <div className="text__section">
-              <h6 className="lecture__category">Palestra Online</h6>
-
-              <p className="lecture__title">
-                Doenças da soja: proteção da planta para maximizar o enchimento
-                de grãos
-              </p>
-
-              <div className="links__section">
-                <Link to="/" className="lecture__link">
-                  Saiba mais
-                </Link>
-
-                <Link to="/" className="lecture__signup-link">
-                  Inscreva-se
-                </Link>
-              </div>
-            </div>
-          </SmallLectureCard>
-
-          {/* Card de palestras gravadas */}
-          <section className="recorded-lectures__card">
-            <header>
               <div>
-                <h4>GRAVAÇÕES DE PALESTRAS</h4>
-                <p>Exclusivos para Premium</p>
+                <Link to="/" className="lecture">
+                  <img src={MiniCourseImg} alt="" />
+                  Métodos ágeis aplicado no agronegócio
+                  <FiChevronRight size={30} />
+                </Link>
+
+                <Link to="/" className="lecture">
+                  <img src={MiniCourseImg02} alt="" />
+                  Academia do RTV
+                  <FiChevronRight size={30} />
+                </Link>
+
+                <Link to="/" className="lecture">
+                  <img src={MiniCourseImg03} alt="" />
+                  Caminhos do novo agro
+                  <FiChevronRight size={30} />
+                </Link>
+
+                <Link to="/" className="lecture">
+                  <img src={MiniCourseImg04} alt="" />
+                  Consultoria agrícola: criando mercados
+                  <FiChevronRight size={30} />
+                </Link>
               </div>
-              <Link to="/">VER TODOS</Link>
-              <img src={cardDetailMini} alt="" className="green-chevron" />
-            </header>
-
-            <div>
-              <Link to="/" className="mini-course">
-                <img src={MiniCourseImg} alt="" />
-                Métodos ágeis aplicado no agronegócio
-                <FiChevronRight size={30} />
-              </Link>
-
-              <Link to="/" className="mini-course">
-                <img src={MiniCourseImg02} alt="" />
-                Academia do RTV
-                <FiChevronRight size={30} />
-              </Link>
-
-              <Link to="/" className="mini-course">
-                <img src={MiniCourseImg03} alt="" />
-                Caminhos do novo agro
-                <FiChevronRight size={30} />
-              </Link>
-
-              <Link to="/" className="mini-course">
-                <img src={MiniCourseImg04} alt="" />
-                Consultoria agrícola: criando mercados
-                <FiChevronRight size={30} />
-              </Link>
-            </div>
-          </section>
+            </RecordedLecturesCard>
+          </div>
         </ContentWrapper>
       </LecturesContainer>
 
       {/* Sessão dos cursos recomendados por região */}
-      <CoursesCarouselContainer>
+      <ContentCarouselSection>
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
@@ -366,7 +419,11 @@ const HomeCourses = () => {
                 />
               ))}
           </Carousel>
+        </ContentWrapper>
+      </ContentCarouselSection>
 
+      <BannedAndVideoSection>
+        <ContentWrapper>
           <MediumBannerCard background={centralBannerCardImg}>
             <div className="text-filter__section">
               <h3>ÁREA PARA BANNER</h3>
@@ -377,8 +434,14 @@ const HomeCourses = () => {
               </Link>
             </div>
           </MediumBannerCard>
+
+          <div className="video__container">
+            <h4 className="video__title">Eleve sua produção</h4>
+
+            <video controls poster={videoCoverImg} className="video" />
+          </div>
         </ContentWrapper>
-      </CoursesCarouselContainer>
+      </BannedAndVideoSection>
 
       {/* Sessão do banner central da página */}
       <CentralBannerContainer>
@@ -400,7 +463,7 @@ const HomeCourses = () => {
       </CentralBannerContainer>
 
       {/* Sessão de conteúdos mais acessados */}
-      <CoursesCarouselContainer>
+      <ContentCarouselSection>
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
@@ -425,12 +488,13 @@ const HomeCourses = () => {
               ))}
           </Carousel>
         </ContentWrapper>
-      </CoursesCarouselContainer>
+      </ContentCarouselSection>
 
       {/* Card de login que aparece apenas para usuários do tipo 'visit' */}
       {viewerStatus === 'visit' && <SignupCard />}
 
-      <CoursesCarouselContainer background>
+      {/* Sessão de conteúdos "Você pode gostar" */}
+      <ContentCarouselSection background>
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
@@ -455,7 +519,7 @@ const HomeCourses = () => {
               ))}
           </Carousel>
         </ContentWrapper>
-      </CoursesCarouselContainer>
+      </ContentCarouselSection>
 
       <ExtrasSection>
         <ContentWrapper>

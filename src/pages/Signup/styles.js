@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-// const fontPrimary = 'Montserrat, sans-serif';
-// const fontSecondary = 'Source Sans Pro, sans-serif';
-
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;

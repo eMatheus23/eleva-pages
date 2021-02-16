@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 
 import { Container } from './styles';
 
-// // CSS
-// import './styles.css';
-
 // Components
 import Footer from '../../components/footers/CheckoutFooter';
 import HeaderSignup from '../../components/HeaderSignup';

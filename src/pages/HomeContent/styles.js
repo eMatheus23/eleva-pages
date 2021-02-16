@@ -48,6 +48,149 @@ export const StyledCarousel = styled.div`
   }
 `;
 
+export const CityDialog = styled.div`
+  width: 100%;
+  min-height: 5.7rem;
+  background: var(--color-primary);
+
+  ${ContentWrapper} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 5.7rem;
+  }
+
+  h3 {
+    font: normal 1.8rem/1.8rem var(--font-primary);
+  }
+
+  .input__container {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    width: 32.6rem;
+    height: 3.3rem;
+    margin-left: 1rem;
+    border-radius: 1.7rem;
+    background: var(--color-background);
+
+    input {
+      flex: 1;
+      height: 100%;
+      padding-left: 1.5rem;
+    }
+
+    button {
+      width: 6.8rem;
+      height: 2rem;
+      background: none;
+      font: normal 1.5rem/1.5rem var(--font-primary);
+      border-left: 1px solid #bfbfbf;
+    }
+  }
+
+  .tooltip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 2rem;
+    border-radius: 50%;
+    background: #e4e4e4;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background: ${shade(0.2, '#e4e4e4')};
+    }
+
+    span {
+      font: normal 1.3rem/1.7rem var(--font-primary);
+    }
+
+    .tooltip__popup {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(100%, -100%);
+      display: none;
+      width: 22.2rem;
+      height: 9.8rem;
+      padding: 1.7rem 1.8rem 0;
+      background: #ffffff;
+      box-shadow: 0px 3px 6px #00000029;
+      border-radius: 33px 33px 33px 0px;
+      transition: opacity 0.4s;
+      visibility: hidden;
+
+      h6 {
+        margin-bottom: 0.1rem;
+        font: bold 1.1rem/1.4rem var(--font-primary);
+        text-transform: uppercase;
+        color: #5d883e;
+      }
+
+      p {
+        font: normal 1.2rem/1.3rem var(--font-primary);
+        text-align: left;
+      }
+
+      a {
+        color: var(--color-text-link);
+
+        &:hover {
+          color: #5d883e;
+        }
+      }
+    }
+
+    ${p =>
+      p.popupOpened &&
+      css`
+        background: ${shade(0.2, '#e4e4e4')};
+
+        .tooltip__popup {
+          display: block;
+          opacity: 1;
+          visibility: visible;
+        }
+      `}
+
+    @media screen and (max-width: ${breakPoints.tablet}) {
+      .tooltip__popup {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-100%, -100%);
+        border-radius: 33px 33px 0px 33px;
+      }
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.tabletPortrait}) {
+    ${ContentWrapper} {
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    h3 {
+      width: 100%;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    .input__container {
+      width: 80%;
+      /* width: 25.6rem; */
+    }
+  }
+`;
+
 export const SearchContainer = styled.article`
   display: flex;
   justify-content: space-between;
@@ -201,120 +344,10 @@ export const SearchContainer = styled.article`
   }
 `;
 
-export const LecturesContainer = styled.article`
-  overflow: hidden;
-  padding: 5.2rem 0 5rem;
-
-  ${p =>
-    p.background &&
-    css`
-      background: var(--color-background-secondary);
-    `}
-
-  ${ContentWrapper} {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .recorded-lectures__card {
-    overflow: hidden;
-    width: 39%;
-    max-width: 56.1rem;
-    height: 30.9rem;
-    border-radius: 1.5rem;
-    background: var(--color-background);
-
-    @media screen and (max-width: ${breakPoints.tablet}) {
-      width: 100%;
-      max-width: unset;
-      height: unset;
-    }
-
-    header {
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      width: 100%;
-      height: 8.4rem;
-      padding: 1rem 3.3rem 1rem 4rem;
-      background: url(${miniCourseHeaderImg}) no-repeat;
-      background-size: cover;
-
-      div {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        justify-content: center;
-      }
-
-      h4 {
-        font: normal 2rem/2rem var(--font-primary);
-        color: var(--color-text-white);
-      }
-
-      p {
-        font: normal 1.7rem/2rem var(--font-primary);
-        color: var(--color-text-white);
-      }
-
-      a {
-        font: normal 15px/15px var(--font-primary);
-        color: var(--color-text-white);
-      }
-
-      .green-chevron {
-        position: absolute;
-        top: 0;
-        left: 48%;
-        transform: translate(-50%, 0);
-        height: 8.4rem;
-      }
-    }
-
-    > div {
-      width: 100%;
-      padding: 1rem 3.3rem 2rem 3.9rem;
-    }
-
-    .mini-course {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.6rem;
-      color: var(--color-text-base);
-      font: normal 1.5rem/2rem var(--font-primary);
-      text-decoration: none;
-      transition: transform 0.2s;
-
-      &:hover {
-        transform: translateY(-0.1rem);
-      }
-
-      img {
-        width: 4rem;
-        height: 4rem;
-        margin-right: 1rem;
-        border-radius: 0.9rem;
-        object-fit: cover;
-      }
-
-      svg {
-        margin-left: auto;
-      }
-
-      & + .mini-course {
-        padding-top: 0.6rem;
-        border-top: 1px solid #bfbfbf;
-      }
-    }
-  }
-`;
-
 export const BigLectureCard = styled.section`
   overflow: hidden;
-  width: 55.5rem;
+  width: 38%;
+  max-width: 55.5rem;
   height: 30.2rem;
   background: var(--color-background);
   box-shadow: 0rem 0.3rem 0.6rem #00000029;
@@ -381,9 +414,10 @@ export const BigLectureCard = styled.section`
 
     .info__section {
       width: 100%;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 2fr 2fr;
+      grid-gap: 0.5rem;
       align-items: flex-end;
-      justify-content: space-between;
       padding-right: 2.8rem;
       padding-left: 3.4rem;
 
@@ -400,12 +434,10 @@ export const BigLectureCard = styled.section`
         }
       }
 
-      .lecture__hour {
-        margin-right: 12%;
-      }
-
       .lecture__link {
         font: normal 1.5rem/1.9rem var(--font-primary);
+        margin-right: 20%;
+        text-align: right;
         color: #494949;
 
         transition: transform 0.2s;
@@ -419,13 +451,15 @@ export const BigLectureCard = styled.section`
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 17.7rem;
+        max-width: 17.7rem;
         height: 3.7rem;
+        padding: 0 0.8rem;
         background: var(--color-primary);
         border-radius: 2.3rem;
         color: #494949;
         font: normal 1.6rem/1.9rem var(--font-primary);
         text-decoration: none;
+        text-align: center;
         transition: background-color 0.2s;
 
         &:hover {
@@ -438,7 +472,9 @@ export const BigLectureCard = styled.section`
 
 export const SmallLectureCard = styled.section`
   overflow: hidden;
-  width: 25.8rem;
+  min-width: 23.8rem;
+  width: 20%;
+  max-width: 25.8rem;
   height: 30.2rem;
   background: var(--color-background);
   box-shadow: 0rem 0.3rem 0.6rem #00000029;
@@ -506,7 +542,154 @@ export const SmallLectureCard = styled.section`
   }
 `;
 
-export const CoursesCarouselContainer = styled.article`
+export const RecordedLecturesCard = styled.section`
+  overflow: hidden;
+  width: 38%;
+  max-width: 56.1rem;
+  height: 30.9rem;
+  border-radius: 1.5rem;
+  background: var(--color-background);
+
+  header {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    height: 8.4rem;
+    padding: 1rem 3.3rem 1rem 4rem;
+    background: url(${miniCourseHeaderImg}) no-repeat;
+    background-size: cover;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+    }
+
+    h4 {
+      font: normal 2rem/2rem var(--font-primary);
+      color: var(--color-text-white);
+    }
+
+    p {
+      font: normal 1.7rem/2rem var(--font-primary);
+      color: var(--color-text-white);
+    }
+
+    a {
+      font: normal 15px/15px var(--font-primary);
+      color: var(--color-text-white);
+    }
+
+    .green-chevron {
+      position: absolute;
+      top: 0;
+      left: 48%;
+      transform: translate(-50%, 0);
+      height: 8.4rem;
+    }
+  }
+
+  > div {
+    width: 100%;
+    padding: 1rem 3.3rem 2rem 3.9rem;
+  }
+
+  .lecture {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    color: var(--color-text-base);
+    font: normal 1.5rem/2rem var(--font-primary);
+    text-decoration: none;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: translateY(-0.1rem);
+    }
+
+    img {
+      width: 4rem;
+      height: 4rem;
+      margin-right: 1rem;
+      border-radius: 0.9rem;
+      object-fit: cover;
+    }
+
+    svg {
+      margin-left: auto;
+    }
+
+    & + .lecture {
+      padding-top: 0.6rem;
+      border-top: 1px solid #bfbfbf;
+    }
+  }
+`;
+
+export const LecturesContainer = styled.article`
+  overflow: hidden;
+  padding: 5.2rem 0 5rem;
+
+  ${p =>
+    p.background &&
+    css`
+      background: var(--color-background-secondary);
+    `}
+
+  ${ContentWrapper} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .cards__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    .cards__container {
+      width: 94rem;
+    }
+
+    ${BigLectureCard} {
+      width: 60%;
+    }
+
+    ${RecordedLecturesCard} {
+      margin-top: 5rem;
+      width: 100%;
+      max-width: unset;
+      height: unset;
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.extendedPhone}) {
+    .cards__container {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    ${BigLectureCard} {
+      width: 100%;
+    }
+
+    ${SmallLectureCard} {
+      width: 100%;
+      margin-top: 5rem;
+    }
+  }
+`;
+
+export const ContentCarouselSection = styled.article`
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -523,9 +706,10 @@ export const CoursesCarouselContainer = styled.article`
 
 export const MediumBannerCard = styled.section`
   overflow: hidden;
-  width: 85.6rem;
+  width: 59%;
+  max-width: 85.6rem;
   height: 32.1rem;
-  margin-top: 10rem;
+  margin-right: 3rem;
   background: url(${p => p.background}) no-repeat center top;
   background-size: cover;
   border-radius: 0.9rem;
@@ -569,6 +753,48 @@ export const MediumBannerCard = styled.section`
       &:hover {
         background: var(--color-primary-hover);
       }
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    width: 100%;
+    margin-bottom: 5rem;
+  }
+`;
+
+export const BannedAndVideoSection = styled.article`
+  width: 100%;
+  padding-bottom: 10rem;
+
+  ${ContentWrapper} {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .video__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 56.5rem;
+
+    .video__title {
+      margin-bottom: 1.2rem;
+      font: normal 2.5rem/3rem var(--font-primary);
+      text-transform: uppercase;
+    }
+
+    .video {
+      width: 100%;
+      height: 32.1rem;
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.tablet}) {
+    ${ContentWrapper} {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
     }
   }
 `;

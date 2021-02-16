@@ -62,11 +62,23 @@ const MainFooter = () => (
           </ul>
         </div>
 
-        <div className="col-lg-3 col-sm-4 col-6">
-          <h3>WHATSAPP</h3>
+        <div className="col-lg-3 col-sm-4 col-6 connected__section">
+          <h3>CONECTADO</h3>
           <ul>
-            <li>
-              <Link to="/track">Receba conteúdo exclusivo no seu WhatsApp</Link>
+            <li className="connected-link__container">
+              <Link to="/track">
+                <img src={whatsappLogo} alt="Whatsapp" />
+                WHATSAPP
+              </Link>
+              <p>Seja avisado sobre palestras e eventos </p>
+            </li>
+
+            <li className="connected-link__container">
+              <Link to="/track">
+                <img src={telegramLogo} alt="Telegram" />
+                TELEGRAM
+              </Link>
+              <p>Receba conteúdo exclusivo</p>
             </li>
           </ul>
         </div>
