@@ -21,9 +21,10 @@ import SearchContainer, {
   BannerCard,
 } from '../../components/home-components/HomeSearchContainer';
 import Carousel from '../../components/Carousel';
-import CourseCardComponent from '../../components/home-components/HomeCourseCard';
+import ContentCard from '../../components/cards/ContentCard';
 import { FindOutButton } from '../../components/Buttons';
 import SignupCard from '../../components/home-components/HomeSignupCard';
+import PremiumOfferCard from '../../components/home-components/HomePremiumOfferCard';
 import Footer from '../../components/footers/MainFooter';
 
 // Mockups
@@ -42,7 +43,7 @@ import centralBannerCardImg from '../../assets/images/pages/home-content/ballpen
 import videoCoverImg from '../../assets/images/pages/home-content/video-cover.png';
 
 // Mockup Data
-import CoursesReleasesData from '../../data/courses-releases.json';
+import contentData from '../../data/content.json';
 
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
@@ -77,13 +78,13 @@ const HomeCourses = () => {
 
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
   const [tooltipPopupOpened, setTooltipPopupOpened] = useState(false);
-  const [coursesReleases, setCoursesReleases] = useState(null);
+  const [content, setContent] = useState(null);
 
   useEffect(() => {
     // Simula a chamada da API
-    const responseDataCourses = CoursesReleasesData;
+    const responseDataContent = contentData;
 
-    setCoursesReleases(responseDataCourses);
+    setContent(responseDataContent);
   }, []);
 
   // Funções para teste
@@ -225,7 +226,7 @@ const HomeCourses = () => {
       )}
 
       {/* Sessão de buscas e do banner da página de cursos */}
-      <SearchContainer inputPlaceholder="O que você quer aprender?">
+      <SearchContainer inputPlaceholder="O que quer aprender?">
         <BannerCard linkTo="/courses">
           <h4>Cursos Elevagro</h4>
           <p>
@@ -237,7 +238,7 @@ const HomeCourses = () => {
       </SearchContainer>
 
       {/* Sessão de lançamentos */}
-      <ContentCarouselSection className="courses-releases">
+      <ContentCarouselSection>
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">
@@ -252,13 +253,8 @@ const HomeCourses = () => {
           </ArticleHeader>
 
           <Carousel responsive={carouselResponsiveConfig}>
-            {coursesReleases &&
-              coursesReleases.map(course => (
-                <CourseCardComponent
-                  viewerStatus={viewerStatus}
-                  course={course}
-                />
-              ))}
+            {content &&
+              content.map(item => <ContentCard content={item} key={item.id} />)}
           </Carousel>
         </ContentWrapper>
       </ContentCarouselSection>
@@ -284,7 +280,7 @@ const HomeCourses = () => {
             {/* Card grande de palestra */}
             <BigLectureCard background={bigLectureCardImg}>
               <div className="cover-authors__section">
-                <div className="authors__section">
+                <div className="authors__overlay">
                   <div className="author">
                     <img src={authorImg} alt="" />
                     <p>Dr. Laércio B. Inácio</p>
@@ -364,7 +360,7 @@ const HomeCourses = () => {
                 <img src={cardDetailMini} alt="" className="green-chevron" />
               </header>
 
-              <div>
+              <div className="card__content">
                 <Link to="/" className="lecture">
                   <img src={MiniCourseImg} alt="" />
                   Métodos ágeis aplicado no agronegócio
@@ -410,18 +406,15 @@ const HomeCourses = () => {
           </ArticleHeader>
 
           <Carousel responsive={carouselResponsiveConfig}>
-            {coursesReleases &&
-              shuffleArray(coursesReleases).map(course => (
-                <CourseCardComponent
-                  viewerStatus={viewerStatus}
-                  course={course}
-                  key={course.id}
-                />
+            {content &&
+              shuffleArray(content).map(item => (
+                <ContentCard content={item} key={item.id} />
               ))}
           </Carousel>
         </ContentWrapper>
       </ContentCarouselSection>
 
+      {/* Sessão do banner médio e do vídeo */}
       <BannedAndVideoSection>
         <ContentWrapper>
           <MediumBannerCard background={centralBannerCardImg}>
@@ -479,19 +472,17 @@ const HomeCourses = () => {
 
           {}
           <Carousel responsive={carouselResponsiveConfig}>
-            {coursesReleases &&
-              coursesReleases.map(course => (
-                <CourseCardComponent
-                  viewerStatus={viewerStatus}
-                  course={course}
-                />
-              ))}
+            {content &&
+              content.map(item => <ContentCard content={item} key={item.id} />)}
           </Carousel>
         </ContentWrapper>
       </ContentCarouselSection>
 
       {/* Card de login que aparece apenas para usuários do tipo 'visit' */}
       {viewerStatus === 'visit' && <SignupCard />}
+
+      {/* Banner com propaganda do Premium para usuários 'free */}
+      {viewerStatus === 'free' && <PremiumOfferCard />}
 
       {/* Sessão de conteúdos "Você pode gostar" */}
       <ContentCarouselSection background>
@@ -510,12 +501,9 @@ const HomeCourses = () => {
 
           {}
           <Carousel responsive={carouselResponsiveConfig}>
-            {coursesReleases &&
-              coursesReleases.map(course => (
-                <CourseCardComponent
-                  viewerStatus={viewerStatus}
-                  course={course}
-                />
+            {content &&
+              shuffleArray(content).map(item => (
+                <ContentCard content={item} key={item.id} />
               ))}
           </Carousel>
         </ContentWrapper>

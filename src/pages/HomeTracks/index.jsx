@@ -14,6 +14,7 @@ import SearchContainer, {
   BannerCard,
 } from '../../components/home-components/HomeSearchContainer';
 import SignupCard from '../../components/home-components/HomeSignupCard';
+import PremiumOfferCard from '../../components/home-components/HomePremiumOfferCard';
 import HomeHero from '../../components/home-components/HomeHero';
 import { FindOutButton } from '../../components/Buttons';
 import Carousel from '../../components/Carousel';
@@ -58,7 +59,6 @@ import {
   HighlightsCard,
   ThemesContainer,
   CareerCard,
-  BecomePremiumCard,
 } from './styles';
 
 // Importação da estilização comum a todas as homes
@@ -541,26 +541,7 @@ const HomeTracks = () => {
 
       {viewerStatus === 'visit' && <SignupCard />}
 
-      {viewerStatus === 'free' && (
-        <BecomePremiumCard>
-          <ContentWrapper>
-            <div className="card">
-              <section>
-                <h2>SEJA PREMIUM</h2>
-                <p>
-                  E acesse TODos OS MATERIAIS DA
-                  <br />
-                  PLATAFORMA DE CONTEÚDOS e ganhe vantagens
-                </p>
-
-                <Link to="/plans">QUERO SER PREMIUM</Link>
-              </section>
-
-              <div className="filter-black" />
-            </div>
-          </ContentWrapper>
-        </BecomePremiumCard>
-      )}
+      {viewerStatus === 'free' && <PremiumOfferCard />}
 
       <CarouselContainer>
         <ContentWrapper>

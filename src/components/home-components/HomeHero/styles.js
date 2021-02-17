@@ -137,6 +137,20 @@ export const Hero = styled.section`
       display: none;
     }
   }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    .page-title {
+      padding: 2rem 0 3rem;
+    }
+
+    h1 {
+      display: none;
+    }
+
+    h2 {
+      font: normal 3.2rem/3.3rem var(--font-primary);
+    }
+  }
 `;
 
 export const HeroDesignDetails = styled.div`

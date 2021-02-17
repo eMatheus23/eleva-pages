@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "type": "video",
+    "url_name": "",
+    "cover_url": "https://i.ibb.co/SNwh1YS/thumbnail-4.png",
+    "title": "Exemplo de conteúdo de vídeos premium",
+    "category": "Entomologia"
+  },
+  {
+    "id": "2",
+    "type": "lecture",
+    "url_name": "",
+    "cover_url": "https://i.ibb.co/phJNkfK/thumbnail-22121.png",
+    "title": "Exemplo de conteúdo de palestra para usuário premium",
+    "category": "Palestra Online"
+  },
+  {
+    "id": "3",
+    "type": "technical_material",
+    "url_name": "",
+    "cover_url": "https://i.ibb.co/xX3vWRz/thumbnail-2.png",
+    "title": "Exemplo de conteúdo materiais técnicos para usuário premium",
+    "category": "Plantas daninhas"
+  },
+  {
+    "id": "4",
+    "type": "podcast",
+    "url_name": "",
+    "cover_url": "https://i.ibb.co/h8k7hBS/e46b692797a5f542958fcfce31108d05.png",
+    "title": "Exemplo de conteúdo da categoria podcast para usuário premium",
+    "category": "Entomologia"
+  },
+  {
+    "id": "5",
+    "type": "picture",
+    "url_name": "",
+    "cover_url": "https://i.ibb.co/fHJbs2j/thumbnail-10.png",
+    "title": "Exemplo de conteúdo da categoria fotos para usuário premium",
+    "category": "Nutrição"
+  },
+  {
+    "id": "6",
+    "type": "article",
+    "url_name": "",
+    "cover_url": "https://i.ibb.co/d0LzzBg/b8436544b202d1902cb9f72c2c468bc7.png",
+    "title": "Besouro colorido na folha da soja",
+    "category": "Entomologia"
+  },
+  {
+    "id": "7",
+    "type": "picture",
+    "url_name": "",
+    "cover_url": "https://i.ibb.co/TcSkkHZ/152a335455914e1720c0a0662ef470cd.png",
+    "title": "Manejo da resistência de insetos a inseticidas e a plantas geneticamente modificadas",
+    "category": "Entomologia"
+  }
+]

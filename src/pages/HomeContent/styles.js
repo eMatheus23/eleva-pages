@@ -177,7 +177,8 @@ export const CityDialog = styled.div`
     }
 
     h3 {
-      width: 100%;
+      min-width: 26.8rem;
+      width: 80%;
       margin-bottom: 1rem;
       text-align: center;
     }
@@ -360,7 +361,7 @@ export const BigLectureCard = styled.section`
     background: url(${p => p.background}) no-repeat center top;
     background-size: cover;
 
-    .authors__section {
+    .authors__overlay {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -408,6 +409,7 @@ export const BigLectureCard = styled.section`
   .text__section {
     h6.lecture__title {
       width: 100%;
+      height: 9.6rem;
       padding: 2.4rem 2.8rem 2.6rem 3.4rem;
       font: normal 1.6rem/2.2rem var(--font-primary);
     }
@@ -592,7 +594,7 @@ export const RecordedLecturesCard = styled.section`
     }
   }
 
-  > div {
+  .card__content {
     width: 100%;
     padding: 1rem 3.3rem 2rem 3.9rem;
   }
@@ -626,6 +628,16 @@ export const RecordedLecturesCard = styled.section`
     & + .lecture {
       padding-top: 0.6rem;
       border-top: 1px solid #bfbfbf;
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.extendedPhone}) {
+    header {
+      padding: 1rem 2rem;
+    }
+
+    .card__content {
+      padding: 1rem 2rem 3.9rem;
     }
   }
 `;
@@ -680,6 +692,27 @@ export const LecturesContainer = styled.article`
 
     ${BigLectureCard} {
       width: 100%;
+
+      .cover-authors__section {
+        .authors__overlay {
+          width: 69%;
+        }
+      }
+
+      .text__section {
+        .lecture__title {
+          padding: 1rem 1.5rem 2rem;
+        }
+
+        .info__section {
+          grid-template-columns: 1.2fr 1fr 2fr 4fr;
+          padding: 0 1.5rem;
+        }
+
+        .lecture__link {
+          text-align: center;
+        }
+      }
     }
 
     ${SmallLectureCard} {
@@ -724,7 +757,7 @@ export const MediumBannerCard = styled.section`
 
     h3 {
       margin-bottom: 0.8rem;
-      font: bold 3.3rem/2.4rem var(--font-primary);
+      font: bold 3.3rem/3.4rem var(--font-primary);
       text-transform: uppercase;
       color: #b0d135;
     }
@@ -759,6 +792,14 @@ export const MediumBannerCard = styled.section`
   @media screen and (max-width: ${breakPoints.tablet}) {
     width: 100%;
     margin-bottom: 5rem;
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    margin-right: 0;
+
+    .text-filter__section {
+      padding: 3rem 2rem;
+    }
   }
 `;
 
@@ -795,6 +836,16 @@ export const BannedAndVideoSection = styled.article`
     ${ContentWrapper} {
       flex-wrap: wrap;
       justify-content: space-evenly;
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.extendedPhone}) {
+    ${ContentWrapper} {
+      justify-content: space-evenly;
+    }
+
+    .video__container .video {
+      height: unset;
     }
   }
 `;
