@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "category": "Soja",
+    "category_id": "1",
+    "category_state_name": "soja"
+  },
+  {
+    "id": "2",
+    "category": "Milho",
+    "category_id": "2",
+    "category_state_name": "milho"
+  },
+  {
+    "id": "3",
+    "category": "Algodão",
+    "category_id": "3",
+    "category_state_name": "algodao"
+  },
+  {
+    "id": "4",
+    "category": "Feijão",
+    "category_id": "4",
+    "category_state_name": "feijao"
+  },
+  {
+    "id": "5",
+    "category": "Plantas Daninhas",
+    "category_id": "5",
+    "category_state_name": "plantasDaninhas"
+  },
+  {
+    "id": "6",
+    "category": "Outras",
+    "category_id": "6",
+    "category_state_name": "outras"
+  }
+]
