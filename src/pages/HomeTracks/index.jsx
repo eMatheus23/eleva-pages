@@ -80,35 +80,21 @@ const carouselResponsiveConfigSmall = {
 const HomeTracks = () => {
   document.title = 'Trilhas de Ensino | Elevagro';
 
+  /* -------- STATUS DE USUÁRO -------- */
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
+  const handleStatus = useCallback(status => {
+    localStorage.setItem('@elevagro-app/viewer-status', status);
 
-  // Funções para teste
-  const handleLogin = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'free');
-
-    setViewerStatus('free');
+    setViewerStatus(status);
   }, []);
-
-  const backToVisit = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
-
-    setViewerStatus('visit');
-  }, []);
-
-  const becomePremium = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'premium');
-
-    setViewerStatus('premium');
-  }, []);
-  // Funções para teste
-
+  /* -------- STATUS DE USUÁRO -------- */
   return (
     <Container>
       <Header
         viewerStatus={viewerStatus}
-        handleLogin={handleLogin}
-        backToVisit={backToVisit}
-        becomePremium={becomePremium}
+        handleLogin={() => handleStatus('free')}
+        backToVisit={() => handleStatus('visit')}
+        becomePremium={() => handleStatus('premium')}
       />
 
       <HomeHero background={heroImg}>

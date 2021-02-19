@@ -10,7 +10,8 @@ import HomeHero from '../../components/home-components/HomeHero';
 import Carousel from '../../components/Carousel';
 import CourseCardComponent from '../../components/home-components/HomeCourseCard';
 import SearchInput from '../../components/SearchInput';
-import HomeSignupCard from '../../components/home-components/HomeSignupCard';
+import SignupCard from '../../components/home-components/HomeSignupCard';
+import PremiumOfferCard from '../../components/home-components/HomePremiumOfferCard';
 import Footer from '../../components/footers/MainFooter';
 
 // Mockups
@@ -45,7 +46,14 @@ import {
 const HomeCoursesPromo = () => {
   document.title = 'Trilhas de Ensino | Elevagro';
 
+  /* -------- STATUS DE USUÁRO -------- */
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
+  const handleStatus = useCallback(status => {
+    localStorage.setItem('@elevagro-app/viewer-status', status);
+
+    setViewerStatus(status);
+  }, []);
+  /* -------- STATUS DE USUÁRO -------- */
 
   const [coursesReleases, setCoursesReleases] = useState(null);
   const [lastTracks, setLastTracks] = useState(null);
@@ -59,47 +67,13 @@ const HomeCoursesPromo = () => {
     setLastTracks(responseDataLastTracks);
   }, []);
 
-  // Funções para teste
-  const handleLogin = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'free');
-
-    setViewerStatus('free');
-  }, []);
-
-  const backToVisit = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
-
-    setViewerStatus('visit');
-  }, []);
-
-  const becomePremium = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'premium');
-
-    setViewerStatus('premium');
-  }, []);
-  // Funções para teste
-
-  // const shuffleArray = useCallback(originalArray => {
-  //   const array = originalArray;
-  //   let i = array.length - 1;
-  //   for (; i > 0; i--) {
-  //     const j = Math.floor(Math.random() * (i + 1));
-  //     const temp = array[i];
-  //     array[i] = array[j];
-  //     array[j] = temp;
-  //   }
-  //   return array;
-  // }, []);
-
-  // const shuffled = shuffleArray(coursesReleases && coursesReleases);
-
   return (
     <Container>
       <Header
         viewerStatus={viewerStatus}
-        handleLogin={handleLogin}
-        backToVisit={backToVisit}
-        becomePremium={becomePremium}
+        handleLogin={() => handleStatus('free')}
+        backToVisit={() => handleStatus('visit')}
+        becomePremium={() => handleStatus('premium')}
       />
 
       <HomeHero background={heroImg} justify="center">
@@ -265,31 +239,11 @@ const HomeCoursesPromo = () => {
         </ContentWrapper>
       </ExtrasSection>
 
-      {viewerStatus === 'visit' && <HomeSignupCard />}
+      {/* Card de login que aparece apenas para usuários do tipo 'visit' */}
+      {viewerStatus === 'visit' && <SignupCard />}
 
-      {viewerStatus === 'free' &&
-        {
-          /* COMPONENTIZAR
-
-          <BecomePremiumCard>
-          <ContentWrapper>
-            <div className="card">
-              <section>
-                <h2>SEJA PREMIUM</h2>
-                <p>
-                  E acesse TODos OS MATERIAIS DA
-                  <br />
-                  PLATAFORMA DE CONTEÚDOS e ganhe vantagens
-                </p>
-
-                <Link to="/plans">QUERO SER PREMIUM</Link>
-              </section>
-
-              <div className="filter-black" />
-            </div>
-          </ContentWrapper>
-        </BecomePremiumCard> */
-        }}
+      {/* Banner com propaganda do Premium para usuários 'free */}
+      {viewerStatus === 'free' && <PremiumOfferCard />}
 
       <Footer />
     </Container>

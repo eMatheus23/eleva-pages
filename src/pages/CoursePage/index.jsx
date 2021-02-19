@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
@@ -25,9 +25,16 @@ import clockIcon from '../../assets/icons/clock-icon.svg';
 const CoursePage = () => {
   document.title = 'Curso | Elevagro';
 
-  const [course, setCourse] = useState(null);
-
+  /* -------- STATUS DE USUÁRO -------- */
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
+  const handleStatus = useCallback(status => {
+    localStorage.setItem('@elevagro-app/viewer-status', status);
+
+    setViewerStatus(status);
+  }, []);
+  /* -------- STATUS DE USUÁRO -------- */
+
+  const [course, setCourse] = useState(null);
 
   useEffect(() => {
     // Simula a chamada da API
@@ -46,32 +53,13 @@ const CoursePage = () => {
     setActiveView(view);
   };
 
-  // Funções para teste
-  const handleLogin = () => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'free');
-
-    setViewerStatus('free');
-  };
-
-  const backToVisit = () => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
-
-    setViewerStatus('visit');
-  };
-
-  const becomePremium = () => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'premium');
-
-    setViewerStatus('premium');
-  };
-
   return (
     <div id="course-page">
       <MainHeader
         viewerStatus={viewerStatus}
-        handleLogin={handleLogin}
-        backToVisit={backToVisit}
-        becomePremium={becomePremium}
+        handleLogin={() => handleStatus('free')}
+        backToVisit={() => handleStatus('visit')}
+        becomePremium={() => handleStatus('premium')}
       />
 
       {course && (

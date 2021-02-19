@@ -26,7 +26,14 @@ import { Container } from '../../styles/common/HomeStyledComponents';
 const ContentListing = () => {
   document.title = 'Listagem de Conteúdos | Elevagro';
 
+  /* -------- STATUS DE USUÁRO -------- */
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
+  const handleStatus = useCallback(status => {
+    localStorage.setItem('@elevagro-app/viewer-status', status);
+
+    setViewerStatus(status);
+  }, []);
+  /* -------- STATUS DE USUÁRO -------- */
 
   const loadingRef = useRef(null);
   const [scrollState, setScrollState] = useState({
@@ -54,26 +61,6 @@ const ContentListing = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Funções para teste
-  const handleLogin = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'free');
-
-    setViewerStatus('free');
-  }, []);
-
-  const backToVisit = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
-
-    setViewerStatus('visit');
-  }, []);
-
-  const becomePremium = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'premium');
-
-    setViewerStatus('premium');
-  }, []);
-  // Funções para teste
-
   const refineParams = params => {
     console.log(params);
   };
@@ -82,9 +69,9 @@ const ContentListing = () => {
     <Container>
       <Header
         viewerStatus={viewerStatus}
-        handleLogin={handleLogin}
-        backToVisit={backToVisit}
-        becomePremium={becomePremium}
+        handleLogin={() => handleStatus('free')}
+        backToVisit={() => handleStatus('visit')}
+        becomePremium={() => handleStatus('premium')}
       />
 
       <ListingHero backgound={heroBackground}>

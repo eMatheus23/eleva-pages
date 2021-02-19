@@ -74,7 +74,14 @@ import {
 const HomeCourses = () => {
   document.title = 'Cursos | Elevagro';
 
+  /* -------- STATUS DE USUÁRO -------- */
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
+  const handleStatus = useCallback(status => {
+    localStorage.setItem('@elevagro-app/viewer-status', status);
+
+    setViewerStatus(status);
+  }, []);
+  /* -------- STATUS DE USUÁRO -------- */
 
   const [coursesReleases, setCoursesReleases] = useState(null);
   const [userCourses, setUserCourses] = useState(null);
@@ -90,26 +97,6 @@ const HomeCourses = () => {
     setUserCourses(responseDataUserCourses);
     setLastTracks(responseDataLastTracks);
   }, []);
-
-  // Funções para teste
-  const handleLogin = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'free');
-
-    setViewerStatus('free');
-  }, []);
-
-  const backToVisit = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'visit');
-
-    setViewerStatus('visit');
-  }, []);
-
-  const becomePremium = useCallback(() => {
-    localStorage.setItem('@elevagro-app/viewer-status', 'premium');
-
-    setViewerStatus('premium');
-  }, []);
-  // Funções para teste
 
   const shuffleArray = useCallback(originalArray => {
     const array = [...originalArray];
@@ -129,9 +116,9 @@ const HomeCourses = () => {
       {/* Header padrão das páginas home */}
       <Header
         viewerStatus={viewerStatus}
-        handleLogin={handleLogin}
-        backToVisit={backToVisit}
-        becomePremium={becomePremium}
+        handleLogin={() => handleStatus('free')}
+        backToVisit={() => handleStatus('visit')}
+        becomePremium={() => handleStatus('premium')}
       />
 
       {/* Hero padrão */}
