@@ -1,9 +1,8 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-import InfiniteScroll from 'react-infinite-scroll-component';
-
 // Componentes
+import InfiniteScroll from 'react-infinite-scroll-component';
 import Header from '../../components/headers/MainHeader';
 import SignupCard from './components/SignupCard';
 import ScrollTop from '../../components/ScrollTop';
@@ -62,6 +61,7 @@ const ContentListing = () => {
   }, []);
 
   const refineParams = params => {
+    // eslint-disable-next-line no-console
     console.log(params);
   };
 

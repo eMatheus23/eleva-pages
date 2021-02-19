@@ -13,6 +13,7 @@ import CheckoutAccessPage from '../pages/CheckoutAccessPage';
 import TrackPage from '../pages/TrackPage';
 import CoursePage from '../pages/CoursePage';
 import ContentListing from '../pages/ContentListing';
+import SearchListing from '../pages/SearchListing';
 import NotFound from '../pages/NotFound';
 
 const Routes = () => {
@@ -29,6 +30,7 @@ const Routes = () => {
         <Route path="/signup" component={Signup} />
         <Route path="/content" component={HomeContent} />
         <Route path="/content-listing" component={ContentListing} />
+        <Route path="/search" component={SearchListing} />
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route path="/checkout/bill" component={CheckoutBill} />
         <Route path="/checkout/access" component={CheckoutAccessPage} />
