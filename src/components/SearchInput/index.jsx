@@ -15,9 +15,9 @@ const SearchInput = ({ placeholder, fullWidth }) => {
         <button type="button" className="open-filter__button">
           <img src={filterIcon} alt="Filtrar" className="filter__icon" />
 
-          <span>CATEGORIA</span>
+          <span>FILTAR</span>
 
-          <img src={bitwiseImg} alt="" />
+          <img src={bitwiseImg} alt="" className="bitwise__icon" />
         </button>
 
         <input type="text" placeholder={placeholder} />

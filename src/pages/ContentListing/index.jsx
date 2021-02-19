@@ -24,6 +24,8 @@ import { ListingHero, Content, SmallerContentWrapper } from './styles';
 import { Container } from '../../styles/common/HomeStyledComponents';
 
 const ContentListing = () => {
+  document.title = 'Listagem de Conteúdos | Elevagro';
+
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
 
   const loadingRef = useRef(null);

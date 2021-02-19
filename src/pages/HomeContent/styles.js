@@ -53,6 +53,7 @@ export const CityDialog = styled.div`
   min-height: 5.7rem;
   background: var(--color-primary);
 
+  /* Sobreposição de estilização de componentes já estilizados */
   ${ContentWrapper} {
     display: flex;
     align-items: center;
@@ -720,21 +721,6 @@ export const LecturesContainer = styled.article`
       margin-top: 5rem;
     }
   }
-`;
-
-export const ContentCarouselSection = styled.article`
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0 auto;
-  padding: 5.2rem 0 5rem;
-
-  ${p =>
-    p.background &&
-    css`
-      background: var(--color-background-secondary);
-    `}
 `;
 
 export const MediumBannerCard = styled.section`

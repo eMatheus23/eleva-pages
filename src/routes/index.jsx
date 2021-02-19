@@ -13,6 +13,7 @@ import CheckoutAccessPage from '../pages/CheckoutAccessPage';
 import TrackPage from '../pages/TrackPage';
 import CoursePage from '../pages/CoursePage';
 import ContentListing from '../pages/ContentListing';
+import NotFound from '../pages/NotFound';
 
 const Routes = () => {
   return (
@@ -31,6 +32,7 @@ const Routes = () => {
         <Route exact path="/checkout" component={CheckoutPage} />
         <Route path="/checkout/bill" component={CheckoutBill} />
         <Route path="/checkout/access" component={CheckoutAccessPage} />
+        <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
   );

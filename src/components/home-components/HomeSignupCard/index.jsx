@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 // Signup card
 import { withStyles } from '@material-ui/core/styles';
@@ -19,7 +20,7 @@ const GreenCheckbox = withStyles({
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
-const HomeSignupCard = () => {
+const HomeSignupCard = ({ extraMarginBottom }) => {
   const [state, setState] = React.useState({
     checkedA: true,
   });
@@ -29,7 +30,7 @@ const HomeSignupCard = () => {
   };
 
   return (
-    <Container>
+    <Container extraMarginBottom={extraMarginBottom}>
       <ContentWrapper>
         <div className="card">
           <p className="card__text">
@@ -88,6 +89,14 @@ const HomeSignupCard = () => {
       </ContentWrapper>
     </Container>
   );
+};
+
+HomeSignupCard.propTypes = {
+  extraMarginBottom: PropTypes.bool,
+};
+
+HomeSignupCard.defaultProps = {
+  extraMarginBottom: false,
 };
 
 export default HomeSignupCard;

@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 
 // Importa os break points já configurados
 import breakPoints from '../../../styles/config/breakPoints';
@@ -6,7 +6,6 @@ import breakPoints from '../../../styles/config/breakPoints';
 export const Container = styled.article`
   width: 100%;
   min-height: 14.2rem;
-  margin-bottom: 7rem;
 
   .card {
     display: flex;
@@ -17,6 +16,12 @@ export const Container = styled.article`
     background: #408b68;
     color: var(--color-text-white);
     border-radius: 2rem;
+
+    ${p =>
+      p.extraMarginBottom &&
+      css`
+        margin-bottom: 7rem;
+      `}
 
     form {
       display: flex;

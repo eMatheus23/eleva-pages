@@ -539,9 +539,9 @@ const HomeTracks = () => {
         </ContentWrapper>
       </CarouselContainer>
 
-      {viewerStatus === 'visit' && <SignupCard />}
+      {viewerStatus === 'visit' && <SignupCard extraMarginBottom />}
 
-      {viewerStatus === 'free' && <PremiumOfferCard />}
+      {viewerStatus === 'free' && <PremiumOfferCard extraMarginBottom />}
 
       <CarouselContainer>
         <ContentWrapper>

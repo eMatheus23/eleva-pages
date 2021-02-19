@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 
 import BecomePremiumImg from '../../../assets/images/mockups/home-trilhas/ballpen-blur-close-up-computer-461077.png';
 
@@ -7,7 +7,6 @@ import breakPoints from '../../../styles/config/breakPoints';
 
 export const Container = styled.article`
   width: 100%;
-  margin-bottom: 7rem;
 
   .card {
     overflow: hidden;
@@ -20,6 +19,12 @@ export const Container = styled.article`
     background: url(${BecomePremiumImg}) no-repeat 55% top;
     background-size: cover;
     color: var(--color-text-white);
+
+    ${p =>
+      p.extraMarginBottom &&
+      css`
+        margin-bottom: 7rem;
+      `}
 
     section {
       z-index: +2;

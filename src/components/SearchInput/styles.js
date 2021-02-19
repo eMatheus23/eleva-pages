@@ -37,6 +37,10 @@ export const Container = styled.div`
         width: 1.5rem;
         margin-left: 2.3rem;
       }
+
+      .bitwise__icon {
+        height: 2.7rem;
+      }
     }
 
     input {

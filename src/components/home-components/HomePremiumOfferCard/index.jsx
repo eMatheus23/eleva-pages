@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
 // Importação da estilização comum a todas as homes
 import { ContentWrapper } from '../../../styles/common/HomeStyledComponents';
 
-export const HomePremiumOfferCard = () => (
-  <Container>
+export const HomePremiumOfferCard = ({ extraMarginBottom }) => (
+  <Container extraMarginBottom={extraMarginBottom}>
     <ContentWrapper>
       <div className="card">
         <section>
@@ -26,5 +27,13 @@ export const HomePremiumOfferCard = () => (
     </ContentWrapper>
   </Container>
 );
+
+HomePremiumOfferCard.propTypes = {
+  extraMarginBottom: PropTypes.bool,
+};
+
+HomePremiumOfferCard.defaultProps = {
+  extraMarginBottom: false,
+};
 
 export default HomePremiumOfferCard;

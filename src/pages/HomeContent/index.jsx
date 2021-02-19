@@ -61,7 +61,6 @@ import {
   SmallLectureCard,
   RecordedLecturesCard,
   BannedAndVideoSection,
-  ContentCarouselSection,
   CentralBannerContainer,
 } from './styles';
 
@@ -71,6 +70,7 @@ import {
   ArticleHeader,
   ExtrasSection,
   ContentWrapper,
+  ContentCarouselSection,
 } from '../../styles/common/HomeStyledComponents';
 
 const HomeCourses = () => {
@@ -479,10 +479,10 @@ const HomeCourses = () => {
       </ContentCarouselSection>
 
       {/* Card de login que aparece apenas para usuários do tipo 'visit' */}
-      {viewerStatus === 'visit' && <SignupCard />}
+      {viewerStatus === 'visit' && <SignupCard extraMarginBottom />}
 
       {/* Banner com propaganda do Premium para usuários 'free */}
-      {viewerStatus === 'free' && <PremiumOfferCard />}
+      {viewerStatus === 'free' && <PremiumOfferCard extraMarginBottom />}
 
       {/* Sessão de conteúdos "Você pode gostar" */}
       <ContentCarouselSection background>

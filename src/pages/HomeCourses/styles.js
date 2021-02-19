@@ -213,6 +213,7 @@ export const MiniCourseSection = styled.article`
   width: 100%;
   padding: 7rem 0;
 
+  /* Sobreposição de estilização de componentes já estilizados */
   ${ContentWrapper} {
     display: flex;
     flex-wrap: wrap;
@@ -371,26 +372,11 @@ export const MiniCourseSection = styled.article`
   }
 `;
 
-export const CoursesCarouselContainer = styled.article`
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: 0 auto;
-  padding: 5.2rem 0 5rem;
-
-  ${p =>
-    p.background &&
-    css`
-      background: var(--color-background-secondary);
-      padding-top: ;
-    `}
-`;
-
 export const CourseModeContainer = styled.article`
   width: 100%;
   padding-top: 7.1rem;
 
+  /* Sobreposição de estilização de componentes já estilizados */
   ${ContentWrapper} {
     display: flex;
     flex-wrap: wrap;
@@ -560,6 +546,7 @@ export const CourseModeContainer = styled.article`
   @media screen and (max-width: ${breakPoints.tablet}) {
     padding-bottom: 5rem;
 
+    /* Sobreposição de estilização de componentes já estilizados */
     ${ContentWrapper} {
       flex-direction: column;
       align-items: center;
@@ -619,6 +606,7 @@ export const CentralBannerContainer = styled.article`
       margin-top: 13rem;
     `}
 
+  /* Sobreposição de estilização de componentes já estilizados */
   ${ContentWrapper} {
     position: absolute;
     z-index: 10;
@@ -710,6 +698,7 @@ export const ExtrasSection = styled.article`
   width: 100%;
   padding: 5rem 0 9rem;
 
+  /* Sobreposição de estilização de componentes já estilizados */
   ${ContentWrapper} {
     display: flex;
     flex-wrap: wrap;
@@ -781,6 +770,7 @@ export const ExtrasSection = styled.article`
   }
 
   @media screen and (max-width: ${breakPoints.tablet}) {
+    /* Sobreposição de estilização de componentes já estilizados */
     ${ContentWrapper} {
       justify-content: space-evenly;
     }

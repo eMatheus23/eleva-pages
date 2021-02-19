@@ -56,7 +56,6 @@ import carouselResponsiveConfig from '../../styles/config/carouselResponsiveConf
 
 import {
   MyCoursesContainer,
-  CoursesCarouselContainer,
   CourseModeContainer,
   CentralBannerContainer,
   MiniCourseSection,
@@ -67,6 +66,7 @@ import {
   Container,
   ArticleHeader,
   ExtrasSection,
+  CoursesCarouselContainer,
   ContentWrapper,
   LastTracksContainer,
 } from '../../styles/common/HomeStyledComponents';

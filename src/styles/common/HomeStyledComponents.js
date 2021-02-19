@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled, { css } from 'styled-components/macro';
 import { shade } from 'polished';
 
 // Importa os break points já configurados
@@ -308,6 +308,37 @@ export const LastTracksContainer = styled.article`
       }
     }
   }
+`;
+
+export const CoursesCarouselContainer = styled.article`
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5.2rem 0 5rem;
+
+  ${p =>
+    p.background &&
+    css`
+      background: var(--color-background-secondary);
+      padding-top: ;
+    `}
+`;
+
+export const ContentCarouselSection = styled.article`
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5.2rem 0 5rem;
+
+  ${p =>
+    p.background &&
+    css`
+      background: var(--color-background-secondary);
+    `}
 `;
 
 export const ExtrasSection = styled.article`
