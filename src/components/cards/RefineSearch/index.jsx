@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 
 // MaterialUI Checkbox
 import { withStyles } from '@material-ui/core/styles';
@@ -26,7 +27,7 @@ const GreenCheckbox = withStyles({
 })(props => <Checkbox color="default" {...props} />);
 
 const RefineSearch = ({ refineParams }) => {
-  const [activeFilters, setActiveFilters] = useState({});
+  // const [activeFilters, setActiveFilters] = useState({});
 
   const getResults = params => {
     refineParams(params);
@@ -506,6 +507,11 @@ const RefineSearch = ({ refineParams }) => {
       </FilterField>
     </Container>
   );
+};
+
+RefineSearch.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  refineParams: PropTypes.object.isRequired,
 };
 
 export default RefineSearch;
