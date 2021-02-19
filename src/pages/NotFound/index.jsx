@@ -188,7 +188,7 @@ const NotFound = () => {
       {viewerStatus === 'free' && <PremiumOfferCard />}
 
       {/* Sessão de lançamentos. Propriedade "backgroud" ativa um background cinza */}
-      <CoursesCarouselContainer className="courses-releases">
+      <CoursesCarouselContainer>
         <ContentWrapper>
           <ArticleHeader>
             <section className="header__title">

@@ -11,6 +11,7 @@ export const NotFoundHero = styled.article`
   width: 100%;
   height: 29.2rem;
   background: url(${p => p.background}) no-repeat center top;
+  background-size: cover;
 
   /* Sobreposição de estilização de componentes já estilizados */
   ${ContentWrapper} {
@@ -28,8 +29,10 @@ export const NotFoundHero = styled.article`
   }
 
   h2 {
-    font: normal 2.4rem/4.3rem var(--font-primary);
+    margin-bottom: 1rem;
+    font: normal 2.4rem/3.3rem var(--font-primary);
     text-transform: uppercase;
+    text-align: center;
     color: #f7f7f7;
   }
 
@@ -50,6 +53,10 @@ export const NotFoundHero = styled.article`
     height: 100%;
     background: #141414;
     opacity: 0.68;
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    height: 38.2rem;
   }
 `;
 
@@ -130,10 +137,6 @@ export const SearchInputContainer = styled.div`
       }
     }
 
-    @media screen and (max-width: ${breakPoints.tablet}) {
-      width: 90vw;
-    }
-
     @media screen and (max-width: ${breakPoints.phone}) {
       .open-filter__button {
         width: fit-content;
@@ -151,7 +154,7 @@ export const SearchInputContainer = styled.div`
       input {
         flex: unset;
         width: 100%;
-        padding: 0 1.5rem;
+        padding: 0 1.2rem;
       }
     }
   }
@@ -196,6 +199,18 @@ export const NavButtonsContainer = styled.article`
     .menu-icon {
       width: 1.6rem;
       margin-right: 0.4rem;
+    }
+
+    & + .nav__button {
+      margin-left: 1rem;
+    }
+  }
+
+  @media screen and (max-width: ${breakPoints.phone}) {
+    .nav__button {
+      .menu-icon {
+        display: none;
+      }
     }
   }
 `;
