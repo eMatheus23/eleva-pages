@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 // MaterialUI Checkbox
 import { withStyles } from '@material-ui/core/styles';
@@ -18,138 +19,127 @@ const GreenCheckbox = withStyles({
       color: '#009688',
     },
   },
-  checkedIcon: {
-    '&:hover': {
-      backgroundColor: '#106ba3',
-    },
-  },
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
 const RefineSearch = ({ refineParams }) => {
-  // const [activeFilters, setActiveFilters] = useState({});
-
-  const getResults = params => {
-    refineParams(params);
-  };
-
   /* ------------------- Area ------------------- */
-  const inicialAreaState = {
-    checkedAll: true,
-    checkedDeseases: false,
-    checkedPlages: false,
-    checkedTecnology: false,
-    checkedNematodes: false,
-    checkedEntomology: false,
-    checkedOther: false,
-  };
   const [areasFilterClosed, setAreasFilterClosed] = useState(false);
   const [areasFilterFull, setAreasFilterFull] = useState(false);
-  const [areaState, setAreaState] = useState(inicialAreaState);
-
-  const handleAreaChange = event => {
-    if (event.target.name !== 'checkedAll') {
-      const newState = { ...areaState, checkedAll: false };
-      setAreaState({ ...newState, [event.target.name]: event.target.checked });
-    } else {
-      setAreaState(inicialAreaState);
-    }
-
-    setAreasFilterFull(true);
-  };
 
   /* ------------------- Cultura ------------------- */
-  const inicialCultureState = {
-    checkedAll: true,
-    checkedMilho: false,
-    checkedSoja: false,
-    checkedAlgodao: false,
-    checkedFeijao: false,
-    checkedPlantasDaninhas: false,
-    checkedOther: false,
-  };
   const [culturesClosed, setCulturesClosed] = useState(false);
   const [culturesFull, setCulturesFull] = useState(false);
-  const [cultureState, setCultureState] = useState(inicialCultureState);
-
-  const handleCultureChange = event => {
-    if (event.target.name !== 'checkedAll') {
-      const newState = { ...cultureState, checkedAll: false };
-
-      setCultureState({
-        ...newState,
-        [event.target.name]: event.target.checked,
-      });
-
-      getResults({
-        ...newState,
-        [event.target.name]: event.target.checked,
-      });
-    } else {
-      setCultureState(inicialCultureState);
-
-      getResults(inicialCultureState);
-    }
-
-    setCulturesFull(true);
-  };
 
   /* ------------------- Categoria do conteúdo ------------------- */
-  const contentInicialState = {
-    checkedAll: true,
-    checkedLectures: false,
-    checkedTechnical: false,
-    checkedVideos: false,
-    checkedPictures: false,
-    checkedPodcasts: false,
-    checkedOther: false,
-  };
   const [contentClosed, setContentClosed] = useState(false);
   const [contentFull, setContentFull] = useState(false);
-  const [contentState, setContentState] = useState(contentInicialState);
-
-  const handleContentChange = event => {
-    if (event.target.name !== 'checkedAll') {
-      const newState = { ...contentState, checkedAll: false };
-
-      setContentState({
-        ...newState,
-        [event.target.name]: event.target.checked,
-      });
-
-      getResults({
-        ...newState,
-        [event.target.name]: event.target.checked,
-      });
-    } else {
-      setContentState(contentInicialState);
-
-      getResults(contentInicialState);
-    }
-
-    setContentFull(true);
-  };
 
   /* ------------------- Idioma ------------------- */
-  const inicialLanguageState = {
-    checkedPortuguese: true,
-    checkedEnglish: false,
-    checkedSpanish: false,
-  };
-  const [languageClosed, setLanguageClosed] = useState(false);
-  const [languageState, setLanguageState] = useState(inicialLanguageState);
+  const [languageClosed, setLanguageClosed] = useState(true);
 
-  const handleLanguageChange = event => {
-    if (event.target.name !== 'checkedAll') {
-      const newState = { ...languageState };
-      setLanguageState({
-        ...newState,
-        [event.target.name]: event.target.checked,
-      });
-      setLanguageState({ ...newState, checkedTodas: false });
-    } else {
-      setLanguageState(inicialLanguageState);
+  const populateState = useCallback(data => {
+    const newState = {
+      area: {
+        area_all: true,
+      },
+      culture: {
+        culture_all: true,
+      },
+      content: {
+        content_all: true,
+      },
+      language: {
+        language_portuguese: true,
+        language_english: false,
+        language_spanish: false,
+      },
+    };
+
+    data.areas.map(item => (newState.area[`area_${item.id}`] = false));
+    data.cultures.map(item => (newState.culture[`culture_${item.id}`] = false));
+    data.content.map(item => (newState.content[`content_${item.id}`] = false));
+
+    return newState;
+  }, []);
+
+  const [filtersData, setFiltersData] = useState(null);
+  const [checkboxState, setCheckboxState] = useState(null);
+
+  useEffect(() => {
+    axios.get('./mockup-data/filters.json').then(response => {
+      const initialState = populateState(response.data);
+
+      setCheckboxState(initialState);
+      setFiltersData(response.data);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const sendNewApiRequest = filterParams => {
+    refineParams(filterParams);
+  };
+
+  const handleChange = event => {
+    // Desetruturação do evento, pegando o name e checked
+    const { name, checked } = event.target;
+
+    // Pega o campo do filtro. (Áreas, Conteúdos, etc...)
+    const [field] = name.split('_');
+
+    // Abre a visualização do campo correspondente
+    switch (field) {
+      case 'area':
+        setAreasFilterFull(true);
+        break;
+
+      case 'culture':
+        setCulturesFull(true);
+        break;
+
+      case 'content':
+        setContentFull(true);
+        break;
+
+      default:
+        // eslint-disable-next-line no-console
+        console.log(`Campo ${field} não encontrado.`);
     }
+
+    // Constrói o estado padrão dos filtros
+    const initialState = populateState(filtersData);
+
+    let fieldState = {};
+
+    // Se o checkbox clicado for o "Todos", reseta o checkboxState da área correspondente
+    if (name === `${field}_all`) {
+      fieldState = {
+        ...initialState[field],
+      };
+    } else {
+      // Se não for o "Todos", muda o estado do campo do filtro
+      fieldState = {
+        ...checkboxState[field],
+        [`${field}_all`]: false,
+        [name]: checked,
+      };
+    }
+
+    // Checa se nenhum item está selecionado
+    const selectedItems = Object.values(fieldState).filter(value => {
+      return value === true;
+    });
+
+    // Se nenhum item estiver selecionado, reseta os filtros
+    if (selectedItems.length === 0) {
+      fieldState = {
+        ...initialState[field],
+      };
+    }
+
+    sendNewApiRequest({ ...checkboxState, [field]: fieldState });
+
+    return setCheckboxState({ ...checkboxState, [field]: fieldState });
   };
 
   return (
@@ -175,70 +165,29 @@ const RefineSearch = ({ refineParams }) => {
           </div>
         </header>
         <main className="field__content">
-          <ul>
-            <li>
-              <GreenCheckbox
-                checked={areaState.checkedAll}
-                onChange={handleAreaChange}
-                name="checkedAll"
-              />
-              <span>Todas</span>
-            </li>
+          {filtersData && (
+            <ul>
+              <li>
+                <GreenCheckbox
+                  checked={checkboxState ? checkboxState.area.area_all : ''}
+                  onChange={handleChange}
+                  name="area_all"
+                />
+                <span>{`Todas (${filtersData.areas_count})`}</span>
+              </li>
 
-            <li>
-              <GreenCheckbox
-                checked={areaState.checkedDeseases}
-                onChange={handleAreaChange}
-                name="checkedDeseases"
-              />
-              <span>Doenças</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={areaState.checkedPlages}
-                onChange={handleAreaChange}
-                name="checkedPlages"
-              />
-              <span>Pragas</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={areaState.checkedTecnology}
-                onChange={handleAreaChange}
-                name="checkedTecnology"
-              />
-              <span>Tecnologia e Aplicação</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={areaState.checkedNematodes}
-                onChange={handleAreaChange}
-                name="checkedNematodes"
-              />
-              <span>Nematoides</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={areaState.checkedEntomology}
-                onChange={handleAreaChange}
-                name="checkedEntomology"
-              />
-              <span>Entomologia</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={areaState.checkedOther}
-                onChange={handleAreaChange}
-                name="checkedOther"
-              />
-              <span>Outros...</span>
-            </li>
-          </ul>
+              {filtersData.areas.map(area => (
+                <li key={area.id}>
+                  <GreenCheckbox
+                    checked={checkboxState.area[`area_${area.id}`]}
+                    onChange={handleChange}
+                    name={`area_${area.id}`}
+                  />
+                  <span>{`${area.category} (${area.category_count})`}</span>
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="field__linear-gradient" />
         </main>
@@ -275,70 +224,29 @@ const RefineSearch = ({ refineParams }) => {
           </div>
         </header>
         <main className="field__content">
-          <ul>
-            <li>
-              <GreenCheckbox
-                checked={cultureState.checkedAll}
-                onChange={handleCultureChange}
-                name="checkedAll"
-              />
-              <span>Todas</span>
-            </li>
+          {filtersData && (
+            <ul>
+              <li>
+                <GreenCheckbox
+                  checked={checkboxState.culture.culture_all}
+                  onChange={handleChange}
+                  name="culture_all"
+                />
+                <span>{`Todas (${filtersData.cultures_count})`}</span>
+              </li>
 
-            <li>
-              <GreenCheckbox
-                checked={cultureState.checkedMilho}
-                onChange={handleCultureChange}
-                name="checkedMilho"
-              />
-              <span>Milho</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={cultureState.checkedSoja}
-                onChange={handleCultureChange}
-                name="checkedSoja"
-              />
-              <span>Soja</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={cultureState.checkedAlgodao}
-                onChange={handleCultureChange}
-                name="checkedAlgodao"
-              />
-              <span>Algodão</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={cultureState.checkedFeijao}
-                onChange={handleCultureChange}
-                name="checkedFeijao"
-              />
-              <span>Feijão</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={cultureState.checkedPlantasDaninhas}
-                onChange={handleCultureChange}
-                name="checkedPlantasDaninhas"
-              />
-              <span>Plantas Daninhas</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={cultureState.checkedOther}
-                onChange={handleCultureChange}
-                name="checkedOther"
-              />
-              <span>Outros</span>
-            </li>
-          </ul>
+              {filtersData.cultures.map(culture => (
+                <li key={culture.id}>
+                  <GreenCheckbox
+                    checked={checkboxState.culture[`culture_${culture.id}`]}
+                    onChange={handleChange}
+                    name={`culture_${culture.id}`}
+                  />
+                  <span>{`${culture.category} (${culture.category_count})`}</span>
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="field__linear-gradient" />
         </main>
@@ -375,70 +283,29 @@ const RefineSearch = ({ refineParams }) => {
           </div>
         </header>
         <main className="field__content">
-          <ul>
-            <li>
-              <GreenCheckbox
-                checked={contentState.checkedAll}
-                onChange={handleContentChange}
-                name="checkedAll"
-              />
-              <span>Todas</span>
-            </li>
+          {filtersData && (
+            <ul>
+              <li>
+                <GreenCheckbox
+                  checked={checkboxState.content.content_all}
+                  onChange={handleChange}
+                  name="content_all"
+                />
+                <span>{`Todas (${filtersData.content_count})`}</span>
+              </li>
 
-            <li>
-              <GreenCheckbox
-                checked={contentState.checkedLectures}
-                onChange={handleContentChange}
-                name="checkedLectures"
-              />
-              <span>Palestras Online</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={contentState.checkedTechnical}
-                onChange={handleContentChange}
-                name="checkedTechnical"
-              />
-              <span>Materiais Técnicos</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={contentState.checkedVideos}
-                onChange={handleContentChange}
-                name="checkedVideos"
-              />
-              <span>Vídeos</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={contentState.checkedPictures}
-                onChange={handleContentChange}
-                name="checkedPictures"
-              />
-              <span>Fotos</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={contentState.checkedPodcasts}
-                onChange={handleContentChange}
-                name="checkedPodcasts"
-              />
-              <span>Podcasts</span>
-            </li>
-
-            <li>
-              <GreenCheckbox
-                checked={contentState.checkedOther}
-                onChange={handleContentChange}
-                name="checkedOther"
-              />
-              <span>Outros...</span>
-            </li>
-          </ul>
+              {filtersData.content.map(content => (
+                <li key={content.id}>
+                  <GreenCheckbox
+                    checked={checkboxState.content[`content_${content.id}`]}
+                    onChange={handleChange}
+                    name={`content_${content.id}`}
+                  />
+                  <span>{`${content.category} (${content.category_count})`}</span>
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="field__linear-gradient" />
         </main>
@@ -475,34 +342,36 @@ const RefineSearch = ({ refineParams }) => {
           </div>
         </header>
         <main className="field__content">
-          <ul>
-            <li>
-              <GreenCheckbox
-                checked={languageState.checkedPortuguese}
-                onChange={handleLanguageChange}
-                name="checkedPortuguese"
-              />
-              <span>Português</span>
-            </li>
+          {filtersData && (
+            <ul>
+              <li>
+                <GreenCheckbox
+                  checked={checkboxState.language.language_portuguese}
+                  onChange={handleChange}
+                  name="language_portuguese"
+                />
+                <span>{`Português (${filtersData.content_count})`}</span>
+              </li>
 
-            <li>
-              <GreenCheckbox
-                checked={languageState.checkedSpanish}
-                onChange={handleLanguageChange}
-                name="checkedSpanish"
-              />
-              <span>Espanhol</span>
-            </li>
+              <li>
+                <GreenCheckbox
+                  checked={checkboxState.language.language_spanish}
+                  onChange={handleChange}
+                  name="language_spanish"
+                />
+                <span>{`Espanhol (${filtersData.content_count})`}</span>
+              </li>
 
-            <li>
-              <GreenCheckbox
-                checked={languageState.checkedEnglish}
-                onChange={handleLanguageChange}
-                name="checkedEnglish"
-              />
-              <span>Inglês</span>
-            </li>
-          </ul>
+              <li>
+                <GreenCheckbox
+                  checked={checkboxState.language.language_english}
+                  onChange={handleChange}
+                  name="language_english"
+                />
+                <span>{`Espanhol (${filtersData.content_count})`}</span>
+              </li>
+            </ul>
+          )}
         </main>
       </FilterField>
     </Container>
@@ -511,7 +380,7 @@ const RefineSearch = ({ refineParams }) => {
 
 RefineSearch.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  refineParams: PropTypes.object.isRequired,
+  refineParams: PropTypes.func.isRequired,
 };
 
 export default RefineSearch;

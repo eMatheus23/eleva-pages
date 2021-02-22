@@ -1,0 +1,104 @@
+{
+  "areas": [
+    {
+      "id": "1",
+      "category": "Doenças",
+      "category_count": 600
+    },
+    {
+      "id": "2",
+      "category": "Pragas",
+      "category_count": 200
+    },
+    {
+      "id": "3",
+      "category": "Tecnologia e aplicação",
+      "category_count": 320
+    },
+    {
+      "id": "4",
+      "category": "Nematoides",
+      "category_count": 100
+    },
+    {
+      "id": "5",
+      "category": "Entomologia",
+      "category_count": 20
+    }
+  ],
+  "areas_count": 8300,
+  "cultures": [
+    {
+      "id": "11",
+      "category": "Soja",
+      "category_count": "500"
+    },
+    {
+      "id": "12",
+      "category": "Milho",
+      "category_count": "500"
+    },
+    {
+      "id": "13",
+      "category": "Algodão",
+      "category_count": "500"
+    },
+    {
+      "id": "14",
+      "category": "Feijão",
+      "category_count": "500"
+    },
+    {
+      "id": "15",
+      "category": "Plantas Daninhas",
+      "category_count": "500"
+    }
+  ],
+  "cultures_count": 8300,
+  "content": [
+    {
+      "id": "21",
+      "category": "Palestras Online",
+      "category_count": "500"
+    },
+    {
+      "id": "22",
+      "category": "Material Técnico",
+      "category_count": "500"
+    },
+    {
+      "id": "23",
+      "category": "Vídeo",
+      "category_count": "500"
+    },
+    {
+      "id": "24",
+      "category": "Fotos",
+      "category_count": "500"
+    },
+    {
+      "id": "25",
+      "category": "Podcasts",
+      "category_count": "500"
+    }
+  ],
+  "content_count": 8300,
+  "languages": [
+    {
+      "id": "33",
+      "category": "Portugês",
+      "category_count": "500"
+    },
+    {
+      "id": "34",
+      "category": "Espanhol",
+      "category_count": "500"
+    },
+    {
+      "id": "35",
+      "category": "Inglês",
+      "category_count": "500"
+    }
+  ],
+  "language_count": 8300
+}
