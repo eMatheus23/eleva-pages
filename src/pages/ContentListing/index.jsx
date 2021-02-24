@@ -35,9 +35,7 @@ const ContentListing = () => {
   /* -------- STATUS DE USUÁRO -------- */
 
   const loadingRef = useRef(null);
-  const [scrollState, setScrollState] = useState({
-    page: 0,
-  });
+  const [pageState, setPageState] = useState(0);
   const [content, setContent] = useState([]);
 
   useEffect(() => {
@@ -47,22 +45,40 @@ const ContentListing = () => {
     setContent(responseDataContent);
   }, []);
 
-  const getContent = page => {
+  const getContent = params => {
     setTimeout(() => {
-      axios.get(`./mockup-data/content.json?_page=${page}`).then(res => {
-        setContent([...content, ...res.data]);
-        setScrollState({ page: scrollState.page + 1 });
-      });
+      axios
+        .get(`./mockup-data/content.json?${params || ''}_page=${pageState}`)
+        .then(res => {
+          setContent([...content, ...res.data]);
+          setPageState(pageState + 1);
+        });
     }, 1500);
   };
   useEffect(() => {
-    getContent(scrollState.page);
+    getContent();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const refineParams = params => {
-    // eslint-disable-next-line no-console
-    console.log(params);
+  const refineSearch = filters => {
+    let params = '';
+
+    Object.keys(filters).map(typeFilter =>
+      Object.keys(filters[typeFilter]).map(chaveValorFilter => {
+        if (filters[typeFilter][chaveValorFilter]) {
+          return (params += `_${typeFilter}[]=${chaveValorFilter
+            .replace(typeFilter, '')
+            .replace('_', '')}&`);
+        }
+
+        return '';
+      }),
+    );
+
+    setPageState(0);
+    setContent([]);
+
+    getContent(params);
   };
 
   return (
@@ -104,7 +120,7 @@ const ContentListing = () => {
           <aside>
             <SignupCard viewerStatus={viewerStatus} />
 
-            <RefineSearch refineParams={refineParams} />
+            <RefineSearch refineSearch={refineSearch} />
 
             <div className="observer__target" ref={loadingRef} />
 

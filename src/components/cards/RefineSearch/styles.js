@@ -40,6 +40,7 @@ export const FilterField = styled.div`
     overflow-y: hidden;
     overflow-x: visible;
     position: relative;
+    width: 100%;
     height: 15rem;
 
     ${p =>

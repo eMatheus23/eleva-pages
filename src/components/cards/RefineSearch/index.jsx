@@ -22,7 +22,7 @@ const GreenCheckbox = withStyles({
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
-const RefineSearch = ({ refineParams }) => {
+const RefineSearch = ({ refineSearch }) => {
   /* ------------------- Area ------------------- */
   const [areasFilterClosed, setAreasFilterClosed] = useState(false);
   const [areasFilterFull, setAreasFilterFull] = useState(false);
@@ -76,8 +76,16 @@ const RefineSearch = ({ refineParams }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const sendNewApiRequest = filterParams => {
-    refineParams(filterParams);
+  const sendNewApiRequest = filters => {
+    const area = { ...filters.area, area_all: false };
+    const culture = { ...filters.culture, culture_all: false };
+    const contentField = { ...filters.content, content_all: false };
+    const language = { ...filters.content, language_portuguese: false };
+
+    // Remove as opções padrões do objeto
+    const apiParams = { area, culture, contentField, language };
+
+    refineSearch(apiParams);
   };
 
   const handleChange = event => {
@@ -137,9 +145,11 @@ const RefineSearch = ({ refineParams }) => {
       };
     }
 
-    sendNewApiRequest({ ...checkboxState, [field]: fieldState });
+    const newState = { ...checkboxState, [field]: fieldState };
 
-    return setCheckboxState({ ...checkboxState, [field]: fieldState });
+    sendNewApiRequest(newState);
+
+    return setCheckboxState(newState);
   };
 
   return (
@@ -380,7 +390,7 @@ const RefineSearch = ({ refineParams }) => {
 
 RefineSearch.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  refineParams: PropTypes.func.isRequired,
+  refineSearch: PropTypes.func.isRequired,
 };
 
 export default RefineSearch;
