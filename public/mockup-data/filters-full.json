@@ -1,0 +1,289 @@
+{
+  "areas": [
+    {
+      "id": "1",
+      "category": "Doenças",
+      "category_count": 500
+    },
+    {
+      "id": "2",
+      "category": "Pragas",
+      "category_count": 138
+    },
+    {
+      "id": "3",
+      "category": "Tecnologia e aplicação",
+      "category_count": 91
+    },
+    {
+      "id": "4",
+      "category": "Nematoides",
+      "category_count": 79
+    },
+    {
+      "id": "5",
+      "category": "Entomologia",
+      "category_count": 61
+    },
+    {
+      "id": "6",
+      "category": "Plantas Daninhas",
+      "category_count": 25
+    },
+    {
+      "id": "7",
+      "category": "Microbiologia e Proteção de Sementes",
+      "category_count": 14
+    },
+    {
+      "id": "8",
+      "category": "Gestão",
+      "category_count": 42
+    },
+    {
+      "id": "9",
+      "category": "Nutrição Vegetal",
+      "category_count": 32
+    },
+    {
+      "id": "10",
+      "category": "Controle biológico",
+      "category_count": 18
+    },
+    {
+      "id": "12",
+      "category": "Biotecnologia",
+      "category_count": 18
+    },
+    {
+      "id": "13",
+      "category": "Solo",
+      "category_count": 7
+    }
+  ],
+  "areas_count": 8300,
+  "cultures": [
+    {
+      "id": "101",
+      "category": "Soja",
+      "category_count": "865"
+    },
+    {
+      "id": "102",
+      "category": "Milho",
+      "category_count": "70"
+    },
+    {
+      "id": "103",
+      "category": "Algodão",
+      "category_count": "47"
+    },
+    {
+      "id": "104",
+      "category": "Feijão",
+      "category_count": "41"
+    },
+    {
+      "id": "105",
+      "category": "Plantas Daninhas",
+      "category_count": "37"
+    },
+    {
+      "id": "106",
+      "category": "Amendoim",
+      "category_count": "37"
+    },
+    {
+      "id": "107",
+      "category": "Cana-de-açucar",
+      "category_count": "37"
+    },
+    {
+      "id": "108",
+      "category": "Arroz",
+      "category_count": "32"
+    },
+    {
+      "id": "109",
+      "category": "Maçã",
+      "category_count": "32"
+    },
+    {
+      "id": "110",
+      "category": "Girassol",
+      "category_count": "32"
+    },
+    {
+      "id": "111",
+      "category": "Fumo",
+      "category_count": "32"
+    },
+    {
+      "id": "112",
+      "category": "Aveia",
+      "category_count": "32"
+    },
+    {
+      "id": "113",
+      "category": "Cereais de inverno",
+      "category_count": "32"
+    },
+    {
+      "id": "114",
+      "category": "Café",
+      "category_count": "32"
+    },
+    {
+      "id": "115",
+      "category": "Trigo",
+      "category_count": "32"
+    },
+    {
+      "id": "116",
+      "category": "Azevém",
+      "category_count": "32"
+    },
+    {
+      "id": "117",
+      "category": "Hortifruti",
+      "category_count": "32"
+    },
+    {
+      "id": "118",
+      "category": "Sorgo",
+      "category_count": "32"
+    },
+    {
+      "id": "119",
+      "category": "Triticale",
+      "category_count": "32"
+    },
+    {
+      "id": "120",
+      "category": "Linhaça",
+      "category_count": "32"
+    },
+    {
+      "id": "121",
+      "category": "Cevada",
+      "category_count": "32"
+    },
+    {
+      "id": "122",
+      "category": "Centeio",
+      "category_count": "32"
+    },
+    {
+      "id": "123",
+      "category": "Canola",
+      "category_count": "32"
+    },
+    {
+      "id": "124",
+      "category": "Pêssego",
+      "category_count": "32"
+    },
+    {
+      "id": "125",
+      "category": "Ornamentais",
+      "category_count": "32"
+    },
+    {
+      "id": "126",
+      "category": "Beterraba",
+      "category_count": "32"
+    },
+    {
+      "id": "127",
+      "category": "Tomate",
+      "category_count": "32"
+    },
+    {
+      "id": "128",
+      "category": "Pimentão",
+      "category_count": "32"
+    },
+    {
+      "id": "129",
+      "category": "Couve",
+      "category_count": "32"
+    },
+    {
+      "id": "130",
+      "category": "Batata",
+      "category_count": "32"
+    },
+    {
+      "id": "131",
+      "category": "Morango",
+      "category_count": "32"
+    },
+    {
+      "id": "132",
+      "category": "Uva",
+      "category_count": "32"
+    },
+    {
+      "id": "133",
+      "category": "Silvicultura",
+      "category_count": "32"
+    },
+    {
+      "id": "134",
+      "category": "Citrus",
+      "category_count": "32"
+    },
+    {
+      "id": "135",
+      "category": "Milheto",
+      "category_count": "32"
+    }
+  ],
+  "cultures_count": 8300,
+  "content": [
+    {
+      "id": "201",
+      "category": "Palestras Online",
+      "category_count": "500"
+    },
+    {
+      "id": "202",
+      "category": "Material Técnico",
+      "category_count": "500"
+    },
+    {
+      "id": "203",
+      "category": "Vídeo",
+      "category_count": "500"
+    },
+    {
+      "id": "204",
+      "category": "Fotos",
+      "category_count": "500"
+    },
+    {
+      "id": "205",
+      "category": "Podcasts",
+      "category_count": "500"
+    }
+  ],
+  "content_count": 8300,
+  "languages": [
+    {
+      "id": "303",
+      "category": "Portugês",
+      "category_count": 6600
+    },
+    {
+      "id": "304",
+      "category": "Espanhol",
+      "category_count": 300
+    },
+    {
+      "id": "305",
+      "category": "Inglês",
+      "category_count": 400
+    }
+  ],
+  "languages_count": 8300
+}

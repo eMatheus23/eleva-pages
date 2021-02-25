@@ -61,8 +61,14 @@ export const FilterField = styled.div`
     }
 
     li {
-      font: normal 1.8rem/1.8rem var(--font-primary);
+      display: flex;
+      align-items: center;
       margin-bottom: -0.5rem;
+
+      p {
+        padding: 0.6rem 0;
+        font: normal 1.8rem/1.8rem var(--font-primary);
+      }
 
       /* Estiliza o ícone do checkbox */
       .MuiSvgIcon-root {

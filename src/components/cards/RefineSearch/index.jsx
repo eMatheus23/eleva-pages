@@ -50,15 +50,16 @@ const RefineSearch = ({ refineSearch }) => {
         content_all: true,
       },
       language: {
-        language_portuguese: true,
-        language_english: false,
-        language_spanish: false,
+        language_all: true,
       },
     };
 
     data.areas.map(item => (newState.area[`area_${item.id}`] = false));
     data.cultures.map(item => (newState.culture[`culture_${item.id}`] = false));
     data.content.map(item => (newState.content[`content_${item.id}`] = false));
+    data.languages.map(
+      item => (newState.language[`language_${item.id}`] = false),
+    );
 
     return newState;
   }, []);
@@ -67,7 +68,7 @@ const RefineSearch = ({ refineSearch }) => {
   const [checkboxState, setCheckboxState] = useState(null);
 
   useEffect(() => {
-    axios.get('./mockup-data/filters.json').then(response => {
+    axios.get('./mockup-data/filters-full.json').then(response => {
       const initialState = populateState(response.data);
 
       setCheckboxState(initialState);
@@ -80,7 +81,7 @@ const RefineSearch = ({ refineSearch }) => {
     const area = { ...filters.area, area_all: false };
     const culture = { ...filters.culture, culture_all: false };
     const contentField = { ...filters.content, content_all: false };
-    const language = { ...filters.content, language_portuguese: false };
+    const language = { ...filters.content, language_all: false };
 
     // Remove as opções padrões do objeto
     const apiParams = { area, culture, contentField, language };
@@ -133,13 +134,25 @@ const RefineSearch = ({ refineSearch }) => {
       };
     }
 
-    // Checa se nenhum item está selecionado
+    // Checa quantos itens existem
+    const totalItems = Object.values(fieldState).filter(() => {
+      return true;
+    });
+
+    // Checa quantos itens estão selecionados
     const selectedItems = Object.values(fieldState).filter(value => {
       return value === true;
     });
 
     // Se nenhum item estiver selecionado, reseta os filtros
     if (selectedItems.length === 0) {
+      fieldState = {
+        ...initialState[field],
+      };
+    }
+
+    // Se todos os itens estiveres selecionados, reseta os filtros
+    if (selectedItems.length === totalItems.length - 1) {
       fieldState = {
         ...initialState[field],
       };
@@ -183,7 +196,7 @@ const RefineSearch = ({ refineSearch }) => {
                   onChange={handleChange}
                   name="area_all"
                 />
-                <span>{`Todas (${filtersData.areas_count})`}</span>
+                <p>{`Todas (${filtersData.areas_count})`}</p>
               </li>
 
               {filtersData.areas.map(area => (
@@ -193,7 +206,7 @@ const RefineSearch = ({ refineSearch }) => {
                     onChange={handleChange}
                     name={`area_${area.id}`}
                   />
-                  <span>{`${area.category} (${area.category_count})`}</span>
+                  <p>{`${area.category} (${area.category_count})`}</p>
                 </li>
               ))}
             </ul>
@@ -242,7 +255,7 @@ const RefineSearch = ({ refineSearch }) => {
                   onChange={handleChange}
                   name="culture_all"
                 />
-                <span>{`Todas (${filtersData.cultures_count})`}</span>
+                <p>{`Todas (${filtersData.cultures_count})`}</p>
               </li>
 
               {filtersData.cultures.map(culture => (
@@ -252,7 +265,7 @@ const RefineSearch = ({ refineSearch }) => {
                     onChange={handleChange}
                     name={`culture_${culture.id}`}
                   />
-                  <span>{`${culture.category} (${culture.category_count})`}</span>
+                  <p>{`${culture.category} (${culture.category_count})`}</p>
                 </li>
               ))}
             </ul>
@@ -301,7 +314,7 @@ const RefineSearch = ({ refineSearch }) => {
                   onChange={handleChange}
                   name="content_all"
                 />
-                <span>{`Todas (${filtersData.content_count})`}</span>
+                <p>{`Todas (${filtersData.content_count})`}</p>
               </li>
 
               {filtersData.content.map(content => (
@@ -311,7 +324,7 @@ const RefineSearch = ({ refineSearch }) => {
                     onChange={handleChange}
                     name={`content_${content.id}`}
                   />
-                  <span>{`${content.category} (${content.category_count})`}</span>
+                  <p>{`${content.category} (${content.category_count})`}</p>
                 </li>
               ))}
             </ul>
@@ -356,30 +369,23 @@ const RefineSearch = ({ refineSearch }) => {
             <ul>
               <li>
                 <GreenCheckbox
-                  checked={checkboxState.language.language_portuguese}
+                  checked={checkboxState.language.language_all}
                   onChange={handleChange}
-                  name="language_portuguese"
+                  name="language_all"
                 />
-                <span>{`Português (${filtersData.content_count})`}</span>
+                <p>{`Todos (${filtersData.languages_count})`}</p>
               </li>
 
-              <li>
-                <GreenCheckbox
-                  checked={checkboxState.language.language_spanish}
-                  onChange={handleChange}
-                  name="language_spanish"
-                />
-                <span>{`Espanhol (${filtersData.content_count})`}</span>
-              </li>
-
-              <li>
-                <GreenCheckbox
-                  checked={checkboxState.language.language_english}
-                  onChange={handleChange}
-                  name="language_english"
-                />
-                <span>{`Espanhol (${filtersData.content_count})`}</span>
-              </li>
+              {filtersData.languages.map(language => (
+                <li key={language.id}>
+                  <GreenCheckbox
+                    checked={checkboxState.language[`language_${language.id}`]}
+                    onChange={handleChange}
+                    name={`content_${language.id}`}
+                  />
+                  <p>{`${language.category} (${language.category_count})`}</p>
+                </li>
+              ))}
             </ul>
           )}
         </main>
