@@ -92,7 +92,7 @@ const SearchFilter = ({ refineSearch, closeFilter }) => {
     // Remove as opções padrões do objeto
     const apiParams = { area, culture, contentField, language };
 
-    console.log(apiParams);
+    refineSearch(apiParams);
   };
 
   const handleChange = event => {
@@ -328,6 +328,11 @@ const SearchFilter = ({ refineSearch, closeFilter }) => {
       </div>
     </FilterContainer>
   );
+};
+
+SearchFilter.propTypes = {
+  refineSearch: PropTypes.func,
+  closeFilter: PropTypes.bool,
 };
 
 const SearchInput = ({ placeholder, fullWidth }) => {
