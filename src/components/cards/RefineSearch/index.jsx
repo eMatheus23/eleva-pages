@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+  forwardRef,
+  useImperativeHandle,
+} from 'react';
 import { FiChevronUp, FiChevronDown } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 import axios from 'axios';
@@ -22,7 +28,7 @@ const GreenCheckbox = withStyles({
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
-const RefineSearch = ({ filterSearch }) => {
+const RefineSearch = forwardRef(({ handleSearchFilter }, ref) => {
   /* ------------------- Area ------------------- */
   const [areasFilterClosed, setAreasFilterClosed] = useState(false);
   const [areasFilterFull, setAreasFilterFull] = useState(false);
@@ -86,7 +92,7 @@ const RefineSearch = ({ filterSearch }) => {
     // Remove as opções padrões do objeto
     const apiParams = { area, culture, contentField, language };
 
-    filterSearch(apiParams);
+    handleSearchFilter(apiParams);
   };
 
   const handleChange = event => {
@@ -164,6 +170,28 @@ const RefineSearch = ({ filterSearch }) => {
 
     return setCheckboxState(newState);
   };
+
+  // Função que lida com o reset do component
+  const handleReset = () => {
+    // Constrói o estado padrão dos filtros
+    const initialState = populateState(filtersData);
+
+    setCheckboxState({ ...initialState });
+  };
+
+  // Forma de chamar uma função do componente filho à partir do componente pai
+  useImperativeHandle(ref, () => ({
+    // Método chamado pelo componente pai
+    resetFilters() {
+      // Reseta os itens do filtro
+      handleReset();
+
+      // Fecha os campos do componente na DOM
+      setAreasFilterFull(false);
+      setCulturesFull(false);
+      setContentFull(false);
+    },
+  }));
 
   return (
     <Container>
@@ -392,11 +420,11 @@ const RefineSearch = ({ filterSearch }) => {
       </FilterField>
     </Container>
   );
-};
+});
 
 RefineSearch.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  filterSearch: PropTypes.func.isRequired,
+  handleSearchFilter: PropTypes.func.isRequired,
 };
 
 export default RefineSearch;

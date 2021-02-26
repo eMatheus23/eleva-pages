@@ -36,17 +36,29 @@ const MainHeader = ({
   const handleSearch = () => {
     const search = searchInputRef.current.value;
 
+    if (search === '') {
+      return null;
+    }
+
     const params = new URLSearchParams();
 
     params.append('q', search);
 
-    searchInputRef.current.value = '';
-
     if (search) {
       history.push({ pathname: '/search', search: params.toString() });
+
+      // Força o recarregamento da página de buscas, para resolver o problema de quando o input do
+      // header for utilizado na página de buscas
+      window.location.reload(true);
+
+      // if (url === `/search?${params.toString()}`) {
+      //   window.location.reload(true);
+      // }
     } else {
       history.push({ pathname: '/not-found' });
     }
+
+    return (searchInputRef.current.value = '');
   };
 
   const handleEnter = event => {

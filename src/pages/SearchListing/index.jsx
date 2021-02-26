@@ -1,4 +1,10 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+  useReducer,
+} from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
@@ -16,9 +22,6 @@ import RefineSearch from '../../components/cards/RefineSearch';
 // Services
 import getViewerStatus from '../../services/getViewerStatus';
 
-// Mockup Data
-import contentData from '../../data/content.json';
-
 // Importação da estilização comum a todas as homes
 import { Container } from '../../styles/common/HomeStyledComponents';
 
@@ -35,13 +38,23 @@ const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
 
+const initialPageState = { page: 0 };
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'increment':
+      return { page: state.page + 1 };
+    case 'decrement':
+      return { page: state.page - 1 };
+    case 'reset':
+      return { page: 0 };
+    default:
+      throw new Error();
+  }
+};
+
 const SearchListing = () => {
   document.title = 'Listagem de Busca | Elevagro';
-
-  const query = useQuery();
-  const queryParams = useLocation().search;
-  const searchInputRef = useRef();
-  const history = useHistory();
 
   /* -------- STATUS DE USUÁRO -------- */
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
@@ -52,49 +65,55 @@ const SearchListing = () => {
   }, []);
   /* -------- STATUS DE USUÁRO -------- */
 
+  const query = useQuery();
+  const history = useHistory();
   const loadingRef = useRef(null);
-  const [pageState, setPageState] = useState(0);
+  const searchInputRef = useRef();
+  const refineSearchRef = useRef();
+
+  const [pageState, dispatch] = useReducer(reducer, initialPageState);
   const [content, setContent] = useState([]);
+  const [filtersQueryParams, setFiltersQueryFilters] = useState(null);
+  const searchQueryParams = useLocation().search;
 
-  useEffect(() => {
-    // Simula a chamada da API
-    const responseDataContent = contentData;
+  if (searchQueryParams === '') {
+    history.push('/not-found');
+  }
 
-    setContent(responseDataContent);
-  }, []);
+  const getContent = ({ filterParams, searchParams, resetContent }) => {
+    let searchContent = [...content];
+    let { page } = pageState;
 
-  const getContent = ({ filterParams, searchParams }) => {
-    setContent([]);
+    // Reseta as veriáveis de conteúdos e a página
+    if (resetContent) {
+      searchContent = [];
+      page = 0;
+    }
+
+    const params = `${searchParams}&${filterParams || ''}_page=${page}`;
+
+    const url = `./mockup-data/content.json${params}`;
 
     // eslint-disable-next-line no-console
-    console.log(
-      `./mockup-data/content.json${searchParams}&${
-        filterParams || ''
-      }_page=${pageState}`,
-    );
+    console.log(url);
 
     setTimeout(() => {
-      axios
-        .get(
-          `./mockup-data/content.json?${searchParams}${
-            filterParams || ''
-          }_page=${pageState}`,
-        )
-        .then(res => {
-          setContent([...content, ...res.data]);
-          setPageState(pageState + 1);
-        });
+      axios.get(url).then(res => {
+        setContent([...searchContent, ...res.data]);
+        dispatch({ type: 'increment' });
+      });
     }, 1500);
   };
 
   useEffect(() => {
-    getContent({ searchParams: queryParams });
+    getContent({ searchParams: searchQueryParams });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryParams]);
+  }, [searchQueryParams]);
 
-  const filterSearch = filters => {
+  const handleSearchFilter = filters => {
     let params = '';
 
+    // Transforma o objeto de filtros em uma query url
     Object.keys(filters).map(typeFilter =>
       Object.keys(filters[typeFilter]).map(chaveValorFilter => {
         if (filters[typeFilter][chaveValorFilter]) {
@@ -107,13 +126,29 @@ const SearchListing = () => {
       }),
     );
 
-    setPageState(0);
+    // Seta a query com os parâmetros do filtro em uma variável
+    setFiltersQueryFilters(params);
 
-    getContent({ filterParams: params, searchParams: queryParams });
+    // Reseta a página atual
+    dispatch({ type: 'reset' });
+
+    // Reseta o conteúdo
+    setContent([]);
+
+    // Chama a requisição da API com os novos filtros
+    getContent({
+      filterParams: params,
+      searchParams: searchQueryParams,
+      resetContent: true,
+    });
   };
 
   const handleNewSearch = () => {
     const search = searchInputRef.current.value;
+
+    if (search === '') {
+      return null;
+    }
 
     const params = new URLSearchParams();
 
@@ -123,11 +158,18 @@ const SearchListing = () => {
       params.delete('q');
     }
 
+    // Reseta a página atual, o valor do input e o array de conteúdos
+    dispatch({ type: 'reset' });
     searchInputRef.current.value = '';
+    setContent([]);
 
-    getContent({ searchParams: params });
+    // Chama a requisição da API com os novos termos
+    getContent({ searchParams: params, resetContent: true });
 
-    history.push({ pathname: '/search', search: params.toString() });
+    refineSearchRef.current.resetFilters();
+
+    // Muda a URL da página
+    return history.push({ pathname: '/search', search: params.toString() });
   };
 
   const handleEnter = event => {
@@ -136,6 +178,14 @@ const SearchListing = () => {
 
       handleNewSearch();
     }
+  };
+
+  const handleSugestion = event => {
+    const sugestion = event.target.childNodes[0].nodeValue;
+
+    searchInputRef.current.value = sugestion;
+
+    handleNewSearch();
   };
 
   return (
@@ -173,25 +223,39 @@ const SearchListing = () => {
 
             <ul className="terms__container">
               <li className="term__button">
-                <button type="button">SOJA</button>
+                <button type="button" onClick={handleSugestion}>
+                  Soja
+                </button>
               </li>
               <li className="term__button">
-                <button type="button">DOENÇAS</button>
+                <button type="button" onClick={handleSugestion}>
+                  Doenças
+                </button>
               </li>
               <li className="term__button">
-                <button type="button">SEMENTES</button>
+                <button type="button" onClick={handleSugestion}>
+                  Sementes
+                </button>
               </li>
               <li className="term__button">
-                <button type="button">NUTRIÇÃO</button>
+                <button type="button" onClick={handleSugestion}>
+                  Nutrição
+                </button>
               </li>
               <li className="term__button">
-                <button type="button">DANINHAS</button>
+                <button type="button" onClick={handleSugestion}>
+                  Daninhas
+                </button>
               </li>
               <li className="term__button">
-                <button type="button">SOLOS</button>
+                <button type="button" onClick={handleSugestion}>
+                  Solos
+                </button>
               </li>
               <li className="term__button">
-                <button type="button">GESTÃO</button>
+                <button type="button" onClick={handleSugestion}>
+                  Gestão
+                </button>
               </li>
             </ul>
           </div>
@@ -222,7 +286,14 @@ const SearchListing = () => {
 
             <InfiniteScroll
               dataLength={content}
-              next={getContent}
+              next={
+                () =>
+                  getContent({
+                    filterParams: filtersQueryParams,
+                    searchParams: searchQueryParams,
+                  })
+                // eslint-disable-next-line prettier/prettier
+              }
               hasMore={content.length < 144}
               loader={<h4 className="load__content">Carregando...</h4>}
               /* eslint-disable prettier/prettier */
@@ -240,7 +311,7 @@ const SearchListing = () => {
           </main>
 
           <aside>
-            <RefineSearch filterSearch={filterSearch} />
+            <RefineSearch handleSearchFilter={handleSearchFilter} ref={refineSearchRef} />
 
             <div className="observer__target" ref={loadingRef} />
 

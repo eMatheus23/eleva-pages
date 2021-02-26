@@ -55,6 +55,7 @@ export const SearchListingHero = styled.div`
         background: var(--color-background);
         color: var(--color-secondary);
         font: normal 1.3rem/1.6rem var(--font-primary);
+        text-transform: uppercase;
         transition: transform 0.2s;
 
         &:hover {
