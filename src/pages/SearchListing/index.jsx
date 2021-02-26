@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useLocation, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import InfiniteScroll from 'react-infinite-scroll-component';
@@ -30,8 +31,17 @@ import {
   StyledSelect,
 } from './styles';
 
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
 const SearchListing = () => {
   document.title = 'Listagem de Busca | Elevagro';
+
+  const query = useQuery();
+  const queryParams = useLocation().search;
+  const searchInputRef = useRef();
+  const history = useHistory();
 
   /* -------- STATUS DE USUÁRO -------- */
   const [viewerStatus, setViewerStatus] = useState(getViewerStatus);
@@ -53,22 +63,36 @@ const SearchListing = () => {
     setContent(responseDataContent);
   }, []);
 
-  const getContent = params => {
+  const getContent = ({ filterParams, searchParams }) => {
+    setContent([]);
+
+    // eslint-disable-next-line no-console
+    console.log(
+      `./mockup-data/content.json${searchParams}&${
+        filterParams || ''
+      }_page=${pageState}`,
+    );
+
     setTimeout(() => {
       axios
-        .get(`./mockup-data/content.json?${params || ''}_page=${pageState}`)
+        .get(
+          `./mockup-data/content.json?${searchParams}${
+            filterParams || ''
+          }_page=${pageState}`,
+        )
         .then(res => {
           setContent([...content, ...res.data]);
           setPageState(pageState + 1);
         });
     }, 1500);
   };
-  useEffect(() => {
-    getContent();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
-  const refineSearch = filters => {
+  useEffect(() => {
+    getContent({ searchParams: queryParams });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryParams]);
+
+  const filterSearch = filters => {
     let params = '';
 
     Object.keys(filters).map(typeFilter =>
@@ -84,9 +108,34 @@ const SearchListing = () => {
     );
 
     setPageState(0);
-    setContent([]);
 
-    getContent(params);
+    getContent({ filterParams: params, searchParams: queryParams });
+  };
+
+  const handleNewSearch = () => {
+    const search = searchInputRef.current.value;
+
+    const params = new URLSearchParams();
+
+    if (search) {
+      params.append('q', search);
+    } else {
+      params.delete('q');
+    }
+
+    searchInputRef.current.value = '';
+
+    getContent({ searchParams: params });
+
+    history.push({ pathname: '/search', search: params.toString() });
+  };
+
+  const handleEnter = event => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+
+      handleNewSearch();
+    }
   };
 
   return (
@@ -102,9 +151,18 @@ const SearchListing = () => {
         <SmallerContentWrapper>
           <SearchInputContainer>
             <form>
-              <input type="text" placeholder="O que você quer aprender?" />
+              <input
+                type="text"
+                placeholder="O que você quer aprender?"
+                ref={searchInputRef}
+                onKeyDown={handleEnter}
+              />
 
-              <button type="button" className="search-button">
+              <button
+                type="button"
+                className="search-button"
+                onClick={handleNewSearch}
+              >
                 <BiSearchAlt size={30} />
               </button>
             </form>
@@ -146,7 +204,8 @@ const SearchListing = () => {
             <header className="content__header">
               <div className="header__title">
                 <h3>Termo buscado:</h3>
-                <h2>Nutrição de plantas</h2>
+                {/* <h2>Nutrição de plantas</h2> */}
+                <h2 className="search-term">{query.get('q')}</h2>
               </div>
 
               <form className="content__select">
@@ -181,7 +240,7 @@ const SearchListing = () => {
           </main>
 
           <aside>
-            <RefineSearch refineSearch={refineSearch} />
+            <RefineSearch filterSearch={filterSearch} />
 
             <div className="observer__target" ref={loadingRef} />
 

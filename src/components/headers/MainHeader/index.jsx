@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch, useHistory } from 'react-router-dom';
 
 import { BiSearchAlt } from 'react-icons/bi';
 import CustomBadge from '../../CustomBadge';
@@ -28,6 +28,34 @@ const MainHeader = ({
   becomePremium,
 }) => {
   const { url } = useRouteMatch();
+
+  const searchInputRef = useRef();
+
+  const history = useHistory();
+
+  const handleSearch = () => {
+    const search = searchInputRef.current.value;
+
+    const params = new URLSearchParams();
+
+    params.append('q', search);
+
+    searchInputRef.current.value = '';
+
+    if (search) {
+      history.push({ pathname: '/search', search: params.toString() });
+    } else {
+      history.push({ pathname: '/not-found' });
+    }
+  };
+
+  const handleEnter = event => {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+
+      handleSearch();
+    }
+  };
 
   return (
     <Header viewerStatus={viewerStatus}>
@@ -71,9 +99,11 @@ const MainHeader = ({
             type="text"
             placeholder="Busque na Elevagro"
             title="Busque na Elevagro"
+            ref={searchInputRef}
+            onKeyDown={handleEnter}
           />
 
-          <button type="button">
+          <button type="button" onClick={handleSearch}>
             <BiSearchAlt size="2.2rem" title="Busque na Elevagro" />
           </button>
         </form>

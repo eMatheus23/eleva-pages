@@ -194,7 +194,7 @@ export const Content = styled.article`
       color: var(--color-text-in-white);
     }
 
-    h2 {
+    h2.search-term {
       font: bold 30px/43px Montserrat;
       color: var(--color-secondary);
     }

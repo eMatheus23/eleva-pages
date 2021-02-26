@@ -22,7 +22,7 @@ const GreenCheckbox = withStyles({
   checked: {},
 })(props => <Checkbox color="default" {...props} />);
 
-const RefineSearch = ({ refineSearch }) => {
+const RefineSearch = ({ filterSearch }) => {
   /* ------------------- Area ------------------- */
   const [areasFilterClosed, setAreasFilterClosed] = useState(false);
   const [areasFilterFull, setAreasFilterFull] = useState(false);
@@ -81,12 +81,12 @@ const RefineSearch = ({ refineSearch }) => {
     const area = { ...filters.area, area_all: false };
     const culture = { ...filters.culture, culture_all: false };
     const contentField = { ...filters.content, content_all: false };
-    const language = { ...filters.content, language_all: false };
+    const language = { ...filters.language, language_all: false };
 
     // Remove as opções padrões do objeto
     const apiParams = { area, culture, contentField, language };
 
-    refineSearch(apiParams);
+    filterSearch(apiParams);
   };
 
   const handleChange = event => {
@@ -396,7 +396,7 @@ const RefineSearch = ({ refineSearch }) => {
 
 RefineSearch.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  refineSearch: PropTypes.func.isRequired,
+  filterSearch: PropTypes.func.isRequired,
 };
 
 export default RefineSearch;
